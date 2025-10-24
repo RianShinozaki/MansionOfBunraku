@@ -1,0 +1,270 @@
+shader_type canvas_item;
+
+// Godot 4 screen texture hint (declared for compatibility)
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+// =====================================================
+// HOUSE OF BUNRAKU — ULTRA RED / FREAKY / BOLD TITLE BG
+// Wooden planks drowned in blood, hard strobe, puppet strings
+// =====================================================
+
+// ---------- Palette (aggressively red) ----------
+uniform vec4 wood_dark   : source_color = vec4(0.05, 0.00, 0.00, 1.0); // near-black crimson
+uniform vec4 wood_light  : source_color = vec4(0.40, 0.06, 0.05, 1.0); // red-brown mahogany
+uniform vec3 seam_color  = vec3(0.02, 0.00, 0.00);                      // dark seams
+uniform vec3 ember_red   = vec3(1.00, 0.10, 0.12);                      // emissive blood-red
+uniform vec3 amber_fire  = vec3(1.00, 0.45, 0.25);                      // lantern fire
+uniform vec3 fresh_blood : source_color = vec3(0.92, 0.05, 0.08);       // vivid fresh blood
+uniform vec3 dried_blood : source_color = vec3(0.35, 0.06, 0.08);       // dried dark blood
+
+// ---------- Wood / Planks ----------
+uniform float plank_count     : hint_range(2.0, 20.0) = 7.0;
+uniform float seam_thickness  : hint_range(0.0005, 0.02) = 0.006;
+uniform float joint_frequency : hint_range(0.5, 8.0) = 1.8;
+uniform float joint_thickness : hint_range(0.0005, 0.02) = 0.005;
+
+uniform float grain_frequency : hint_range(5.0, 80.0) = 30.0;
+uniform float grain_strength  : hint_range(0.0, 3.0) = 1.35;
+uniform float knot_strength   : hint_range(0.0, 2.0) = 0.6;
+
+// ---------- Scene Mood ----------
+uniform float angle_degrees     : hint_range(-90.0, 90.0) = -22.0;
+uniform float vignette_strength : hint_range(0.0, 1.0) = 0.75;
+uniform float scan_strength     : hint_range(0.0, 0.25) = 0.1;
+
+uniform float fog_amount   : hint_range(0.0, 1.0) = 0.28;     // red haze
+uniform float dust_sparkle : hint_range(0.0, 1.0) = 0.5;
+
+uniform float flicker_amount : hint_range(0.0, 1.0) = 0.35;   // candle flicker
+
+// ---------- Lantern Light ----------
+uniform vec2  light_pos      = vec2(0.64, 0.84);
+uniform float light_radius   : hint_range(0.1, 2.0) = 0.95;
+uniform float light_strength : hint_range(0.0, 4.0) = 1.9;
+
+// ---------- Chromatic / Jitter / Glitch ----------
+uniform float chroma_px       : hint_range(0.0, 8.0) = 3.2;
+uniform float jitter          : hint_range(0.0, 0.5) = 0.12;
+uniform float glitch_speed    : hint_range(0.0, 10.0) = 3.2;
+uniform float glitch_intensity: hint_range(0.0, 1.0) = 0.9;
+uniform float slice_freq      : hint_range(50.0, 600.0) = 260.0;
+uniform float jitter_amount   : hint_range(0.0, 0.6) = 0.28;
+
+// ---------- Blood / Story Hints ----------
+uniform float blood_density   : hint_range(0.0, 3.0) = 1.45;  // overall coverage (HIGH)
+uniform float wet_glisten     : hint_range(0.0, 1.0) = 0.55;  // wet highlight (HIGH)
+uniform float blood_flow_speed: hint_range(0.0, 1.0) = 0.18;  // downward creep
+uniform float streak_strength : hint_range(0.0, 1.0) = 0.75;  // vertical streaks along boards
+
+// ---------- Strobe / Heartbeat ----------
+uniform float strobe_speed     : hint_range(0.0, 25.0) = 1.0; // flashes per second (BOLD)
+uniform float flash_intensity  : hint_range(0.0, 3.0) = 1.2;
+uniform float burst_intensity  : hint_range(0.0, 4.0) = 1.6;
+uniform float heartbeat_speed  : hint_range(0.1, 5.0) = 1.4;  // double beat pacing
+uniform float heartbeat_boost  : hint_range(0.0, 2.0) = 1.0;
+
+// ---------- Marionette Strings ----------
+uniform float strings_density  : hint_range(5.0, 200.0) = 70.0;
+uniform float strings_thickness: hint_range(0.0005, 0.02) = 0.005;
+uniform float strings_glow     : hint_range(0.0, 2.0) = 0.9;
+
+// ---------- Red push / grading ----------
+uniform float red_domination : hint_range(0.0, 2.0) = 1.35;
+
+// =====================================================
+// Helpers
+// =====================================================
+float hash21(vec2 p){
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 34.45);
+    return fract(p.x * p.y);
+}
+
+float noise(vec2 p){
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    float a = hash21(i);
+    float b = hash21(i + vec2(1.0, 0.0));
+    float c = hash21(i + vec2(0.0, 1.0));
+    float d = hash21(i + vec2(1.0, 1.0));
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+}
+
+float fbm(vec2 p){
+    float v = 0.0;
+    float a = 0.5;
+    for (int i=0; i<5; i++){
+        v += a * noise(p);
+        p *= 2.0;
+        a *= 0.5;
+    }
+    return v;
+}
+
+vec2 rotate_uv(vec2 uv, float deg){
+    float r = radians(deg);
+    float c = cos(r), s = sin(r);
+    uv -= 0.5;
+    uv = mat2(vec2(c, -s), vec2(s, c)) * uv; // Godot-friendly mat2 ctor
+    uv += 0.5;
+    return uv;
+}
+
+float heartbeat(float t, float speed){
+    // Double-beat shape: sharp twin spikes per cycle
+    float w = t * speed * 6.28318;
+    float a = pow(max(0.0, sin(w) * 0.5 + 0.5), 8.0);
+    float b = pow(max(0.0, sin(w * 2.0 + 0.8) * 0.5 + 0.5), 6.0);
+    return clamp(a + 0.6 * b, 0.0, 1.0);
+}
+
+// =====================================================
+// Wood look at a given UV (so we can do chroma shift)
+// =====================================================
+vec3 wood_scene(vec2 uv){
+    float t = TIME;
+
+    // uneasy jitter
+    uv.x += sin(t * 1.9) * 0.0022 * jitter;
+    uv.y += cos(t * 2.5) * 0.0016 * jitter;
+
+    // rotate to diagonal floor
+    vec2 ruv = rotate_uv(uv, angle_degrees);
+
+    // "World" coordinates for wood logic
+    vec2 P = vec2(ruv.x * grain_frequency, ruv.y * plank_count);
+
+    // Which plank row?
+    float plank_id = floor(P.y);
+    float plank_rnd = hash21(vec2(plank_id, plank_id * 0.73));
+
+    // Base wood gradient — darker top, warmer bottom, pushed red
+    float depth = pow(1.0 - ruv.y, 1.15);
+    vec3 base = mix(wood_dark.rgb, wood_light.rgb, clamp(0.28 + depth * 0.9, 0.0, 1.0));
+    base = mix(base, vec3(1.0, 0.07, 0.09), 0.25); // global red tint
+
+    // Grain
+    float n1 = fbm(vec2(P.x * 0.35 + plank_rnd * 2.0, plank_id * 0.91 + 2.0));
+    float n2 = noise(vec2(P.x * 6.5 + plank_rnd * 4.0, plank_id * 3.1 + 1.2));
+    float waves = 0.5 + 0.5 * sin(P.x * 1.9 + n1 * 3.2 + plank_rnd * 6.28318);
+    float grain = mix(n2, waves, 0.7);
+    grain = pow(grain, 1.4) * grain_strength;
+
+    vec3 wood = mix(base * 0.8, base * 1.22, clamp(grain, 0.0, 1.0));
+
+    // Per-plank shading variation
+    wood *= 0.82 + 0.34 * hash21(vec2(plank_id, 8.123));
+
+    // Plank seams
+    float seam = 1.0 - smoothstep(0.0, seam_thickness, abs(fract(P.y) - 0.5));
+    wood = mix(wood, mix(wood, seam_color, 0.9), seam);
+
+    // End joints
+    float saw = abs(fract(ruv.x * joint_frequency + plank_rnd * 2.0) - 0.5);
+    float joint = 1.0 - smoothstep(0.5 - joint_thickness, 0.5, saw);
+    wood = mix(wood, mix(wood, seam_color, 0.88), joint);
+
+    // Knots & dents
+    float knots = pow(1.0 - fbm(vec2(ruv.x * 8.0 + plank_rnd, ruv.y * 6.0)), 3.0);
+    wood = mix(wood, wood * 0.54, knots * knot_strength);
+
+    // Scanlines
+    float scan = sin(uv.y * 1100.0 + t * 13.0) * scan_strength;
+    wood += vec3(scan);
+
+    // Red haze
+    float haze = fbm(uv * 5.5 + vec2(t * 0.07, -t * 0.04));
+    wood = mix(wood, wood + vec3(0.05, 0.003, 0.003), fog_amount * (0.45 + 0.55 * haze));
+
+    // Dust motes (catching light)
+    vec2 dUV = uv; dUV.y += t * 0.065;
+    vec2 cell = floor(dUV * vec2(24.0, 34.0));
+    vec2 f = fract(dUV * vec2(24.0, 34.0));
+    float rnd = hash21(cell);
+    vec2 p = 0.5 + 0.35 * vec2(sin(rnd * 6.28318), cos(rnd * 6.28318));
+    float mote = smoothstep(0.12, 0.0, distance(f, p));
+    wood += amber_fire * (mote * dust_sparkle * (0.5 + 0.5 * sin(t * 4.0 + rnd * 10.0)));
+
+    // Marionette strings (from top)
+    float sway = sin(t * 2.0 + uv.y * 6.0) * 0.02 * (0.5 + 0.5 * sin(t * 7.0));
+    float strings_pattern = 1.0 - smoothstep(0.0, strings_thickness,
+                                abs(fract((uv.x + sway) * strings_density) - 0.5));
+    float strings_mask = smoothstep(0.0, 0.25, 1.0 - uv.y); // only from top
+    wood += ember_red * strings_glow * strings_pattern * strings_mask * 0.6;
+
+    // ---------- Blood Layer ----------
+    // Creeping mask (weighted to lower half) with downward flow
+    float splat = fbm((uv + vec2(0.0, -t * blood_flow_speed)) * 9.0 + vec2(1.2, -0.7)) * (1.0 - uv.y);
+    float mask  = smoothstep(0.45, 0.9, splat) * blood_density;
+
+    // Vertical streaks / drips guided by noise and plank alignment
+    float streak_noise = noise(vec2(ruv.x * 20.0 + plank_rnd * 5.0, ruv.y * 24.0 - t * (blood_flow_speed * 12.0)));
+    float streaks = smoothstep(0.78, 0.92, streak_noise) * mask * streak_strength;
+
+    // Color mix: dried body with fresh edges
+    vec3 blood_col = mix(dried_blood, fresh_blood, 0.6 + 0.4 * sin(t * 0.7 + plank_id));
+    wood = mix(wood, wood * 0.25 + blood_col * 0.9, mask);
+    wood = mix(wood, wood * 0.18 + blood_col * 1.0, streaks);
+
+    // Wet glisten toward light source + heartbeat pulses
+    float to_light = pow(max(0.0, 1.0 - distance(uv, light_pos) / light_radius), 4.0);
+    float beat = heartbeat(t, heartbeat_speed) * heartbeat_boost;
+    wood += blood_col * (wet_glisten * (mask + streaks) * (0.55 * to_light + 0.45 * beat));
+
+    // Lantern falloff + flicker (stronger, red-biased)
+    float flicker = 1.0 + flicker_amount * (sin(t * 9.7) * 0.5 + sin(t * 13.1) * 0.5);
+    float L = clamp(1.0 - distance(uv, light_pos) / light_radius, 0.0, 1.0);
+    L = pow(L, 1.8) * light_strength * flicker;
+    wood += amber_fire * (L * 0.28);
+
+    return wood;
+}
+
+// =====================================================
+// Final Composition with hard chroma, strobe, slicing glitch
+// =====================================================
+void fragment(){
+    vec2 suv = SCREEN_UV;
+    float t = TIME;
+
+    // Row-based slicing glitch (screen-space)
+    float row = floor(suv.y * slice_freq);
+    float gate = step(0.62, fract(sin((row + floor(t * glitch_speed)) * 12.9898) * 78.233));
+    float slice_offset = (hash21(vec2(row, floor(t * glitch_speed))) - 0.5) * 2.0;
+    float jump = gate * slice_offset * jitter_amount * glitch_intensity;
+
+    // Total x-offset for the effect + strobe shake
+    float strobe = pow(max(0.0, sin(t * strobe_speed * 6.28318) * 0.5 + 0.5), 2.0);
+    float burst = pow(max(0.0, sin(t * 1.2) * 0.5 + 0.5), 8.0);
+    float shake = (strobe * 0.004 + burst * 0.002) * (sin(t * 45.0));
+    float xoff = (sin(suv.y * 55.0 + t * 6.0) * 0.004 + jump + shake);
+
+    // Chromatic aberration offsets (pixels) — stronger on strobe peaks
+    vec2 px = SCREEN_PIXEL_SIZE * (chroma_px * (1.0 + strobe * 0.8));
+
+    // Sample scene at different UVs, applying glitch x-offset
+    vec3 col_r = wood_scene(suv + vec2(xoff, 0.0) + vec2(px.x, 0.0));
+    vec3 col_g = wood_scene(suv + vec2(xoff * 0.5, 0.0));
+    vec3 col_b = wood_scene(suv - vec2(xoff, 0.0) - vec2(px.x, 0.0));
+    vec3 col = vec3(col_r.r, col_g.g, col_b.b);
+
+    // Hard strobe wash (adds emissive red at peaks)
+    float glow_factor = (strobe * flash_intensity + burst * burst_intensity * 0.35);
+    col += ember_red * glow_factor * 0.55;
+
+    // Aggressive red color grading
+    float luma = dot(col, vec3(0.2126, 0.7152, 0.0722));
+    vec3 sat_boost = mix(vec3(luma), col, 1.35); // increase saturation
+    vec3 red_grade = mix(sat_boost, vec3(1.0, 0.05, 0.08), 0.35); // push toward red
+    col = mix(sat_boost, red_grade, red_domination);
+
+    // Vignette (deep red corners)
+    vec2 v = suv - 0.5;
+    float vig = 1.0 - dot(v, v) * 2.6;
+    vig = clamp(mix(1.0, vig, vignette_strength), 0.0, 1.0);
+    vec3 red_vig = mix(vec3(0.0), vec3(0.35, 0.02, 0.03), 1.0 - vig);
+    col = col * vig + red_vig * (1.0 - vig);
+
+    COLOR = vec4(col, 1.0);
+}

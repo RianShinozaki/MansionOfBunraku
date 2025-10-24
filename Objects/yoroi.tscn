@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmea2njewrpcl"]
+
+[ext_resource type="Script" uid="uid://dybfb2tv5yjtb" path="res://Scripts/yoroi.gd" id="1_uwb3h"]
+[ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="2_uwb3h"]
+[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="3_w0sk8"]
+[ext_resource type="PackedScene" uid="uid://crid5pnloa3s1" path="res://Objects/Gear.tscn" id="6_uwb3h"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/billboard_sim.gd" id="7_3ggw7"]
+[ext_resource type="AudioStream" uid="uid://cind0otmgupv5" path="res://Audio Pack/boss_breathing_male.wav" id="8_uwb3h"]
+[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/light_flicker.gd" id="9_t0ea4"]
+[ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio Pack/boss_rattling.mp3" id="10_1m7c1"]
+[ext_resource type="AudioStream" uid="uid://c7vsqk5ufwwln" path="res://Audio Pack/flesh_crunch.wav" id="10_w0sk8"]
+[ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio Pack/Feedback.mp3" id="12_i0jt4"]
+
+[sub_resource type="Curve" id="Curve_uwb3h"]
+_data = [Vector2(0, 0.504039), 0.0, 0.0, 0, 0, Vector2(0.505882, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lntlw"]
+radius = 0.12
+height = 0.727539
+
+[node name="Yoroi" type="AnimatableBody3D"]
+script = ExtResource("1_uwb3h")
+look_anger_range = 0.5
+look_anger_curve = SubResource("Curve_uwb3h")
+look_anger_factor = 0.1
+no_look_max_time = 4.0
+anger_headshake_factor = 0.1
+anger_bodyshake_factor = 1.0
+anger_decrease_delta = 0.15
+anger_decrease_max = 0.15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
+shape = SubResource("CapsuleShape3D_lntlw")
+
+[node name="Body" type="Sprite3D" parent="."]
+material_override = ExtResource("2_uwb3h")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_w0sk8")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = ExtResource("2_uwb3h")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_w0sk8")
+hframes = 4
+
+[node name="Lookat" type="Node" parent="Body"]
+script = ExtResource("7_3ggw7")
+
+[node name="NegativeLight" type="OmniLight3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.193251, 0.663154)
+visible = false
+light_color = Color(0.0495249, 0.113141, 0.066137, 1)
+light_energy = 0.0
+light_negative = true
+omni_range = 430.46
+omni_attenuation = 0.5
+script = ExtResource("9_t0ea4")
+energy_range = 0.25
+
+[node name="Gear" parent="Body" instance=ExtResource("6_uwb3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0922416, -0.112737, 0.0593171)
+freeze = true
+freeze_mode = 0
+
+[node name="Rattle" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_1m7c1")
+volume_db = -80.0
+autoplay = true
+
+[node name="Breathe" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_uwb3h")
+volume_db = -80.0
+pitch_scale = 1.83
+autoplay = true
+
+[node name="Feedback" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_i0jt4")
+volume_db = -80.0
+pitch_scale = 1.83
+autoplay = true
+
+[node name="Eat" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_w0sk8")

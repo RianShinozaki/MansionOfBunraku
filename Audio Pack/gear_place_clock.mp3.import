@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3ccja3efsi5f"
+path="res://.godot/imported/gear_place_clock.mp3-a601655cdabc98f54245c18b8d1d2d93.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/gear_place_clock.mp3"
+dest_files=["res://.godot/imported/gear_place_clock.mp3-a601655cdabc98f54245c18b8d1d2d93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

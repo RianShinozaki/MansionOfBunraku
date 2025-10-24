@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cialys8jo8i6"
+path="res://.godot/imported/hammer_pick_put.mp3-20cc52cd950160a747790abcfad6168f.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/hammer_pick_put.mp3"
+dest_files=["res://.godot/imported/hammer_pick_put.mp3-20cc52cd950160a747790abcfad6168f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

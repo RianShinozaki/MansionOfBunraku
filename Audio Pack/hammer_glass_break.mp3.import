@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2vhjl5ow61p7"
+path="res://.godot/imported/hammer_glass_break.mp3-7792d9edd6726a57e2547ca26114df3a.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/hammer_glass_break.mp3"
+dest_files=["res://.godot/imported/hammer_glass_break.mp3-7792d9edd6726a57e2547ca26114df3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvwl28b1gugfo"
+path="res://.godot/imported/boss_rattling.mp3-5a4474cc1c0eb048fb359af0abd3d272.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/boss_rattling.mp3"
+dest_files=["res://.godot/imported/boss_rattling.mp3-5a4474cc1c0eb048fb359af0abd3d272.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

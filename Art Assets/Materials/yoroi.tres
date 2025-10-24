@@ -1,0 +1,32 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://crtlh8mqebo8j"]
+
+[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="1_o5kbv"]
+[ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="2_o5kbv"]
+[ext_resource type="Texture2D" uid="uid://coqb3oc4cyciy" path="res://Art Assets/Yoroi/Yoroi-e.png" id="3_o5kbv"]
+[ext_resource type="Texture2D" uid="uid://iaqw4gdwm20" path="res://Art Assets/Yoroi/Yoroi-h.png" id="4_rtjxb"]
+[ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="5_i6mxr"]
+[ext_resource type="Texture2D" uid="uid://vbesusa3as1e" path="res://Art Assets/Yoroi/Yoroi-h_n.png" id="5_imo0n"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_o5kbv")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = ExtResource("3_o5kbv")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = ExtResource("5_imo0n")
+bent_normal_texture = ExtResource("2_o5kbv")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("5_i6mxr")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_rtjxb")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18

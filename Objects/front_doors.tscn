@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://pownsbape1t"]
+
+[ext_resource type="Script" uid="uid://d14d1duqmv8rx" path="res://Scripts/front_doors.gd" id="1_gjtum"]
+[ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="1_mjwxi"]
+[ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="2_fxtb3"]
+[ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="3_5xtp2"]
+[ext_resource type="Texture2D" uid="uid://cutky6aowxlql" path="res://Art Assets/Lock.png" id="4_fxtb3"]
+[ext_resource type="Script" uid="uid://chubkew5h0lmd" path="res://Scripts/door_lock.gd" id="5_5xtp2"]
+[ext_resource type="AudioStream" uid="uid://dj4muho1xkcx" path="res://Audio Pack/key_lock_click.wav" id="6_mmavi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydypc"]
+albedo_texture = ExtResource("2_fxtb3")
+texture_filter = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xtp2"]
+size = Vector3(0.3, 0.3, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmavi"]
+size = Vector3(0.3, 0.3, 0.05)
+
+[node name="FrontDoors" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_gjtum")
+
+[node name="DoorL" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0)
+mesh = ExtResource("1_mjwxi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ydypc")
+
+[node name="DoorR" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0)
+mesh = ExtResource("3_5xtp2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ydypc")
+
+[node name="Lock1" type="Sprite3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.405, 0.01)
+shaded = true
+texture_filter = 2
+texture = ExtResource("4_fxtb3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lock1" groups=["Interactable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("5_5xtp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock1/StaticBody3D"]
+shape = SubResource("BoxShape3D_5xtp2")
+
+[node name="Lock2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.405, 0.01)
+shaded = true
+texture_filter = 2
+texture = ExtResource("4_fxtb3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lock2"]
+script = ExtResource("5_5xtp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock2/StaticBody3D"]
+shape = SubResource("BoxShape3D_mmavi")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_mmavi")

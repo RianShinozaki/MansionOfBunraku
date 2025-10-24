@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8ln8a0lrica1"]
+
+[ext_resource type="ArrayMesh" uid="uid://cw2ogawwjnik" path="res://Art Assets/Models/Fridge/Fridge.obj" id="1_81net"]
+[ext_resource type="Texture2D" uid="uid://dwf2fkbo6sun3" path="res://Art Assets/Models/Fridge/texture_fridge-tex.png" id="2_w2h3y"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio Pack/fridge_open.mp3" id="3_nyat7"]
+[ext_resource type="ArrayMesh" uid="uid://vhykkc3iwikc" path="res://Art Assets/Models/Fridge/DoorL.obj" id="3_w2h3y"]
+[ext_resource type="Script" uid="uid://bwjvmxhdhyv2q" path="res://Scripts/FridgeDoor.gd" id="4_d4l1e"]
+[ext_resource type="ArrayMesh" uid="uid://c27govxcc2dl7" path="res://Art Assets/Models/Fridge/DoorR.obj" id="4_od5g6"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio Pack/fridge_close.mp3" id="4_te82g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od5g6"]
+albedo_texture = ExtResource("2_w2h3y")
+texture_filter = 2
+disable_receive_shadows = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d4l1e"]
+data = PackedVector3Array(-0.22, 0.34, 0, -0.08, 0, 0, -0.08, 0.34, 0, -0.22, 0, 0, -0.08, 0, 0, -0.22, 0.34, 0, -0.08, 0.34, 0, -0.08, 0, 0.02, -0.08, 0.34, 0.02, -0.08, 0, 0, -0.08, 0, 0.02, -0.08, 0.34, 0, -0.08, 0.34, 0, -0.22, 0.34, 0.02, -0.22, 0.34, 0, -0.08, 0.34, 0.02, -0.22, 0.34, 0.02, -0.08, 0.34, 0, -0.08, 0, 0.02, -0.22, 0, 0, -0.22, 0, 0.02, -0.08, 0, 0, -0.22, 0, 0, -0.08, 0, 0.02, -0.22, 0.34, 0.02, -0.22, 0, 0, -0.22, 0.34, 0, -0.22, 0, 0.02, -0.22, 0, 0, -0.22, 0.34, 0.02, -0.08, 0.34, 0.02, -0.22, 0, 0.02, -0.22, 0.34, 0.02, -0.08, 0, 0.02, -0.22, 0, 0.02, -0.08, 0.34, 0.02)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8q6t0"]
+data = PackedVector3Array(0.14, 0.34, 0.02, 0, 0, 0.02, 0, 0.34, 0.02, 0.14, 0, 0.02, 0, 0, 0.02, 0.14, 0.34, 0.02, 0, 0.34, 0, 0.14, 0, 0, 0.14, 0.34, 0, 0, 0, 0, 0.14, 0, 0, 0, 0.34, 0, 0.14, 0, 0.02, 0, 0, 0, 0, 0, 0.02, 0.14, 0, 0, 0, 0, 0, 0.14, 0, 0.02, 0.14, 0.34, 0, 0, 0.34, 0.02, 0, 0.34, 0, 0.14, 0.34, 0.02, 0, 0.34, 0.02, 0.14, 0.34, 0, 0.14, 0.34, 0, 0.14, 0, 0.02, 0.14, 0.34, 0.02, 0.14, 0, 0, 0.14, 0, 0.02, 0.14, 0.34, 0, 0, 0.34, 0.02, 0, 0, 0, 0, 0.34, 0, 0, 0, 0.02, 0, 0, 0, 0, 0.34, 0.02)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nyat7"]
+data = PackedVector3Array(0.29999998, -0.22, 0.02, 0.14, -0.22, -0.14, 0.14, -0.22, 0.02, 0.29999998, -0.22, -0.14, 0.14, -0.22, -0.14, 0.29999998, -0.22, 0.02, 0.14, -0.22, 0.02, -0.02, -0.22, -0.14, -0.02, -0.22, 0.02, 0.14, -0.22, -0.14, -0.02, -0.22, -0.14, 0.14, -0.22, 0.02, -0.02, -0.06, -0.14, 0.14, -0.22, -0.14, 0.14, -0.06, -0.14, -0.02, -0.22, -0.14, 0.14, -0.22, -0.14, -0.02, -0.06, -0.14, 0.14, -0.06, -0.14, 0.29999998, -0.22, -0.14, 0.29999998, -0.06, -0.14, 0.14, -0.22, -0.14, 0.29999998, -0.22, -0.14, 0.14, -0.06, -0.14, 0.14, 0.099999994, -0.14, 0.29999998, -0.06, -0.14, 0.29999998, 0.099999994, -0.14, 0.14, -0.06, -0.14, 0.29999998, -0.06, -0.14, 0.14, 0.099999994, -0.14, -0.02, 0.099999994, -0.14, 0.14, -0.06, -0.14, 0.14, 0.099999994, -0.14, -0.02, -0.06, -0.14, 0.14, -0.06, -0.14, -0.02, 0.099999994, -0.14, -0.02, 0.26, -0.14, 0.14, 0.099999994, -0.14, 0.14, 0.26, -0.14, -0.02, 0.099999994, -0.14, 0.14, 0.099999994, -0.14, -0.02, 0.26, -0.14, 0.14, 0.26, -0.14, 0.29999998, 0.099999994, -0.14, 0.29999998, 0.26, -0.14, 0.14, 0.099999994, -0.14, 0.29999998, 0.099999994, -0.14, 0.14, 0.26, -0.14, 0.29999998, 0.26, -0.14, 0.14, 0.26, 0.02, 0.14, 0.26, -0.14, 0.29999998, 0.26, 0.02, 0.14, 0.26, 0.02, 0.29999998, 0.26, -0.14, 0.14, 0.26, -0.14, -0.02, 0.26, 0.02, -0.02, 0.26, -0.14, 0.14, 0.26, 0.02, -0.02, 0.26, 0.02, 0.14, 0.26, -0.14, 0.28, 0.24, -0.099999994, 0, -0.099999994, -0.099999994, 0, 0.24, -0.099999994, 0.28, -0.099999994, -0.099999994, 0, -0.099999994, -0.099999994, 0.28, 0.24, -0.099999994, 0, 0.24, -0.099999994, 0, -0.099999994, 0.02, 0, 0.24, 0.02, 0, -0.099999994, -0.099999994, 0, -0.099999994, 0.02, 0, 0.24, -0.099999994, 0.28, 0.24, 0.02, 0, 0.24, -0.099999994, 0, 0.24, 0.02, 0.28, 0.24, -0.099999994, 0, 0.24, -0.099999994, 0.28, 0.24, 0.02, 0.28, 0.24, 0.02, 0.28, -0.099999994, -0.099999994, 0.28, 0.24, -0.099999994, 0.28, -0.099999994, 0.02, 0.28, -0.099999994, -0.099999994, 0.28, 0.24, 0.02, 0.29999998, 0.26, -0.14, 0.29999998, -0.22, 0.02, 0.29999998, 0.26, 0.02, 0.29999998, -0.22, -0.14, 0.29999998, -0.22, 0.02, 0.29999998, 0.26, -0.14, 0.29999998, 0.26, 0.02, 0.28, -0.22, 0.02, 0.28, 0.26, 0.02, 0.29999998, -0.22, 0.02, 0.28, -0.22, 0.02, 0.29999998, 0.26, 0.02, 0.28, 0.26, 0.02, 0, 0.24, 0.02, 0, 0.26, 0.02, 0.28, 0.24, 0.02, 0, 0.24, 0.02, 0.28, 0.26, 0.02, 0.28, -0.099999994, 0.02, 0, -0.22, 0.02, 0, -0.099999994, 0.02, 0.28, -0.22, 0.02, 0, -0.22, 0.02, 0.28, -0.099999994, 0.02, 0, 0.26, 0.02, -0.02, -0.22, 0.02, -0.02, 0.26, 0.02, 0, -0.22, 0.02, -0.02, -0.22, 0.02, 0, 0.26, 0.02, -0.02, 0.26, 0.02, -0.02, -0.22, -0.14, -0.02, 0.26, -0.14, -0.02, -0.22, 0.02, -0.02, -0.22, -0.14, -0.02, 0.26, 0.02, 0.28, -0.099999994, -0.099999994, 0, -0.099999994, 0.02, 0, -0.099999994, -0.099999994, 0.28, -0.099999994, 0.02, 0, -0.099999994, 0.02, 0.28, -0.099999994, -0.099999994)
+
+[node name="Fridge" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_81net")
+surface_material_override/0 = SubResource("StandardMaterial3D_od5g6")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106689, -0.10017179, 0.020063542)
+stream = ExtResource("3_nyat7")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106689, -0.10017179, 0.020063542)
+stream = ExtResource("4_te82g")
+
+[node name="DoorLPivot" type="Node3D" parent="."]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.00041906277, 0.06381388, 0.029583573)
+
+[node name="DoorL" type="MeshInstance3D" parent="DoorLPivot"]
+transform = Transform3D(-0.9999999, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.9999999, -0.08148595, -0.16398567, -0.00952003)
+mesh = ExtResource("3_w2h3y")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_od5g6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorLPivot/DoorL" groups=["Interactable"]]
+collision_layer = 5
+script = ExtResource("4_d4l1e")
+dir = -1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLPivot/DoorL/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d4l1e")
+
+[node name="DoorLPivot2" type="Node3D" parent="."]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.2808501, 0.06381388, 0.029583598)
+
+[node name="DoorL" type="MeshInstance3D" parent="DoorLPivot2"]
+transform = Transform3D(-0.9999999, 0, 8.7422755e-08, 0, 1, 0, -8.7422755e-08, 0, -0.9999999, -0.0013328195, -0.16398567, -0.009520022)
+mesh = ExtResource("4_od5g6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_od5g6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorLPivot2/DoorL" groups=["Interactable"]]
+script = ExtResource("4_d4l1e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLPivot2/DoorL/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8q6t0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nyat7")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwpe43e3kcee8"
+path="res://.godot/imported/grab_item_from_fridge.mp3-e4515440464193a9069181dc4d1ae41d.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/grab_item_from_fridge.mp3"
+dest_files=["res://.godot/imported/grab_item_from_fridge.mp3-e4515440464193a9069181dc4d1ae41d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

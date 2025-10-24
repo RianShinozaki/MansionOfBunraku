@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bywe2h5ftf5v5"]
+
+[ext_resource type="Texture2D" uid="uid://femlvshxx27j" path="res://Art Assets/Models/texture_HouseTileset.png" id="1_86qua"]
+[ext_resource type="Texture2D" uid="uid://dh5se1x8k5x4b" path="res://Art Assets/Models/HouseTileset_h.png" id="2_s3jlg"]
+[ext_resource type="Texture2D" uid="uid://bgy1lcpioecc" path="res://Art Assets/Models/texture_HouseTileset_n.png" id="3_7vmhy"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 1
+albedo_texture = ExtResource("1_86qua")
+normal_enabled = true
+normal_texture = ExtResource("3_7vmhy")
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("2_s3jlg")
+texture_filter = 2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bacrsm3n8tqyt"
+path="res://.godot/imported/cat_eat.wav-ac8505045dccdc1807d2ae480c9a7dce.sample"
+
+[deps]
+
+source_file="res://Audio Pack/cat_eat.wav"
+dest_files=["res://.godot/imported/cat_eat.wav-ac8505045dccdc1807d2ae480c9a7dce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

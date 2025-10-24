@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjcd6hdvedamj"
+path="res://.godot/imported/old_clock_chime.mp3-10a60942d3d9b808dc4b06328e6d0fd0.mp3str"
+
+[deps]
+
+source_file="res://Audio Pack/old_clock_chime.mp3"
+dest_files=["res://.godot/imported/old_clock_chime.mp3-10a60942d3d9b808dc4b06328e6d0fd0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
