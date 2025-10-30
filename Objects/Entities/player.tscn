@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://6hmil0dhqlfe"]
+
+[ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
+[ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
+[ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
+[ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
+[ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
+radius = 0.15
+height = 0.87738
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_y0qk3")
+move_speed = 2.0
+mouse_sensitivity = 0.005
+acceleration = 15.0
+deceleration = 5.0
+gravity = -15.0
+interaction_range = 0.6
+circleUI = ExtResource("2_2i4gt")
+crossUI = ExtResource("2_3y5cq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0783997, 0)
+shape = SubResource("CapsuleShape3D_8edix")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+remote_path = NodePath("../../CanvasLayer/HoldParent")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, 1)
+collision_mask = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(7.5, 7.5)
+mouse_filter = 2
+texture = ExtResource("2_3y5cq")
+metadata/_edit_use_anchors_ = true
+
+[node name="HoldParent" type="Node3D" parent="CanvasLayer"]
+
+[node name="EatingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0ad8t")
+
+[node name="WalkingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x20fu")
+parameters/looping = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1)

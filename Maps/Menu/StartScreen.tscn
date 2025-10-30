@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://dur0gs8lqb2mn"]
+
+[ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_ko4ly"]
+[ext_resource type="Shader" uid="uid://bq1cw3n036jwd" path="res://Shaders/HouseOfBunraku.gdshader" id="2_0on6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ko4ly"]
+shader = ExtResource("2_0on6r")
+shader_parameter/wood_dark = Color(0.05, 0, 0, 1)
+shader_parameter/wood_light = Color(0.4, 0.06, 0.05, 1)
+shader_parameter/seam_color = Vector3(0.02, 0, 0)
+shader_parameter/ember_red = Vector3(1, 0.1, 0.12)
+shader_parameter/amber_fire = Vector3(1, 0.45, 0.25)
+shader_parameter/fresh_blood = Color(0.92, 0.05, 0.08, 1)
+shader_parameter/dried_blood = Color(0.35, 0.06, 0.08, 1)
+shader_parameter/plank_count = 7.0
+shader_parameter/seam_thickness = 0.006
+shader_parameter/joint_frequency = 1.8
+shader_parameter/joint_thickness = 0.005
+shader_parameter/grain_frequency = 30.0
+shader_parameter/grain_strength = 1.35
+shader_parameter/knot_strength = 0.6
+shader_parameter/angle_degrees = -22.0
+shader_parameter/vignette_strength = 0.75
+shader_parameter/scan_strength = 0.08
+shader_parameter/fog_amount = 0.22
+shader_parameter/dust_sparkle = 0.5
+shader_parameter/flicker_amount = 0.35
+shader_parameter/light_pos = Vector2(0.64, 0.84)
+shader_parameter/light_radius = 0.95
+shader_parameter/light_strength = 1.9
+shader_parameter/chroma_px = 2.0
+shader_parameter/jitter = 0.12
+shader_parameter/glitch_speed = 2.2
+shader_parameter/glitch_intensity = 0.55
+shader_parameter/slice_freq = 140.0
+shader_parameter/jitter_amount = 0.1
+shader_parameter/blood_density = 1.45
+shader_parameter/wet_glisten = 0.55
+shader_parameter/blood_flow_speed = 0.18
+shader_parameter/streak_strength = 0.75
+shader_parameter/strobe_speed = 1.0
+shader_parameter/flash_intensity = 1.2
+shader_parameter/burst_intensity = 1.6
+shader_parameter/heartbeat_speed = 1.4
+shader_parameter/heartbeat_boost = 1.0
+shader_parameter/strings_density = 70.0
+shader_parameter/strings_thickness = 0.005
+shader_parameter/strings_glow = 0.9
+shader_parameter/red_domination = 1.35
+
+[sub_resource type="SystemFont" id="SystemFont_ko4ly"]
+
+[sub_resource type="SystemFont" id="SystemFont_0on6r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ko4ly")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ko4ly")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = -167.0
+offset_right = 208.0
+offset_bottom = 612.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_ko4ly")
+theme_override_font_sizes/font_size = 32
+text = "The House of Bunraku waits.
+
+Inside, the puppets remember every guest who ever dared to enter.
+Solve the puzzles. Find the keys.
+Do not disturb Yoroi and Yono.
+If you do… you won’t make it to the door."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomPanel" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -48.0
+offset_right = 284.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 0.180392, 0.180392, 1)
+theme_override_colors/font_color = Color(1, 0.960784, 0.960784, 1)
+theme_override_fonts/font = SubResource("SystemFont_0on6r")
+theme_override_font_sizes/font_size = 32
+text = "Escape Attempt"
+
+[connection signal="pressed" from="BottomPanel/StartButton" to="." method="_on_start_button_pressed"]
