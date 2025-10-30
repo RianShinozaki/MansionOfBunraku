@@ -2,8 +2,7 @@ shader_type spatial;
 render_mode blend_add, depth_draw_opaque, cull_back, unshaded;
 
 // =====================================================
-// FIRE SHADER - Procedural 3D Flames
-// Web-optimized, adjustable scale, emissive
+// FIRE SHADER - single flame, like a candle
 // =====================================================
 
 // ---------- Fire Appearance ----------

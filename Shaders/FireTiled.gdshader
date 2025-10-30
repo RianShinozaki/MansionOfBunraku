@@ -2,9 +2,7 @@ shader_type spatial;
 render_mode blend_add, depth_draw_opaque, cull_back, unshaded;
 
 // =====================================================
-// FIRE SHADER - SEAMLESS TILING VERSION
-// Procedural 3D Flames with World-Space Positioning
-// Web-optimized, tileable across multiple quads
+// FIRE SHADER - world coordinates version
 // =====================================================
 
 // ---------- Fire Appearance ----------

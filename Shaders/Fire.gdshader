@@ -2,8 +2,7 @@ shader_type spatial;
 render_mode blend_add, depth_draw_opaque, cull_back, unshaded;
 
 // =====================================================
-// FIRE SHADER - Procedural 3D Flames
-// Web-optimized, adjustable scale, emissive
+// FIRE SHADER - multi-flame effect
 // =====================================================
 
 // ---------- Fire Appearance ----------
@@ -41,7 +40,7 @@ uniform float horizontal_drift : hint_range(0.0, 1.0) = 0.3;          // side-to
 uniform bool face_camera = false;                                      // rotate toward camera
 
 // =====================================================
-// Noise Functions (Web-Optimized)
+// Noise Functions, random-based
 // =====================================================
 
 // Hash function for pseudo-random values
@@ -299,6 +298,6 @@ void fragment() {
     // Alpha for blending
     ALPHA = clamp(flame_mask, 0.0, 1.0);
     
-    // Set albedo (though in blend_add mode, emission dominates)
+    // Set albedo (in blend_add mode, emission dominates)
     ALBEDO = fire_color;
 }
