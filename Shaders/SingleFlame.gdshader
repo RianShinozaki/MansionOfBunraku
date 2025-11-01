@@ -2,7 +2,8 @@ shader_type spatial;
 render_mode blend_add, depth_draw_opaque, cull_back, unshaded;
 
 // =====================================================
-// FIRE SHADER - single flame, like a candle
+// FIRE SHADER - Procedural 3D Flames
+// Web-optimized, adjustable scale, emissive
 // =====================================================
 
 // ---------- Fire Appearance ----------
@@ -154,6 +155,9 @@ void fragment() {
     // Radial distance from center (creates round flame base)
     float radial = length(centered_uv) * 2.0;
     
+    // Strong radial mask to eliminate rectangular quad corners
+    float corner_mask = smoothstep(1.0, 0.6, radial);
+    
     // Shape mask - narrower at top, wider at bottom
     float shape = smoothstep(1.0, 0.0, radial * (1.0 + stretched_height * 1.5));
     
@@ -169,6 +173,9 @@ void fragment() {
     // Combine shape elements
     float flame_mask = shape * vertical_fade;
     flame_mask = clamp(flame_mask + core, 0.0, 1.0);
+    
+    // Apply corner mask to eliminate quad edges
+    flame_mask *= corner_mask;
     
     // Soft edges
     flame_mask = smoothstep(edge_softness * 0.3, 1.0 - edge_softness * 0.2, flame_mask);

@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://bye6w6mipuigf"]
+[gd_scene load_steps=34 format=3 uid="uid://bye6w6mipuigf"]
 
+[ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="1_fire"]
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="2_hyobi"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="4_mdqsx"]
@@ -7,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://qgrt3asn0m3f" path="res://Objects/clock.tscn" id="8_8edix"]
 [ext_resource type="Texture2D" uid="uid://dtuwpjlvummu8" path="res://Art Assets/CatBowl.png" id="9_lntlw"]
 [ext_resource type="Texture2D" uid="uid://c1rbm60207tep" path="res://Art Assets/MeatPile.png" id="9_xacle"]
-[ext_resource type="Script" uid="uid://c47f63dcgc44i" path="res://Scripts/meatpile.gd" id="10_1shu2"]
-[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/light_flicker.gd" id="10_ceqvn"]
+[ext_resource type="Script" path="res://Scripts/meatpile.gd" id="10_1shu2"]
+[ext_resource type="Script" path="res://Scripts/light_flicker.gd" id="10_ceqvn"]
 [ext_resource type="PackedScene" uid="uid://b8ln8a0lrica1" path="res://Objects/fridge.tscn" id="10_lntlw"]
 [ext_resource type="ArrayMesh" uid="uid://d1a51phvwn6gd" path="res://Art Assets/Models/Table.obj" id="10_xacle"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/player.tscn" id="11_lntlw"]
@@ -16,12 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://dwpe43e3kcee8" path="res://Audio Pack/grab_item_from_fridge.mp3" id="13_8rhjv"]
 [ext_resource type="AudioStream" uid="uid://cxw4air1dxmqd" path="res://Audio Pack/wind_howl_ambient_1.wav" id="14_r1twq"]
 [ext_resource type="AudioStream" uid="uid://de8juk1i8uesl" path="res://Audio Pack/cat_eat.mp3" id="14_ydypc"]
-[ext_resource type="Script" uid="uid://d3wsmxfnjpl2l" path="res://Scripts/catbowl.gd" id="15_di1da"]
-[ext_resource type="Script" uid="uid://btoioc0dqqkf8" path="res://Scripts/cat_eyes.gd" id="16_baccv"]
+[ext_resource type="Script" path="res://Scripts/catbowl.gd" id="15_di1da"]
+[ext_resource type="Script" path="res://Scripts/cat_eyes.gd" id="16_baccv"]
 [ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio Pack/cat_meow.mp3" id="17_di1da"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/front_doors.tscn" id="20_66c1n"]
 [ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/yoroi.tscn" id="21_di1da"]
-[ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Maps/bunraku_managers.gd" id="21_kgyru"]
+[ext_resource type="Script" path="res://Maps/bunraku_managers.gd" id="21_kgyru"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/yono.tscn" id="22_66c1n"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio Pack/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio Pack/jumpscare.mp3" id="25_l8r31"]
@@ -50,6 +51,31 @@ size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceqvn"]
 size = Vector3(0.325012, 0.541504, 0.648376)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fire"]
+size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_meat_fire"]
+render_priority = 0
+shader = ExtResource("1_fire")
+shader_parameter/fire_color_hot = Color(1, 0.95, 0.8, 1)
+shader_parameter/fire_color_mid = Color(1, 0.35, 0.1, 1)
+shader_parameter/fire_color_base = Color(0.8, 0.05, 0, 1)
+shader_parameter/ember_color = Color(0.3, 0.02, 0, 1)
+shader_parameter/fire_intensity = 1.0
+shader_parameter/fire_scale = 2.0
+shader_parameter/fire_speed = 1.0
+shader_parameter/flame_height = 1.2
+shader_parameter/turbulence = 0.8
+shader_parameter/flicker_speed = 4.0
+shader_parameter/flicker_amount = 0.4
+shader_parameter/edge_softness = 0.5
+shader_parameter/core_density = 0.8
+shader_parameter/tip_fadeout = 1.5
+shader_parameter/emissive_power = 3.0
+shader_parameter/color_variation = 0.3
+shader_parameter/horizontal_drift = 0.4
+shader_parameter/face_camera = true
 
 [node name="Node3D" type="Node3D"]
 
@@ -130,6 +156,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131249, 0.0415414, -0.03042
 shaded = true
 texture_filter = 2
 texture = ExtResource("9_xacle")
+
+[node name="Fire" type="MeshInstance3D" parent="Environment/Objects/Cupboards/Fridge4/MeatPile"]
+transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0.1, 0)
+mesh = SubResource("QuadMesh_fire")
+surface_material_override/0 = SubResource("ShaderMaterial_meat_fire")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Objects/Cupboards/Fridge4/MeatPile" groups=["Interactable"]]
 collision_layer = 4
