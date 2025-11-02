@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg0dhfew8xe8g"]
+
+[ext_resource type="Texture2D" uid="uid://c1q2sit48nbvf" path="res://Art Assets/shamisen.png" id="1_k520w"]
+[ext_resource type="Script" uid="uid://tk7nyllfewuj" path="res://Scripts/Items/shamisen.gd" id="1_x51mr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2s4q5"]
+size = Vector3(0.25, 0.6, 0.07)
+
+[node name="Shamisen" type="RigidBody3D" groups=["Item"]]
+script = ExtResource("1_x51mr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2s4q5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.09181327, 0, 0, 0, 0.10838639, 0, 0, 0, 10.603248, 0, 0, 0)
+shaded = true
+texture = ExtResource("1_k520w")

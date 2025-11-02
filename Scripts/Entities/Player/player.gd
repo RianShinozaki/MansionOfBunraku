@@ -24,6 +24,7 @@ var air_velocity: float
 var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
+var holding_shamisen: bool = false
 
 static var instance: Player
 
@@ -64,6 +65,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		# Drop held object
 		if event.pressed and event.keycode == KEY_Q:
 			drop_held_object()
+			
+		# Toggle Shamisen Visibility
+		if event.pressed and event.keycode == KEY_E:
+			holding_shamisen = true
+			# ADD IN SHAMISEN TOGGLE + ITEM VISIBILITY
+		
+		# Play Shamisen string audio
+		if holding_shamisen:
+			if event.pressed and event.keycode == KEY_1:
+				$"string-one".play()
+			if event.pressed and event.keycode == KEY_2:
+				$"string-two".play()
+			if event.pressed and event.keycode == KEY_3:
+				$"string-three".play()
 			
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
