@@ -153,19 +153,19 @@ func _input(event):
 				get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton:
 			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+				# Reset hint timer on any click
+				if hint_timer and hint_timer.time_left > 0:
+					hint_timer.start()
+				
 				# Check if click is on the plaque
 				if _is_click_on_plaque(event.position):
-					# Reset hint timer on plaque click (since they found it)
-					if hint_timer and not hint_timer.is_stopped():
-						hint_timer.start()
-					
 					# Store reference before closing
 					var painting_ref = original_painting
 					# Close view first
 					close_view()
 					# Then dissolve the artwork after view is fully closed (deferred to next frame)
-					if painting_ref and painting_ref.has_method("swing_painting"):
-						painting_ref.call_deferred("swing_painting")
+					if painting_ref and painting_ref.has_method("dissolve_painting"):
+						painting_ref.call_deferred("dissolve_painting")
 				else:
 					# Click anywhere else to close immediately
 					close_view()
@@ -212,5 +212,5 @@ func _pulse_plaque_emission() -> void:
 	pulse_tween.set_trans(Tween.TRANS_SINE)
 	
 	# Pulse the emission energy from normal (0.07) to bright (3.0) and back
-	material.emission_energy_multiplier = 1.5
+	material.emission_energy_multiplier = 2.0
 	pulse_tween.tween_property(material, "emission_energy_multiplier", 0.07, 0.8)
