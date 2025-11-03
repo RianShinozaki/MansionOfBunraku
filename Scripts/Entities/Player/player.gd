@@ -73,7 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			drop_held_object()
 			
 		# Toggle Shamisen Visibility
-		if event.pressed and event.keycode == KEY_E:
+		if event.pressed and event.keycode == KEY_E and holding_shamisen:
 			toggle_shamisen = not toggle_shamisen
 			$Camera3D/Shamisen.visible = toggle_shamisen
 			if held_object:
@@ -115,7 +115,14 @@ func pick_up_object(object: Node3D):
 	if held_object:
 		drop_held_object()
 		return
-		
+	
+	if object.is_in_group("Shamisen"):
+		holding_shamisen = true
+		toggle_shamisen = true
+		$Camera3D/Shamisen.visible = toggle_shamisen
+		object.queue_free()
+		return
+	
 	#Check if the object can be picked up
 	var success = object.can_pickup()
 	if not success: return

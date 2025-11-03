@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="4_yonok"]
 
 [node name="MusicNote" type="Sprite3D"]
+shaded = true
 texture = ExtResource("1_k2vg5")
 script = ExtResource("1_tfkay")
 
