@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 		for _node in _fire_nodes:
 			_node.begin_meltdown()
 	if timer >= cycle_time + meltdown_time:
-		$Bunraku.jumpscare()
+		$Yono.jumpscare()

@@ -106,7 +106,7 @@ shader_parameter/color_bands = 10
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_duur3")
-cycle_time = 180.0
+cycle_time = 5.0
 meltdown_time = 30.0
 
 [node name="Environment" type="Node3D" parent="."]
@@ -316,12 +316,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431, -0.2, 1.2676842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67718714, -0.2, -1.5349779)
 script = ExtResource("21_kgyru")
 bunraku = NodePath("Yono")
 
 [node name="Yono" parent="Yono" instance=ExtResource("22_66c1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2827806, 0, -2.8251195)
 
 [node name="CreakSFX" type="AudioStreamPlayer3D" parent="Yono"]
 stream = ExtResource("24_0llml")
