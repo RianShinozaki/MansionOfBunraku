@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://6hmil0dhqlfe"]
+[gd_scene load_steps=11 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
 [ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
 [ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
 [ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
+[ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
+[ext_resource type="AudioStream" uid="uid://den8c5s3qior8" path="res://Audio/string-two.mp3" id="7_vhsen"]
+[ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="8_yq6kl"]
+[ext_resource type="PackedScene" uid="uid://dg0dhfew8xe8g" path="res://Objects/Items/shamisen.tscn" id="9_vhsen"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15
@@ -34,6 +38,8 @@ remote_path = NodePath("../../CanvasLayer/HoldParent")
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, 1)
 collision_mask = 4
+
+[node name="Shamisen" parent="Camera3D" instance=ExtResource("9_vhsen")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -78,3 +84,12 @@ parameters/looping = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 1)
+
+[node name="string-one" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hdqis")
+
+[node name="string-two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vhsen")
+
+[node name="string-three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yq6kl")
