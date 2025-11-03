@@ -25,6 +25,7 @@ var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
 var holding_shamisen: bool = false
+var toggle_shamisen: bool = false
 
 static var instance: Player
 
@@ -47,7 +48,11 @@ func _physics_process(_delta: float) -> void:
 		var collider = raycast.get_collider()
 		if collider and (collider.is_in_group("Interactable") or collider.is_in_group("Item")):
 			$CanvasLayer/TextureRect.texture = circleUI
-		
+	
+	# Adjust Shamisen Position
+	if (toggle_shamisen):
+		$Camera3D/Shamisen.global_transform.origin = $Camera3D.global_transform.origin + $Camera3D.global_transform.basis * Vector3.FORWARD * interaction_range
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not active: return
 	
@@ -68,11 +73,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 		# Toggle Shamisen Visibility
 		if event.pressed and event.keycode == KEY_E:
-			holding_shamisen = true
-			# ADD IN SHAMISEN TOGGLE + ITEM VISIBILITY
+			toggle_shamisen = not toggle_shamisen
+			$Camera3D/Shamisen.visible = toggle_shamisen
+			if held_object:
+				held_object.visible = not toggle_shamisen
 		
 		# Play Shamisen string audio
-		if holding_shamisen:
+		if toggle_shamisen:
 			if event.pressed and event.keycode == KEY_1:
 				$"string-one".play()
 			if event.pressed and event.keycode == KEY_2:
@@ -123,7 +130,7 @@ func pick_up_object(object: Node3D):
 
 func interact_object(object: Node3D):
 	#Check if the object can be interacted with, and then interact
-	if object.can_interact():
+	if object.can_interact() and not toggle_shamisen:
 		object.on_interact()
 	
 func drop_held_object():
