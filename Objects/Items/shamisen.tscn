@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg0dhfew8xe8g"]
+[gd_scene load_steps=7 format=3 uid="uid://dg0dhfew8xe8g"]
 
 [ext_resource type="Texture2D" uid="uid://c1q2sit48nbvf" path="res://Art Assets/shamisen.png" id="1_k520w"]
 [ext_resource type="Script" uid="uid://tk7nyllfewuj" path="res://Scripts/Items/shamisen.gd" id="1_x51mr"]
+[ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="3_u6e5l"]
+[ext_resource type="AudioStream" uid="uid://den8c5s3qior8" path="res://Audio/string-two.mp3" id="4_21bbc"]
+[ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="5_xy14c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s4q5"]
 size = Vector3(0.25, 0.6, 0.07)
@@ -18,3 +21,12 @@ shape = SubResource("BoxShape3D_2s4q5")
 transform = Transform3D(0.09181327, 0, 0, 0, 0.10838639, 0, 0, 0, 10.603248, 0, 0, 0)
 shaded = true
 texture = ExtResource("1_k520w")
+
+[node name="string-one" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u6e5l")
+
+[node name="string-two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_21bbc")
+
+[node name="string-three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xy14c")
