@@ -1,11 +1,11 @@
-[gd_scene load_steps=47 format=4 uid="uid://boq62uf6mpsdx"]
+[gd_scene load_steps=47 format=4 uid="uid://ttdd1f848cwl"]
 
-[ext_resource type="Script" uid="uid://8kvo4qlg1vhb" path="res://Scripts/combination_lock.gd" id="1"]
-[ext_resource type="Script" uid="uid://g14yotgq1bgi" path="res://Scripts/number_wheel.gd" id="2"]
-[ext_resource type="AudioStream" uid="uid://dj4muho1xkcx" path="res://Audio Pack/key_lock_click.wav" id="2_fc70i"]
-[ext_resource type="Script" uid="uid://d08r5wcwv86v5" path="res://Scripts/wheel_collision.gd" id="3_0kwpj"]
-[ext_resource type="AudioStream" uid="uid://3ccja3efsi5f" path="res://Audio Pack/gear_place_clock.mp3" id="3_npfmm"]
-[ext_resource type="Material" uid="uid://bpeb4iqkai8lg" path="res://Art Assets/Materials/CombinationLockGold.tres" id="4_npfmm"]
+[ext_resource type="Script" uid="uid://c0bdamr50duk" path="res://Scripts/Interactables/combination_lock.gd" id="1_tods2"]
+[ext_resource type="AudioStream" uid="uid://dj4muho1xkcx" path="res://Audio/key_lock_click.wav" id="2_fc70i"]
+[ext_resource type="AudioStream" uid="uid://3ccja3efsi5f" path="res://Audio/gear_place_clock.mp3" id="3_npfmm"]
+[ext_resource type="Material" path="res://Art Assets/Materials/CombinationLockGold.tres" id="4_npfmm"]
+[ext_resource type="Script" path="res://Scripts/Interactables/wheel_collision.gd" id="6_tods2"]
+[ext_resource type="Script" path="res://Scripts/Interactables/number_wheel.gd" id="7_50xu3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpd7j"]
 
@@ -402,7 +402,7 @@ data = PackedVector3Array(0, -0.06, -0.0025, 0.00059999997, 0.06, -0.0023999999,
 
 [node name="CombinationLock" type="Node3D"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-script = ExtResource("1")
+script = ExtResource("1_tods2")
 unlock_sound = ExtResource("2_fc70i")
 click_sound = ExtResource("3_npfmm")
 
@@ -438,7 +438,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="Wheel01Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
-script = ExtResource("2")
+script = ExtResource("7_50xu3")
 wheel_index = 1
 
 [node name="Ring_03" type="MeshInstance3D" parent="Wheel01Pivot"]
@@ -449,7 +449,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel01Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4369884e-10, 0.09557518, -0.00012207031)
-script = ExtResource("3_0kwpj")
+script = ExtResource("6_tods2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel01Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_0kwpj")
@@ -464,7 +464,7 @@ outline_size = 0
 
 [node name="Wheel02Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
-script = ExtResource("2")
+script = ExtResource("7_50xu3")
 wheel_index = 2
 
 [node name="Ring_02" type="MeshInstance3D" parent="Wheel02Pivot"]
@@ -475,7 +475,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel02Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.037, 0)
-script = ExtResource("3_0kwpj")
+script = ExtResource("6_tods2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel02Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_onjdf")
@@ -490,7 +490,7 @@ outline_size = 0
 
 [node name="Wheel03Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
-script = ExtResource("2")
+script = ExtResource("7_50xu3")
 wheel_index = 3
 
 [node name="Ring_01" type="MeshInstance3D" parent="Wheel03Pivot"]
@@ -501,7 +501,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel03Pivot" groups=["Interactable"]]
 transform = Transform3D(0.3851112, 0, 0.92287016, 0, 1, 0, -0.92287016, 0, 0.3851112, -2.220446e-16, -0.17, 0)
-script = ExtResource("3_0kwpj")
+script = ExtResource("6_tods2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel03Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_k4nch")
@@ -516,7 +516,7 @@ outline_size = 0
 
 [node name="Wheel04Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
-script = ExtResource("2")
+script = ExtResource("7_50xu3")
 wheel_index = 4
 
 [node name="Ring_04" type="MeshInstance3D" parent="Wheel04Pivot"]
@@ -527,7 +527,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel04Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.642779e-09, 0.1775824, -0.00048828125)
-script = ExtResource("3_0kwpj")
+script = ExtResource("6_tods2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel04Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_fc70i")
