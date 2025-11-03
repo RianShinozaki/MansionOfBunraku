@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=46 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -31,7 +31,6 @@
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
 [ext_resource type="Shader" path="res://Shaders/FireWall.gdshader" id="26_fire"]
-[ext_resource type="PackedScene" uid="uid://crid5pnloa3s1" path="res://Objects/Items/Gear.tscn" id="26_ydypc"]
 [ext_resource type="PackedScene" uid="uid://ttdd1f848cwl" path="res://Objects/Interactables/CombinationLock.tscn" id="27_6uyic"]
 [ext_resource type="Shader" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
@@ -312,9 +311,6 @@ stream = ExtResource("24_0llml")
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="Bunraku"]
 stream = ExtResource("25_l8r31")
-
-[node name="Gear" parent="Bunraku" instance=ExtResource("26_ydypc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4588792, -0.16370203, -1.0901418)
 
 [node name="BunrakuFire" type="MeshInstance3D" parent="Bunraku"]
 material_override = SubResource("ShaderMaterial_s0c2o")
