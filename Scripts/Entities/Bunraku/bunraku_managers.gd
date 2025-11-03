@@ -45,4 +45,4 @@ func jumpscare():
 	var _to = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.15
 	await get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, -0.2, _to.z) , 1.4).finished
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_file("res://Maps/GameOverScreen.tscn")
+	get_tree().change_scene_to_file("res://Maps/Menu/GameOverScreen.tscn")
