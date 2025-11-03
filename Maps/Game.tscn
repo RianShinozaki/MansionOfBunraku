@@ -382,7 +382,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58835304, -0.24623287, 2.48
 visible = true
 
 [node name="Painting" parent="." instance=ExtResource("20_6uyic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.1862979, -1.1515197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.1862979, -1.2932539)
 painting_artwork = ExtResource("28_k0785")
 plaque_number_texture = ExtResource("39_nv3h5")
 plaque_number_blur_texture = ExtResource("40_ronf6")
