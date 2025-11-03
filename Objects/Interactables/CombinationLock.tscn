@@ -436,7 +436,7 @@ mesh = SubResource("ArrayMesh_enub1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_npfmm")
 
-[node name="Wheel01Pivot" type="Node3D" parent="." groups=["Interactable"]]
+[node name="Wheel01Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
 script = ExtResource("2")
 wheel_index = 1
@@ -449,6 +449,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel01Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4369884e-10, 0.09557518, -0.00012207031)
+collision_layer = 21
 script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel01Pivot/StaticBody3D"]
@@ -476,6 +477,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel02Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.037, 0)
+collision_layer = 21
 script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel02Pivot/StaticBody3D"]
@@ -502,6 +504,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel03Pivot" groups=["Interactable"]]
 transform = Transform3D(0.3851112, 0, 0.92287016, 0, 1, 0, -0.92287016, 0, 0.3851112, -2.220446e-16, -0.17, 0)
+collision_layer = 21
 script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel03Pivot/StaticBody3D"]
@@ -528,6 +531,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel04Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.642779e-09, 0.1775824, -0.00048828125)
+collision_layer = 21
 script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel04Pivot/StaticBody3D"]
