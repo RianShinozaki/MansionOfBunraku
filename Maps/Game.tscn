@@ -319,7 +319,8 @@ material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
 
 [node name="CombinationLock" parent="." instance=ExtResource("27_6uyic")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.9275664, -0.034802496, 1.0443602)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.2629852, -0.034802496, 1.0443602)
+script = ExtResource("28_muv74")
 
 [node name="Painting" parent="." instance=ExtResource("20_6uyic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9777965, 0.20019233, -1.3007512)
