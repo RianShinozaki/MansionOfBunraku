@@ -23,6 +23,8 @@ func _ready():
 		click_audio.stream = click_sound
 	if unlock_sound and unlock_audio:
 		unlock_audio.stream = unlock_sound
+	
+	$"../Shamisen".remove_from_group("Item")
 
 func can_interact() -> bool:
 	return not is_unlocked
@@ -85,6 +87,9 @@ func unlock() -> void:
 	
 	# Emit signal for other systems
 	emit_signal("unlocked")
+	
+	#CHANGE THIS LATER
+	$"../Shamisen".add_to_group("Item")
 
 func reset_lock() -> void:
 	is_unlocked = false
