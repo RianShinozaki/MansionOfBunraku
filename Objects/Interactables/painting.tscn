@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ekfex3rpugck"]
+[gd_scene load_steps=17 format=3 uid="uid://ekfex3rpugck"]
 
-[ext_resource type="Script" uid="uid://bpqgtlve1xqte" path="res://Scripts/painting.gd" id="1_painting"]
+[ext_resource type="Script" uid="uid://bpqgtlve1xqte" path="res://Scripts/Interactables/painting.gd" id="1_painting"]
 [ext_resource type="Texture2D" uid="uid://dllibx1ktwcdj" path="res://Art Assets/painting_frame.png" id="2_frame_tex"]
 [ext_resource type="Texture2D" uid="uid://cq2djg8ooli6g" path="res://Art Assets/painting_frame_h.png" id="3_frame_h"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="4_artwork"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://2t5s3fd4aplp" path="res://Art Assets/plaque_h.png" id="6_plaque_h"]
 [ext_resource type="Texture2D" uid="uid://ce0pvxvh3tnsd" path="res://Art Assets/plaque_num_78.png" id="7_plaque_num"]
 [ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="8_4aw0o"]
-[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio Pack/fridge_open.mp3" id="9_open_sfx"]
-[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio Pack/fridge_close.mp3" id="10_close_sfx"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="9_open_sfx"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="10_close_sfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_artwork"]
 transparency = 2
@@ -72,7 +72,7 @@ roughness = 0.5
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(0.5, 0.7, 0.1)
+size = Vector3(0.96, 0.7, 0.1)
 
 [node name="Painting" type="StaticBody3D"]
 collision_layer = 5
@@ -81,20 +81,19 @@ painting_frame_texture = ExtResource("2_frame_tex")
 painting_frame_heightmap = ExtResource("3_frame_h")
 
 [node name="VisualPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0)
 
 [node name="ArtworkSprite" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0)
 material_override = SubResource("StandardMaterial3D_artwork")
-pixel_size = 0.005
 shaded = true
 double_sided = false
 alpha_cut = 2
 texture_filter = 2
 
 [node name="FrameSprite" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0.002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0.002)
 material_override = SubResource("StandardMaterial3D_frame")
-pixel_size = 0.005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -102,9 +101,8 @@ texture_filter = 2
 texture = ExtResource("2_frame_tex")
 
 [node name="PlaqueSprite" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.66186893, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4825606, 1.3267249, 0.005)
 material_override = SubResource("StandardMaterial3D_plaque")
-pixel_size = 0.005
 shaded = true
 double_sided = false
 alpha_cut = 1
@@ -112,21 +110,19 @@ texture_filter = 2
 texture = ExtResource("5_plaque")
 
 [node name="PlaqueNumbersSprite" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.2426338196, 0.3350525, 0.011)
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.4676338, 0.6708679, 0.011)
 visible = false
 sorting_offset = 2.0
 material_override = SubResource("StandardMaterial3D_plaque_numbers")
-pixel_size = 0.005
 shaded = true
 double_sided = false
 alpha_cut = 1
 texture_filter = 2
 
 [node name="PlaqueNumbersSpriteBlur" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.2426338196, 0.33569336, 0.01)
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.4676338, 0.67500305, 0.01)
 sorting_offset = 1.0
 material_override = SubResource("StandardMaterial3D_plaque_numbers_blur")
-pixel_size = 0.005
 shaded = true
 double_sided = false
 alpha_cut = 1

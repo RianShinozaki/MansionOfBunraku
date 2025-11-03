@@ -13,7 +13,7 @@ var anim_lock: bool = false
 var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
 
-const PAINTING_VIEW_SCENE = preload("res://UI/PaintingViewUI.tscn")
+const PAINTING_VIEW_SCENE = preload("res://Objects/Interactables/PaintingViewUI.tscn")
 # Placeholder for door
 
 func _ready():
@@ -92,7 +92,7 @@ func show_painting_view():
 	
 	# Disable player movement
 	if Player.instance:
-		Player.instance.set_movement_enabled(false)
+		Player.instance.active = false
 	
 	# Instantiate painting view UI
 	painting_view_ui = PAINTING_VIEW_SCENE.instantiate()
@@ -113,7 +113,7 @@ func _on_view_closed():
 	
 	# Re-enable player movement
 	if Player.instance:
-		Player.instance.set_movement_enabled(true)
+		Player.instance.active = true
 	
 	# Clean up painting view UI
 	if painting_view_ui:
@@ -151,24 +151,49 @@ func _restore_plaque():
 			material.emission_energy_multiplier = 0.07
 			material.rim = 0.2
 
-func swing_painting():
+func dissolve_painting():
 	if anim_lock: return
 	anim_lock = true
 	
-	# Get the visual pivot node
-	var pivot = get_node_or_null("VisualPivot")
-	if not pivot:
+	# Get the artwork sprite
+	var artwork_sprite = get_node_or_null("VisualPivot/ArtworkSprite")
+	if not artwork_sprite:
 		anim_lock = false
 		return
+	
+	# Get the collision shape
+	var collision = get_node_or_null("CollisionShape3D")
 	
 	if not open:
 		if has_node("OpenSFX"):
 			$OpenSFX.play()
-		await get_tree().create_tween().tween_property(pivot, "rotation_degrees", Vector3(0, dir * 100, 0), 0.25).finished
+		
+		# Ensure the material has transparency enabled
+		if artwork_sprite.material_override:
+			artwork_sprite.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		
+		# Dissolve the artwork by fading its alpha to 0
+		var tween = get_tree().create_tween()
+		tween.tween_property(artwork_sprite.material_override, "albedo_color:a", 0.0, 0.5)
+		await tween.finished
+		
+		# Disable collision so player can pass through
+		if collision:
+			collision.disabled = true
+		
 		open = true
 	else:
 		if has_node("CloseSFX"):
 			$CloseSFX.play()
-		await get_tree().create_tween().tween_property(pivot, "rotation_degrees", Vector3(0, 0, 0), 0.25).finished
+		
+		# Re-enable collision
+		if collision:
+			collision.disabled = false
+		
+		# Restore the artwork by fading its alpha back to 1
+		var tween = get_tree().create_tween()
+		tween.tween_property(artwork_sprite.material_override, "albedo_color:a", 1.0, 0.5)
+		await tween.finished
+		
 		open = false
 	anim_lock = false
