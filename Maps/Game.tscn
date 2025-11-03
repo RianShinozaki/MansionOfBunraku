@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=34 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="2_hyobi"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://d3wsmxfnjpl2l" path="res://Scripts/Interactables/catbowl.gd" id="15_di1da"]
 [ext_resource type="Script" uid="uid://btoioc0dqqkf8" path="res://Scripts/Environment/cat_eyes.gd" id="16_baccv"]
 [ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio/cat_meow.mp3" id="17_di1da"]
+[ext_resource type="PackedScene" uid="uid://op3aswxq5xh6" path="res://Objects/Interactables/painting.tscn" id="20_6uyic"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="20_66c1n"]
 [ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="21_di1da"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="21_kgyru"]
@@ -255,5 +256,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4588792, -0.16370203, -1.09
 
 [node name="CombinationLock" parent="." instance=ExtResource("27_6uyic")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.9275664, -0.034802496, 1.0443602)
+
+[node name="Painting" parent="." instance=ExtResource("20_6uyic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6777965, 0.20019233, -1.3007512)
 
 [editable path="Environment/Objects/Cupboards/Fridge4"]
