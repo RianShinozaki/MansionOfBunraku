@@ -7,6 +7,8 @@
 size = Vector3(0.25, 0.6, 0.07)
 
 [node name="Shamisen" type="RigidBody3D" groups=["Item"]]
+visible = false
+collision_layer = 4
 script = ExtResource("1_x51mr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
