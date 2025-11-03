@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bye6w6mipuigf"]
+[gd_scene load_steps=32 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="2_hyobi"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]

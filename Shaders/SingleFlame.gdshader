@@ -1,218 +1,121 @@
+// simplified fire shader for single flame objects
+
 shader_type spatial;
-render_mode blend_add, depth_draw_opaque, cull_back, unshaded;
+render_mode depth_draw_opaque, unshaded, shadows_disabled;
 
-// =====================================================
-// FIRE SHADER - single flame, like a candle
-// =====================================================
+uniform sampler2D noise_tex;
+uniform vec4 root_color : source_color = vec4( 1.0, 0.75, 0.3, 1.0 );
+uniform vec4 tip_color : source_color = vec4( 1.0, 0.03, 0.001, 1.0 );
 
-// ---------- Fire Appearance ----------
-uniform vec3 fire_color_hot : source_color = vec3(1.0, 0.95, 0.8);    // bright yellow-white
-uniform vec3 fire_color_mid : source_color = vec3(1.0, 0.35, 0.1);    // orange
-uniform vec3 fire_color_base : source_color = vec3(0.8, 0.05, 0.0);   // deep red
-uniform vec3 ember_color : source_color = vec3(0.3, 0.02, 0.0);       // dark ember
+uniform float fire_alpha : hint_range( 0.0, 1.0 ) = 1.0;
+uniform vec2 fire_speed = vec2( 0.0, 1.0 );
+uniform float fire_aperture : hint_range( 0.0, 3.0 ) = 0.22;
+uniform int color_bands : hint_range( 2, 20 ) = 10;
 
-// ---------- Fire Behavior ----------
-uniform float fire_intensity : hint_range(0.0, 1.0) = 1.0;            // overall strength
-uniform float fire_scale : hint_range(0.1, 10.0) = 1.0;               // pattern size
-uniform float fire_speed : hint_range(0.1, 3.0) = 1.0;                // animation speed
-uniform float flame_height : hint_range(0.3, 3.0) = 1.0;              // vertical stretch
-uniform float turbulence : hint_range(0.0, 3.0) = 1.0;                // chaos amount
-uniform float flicker_speed : hint_range(0.0, 10.0) = 3.0;            // pulse rate
-uniform float flicker_amount : hint_range(0.0, 1.0) = 0.3;            // pulse strength
+// Sphere bottom parameters
+uniform float sphere_blend_height : hint_range( 0.0, 1.0 ) = 0.4;
+uniform float sphere_radius : hint_range( 0.1, 2.0 ) = 0.35;
 
-// ---------- Shape & Opacity ----------
-uniform float edge_softness : hint_range(0.0, 1.0) = 0.4;             // soft flame edges
-uniform float core_density : hint_range(0.0, 2.0) = 0.8;              // center opacity
-uniform float tip_fadeout : hint_range(0.0, 2.0) = 1.2;               // fade at top
-
-// ---------- Visual Enhancement ----------
-uniform float emissive_power : hint_range(0.5, 8.0) = 2.5;            // light emission
-uniform float color_variation : hint_range(0.0, 1.0) = 0.3;           // color noise
-uniform float horizontal_drift : hint_range(0.0, 1.0) = 0.3;          // side-to-side motion
-
-// ---------- Billboard Option ----------
-uniform bool face_camera = false;                                      // rotate toward camera
-
-// =====================================================
-// Noise Functions (Web-Optimized)
-// =====================================================
-
-// Hash function for pseudo-random values
-float hash(vec3 p) {
-    p = fract(p * vec3(443.897, 441.423, 437.195));
-    p += dot(p, p.yzx + 19.19);
-    return fract((p.x + p.y) * p.z);
-}
-
-// 3D noise
-float noise3d(vec3 p) {
-    vec3 i = floor(p);
-    vec3 f = fract(p);
-    f = f * f * (3.0 - 2.0 * f); // smoothstep
-    
-    // Sample corners of cube
-    float a = hash(i);
-    float b = hash(i + vec3(1.0, 0.0, 0.0));
-    float c = hash(i + vec3(0.0, 1.0, 0.0));
-    float d = hash(i + vec3(1.0, 1.0, 0.0));
-    float e = hash(i + vec3(0.0, 0.0, 1.0));
-    float f2 = hash(i + vec3(1.0, 0.0, 1.0));
-    float g = hash(i + vec3(0.0, 1.0, 1.0));
-    float h = hash(i + vec3(1.0, 1.0, 1.0));
-    
-    // Trilinear interpolation
-    return mix(
-        mix(mix(a, b, f.x), mix(c, d, f.x), f.y),
-        mix(mix(e, f2, f.x), mix(g, h, f.x), f.y),
-        f.z
-    );
-}
-
-// FBM - Fractional Brownian Motion (3 octaves for web performance)
-float fbm(vec3 p) {
-    float value = 0.0;
-    float amplitude = 0.5;
-    float frequency = 1.0;
-    
-    for (int i = 0; i < 3; i++) {
-        value += amplitude * noise3d(p * frequency);
-        amplitude *= 0.5;
-        frequency *= 2.0;
-    }
-    
-    return value;
-}
-
-// =====================================================
-// Vertex Shader
-// =====================================================
 void vertex() {
-    if (face_camera) {
-        // Billboard effect - rotate to face camera
-        MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
-            vec4(normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz)), 0.0),
-            vec4(0.0, 1.0, 0.0, 0.0),
-            vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0),
-            MODEL_MATRIX[3]
-        );
-        MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
-            vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
-            vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
-            vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
-            vec4(0.0, 0.0, 0.0, 1.0)
-        );
-    }
+	vec3 pos = VERTEX;
+	
+	// Cylinder height is 1.0, centered at origin: bottom at -0.5, top at 0.5
+	float normalized_y = pos.y + 0.5; // 0 at bottom, 1 at top
+	
+	// Apply spherical deformation to the bottom portion
+	if (normalized_y < sphere_blend_height) {
+		// Get angle in XZ plane
+		float angle_xz = atan(pos.z, pos.x);
+		
+		// Calculate blend factor: 0 at bottom, 1 at transition point
+		float blend_factor = normalized_y / sphere_blend_height;
+		
+		// Map height to spherical angle (phi)
+		// phi = 0 at north pole (top of sphere), PI/2 at equator
+		// We want: blend_factor 0 -> phi ~PI/2 (equator), blend_factor 1 -> phi 0 (pole)
+		float phi = (1.0 - blend_factor) * (3.14159265 / 2.0);
+		
+		// Spherical coordinates for bottom hemisphere
+		// Center sphere so its top (equator) is at y = -0.5 + sphere_radius
+		float sphere_center_y = -0.5 + sphere_radius;
+		
+		vec3 sphere_pos;
+		sphere_pos.x = sphere_radius * sin(phi) * cos(angle_xz);
+		sphere_pos.y = sphere_center_y - sphere_radius * cos(phi);
+		sphere_pos.z = sphere_radius * sin(phi) * sin(angle_xz);
+		
+		// Smooth transition from sphere to cylinder
+		float smooth_blend = smoothstep(0.7, 1.0, blend_factor);
+		
+		pos = mix(sphere_pos, pos, smooth_blend);
+	}
+	
+	VERTEX = pos;
 }
 
-// =====================================================
-// Fragment Shader - Fire Generation
-// =====================================================
-void fragment() {
-    float t = TIME * fire_speed;
-    
-    // Get UV coordinates (using UV or local position)
-    vec2 uv = UV;
-    vec3 local_pos = (inverse(MODEL_MATRIX) * vec4(VERTEX, 1.0)).xyz;
-    
-    // Center UVs around 0.5
-    vec2 centered_uv = uv - 0.5;
-    
-    // Vertical gradient (0 at bottom, 1 at top)
-    float height_gradient = uv.y;
-    
-    // Apply flame height stretch
-    float stretched_height = pow(height_gradient, 1.0 / flame_height);
-    
-    // ---------- FLAME MOTION ----------
-    
-    // Rising motion - flames move upward
-    float rise = t * 0.8;
-    
-    // Horizontal drift/sway
-    float drift = sin(t * 1.5 + local_pos.y * 3.0) * horizontal_drift * 0.2;
-    
-    // 3D sampling position for noise
-    vec3 sample_pos = vec3(
-        (centered_uv.x + drift) * fire_scale,
-        (height_gradient * flame_height - rise) * fire_scale,
-        local_pos.z * fire_scale + t * 0.3
-    );
-    
-    // ---------- TURBULENCE LAYERS ----------
-    
-    // Primary turbulence - defines flame shape
-    float turb1 = fbm(sample_pos * 2.0 + vec3(0.0, -rise * 2.0, 0.0));
-    
-    // Secondary turbulence - adds detail
-    float turb2 = fbm(sample_pos * 4.0 + vec3(drift * 2.0, -rise * 3.0, t));
-    
-    // Combine turbulence
-    float turbulence_combined = mix(turb1, turb2, 0.4) * turbulence;
-    
-    // ---------- FLAME SHAPE ----------
-    
-    // Radial distance from center (creates round flame base)
-    float radial = length(centered_uv) * 2.0;
-    
-    // Shape mask - narrower at top, wider at bottom
-    float shape = smoothstep(1.0, 0.0, radial * (1.0 + stretched_height * 1.5));
-    
-    // Apply turbulence to shape
-    shape += (turbulence_combined - 0.5) * 0.6;
-    
-    // Vertical falloff - flames fade toward top
-    float vertical_fade = smoothstep(1.0, 0.3, stretched_height * tip_fadeout);
-    
-    // Core density - brighter center
-    float core = smoothstep(0.5, 0.0, radial) * core_density;
-    
-    // Combine shape elements
-    float flame_mask = shape * vertical_fade;
-    flame_mask = clamp(flame_mask + core, 0.0, 1.0);
-    
-    // Soft edges
-    flame_mask = smoothstep(edge_softness * 0.3, 1.0 - edge_softness * 0.2, flame_mask);
-    
-    // ---------- FLICKERING ----------
-    
-    // Pulsing variation
-    float flicker = 1.0 + sin(t * flicker_speed) * flicker_amount * 0.5;
-    flicker += sin(t * flicker_speed * 1.7 + 1.2) * flicker_amount * 0.3;
-    flame_mask *= flicker;
-    
-    // ---------- COLOR TEMPERATURE ----------
-    
-    // Temperature gradient based on height and turbulence
-    float temp = stretched_height + turbulence_combined * 0.3;
-    
-    // Add color variation noise
-    float color_noise = fbm(sample_pos * 3.0 + vec3(t * 0.5, 0.0, 0.0));
-    temp += (color_noise - 0.5) * color_variation;
-    
-    // Map temperature to color
-    vec3 fire_color;
-    if (temp < 0.3) {
-        // Dark ember to red
-        fire_color = mix(ember_color, fire_color_base, temp / 0.3);
-    } else if (temp < 0.7) {
-        // Red to orange
-        fire_color = mix(fire_color_base, fire_color_mid, (temp - 0.3) / 0.4);
-    } else {
-        // Orange to bright yellow-white
-        fire_color = mix(fire_color_mid, fire_color_hot, (temp - 0.7) / 0.3);
-    }
-    
-    // Apply intensity
-    flame_mask *= fire_intensity;
-    
-    // ---------- OUTPUT ----------
-    
-    // Emissive fire color
-    EMISSION = fire_color * flame_mask * emissive_power;
-    
-    // Alpha for blending
-    ALPHA = clamp(flame_mask, 0.0, 1.0);
-    
-    // Set albedo (though in blend_add mode, emission dominates)
-    ALBEDO = fire_color;
+// Procedural noise (since we're not using a texture)
+float random( vec2 pos )
+{ 
+	return fract(sin(dot(pos, vec2(12.9898,78.233))) * 43758.5453);
+}
+
+float value_noise( vec2 pos )
+{
+	vec2 p = floor( pos );
+	vec2 f = fract( pos );
+
+	float v00 = random( p + vec2( 0.0, 0.0 ) );
+	float v10 = random( p + vec2( 1.0, 0.0 ) );
+	float v01 = random( p + vec2( 0.0, 1.0 ) );
+	float v11 = random( p + vec2( 1.0, 1.0 ) );
+
+	vec2 u = f * f * ( 3.0 - 2.0 * f );
+
+	return mix( mix( v00, v10, u.x ), mix( v01, v11, u.x ), u.y );
+}
+
+float procedural_noise_tex( vec2 shifted_uv )
+{
+	return (
+		value_noise( shifted_uv * 0.984864 ) * 20.0
+	+	value_noise( shifted_uv * 2.543 ) * 10.0
+	+	value_noise( shifted_uv * 9.543543 ) * 8.0
+	+	value_noise( shifted_uv * 21.65436 ) * 5.0
+	+	value_noise( shifted_uv * 42.0 ) * 2.0
+	+	value_noise( shifted_uv * 87.135148 ) * 2.0
+	+	value_noise( shifted_uv * 340.66534654 )
+	) / 48.0;
+}
+
+void fragment( )
+{
+	// Use 3D model-space coordinates for seamless wrapping
+	vec3 model_pos = (inverse(MODEL_MATRIX) * vec4(VERTEX, 1.0)).xyz;
+	
+	// Sample noise from XZ plane (horizontal) for seamless cylinder wrapping
+	// Scale the noise sampling to compress vertical appearance (similar to FireWall's UV.x * 5.0)
+	// We scale based on the Y height to adjust aspect ratio without affecting circumferential seam
+	vec2 noise_scale = vec2(1.0, 1.0 / 5.0);  // Compress Z to make features less vertically stretched. optional based on application
+	vec2 shifted_uv = model_pos.xz * noise_scale + TIME * fire_speed;
+	
+	float fire_noise = procedural_noise_tex( shifted_uv );
+	float noise = UV.y * ( ( ( UV.y + fire_aperture ) * fire_noise - fire_aperture ) * 75.0 );
+	
+	// Separate alpha (smooth) from color temperature (bandable)
+	float alpha_value = clamp( noise, 0.0, 1.0 );
+	
+	// Color temperature with optional banding
+	float color_temp = noise * 0.05;
+	color_temp = clamp( color_temp, 0.0, 1.0 );
+	
+	// Apply color banding if requested
+	if ( color_bands > 1 ) {
+		float band_size = 1.0 / float( color_bands );
+		color_temp = floor( color_temp / band_size ) * band_size + band_size * 0.5;
+	}
+	
+	vec4 fire_color = mix( tip_color, root_color, color_temp );
+
+	ALPHA = alpha_value * fire_alpha;
+	ALBEDO = fire_color.rgb;
 }

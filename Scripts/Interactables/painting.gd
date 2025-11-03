@@ -1,0 +1,174 @@
+extends StaticBody3D
+
+# Painting interactable that will open the door
+
+@export var painting_frame_texture: Texture2D
+@export var painting_frame_heightmap: Texture2D
+@export var painting_artwork: Texture2D
+@export var plaque_number_texture: Texture2D
+@export var plaque_number_blur_texture: Texture2D
+
+var painting_view_ui: CanvasLayer
+var anim_lock: bool = false
+var open: bool = false
+var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
+
+const PAINTING_VIEW_SCENE = preload("res://UI/PaintingViewUI.tscn")
+# Placeholder for door
+
+func _ready():
+	add_to_group("Interactable")
+	
+	# Apply exported textures to sprite nodes
+	_apply_textures()
+	
+	# Start with blur version visible
+	_show_blur_numbers()
+
+func _apply_textures():
+	# Apply artwork texture
+	if painting_artwork and has_node("VisualPivot/ArtworkSprite"):
+		$VisualPivot/ArtworkSprite.texture = painting_artwork
+		# Duplicate the material to avoid affecting other instances
+		if $VisualPivot/ArtworkSprite.material_override:
+			var material = $VisualPivot/ArtworkSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = painting_artwork
+				$VisualPivot/ArtworkSprite.material_override = material
+	
+	# Apply frame texture and heightmap
+	if has_node("VisualPivot/FrameSprite"):
+		var material_modified = false
+		var frame_material = null
+		
+		if $VisualPivot/FrameSprite.material_override:
+			# Duplicate the material to avoid affecting other instances
+			frame_material = $VisualPivot/FrameSprite.material_override.duplicate() as StandardMaterial3D
+			
+			if painting_frame_texture and frame_material:
+				frame_material.albedo_texture = painting_frame_texture
+				material_modified = true
+			
+			if painting_frame_heightmap and frame_material:
+				frame_material.heightmap_texture = painting_frame_heightmap
+				material_modified = true
+			
+			if material_modified:
+				$VisualPivot/FrameSprite.material_override = frame_material
+		
+		if painting_frame_texture:
+			$VisualPivot/FrameSprite.texture = painting_frame_texture
+	
+	# Apply plaque number textures
+	if plaque_number_texture and has_node("VisualPivot/PlaqueNumbersSprite"):
+		$VisualPivot/PlaqueNumbersSprite.texture = plaque_number_texture
+		if $VisualPivot/PlaqueNumbersSprite.material_override:
+			var material = $VisualPivot/PlaqueNumbersSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = plaque_number_texture
+				$VisualPivot/PlaqueNumbersSprite.material_override = material
+	
+	if plaque_number_blur_texture and has_node("VisualPivot/PlaqueNumbersSpriteBlur"):
+		$VisualPivot/PlaqueNumbersSpriteBlur.texture = plaque_number_blur_texture
+		if $VisualPivot/PlaqueNumbersSpriteBlur.material_override:
+			var material = $VisualPivot/PlaqueNumbersSpriteBlur.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = plaque_number_blur_texture
+				$VisualPivot/PlaqueNumbersSpriteBlur.material_override = material
+
+func can_interact() -> bool:
+	return true
+
+func on_interact():
+	show_painting_view()
+	# Again, TBD
+
+func show_painting_view():
+	# Switch to clean numbers for close-up view
+	_show_clean_numbers()
+	
+	# Enhance plaque appearance for close-up
+	_enhance_plaque()
+	
+	# Disable player movement
+	if Player.instance:
+		Player.instance.set_movement_enabled(false)
+	
+	# Instantiate painting view UI
+	painting_view_ui = PAINTING_VIEW_SCENE.instantiate()
+	get_tree().root.add_child(painting_view_ui)
+	
+	# Show the painting view with the 3D painting node
+	painting_view_ui.show_painting(self)
+	
+	# Connect signal
+	painting_view_ui.view_closed.connect(_on_view_closed)
+
+func _on_view_closed():
+	# Switch back to blur numbers for distant view
+	_show_blur_numbers()
+	
+	# Restore plaque to normal appearance
+	_restore_plaque()
+	
+	# Re-enable player movement
+	if Player.instance:
+		Player.instance.set_movement_enabled(true)
+	
+	# Clean up painting view UI
+	if painting_view_ui:
+		painting_view_ui.queue_free()
+		painting_view_ui = null
+
+func _show_clean_numbers():
+	if has_node("VisualPivot/PlaqueNumbersSprite"):
+		$VisualPivot/PlaqueNumbersSprite.visible = true
+	if has_node("VisualPivot/PlaqueNumbersSpriteBlur"):
+		$VisualPivot/PlaqueNumbersSpriteBlur.visible = false
+
+func _show_blur_numbers():
+	if has_node("VisualPivot/PlaqueNumbersSprite"):
+		$VisualPivot/PlaqueNumbersSprite.visible = false
+	if has_node("VisualPivot/PlaqueNumbersSpriteBlur"):
+		$VisualPivot/PlaqueNumbersSpriteBlur.visible = true
+
+func _enhance_plaque():
+	if has_node("VisualPivot/PlaqueSprite"):
+		var material = $VisualPivot/PlaqueSprite.material_override as StandardMaterial3D
+		if material:
+			# Increase emission for subtle glow
+			material.emission_energy_multiplier = 0.12
+			# Increase rim lighting for edge highlight
+			material.rim = 0.3
+			# Increase metallic for more shine
+			material.metallic = 0.5
+
+func _restore_plaque():
+	if has_node("VisualPivot/PlaqueSprite"):
+		var material = $VisualPivot/PlaqueSprite.material_override as StandardMaterial3D
+		if material:
+			# Restore original values
+			material.emission_energy_multiplier = 0.07
+			material.rim = 0.2
+
+func swing_painting():
+	if anim_lock: return
+	anim_lock = true
+	
+	# Get the visual pivot node
+	var pivot = get_node_or_null("VisualPivot")
+	if not pivot:
+		anim_lock = false
+		return
+	
+	if not open:
+		if has_node("OpenSFX"):
+			$OpenSFX.play()
+		await get_tree().create_tween().tween_property(pivot, "rotation_degrees", Vector3(0, dir * 100, 0), 0.25).finished
+		open = true
+	else:
+		if has_node("CloseSFX"):
+			$CloseSFX.play()
+		await get_tree().create_tween().tween_property(pivot, "rotation_degrees", Vector3(0, 0, 0), 0.25).finished
+		open = false
+	anim_lock = false
