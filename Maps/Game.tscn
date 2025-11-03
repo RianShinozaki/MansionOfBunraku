@@ -216,7 +216,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19077, 0, -0.557155)
 stream = ExtResource("14_r1twq")
 autoplay = true
 
-[node name="Shamisen" parent="Environment/Objects" instance=ExtResource("18_6uyic")]
+[node name="Shamisen" parent="Environment/Objects" groups=["pickupable"] instance=ExtResource("18_6uyic")]
+visible = true
 
 [node name="Table" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82718, -0.217737, -0.608844)

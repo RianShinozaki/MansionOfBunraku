@@ -24,6 +24,7 @@ var air_velocity: float
 var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
+
 var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
 
@@ -81,13 +82,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		# Play Shamisen string audio
 		if toggle_shamisen:
 			if event.pressed and event.keycode == KEY_1:
-				$"string-one".play()
 				$Camera3D/Shamisen.append_note(1)
 			if event.pressed and event.keycode == KEY_2:
-				$"string-two".play()
 				$Camera3D/Shamisen.append_note(2)
 			if event.pressed and event.keycode == KEY_3:
-				$"string-three".play()
 				$Camera3D/Shamisen.append_note(3)
 			
 	if event is InputEventMouseButton:

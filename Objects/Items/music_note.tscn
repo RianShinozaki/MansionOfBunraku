@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckn84lald5tts"]
+
+[ext_resource type="Texture2D" uid="uid://bqy5i0t7b28js" path="res://Art Assets/note-one.png" id="1_k2vg5"]
+[ext_resource type="Script" uid="uid://cxn60c42ibcq2" path="res://Scripts/UI/music_note.gd" id="1_tfkay"]
+[ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="2_fplgf"]
+[ext_resource type="AudioStream" uid="uid://den8c5s3qior8" path="res://Audio/string-two.mp3" id="3_k2vg5"]
+[ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="4_yonok"]
+
+[node name="MusicNote" type="Sprite3D"]
+texture = ExtResource("1_k2vg5")
+script = ExtResource("1_tfkay")
+
+[node name="string_one" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fplgf")
+
+[node name="string_two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k2vg5")
+
+[node name="string_three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yonok")
