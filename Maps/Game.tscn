@@ -318,14 +318,14 @@ freeze = true
 script = null
 
 [node name="CombinationLock2" parent="Environment/ShamisenLocked" instance=ExtResource("27_6uyic")]
-transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.371139e-08, -1.0000001, 0, -0.24107781, -0.2685024, 1.5648665)
+transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.371139e-08, -1.0000001, 0, -0.24107781, -0.13284063, 1.5648665)
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.838989, -0.09, 1.6080687)
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67718714, -0.2, -1.5349779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67718714, -0.2, -3.9626334)
 script = ExtResource("21_kgyru")
 bunraku = NodePath("Yono")
 
