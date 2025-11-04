@@ -1,0 +1,1417 @@
+[gd_scene load_steps=50 format=3 uid="uid://lqfrsxke2p01"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="1_201l7"]
+[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vkhgu"]
+[ext_resource type="Script" uid="uid://t6iglq5j645c" path="res://Scripts/Environment/directional_light_flicker.gd" id="3_34my2"]
+[ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="4_1fw7t"]
+[ext_resource type="Texture2D" uid="uid://bxnxrwkai4dnq" path="res://Art Assets/Yono/Yono_cutscene_e.png" id="6_1fw7t"]
+[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="6_b6gsb"]
+[ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="7_fyv15"]
+[ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="8_34my2"]
+[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="9_fyv15"]
+[ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="10_34my2"]
+
+[sub_resource type="Environment" id="Environment_34my2"]
+background_energy_multiplier = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 5.43
+glow_enabled = true
+glow_intensity = 1.15
+glow_bloom = 0.3
+glow_blend_mode = 0
+fog_enabled = true
+fog_light_color = Color(0.36078432, 0.14901961, 0.09019608, 1)
+fog_light_energy = 1.77
+fog_density = 0.0148
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87s5l"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.1490000070775
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="QuadMesh" id="QuadMesh_8ri6k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfgyw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(0.98234564, 0.49787927, 0.5989537, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.1090000051775
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ri6k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.7112767, 0.715662, 1)
+shader_parameter/tip_color = Color(1, 0.74716383, 0.79778457, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.038000001805
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34my2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.4510000214225
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krhjt"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(1, 1, 1, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.0
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6gsb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(0.982312, 0.35926306, 0.28126425, 1)
+shader_parameter/fire_alpha = 0.0730000034675
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.3870000183825
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyv15"]
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 0.1850000087875
+shader_parameter/fire_speed = Vector2(0, -0.305)
+shader_parameter/fire_aperture = 0.30800001463
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_frjcx"]
+bottom_radius = 1.819
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b6gsb"]
+top_radius = 0.0
+bottom_radius = 3.783
+height = 0.001
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frjcx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_1fw7t")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(1, 1, 1, 1)
+shader_parameter/fire_alpha = 0.73600003496
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.0
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b6gsb"]
+size = Vector2(200, 100)
+
+[sub_resource type="Animation" id="Animation_1fw7t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.355, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.57, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera1:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/fire_aperture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Camera2:position:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.072, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera2:position:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.485, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Camera2:position:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Camera2:current")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("FireEffects/FireWall6:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("FireEffects/FireWall5:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Camera1:rotation:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Camera1:rotation:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.5707964, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Camera1:rotation:z")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("FireEffects/FireWall1:position:x")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.003, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("FireEffects/FireWall1:position:y")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FireEffects/FireWall1:position:z")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Yoroi:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Yoroi:position:x")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.2506263, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Yoroi:position:y")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.35031846, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Yoroi:position:z")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.07600242, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Camera2:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.12217306, -1.6231562, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("FireEffects/FireWall8:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.6685755, 0.40000004, 0.079533815)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Camera2/FireWall9:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/fire_aperture")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/root_color")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/tip_color")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/fire_alpha")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.73600003496]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("FireEffects/WHITEFIRE2:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Camera2/FadeOut:modulate")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("FireEffects/FireWall9:visible")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("FireEffects/Firelight3:light_energy")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rd1te"]
+resource_name = "cutscene"
+length = 60.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-2.355, -0.25, 0, 0.3, 0.23830605, -1.648, -1.0333333, -0.020608068, 0, 0, -1.648, -1.0333333, -0.020608068, 0, 0, 0.262, -0.17184329, -0.22500001, 0, 0, -0.023, -0.6523657, 0.0475, 0, 0),
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.57, -0.25, 0, 0.25, 0, 0.57, -0.33333334, 0, 0, 0, 0.57, -0.33333334, 0, 0, 0, 0.57, -0.17184329, 0, 0, 0, 0.57, -0.6523657, 0, 0, 0),
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera1:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.33333334, 0, 0, 0, 0, -0.33333334, 0, 0, 0, 0, -0.17184329, 0, 0, 0, 0, -0.6523657, 0, 0, 0),
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/fire_aperture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.4592854, -1.1333334, -0.005971402, 0, 0, 1.598, -0.86194, 0, 0.55354965, 0, 2.364, -1.1333334, -0.005971402, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.9, 8.07164, 11.392938, 12.933333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.92941177, -0.48333335, 0.011764705, 0, 0, 0.92941177, -0.48333335, 0.011764705, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.105882354, -0.48333335, 0.1490196, 0, 0, 0.105882354, -0.48333335, 0.1490196, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.011764706, -0.48333335, 0.16470589, 0, 0, 0.011764706, -0.48333335, 0.16470589, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/tip_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.48333335, 0, 0, 0, 1, -0.48333335, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.22745098, -0.485, 0.12875818, 0, 0, 0.22745098, -0.485, 0.12875818, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FireEffects/FireWall8:material_override:shader_parameter/root_color:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Camera2:position:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.132, 0, 0, 0.0016224384, -0.010000001, 0.132, 0, 0, 0.0016224384, -0.010000001, 0.132, 0, 0, 0.0016224384, -0.010000001, -0.208, -0.054640293, 0.056666665, 0, 0, 0.132, -0.049176216, -0.05666667, 0, 0, 0.132, -0.32881054, 0, 0, 0),
+"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera2:position:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.585, 0, 0, 0.0016224384, -0.016666662, 0.585, 0, 0, 0.0016224384, -0.016666662, 0.585, 0, 0, 0.0016224384, -0.016666662, 1.52, -0.054640293, -0.15583333, 0, 0, 1.22, -0.049176216, 0.049999993, 0, 0, 2.375, -0.32881054, -0.1925, 0, 0),
+"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Camera2:position:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.095, 0, 0, 0.0016224384, 0.009166668, 0.095, 0, 0, 0.0016224384, 0.009166668, 0.095, 0, 0, 0.0016224384, 0.009166668, 12, -0.054640293, -1.9841667, 0, 0, 12.23, -0.049176216, -0.038333256, 0, 0, 12.23, -0.32881054, 0, 0, 0),
+"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Camera2:current")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 5, 8.133333, 12.813098),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("FireEffects/FireWall6:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 4.9998875),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("FireEffects/FireWall5:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 4.9998875),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Camera1:rotation:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 1.0518239, 0, 0, 0, 0, 1.0518239, 0, 0, 0, 0, 1.0518239, 0, 0, -0.16793784, 0, 0, 0),
+"times": PackedFloat32Array(0, 3.6622055, 6.092628, 8.066667)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Camera1:rotation:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(-1.5707964, 0, 0, 1.0518239, 0, -1.5707964, 0, 0, 1.0518239, 0, -1.5707964, 0, 0, 1.0518239, 0, -4.712389, -0.16793784, 0.5235988, 0, 0),
+"times": PackedFloat32Array(0, 3.6622055, 6.092628, 8.066667)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Camera1:rotation:z")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 1.0518239, 0, 0, 0, 0, 1.0518239, 0, 0, 0, 0, 1.0518239, 0, 0, -0.16793784, 0, 0, 0),
+"times": PackedFloat32Array(0, 3.6622055, 6.092628, 8.066667)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("FireEffects/FireWall1:position:x")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-1.003, -0.25, 0, 0.25, 0, -1.003, -0.25, 0, 0.25, 0, -0.293, -0.0015312831, -0.11833334, 0, 0),
+"times": PackedFloat32Array(0, 8.1241455, 8.133333)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("FireEffects/FireWall1:position:y")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0, 0.08, -0.25, 0, 0.25, 0, 0.08, -0.0015312831, 0, 0, 0),
+"times": PackedFloat32Array(0, 8.1241455, 8.133333)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FireEffects/FireWall1:position:z")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0, 0.08, -0.25, 0, 0.25, 0, 0.08, -0.0015312831, 0, 0, 0),
+"times": PackedFloat32Array(0, 8.1241455, 8.133333)
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Yoroi:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 7.848391),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Yoroi:position:x")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.321, -0.0002583663, -0.21243772, 0, 0),
+"times": PackedFloat32Array(8.066667)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Yoroi:position:y")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.35, -0.0002583663, 5.3077943e-05, 0, 0),
+"times": PackedFloat32Array(8.066667)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Yoroi:position:z")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0002583663, 0.012667071, 0, 0),
+"times": PackedFloat32Array(8.066667)
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Camera2:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 12.518041, 12.813098, 12.8146515, 20.97651),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.12217306, -1.6231562, 0), Vector3(-0.12217306, -1.6231562, 0), Vector3(-1.1938052, -1.6231562, 0), Vector3(-1.5271631, -1.6231562, 0), Vector3(-1.5271631, 1.5550884, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("FireEffects/FireWall8:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 7.5929375, 7.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.6685755, 0.40000004, 0.079533815), Vector3(-1.6685755, 0.40000004, 0.079533815), Vector3(-0.324, 0.4, 0.08)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Camera2/FireWall9:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 12.762178),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/fire_aperture")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(1.4, 12.81923, 15.1479845),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.3930001136675, 0.0, 0.50000002375]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/root_color")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(12.81923, 15.31914),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.5137255, 0.11372549, 1)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/tip_color")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(12.81923, 15.31914),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.05490196, 0.18431373, 1)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/fire_alpha")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(12.733653, 16.201937),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.73600003496, 0.2750000130625]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("FireEffects/WHITEFIRE2:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Camera2/FadeOut:modulate")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(18.41465, 19.647984, 20.847984),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.43862727, 0, 0.155258, 0.49411765), Color(0, 0, 0, 1)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("FireEffects/FireWall9:visible")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 7.650727),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("FireEffects/Firelight3:light_energy")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(14.5, 19.833334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0vsy"]
+_data = {
+&"RESET": SubResource("Animation_1fw7t"),
+&"cutscene": SubResource("Animation_rd1te")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f0vsy"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b6gsb"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_34my2"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_frjcx"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87s5l"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_f0vsy")
+emission_energy_multiplier = 0.07
+emission_texture = ExtResource("6_1fw7t")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_34my2")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_frjcx")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_b6gsb")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfgyw"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fyv15"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_87s5l"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ri6k"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_krhjt"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spn38"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_fyv15")
+emission_enabled = true
+emission_energy_multiplier = 0.02
+emission_texture = ExtResource("6_1fw7t")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_8ri6k")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_krhjt")
+heightmap_enabled = true
+heightmap_scale = 0.752
+heightmap_texture = SubResource("CompressedTexture2D_87s5l")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l6s06"]
+load_path = "res://.godot/imported/Yoroi.png-feaa9076c582ea67c630aae1c240de31.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwboj"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u044k"]
+load_path = "res://.godot/imported/Yoroi-e.png-d9cbe8922b3fdcdbe89d5b1ed02d0d3f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e803v"]
+load_path = "res://.godot/imported/Yoroi-h.png-98a80b474e89e062142ae16668ee3515.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qoyox"]
+load_path = "res://.godot/imported/Yoroi-h_n.png-373d25e62a28d965474051209ad735c3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt5x3"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktjr1"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_l6s06")
+emission_energy_multiplier = 1.6
+emission_texture = SubResource("CompressedTexture2D_u044k")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_qoyox")
+bent_normal_texture = SubResource("CompressedTexture2D_xwboj")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_yt5x3")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_e803v")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_spn38"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_efst0"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ftn"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5e1o8"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwboj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_spn38")
+emission_enabled = true
+emission_energy_multiplier = 1.46
+emission_texture = ExtResource("10_34my2")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_q6ftn")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_5e1o8")
+heightmap_enabled = true
+heightmap_scale = 0.752
+heightmap_texture = SubResource("CompressedTexture2D_efst0")
+texture_filter = 2
+billboard_keep_scale = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="House" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102469444, 2.3841858e-07, -0.574759)
+mesh = ExtResource("1_201l7")
+surface_material_override/0 = ExtResource("2_vkhgu")
+
+[node name="House2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09088302, 0, 11.676304)
+mesh = ExtResource("1_201l7")
+surface_material_override/0 = ExtResource("2_vkhgu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_34my2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.99422, 4.33426, 0)
+light_color = Color(0.7488542, 0.23935148, 0.13185036, 1)
+light_energy = 0.212
+script = ExtResource("3_34my2")
+energy_median = 0.212
+energy_range = 0.1
+energy_delta_range = 0.01
+
+[node name="FireEffects" type="Node3D" parent="." groups=["FireFX"]]
+
+[node name="FireWall1" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(2.5702295e-07, 7.0313255e-15, 0.9999998, 5.140459e-07, -1.8400007, 0, 5.8799996, 1.6085798e-07, -4.371138e-08, -1.003, 0.08, 0.08)
+material_override = SubResource("ShaderMaterial_87s5l")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall4" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-2.5702295e-07, -0.10271171, 0.99844056, 0, -1.8371316, -0.05582155, 5.8799996, -4.4896713e-09, 4.3643222e-08, 2.54, 0.408, 0.08)
+material_override = SubResource("ShaderMaterial_87s5l")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall9" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-4.7262253e-07, -0.18979332, 0.99844074, -5.132444e-07, -3.3946986, -0.055821564, 5.88, -3.1156645e-07, 7.538018e-08, -1.485, 0.718, 0.08)
+visible = false
+material_override = SubResource("ShaderMaterial_jfgyw")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="WHITEFIRE2" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-2.5702295e-07, -0.10271171, 0.99844056, 0, -1.8371316, -0.05582155, 5.8799996, -4.4896713e-09, 4.3643222e-08, 0.54592645, 0.408, 0.08)
+material_override = SubResource("ShaderMaterial_8ri6k")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall2" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-6.9387403, -1.6085797e-07, 0, 6.06604e-07, -1.8400007, 0, -3.3539266e-14, -1.2705494e-21, 0.9999998, 0.04582715, 0.40000004, 2.7901971)
+material_override = SubResource("ShaderMaterial_87s5l")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall3" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-6.9387403, -1.6085797e-07, 0, 6.06604e-07, -1.8400007, 0, -3.3539266e-14, -1.2705494e-21, 0.9999998, 0.04582715, 0.40000004, -2.7358725)
+material_override = SubResource("ShaderMaterial_87s5l")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall7" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(2.5702295e-07, 7.0313255e-15, 0.9999998, 5.140459e-07, -1.8400007, 0, 5.8799996, 1.6085798e-07, -4.371138e-08, 0.26756322, 0.40000004, 0.079533815)
+material_override = SubResource("ShaderMaterial_34my2")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall8" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(2.5702295e-07, 7.0313255e-15, 0.9999998, 5.140459e-07, -1.8400007, 0, 5.8799996, 1.6085798e-07, -4.371138e-08, -1.6685755, 0.40000004, 0.079533815)
+material_override = SubResource("ShaderMaterial_krhjt")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="Firelight2" type="SpotLight3D" parent="FireEffects"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0.285, -0.015)
+visible = false
+light_color = Color(0.92706263, 0.3577854, 0, 1)
+light_energy = 16.0
+shadow_bias = 0.575
+spot_angle = 90.99
+
+[node name="Firelight1" type="DirectionalLight3D" parent="FireEffects"]
+transform = Transform3D(-1, -3.821371e-15, -8.742278e-08, -8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, -0.4, 3.1, 1.3000001)
+light_color = Color(0.94477975, 0.5544401, 0, 1)
+light_energy = 1.528
+light_cull_mask = 4294967289
+
+[node name="FireWall6" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-2.5702295e-07, -0.10271171, 0.99844056, 0, -1.8371316, -0.05582155, 5.8799996, -4.4896713e-09, 4.3643222e-08, 0.52, 0.408, 0.08)
+material_override = SubResource("ShaderMaterial_87s5l")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FireWall5" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(-2.5702295e-07, -0.10271171, 0.99844056, 0, -1.8371316, -0.05582155, 5.8799996, -4.4896713e-09, 4.3643222e-08, 0.275, 0.408, 0.08)
+material_override = SubResource("ShaderMaterial_b6gsb")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
+stream = ExtResource("6_b6gsb")
+autoplay = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.102510214, 0.39870006, 12.314404)
+material_override = SubResource("ShaderMaterial_fyv15")
+mesh = SubResource("CylinderMesh_frjcx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.103, 0.019, 12.314)
+material_override = SubResource("ShaderMaterial_fyv15")
+mesh = SubResource("CylinderMesh_b6gsb")
+
+[node name="Firelight3" type="DirectionalLight3D" parent="FireEffects"]
+transform = Transform3D(-1, -3.821371e-15, -8.742278e-08, -8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, -0.4, 3.1, 1.3000001)
+layers = 4
+light_color = Color(0.94477975, 0.5544401, 0, 1)
+light_cull_mask = 4294967293
+
+[node name="Camera1" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.355, 0.57, 0)
+current = true
+
+[node name="Camera2" type="Camera3D" parent="."]
+transform = Transform3D(-0.05233594, 0.121702336, -0.9911857, 0, 0.99254614, 0.12186934, 0.9986295, 0.0063781473, -0.051945828, 0.072, 0.485, 0.15)
+
+[node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
+transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)
+visible = false
+material_override = SubResource("ShaderMaterial_frjcx")
+mesh = SubResource("QuadMesh_8ri6k")
+
+[node name="FadeOut" type="Sprite3D" parent="Camera2"]
+transform = Transform3D(1, -9.313226e-10, 0, 0, 1, 1.6298145e-09, -7.450581e-09, 1.6618287e-08, 1, -0.004878469, 0.011344433, -0.09239265)
+modulate = Color(0, 0, 0, 0)
+texture = SubResource("PlaceholderTexture2D_b6gsb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f0vsy")
+}
+autoplay = "cutscene"
+
+[node name="Yono" type="Sprite3D" parent="."]
+transform = Transform3D(-0.11150362, 0, -0.99376404, 0, 1, 0, 0.99376404, 0, -0.11150362, 0.349, 0.365, 0)
+layers = 2
+material_override = SubResource("StandardMaterial3D_87s5l")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_jfgyw")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Yono"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 2
+material_override = SubResource("StandardMaterial3D_spn38")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("7_fyv15")
+hframes = 4
+
+[node name="Yoroi" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2506263, 0.35031846, 0.07600242)
+visible = false
+layers = 2
+material_override = ExtResource("8_34my2")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_fyv15")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Yoroi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 2
+material_override = SubResource("StandardMaterial3D_ktjr1")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_fyv15")
+hframes = 4
+
+[node name="Yono2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, 1, -1, 4.371139e-08, -4.371139e-08, 0.32346395, 0.034772754, 12.5394945)
+layers = 4
+material_override = SubResource("StandardMaterial3D_87s5l")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_jfgyw")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Yono2"]
+transform = Transform3D(0.9563047, 0.29237166, 0, -0.29237166, 0.9563047, 0, 0, 0, 1, 0, 0, 0.009999998)
+layers = 4
+material_override = SubResource("StandardMaterial3D_xwboj")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("7_fyv15")
+hframes = 4
+
+[node name="Yoroi2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.05463791, 0.041239828, 12.022207)
+layers = 4
+material_override = ExtResource("8_34my2")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_fyv15")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Yoroi2"]
+transform = Transform3D(0.93605953, -0.35184166, 0, 0.35184166, 0.93605953, 0, 0, 0, 1, 0, 0, -0.0058698654)
+layers = 4
+material_override = ExtResource("8_34my2")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_fyv15")
+hframes = 4
