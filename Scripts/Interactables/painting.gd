@@ -14,6 +14,8 @@ var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
 
 const PAINTING_VIEW_SCENE = preload("res://Objects/Interactables/PaintingViewUI.tscn")
+
+signal door_opened
 # Placeholder for door
 
 func _ready():
@@ -165,6 +167,7 @@ func dissolve_painting():
 	var collision = get_node_or_null("CollisionShape3D")
 	
 	if not open:
+		emit_signal("door_opened")
 		if has_node("OpenSFX"):
 			$OpenSFX.play()
 		

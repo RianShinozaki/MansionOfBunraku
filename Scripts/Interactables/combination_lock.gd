@@ -24,6 +24,8 @@ func _ready():
 		click_audio.stream = click_sound
 	if unlock_sound and unlock_audio:
 		unlock_audio.stream = unlock_sound
+	
+	$"../Shamisen".remove_from_group("Item")
 
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -92,6 +94,9 @@ func unlock() -> void:
 	
 	# Emit signal for other systems
 	emit_signal("unlocked")
+	
+	#CHANGE THIS LATER
+	$"../Shamisen".add_to_group("Item")
 
 func _on_unlock_animation_finished() -> void:
 	# Wait 2 seconds after animation completes

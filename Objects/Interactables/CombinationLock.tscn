@@ -449,6 +449,7 @@ surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel01Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4369884e-10, 0.09557518, -0.00012207031)
+collision_layer = 21
 collision_layer = 53
 script = ExtResource("3_0kwpj")
 

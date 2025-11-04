@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://c23c0cvoo1hvn"]
 
-[ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/start.gd" id="1_s0e1h"]
-[ext_resource type="Shader" uid="uid://bq1cw3n036jwd" path="res://HouseOfBunraku.gdshader" id="2_8r0lp"]
+[ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_s0e1h"]
+[ext_resource type="Shader" path="res://Shaders/HouseOfBunraku.gdshader" id="2_8r0lp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ko4ly"]
 shader = ExtResource("2_8r0lp")
 shader_parameter/wood_dark = Color(0.05, 0, 0, 1)
 shader_parameter/wood_light = Color(0.4, 0.06, 0.05, 1)
-shader_parameter/seam_color = Vector3(0.02, 0, 0)
-shader_parameter/ember_red = Vector3(1, 0.1, 0.12)
-shader_parameter/amber_fire = Vector3(1, 0.45, 0.25)
-shader_parameter/fresh_blood = Color(0.92, 0.05, 0.08, 1)
-shader_parameter/dried_blood = Color(0.35, 0.06, 0.08, 1)
+shader_parameter/seam_color = Vector3(0, 0, 0)
+shader_parameter/ember_red = Vector3(0, 0, 0)
+shader_parameter/amber_fire = Vector3(0, 0, 0)
+shader_parameter/fresh_blood = Color(0, 0, 0, 1)
+shader_parameter/dried_blood = Color(1, 1, 1, 1)
 shader_parameter/plank_count = 7.0
 shader_parameter/seam_thickness = 0.006
 shader_parameter/joint_frequency = 1.8
@@ -28,7 +28,7 @@ shader_parameter/flicker_amount = 0.35
 shader_parameter/light_pos = Vector2(0.64, 0.84)
 shader_parameter/light_radius = 0.95
 shader_parameter/light_strength = 1.9
-shader_parameter/chroma_px = 2.0
+shader_parameter/chroma_px = 3.2
 shader_parameter/jitter = 0.12
 shader_parameter/glitch_speed = 2.2
 shader_parameter/glitch_intensity = 0.55
@@ -59,6 +59,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_s0e1h")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -84,13 +86,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_ko4ly")
 theme_override_font_sizes/font_size = 32
-text = "You Shouldn’t Have Come Here.
-
-You thought you could outsmart the house.
-You solved its puzzles, turned its keys, and dared to touch its puppets.
-But you never understood — this place doesn’t test you.
-It keeps you.
-You were never escaping."
+text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 

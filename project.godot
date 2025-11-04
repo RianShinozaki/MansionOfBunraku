@@ -19,6 +19,18 @@ config/icon="res://icon.svg"
 
 settings/addon_root_folder="res://addons/debug_draw_3d"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Mansion Of Bunraku"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg")
+
 [global_group]
 
 Light=""
@@ -26,6 +38,8 @@ Interactable=""
 Meat=""
 Item=""
 Cat=""
+FireFX=""
+Shamisen=""
 
 [input]
 

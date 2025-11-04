@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dur0gs8lqb2mn"]
 
 [ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_ko4ly"]
-[ext_resource type="Shader" uid="uid://bq1cw3n036jwd" path="res://Shaders/HouseOfBunraku.gdshader" id="2_0on6r"]
+[ext_resource type="Shader" path="res://Shaders/HouseOfBunraku.gdshader" id="2_0on6r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ko4ly"]
 shader = ExtResource("2_0on6r")
@@ -84,12 +84,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_ko4ly")
 theme_override_font_sizes/font_size = 32
-text = "The House of Bunraku waits.
-
-Inside, the puppets remember every guest who ever dared to enter.
-Solve the puzzles. Find the keys.
-Do not disturb Yoroi and Yono.
-If you do… you won’t make it to the door."
+text = "You find yourself locked in a mansion."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -117,8 +112,8 @@ offset_right = 284.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(1, 0.180392, 0.180392, 1)
 theme_override_colors/font_color = Color(1, 0.960784, 0.960784, 1)
+theme_override_colors/font_hover_color = Color(1, 0.180392, 0.180392, 1)
 theme_override_fonts/font = SubResource("SystemFont_0on6r")
 theme_override_font_sizes/font_size = 32
 text = "Escape Attempt"
