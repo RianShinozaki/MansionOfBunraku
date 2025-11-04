@@ -1,6 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=53 format=3 uid="uid://bye6w6mipuigf"]
 
-[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
+[ext_resource type="Script" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="4_mdqsx"]
@@ -30,13 +30,13 @@
 [ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="22_gpbpg"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
-[ext_resource type="Shader" path="res://Shaders/FireWall.gdshader" id="26_fire"]
+[ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
 [ext_resource type="PackedScene" uid="uid://boq62uf6mpsdx" path="res://Objects/Interactables/CombinationLock.tscn" id="27_6uyic"]
 [ext_resource type="Texture2D" uid="uid://dvofr5cw007yl" path="res://Art Assets/painting_yoroi.png" id="28_gyqab"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="28_k0785"]
 [ext_resource type="Texture2D" uid="uid://ce0pvxvh3tnsd" path="res://Art Assets/plaque_num_78.png" id="29_s0c2o"]
 [ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="30_duur3"]
-[ext_resource type="Shader" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
+[ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Script" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
@@ -407,6 +407,8 @@ light_energy = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
 stream = ExtResource("35_s0c2o")
+
+[node name="InspectCamera" type="Camera3D" parent="."]
 
 [connection signal="door_opened" from="Environment/YonoPainting" to="Yono" method="activate_bunraku"]
 [connection signal="door_opened" from="Environment/YoroiPainting" to="Yoroi" method="activate_bunraku"]
