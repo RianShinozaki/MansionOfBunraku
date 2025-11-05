@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dur0gs8lqb2mn"]
+[gd_scene load_steps=52 format=3 uid="uid://dur0gs8lqb2mn"]
 
 [ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_ko4ly"]
 [ext_resource type="FontFile" uid="uid://gep4rmecut2n" path="res://Art Assets/Fonts/Portmanteau-Regular.otf" id="2_phn2k"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="5_ku6ge"]
 
 [sub_resource type="Gradient" id="Gradient_g041c"]
-offsets = PackedFloat32Array(0, 0.17812474, 0.5843747)
-colors = PackedColorArray(0.16408196, 0.017261224, 0, 1, 0.045057178, 0.0082653025, 0.0022257683, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.0010414124, 0.24062474, 0.5843747)
+colors = PackedColorArray(0.52654696, 0.12268541, 0, 1, 0.48130167, 0.024773968, 0.06439536, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yodp0"]
 gradient = SubResource("Gradient_g041c")
@@ -207,6 +207,125 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="Animation" id="Animation_phn2k"]
+resource_name = "start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomPanel/StartButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D3:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.46666667, 1.2, 1.8, 2.6099997, 3.3666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.22745098), Color(1, 1, 1, 0.7607843), Color(1, 1, 1, 0.5294118), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.5294118), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeIn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.63, 3.39),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 0.3709056, 0.31203967, 0.45490196), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.48, 1.22, 2.06, 3.26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.1413326, 0.1628682, 0.17722878, 1), Color(0.6330965, 0.6822134, 0.70697874, 1), Color(0.2944718, 0.33575624, 0.35467196, 1), Color(0, 0, 0, 1), Color(0.2944718, 0.33575624, 0.35467196, 1), Color(0.6330965, 0.6822134, 0.70697874, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xi03l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomPanel/StartButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.22745098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeIn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.1413326, 0.1628682, 0.17722878, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xi03l"]
+_data = {
+&"RESET": SubResource("Animation_xi03l"),
+&"start": SubResource("Animation_phn2k")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_phn2k"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ku6ge"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s33pb"]
+gradient = SubResource("Gradient_ku6ge")
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -217,6 +336,7 @@ grow_vertical = 2
 script = ExtResource("1_ko4ly")
 
 [node name="Background2" type="TextureRect" parent="."]
+modulate = Color(0.1413326, 0.1628682, 0.17722878, 1)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -394,9 +514,8 @@ color_initial_ramp = SubResource("Gradient_xi03l")
 z_index = -1
 material = SubResource("CanvasItemMaterial_u2q6m")
 position = Vector2(550, 697)
-amount = 5
 texture = SubResource("GradientTexture2D_ku6ge")
-lifetime = 20.0
+lifetime = 10.0
 emission_shape = 3
 emission_rect_extents = Vector2(600, 20)
 direction = Vector2(0.15, -1)
@@ -410,5 +529,22 @@ scale_amount_curve = SubResource("Curve_u2q6m")
 color = Color(1, 1, 1, 0.22745098)
 color_ramp = SubResource("Gradient_u2q6m")
 color_initial_ramp = SubResource("Gradient_xi03l")
+
+[node name="StartGame" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xi03l")
+}
+
+[node name="FadeIn" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_phn2k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_s33pb")
 
 [connection signal="pressed" from="BottomPanel/StartButton" to="." method="_on_start_button_pressed"]
