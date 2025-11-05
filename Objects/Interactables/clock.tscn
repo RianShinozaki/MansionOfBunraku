@@ -27,6 +27,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lntlw")
 
 [node name="GearSocket" parent="." instance=ExtResource("9_m587e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565552, 0.650373, -0.0644629)
+collision_layer = 4
+collision_mask = 0
 gear_target_position = Vector3(-0.25, -0.11, -0.1)
 gear_rotation = Vector3(0, 0, 0)
 

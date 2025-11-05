@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 e16c66136bf56d2877e3196759899c597fc7870a mariaannae <maria.edwards@gmail.com> 1761863835 -0400	branch: Created from main
+e16c66136bf56d2877e3196759899c597fc7870a 3d8f1bbdcd7f33a924302015acd9b60e386ee40e mariaannae <maria.edwards@gmail.com> 1761866451 -0400	commit: adding two fire shader options
+3d8f1bbdcd7f33a924302015acd9b60e386ee40e 6269ad94ae7ef50e94f38f6b417a790cf2708a86 mariaannae <maria.edwards@gmail.com> 1761866617 -0400	commit: adding single flame shader
+6269ad94ae7ef50e94f38f6b417a790cf2708a86 8c507d5e6aceb04d87d1bc734a07a660cbe8c486 mariaannae <maria.edwards@gmail.com> 1761866875 -0400	commit: updating fire shader
+8c507d5e6aceb04d87d1bc734a07a660cbe8c486 221130c15f27ba5543f0bd243f3f302e0e057713 mariaannae <maria.edwards@gmail.com> 1762015870 -0400	commit: updated fire, applied to sprite for demo
+221130c15f27ba5543f0bd243f3f302e0e057713 54f1e15fe7ec1d524ae621987f1883d201ad0189 mariaannae <maria.edwards@gmail.com> 1762030749 -0400	commit: adding firewall
+54f1e15fe7ec1d524ae621987f1883d201ad0189 7b562f9559bad45a875245856f370563804c8958 mariaannae <maria.edwards@gmail.com> 1762044917 -0400	commit: improved fire shaders with example applications
+7b562f9559bad45a875245856f370563804c8958 a80cabee0a240b29c0089936ac57e1233c47f28b mariaannae <maria.edwards@gmail.com> 1762153308 -0500	commit: adding updated painting w/ plaque, adding combination lock
+a80cabee0a240b29c0089936ac57e1233c47f28b ba85fb8eab45576e486fee3a8a54dbbe19782ab0 mariaannae <maria.edwards@gmail.com> 1762198535 -0500	commit: adding half finished doors
+ba85fb8eab45576e486fee3a8a54dbbe19782ab0 92ca601ac192c8404b6177b08833eb854e06c6b9 mariaannae <maria.edwards@gmail.com> 1762201709 -0500	reset: moving to kai

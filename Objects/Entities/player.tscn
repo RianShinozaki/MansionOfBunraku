@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
 [ext_resource type="AudioStream" uid="uid://den8c5s3qior8" path="res://Audio/string-two.mp3" id="7_vhsen"]
 [ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="8_yq6kl"]
-[ext_resource type="PackedScene" uid="uid://dg0dhfew8xe8g" path="res://Objects/Items/shamisen.tscn" id="9_vhsen"]
+[ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="9_vhsen"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15
@@ -40,6 +40,9 @@ target_position = Vector3(0, 0, 1)
 collision_mask = 4
 
 [node name="Shamisen" parent="Camera3D" instance=ExtResource("9_vhsen")]
+visible = false
+collision_layer = 0
+collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

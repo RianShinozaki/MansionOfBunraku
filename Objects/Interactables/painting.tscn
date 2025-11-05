@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=3 uid="uid://ekfex3rpugck"]
+
+[ext_resource type="Script" uid="uid://bpqgtlve1xqte" path="res://Scripts/Interactables/painting.gd" id="1_painting"]
+[ext_resource type="Texture2D" uid="uid://dllibx1ktwcdj" path="res://Art Assets/painting_frame.png" id="2_frame_tex"]
+[ext_resource type="Texture2D" uid="uid://cq2djg8ooli6g" path="res://Art Assets/painting_frame_h.png" id="3_frame_h"]
+[ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="4_artwork"]
+[ext_resource type="Texture2D" uid="uid://3tfr2ka08eq6" path="res://Art Assets/plaque.png" id="5_plaque"]
+[ext_resource type="Texture2D" uid="uid://2t5s3fd4aplp" path="res://Art Assets/plaque_h.png" id="6_plaque_h"]
+[ext_resource type="Texture2D" uid="uid://ce0pvxvh3tnsd" path="res://Art Assets/plaque_num_78.png" id="7_plaque_num"]
+[ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="8_4aw0o"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="9_open_sfx"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="10_close_sfx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_artwork"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("4_artwork")
+rim_enabled = true
+rim = 0.2
+rim_tint = 0.1
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_frame_tex")
+rim_enabled = true
+rim = 0.19
+rim_tint = 0.1
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_frame_h")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plaque"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("5_plaque")
+metallic = 0.3
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.9163152, 0.74316186, 0.5038986, 1)
+emission_energy_multiplier = 0.07
+rim_enabled = true
+rim = 0.2
+rim_tint = 0.15
+heightmap_enabled = true
+heightmap_scale = 0.5
+heightmap_texture = ExtResource("6_plaque_h")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plaque_numbers"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+albedo_texture = ExtResource("7_plaque_num")
+metallic = 0.6
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plaque_numbers_blur"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+albedo_texture = ExtResource("8_4aw0o")
+metallic = 0.6
+roughness = 0.5
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.96, 0.7, 0.1)
+
+[node name="Painting" type="StaticBody3D"]
+collision_layer = 5
+script = ExtResource("1_painting")
+painting_frame_texture = ExtResource("2_frame_tex")
+painting_frame_heightmap = ExtResource("3_frame_h")
+
+[node name="VisualPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0)
+
+[node name="ArtworkSprite" type="Sprite3D" parent="VisualPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0)
+material_override = SubResource("StandardMaterial3D_artwork")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+
+[node name="FrameSprite" type="Sprite3D" parent="VisualPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0.002)
+material_override = SubResource("StandardMaterial3D_frame")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_frame_tex")
+
+[node name="PlaqueSprite" type="Sprite3D" parent="VisualPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4825606, 1.3267249, 0.005)
+material_override = SubResource("StandardMaterial3D_plaque")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("5_plaque")
+
+[node name="PlaqueNumbersSprite" type="Sprite3D" parent="VisualPivot"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.4676338, 0.6708679, 0.011)
+visible = false
+sorting_offset = 2.0
+material_override = SubResource("StandardMaterial3D_plaque_numbers")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 2
+
+[node name="PlaqueNumbersSpriteBlur" type="Sprite3D" parent="VisualPivot"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0.4676338, 0.67500305, 0.01)
+sorting_offset = 1.0
+material_override = SubResource("StandardMaterial3D_plaque_numbers_blur")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_open_sfx")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_close_sfx")

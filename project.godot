@@ -15,9 +15,25 @@ run/main_scene="uid://dur0gs8lqb2mn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InspectionManager="*res://Scripts/System/InspectionManager.gd"
+
 [debug_draw_3d]
 
 settings/addon_root_folder="res://addons/debug_draw_3d"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Mansion Of Bunraku"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg")
 
 [global_group]
 
@@ -26,6 +42,7 @@ Interactable=""
 Meat=""
 Item=""
 Cat=""
+FireFX=""
 Shamisen=""
 
 [input]
