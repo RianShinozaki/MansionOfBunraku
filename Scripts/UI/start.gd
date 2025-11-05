@@ -11,4 +11,6 @@ func _on_start_button_pressed() -> void:
 	_start_game()
 
 func _start_game() -> void:
-	get_tree().change_scene_to_file("res://Maps/Game.tscn")
+	$StartGame.play("start")
+	await $StartGame.animation_finished
+	get_tree().change_scene_to_file("res://Maps/MeltdownCutscene.tscn")

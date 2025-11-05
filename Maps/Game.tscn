@@ -1,6 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://bye6w6mipuigf"]
+[gd_scene load_steps=53 format=3 uid="uid://8juywf5mne8w"]
 
-[ext_resource type="Script" path="res://Maps/game_manager.gd" id="1_duur3"]
+[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="4_mdqsx"]
@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://ce0pvxvh3tnsd" path="res://Art Assets/plaque_num_78.png" id="29_s0c2o"]
 [ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="30_duur3"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
-[ext_resource type="Script" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
+[ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
 [ext_resource type="Texture2D" uid="uid://chxg71u3k0lpa" path="res://Art Assets/plaque_num_49.png" id="39_nv3h5"]
@@ -48,7 +48,7 @@ data = PackedVector3Array(0, 0, -0.0001, -1.28, 0, 0.3198, -1.28, 0, -0.0001, 0,
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
-tonemap_mode = 2
+tonemap_mode = 3
 ssao_enabled = true
 ssao_intensity = 5.43
 glow_enabled = true
@@ -132,7 +132,7 @@ light_energy = 0.313
 [node name="Objects" type="Node3D" parent="Environment"]
 
 [node name="Chandelier" type="Sprite3D" parent="Environment/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.38661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.5825508)
 billboard = 2
 shaded = true
 texture_filter = 2
@@ -321,7 +321,7 @@ script = null
 transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.371139e-08, -1.0000001, 0, -0.24107781, -0.13284063, 1.5648665)
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.838989, -0.09, 1.6080687)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3.493892, -0.09, 1.6080687)
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
