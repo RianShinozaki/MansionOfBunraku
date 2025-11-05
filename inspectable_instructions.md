@@ -26,4 +26,3 @@ func on_interact() -> void:
 func on_inspect_click() -> void:   
     # whatever you want to happen when clicked in inspect mode
     
-
