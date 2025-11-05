@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dur0gs8lqb2mn"]
+[gd_scene load_steps=57 format=3 uid="uid://dur0gs8lqb2mn"]
 
 [ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_ko4ly"]
 [ext_resource type="FontFile" uid="uid://gep4rmecut2n" path="res://Art Assets/Fonts/Portmanteau-Regular.otf" id="2_phn2k"]
@@ -6,7 +6,10 @@
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="3_t712v"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="3_xi03l"]
 [ext_resource type="Script" uid="uid://t6iglq5j645c" path="res://Scripts/Environment/directional_light_flicker.gd" id="4_u2q6m"]
+[ext_resource type="AudioStream" uid="uid://by663x7hq6g3" path="res://Audio/string-one-reverb.mp3" id="5_65acw"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="5_ku6ge"]
+[ext_resource type="AudioStream" uid="uid://coyo2nj6eoxv8" path="res://Audio/reverse_bell.mp3" id="9_65acw"]
+[ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="9_s33pb"]
 
 [sub_resource type="Gradient" id="Gradient_g041c"]
 offsets = PackedFloat32Array(0.0010414124, 0.24062474, 0.5843747)
@@ -178,12 +181,12 @@ stencil_outline_thickness = 1.18
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u2q6m"]
 blend_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_phn2k"]
+[sub_resource type="Gradient" id="Gradient_65acw"]
 offsets = PackedFloat32Array(0.12083308, 0.14687474, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.45742923, 0.45742923, 0.45742923, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xi03l"]
-gradient = SubResource("Gradient_phn2k")
+gradient = SubResource("Gradient_65acw")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -199,15 +202,90 @@ colors = PackedColorArray(1, 0.7764706, 0.63529414, 0, 0.9998215, 0.7777879, 0.6
 [sub_resource type="Gradient" id="Gradient_xi03l"]
 colors = PackedColorArray(0.6559958, 0.3508025, 0.07561792, 1, 0.49717116, 0, 0.018800063, 1)
 
-[sub_resource type="Gradient" id="Gradient_t712v"]
+[sub_resource type="Gradient" id="Gradient_4bcn8"]
 offsets = PackedFloat32Array(0.12083308, 0.6729164, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.45742923, 0.45742923, 0.45742923, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ku6ge"]
-gradient = SubResource("Gradient_t712v")
+gradient = SubResource("Gradient_4bcn8")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_xi03l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomPanel/StartButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.22745098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeIn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.1413326, 0.1628682, 0.17722878, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomPanel/StartButton/AudioStreamPlayer2:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_phn2k"]
 resource_name = "start"
@@ -260,56 +338,44 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(0.1413326, 0.1628682, 0.17722878, 1), Color(0.6330965, 0.6822134, 0.70697874, 1), Color(0.2944718, 0.33575624, 0.35467196, 1), Color(0, 0, 0, 1), Color(0.2944718, 0.33575624, 0.35467196, 1), Color(0.6330965, 0.6822134, 0.70697874, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_xi03l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BottomPanel/StartButton:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CPUParticles2D3:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.4, 4.916622),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.22745098)]
+"values": [0.0, -20.0, -80.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FadeIn:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomPanel/StartButton/AudioStreamPlayer2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_65acw")
+}],
+"times": PackedFloat32Array(0.1333332)
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Background2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BottomPanel/StartButton/AudioStreamPlayer2:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.1413326, 0.1628682, 0.17722878, 1)]
+"values": [-30.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xi03l"]
@@ -405,6 +471,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_phn2k")
 text = "Begin"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
+stream = ExtResource("5_65acw")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -548,5 +619,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_s33pb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_s33pb")
+autoplay = true
 
 [connection signal="pressed" from="BottomPanel/StartButton" to="." method="_on_start_button_pressed"]

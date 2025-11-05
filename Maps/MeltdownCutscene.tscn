@@ -1,19 +1,27 @@
-[gd_scene load_steps=50 format=3 uid="uid://lqfrsxke2p01"]
+[gd_scene load_steps=78 format=3 uid="uid://lqfrsxke2p01"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="1_201l7"]
+[ext_resource type="Script" uid="uid://brkonuiro16lu" path="res://Scripts/UI/meltdown_cutscene.gd" id="1_l6s06"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vkhgu"]
 [ext_resource type="Script" uid="uid://t6iglq5j645c" path="res://Scripts/Environment/directional_light_flicker.gd" id="3_34my2"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="4_1fw7t"]
 [ext_resource type="Texture2D" uid="uid://bxnxrwkai4dnq" path="res://Art Assets/Yono/Yono_cutscene_e.png" id="6_1fw7t"]
-[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="6_b6gsb"]
+[ext_resource type="AudioStream" uid="uid://5xijd2tnn3tv" path="res://Audio/firewall.mp3" id="6_l6s06"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="7_fyv15"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="8_34my2"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="9_fyv15"]
 [ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="10_34my2"]
+[ext_resource type="FontFile" uid="uid://dwciwlheb2vpp" path="res://Art Assets/Fonts/Tangerine_Bold.ttf" id="11_fyv15"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_jfgyw"]
+[ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="12_krhjt"]
+[ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="13_jfgyw"]
+[ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="14_l6s06"]
+[ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="14_spn38"]
+[ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="15_l6s06"]
 
 [sub_resource type="Environment" id="Environment_34my2"]
 background_energy_multiplier = 0.0
-tonemap_mode = 2
+tonemap_mode = 3
 ssao_enabled = true
 ssao_intensity = 5.43
 glow_enabled = true
@@ -591,10 +599,46 @@ tracks/38/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("CanvasLayer:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("CanvasLayer2/Particles:modulate")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rd1te"]
 resource_name = "cutscene"
-length = 60.0
+length = 25.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -604,7 +648,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-2.355, -0.25, 0, 0.3, 0.23830605, -1.648, -1.0333333, -0.020608068, 0, 0, -1.648, -1.0333333, -0.020608068, 0, 0, 0.262, -0.17184329, -0.22500001, 0, 0, -0.023, -0.6523657, 0.0475, 0, 0),
-"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 13.762178)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -615,7 +659,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0.57, -0.25, 0, 0.25, 0, 0.57, -0.33333334, 0, 0, 0, 0.57, -0.33333334, 0, 0, 0, 0.57, -0.17184329, 0, 0, 0, 0.57, -0.6523657, 0, 0, 0),
-"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 13.762178)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -626,7 +670,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.33333334, 0, 0, 0, 0, -0.33333334, 0, 0, 0, 0, -0.17184329, 0, 0, 0, 0, -0.6523657, 0, 0, 0),
-"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 12.762178)
+"times": PackedFloat32Array(0, 3.6666667, 6.0691953, 8.066667, 13.762178)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -637,7 +681,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 2, 2, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.4592854, -1.1333334, -0.005971402, 0, 0, 1.598, -0.86194, 0, 0.55354965, 0, 2.364, -1.1333334, -0.005971402, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.9, 8.07164, 11.392938, 12.933333)
+"times": PackedFloat32Array(0, 2.9, 8.07164, 9.69, 13.933333)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -648,7 +692,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.92941177, -0.48333335, 0.011764705, 0, 0, 0.92941177, -0.48333335, 0.011764705, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+"times": PackedFloat32Array(0, 2.9, 9.69, 13.933333)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -659,7 +703,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.105882354, -0.48333335, 0.1490196, 0, 0, 0.105882354, -0.48333335, 0.1490196, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+"times": PackedFloat32Array(0, 2.9, 9.69, 13.933333)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -670,7 +714,7 @@ tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.011764706, -0.48333335, 0.16470589, 0, 0, 0.011764706, -0.48333335, 0.16470589, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+"times": PackedFloat32Array(0, 2.9, 9.69, 13.933333)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
@@ -681,7 +725,7 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.48333335, 0, 0, 0, 1, -0.48333335, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.9, 11.392938, 12.933333)
+"times": PackedFloat32Array(0, 2.9, 9.69, 13.933333)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
@@ -692,7 +736,7 @@ tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+"times": PackedFloat32Array(0, 2.91, 9.7, 13.933333)
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
@@ -703,7 +747,7 @@ tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+"times": PackedFloat32Array(0, 2.91, 9.7, 13.933333)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
@@ -714,7 +758,7 @@ tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.22745098, -0.485, 0.12875818, 0, 0, 0.22745098, -0.485, 0.12875818, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+"times": PackedFloat32Array(0, 2.91, 9.7, 13.933333)
 }
 tracks/11/type = "bezier"
 tracks/11/imported = false
@@ -725,7 +769,7 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.485, 0, 0, 0, 1, -0.485, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2.91, 11.402938, 12.933333)
+"times": PackedFloat32Array(0, 2.91, 9.7, 13.933333)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -736,7 +780,7 @@ tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0.132, 0, 0, 0.0016224384, -0.010000001, 0.132, 0, 0, 0.0016224384, -0.010000001, 0.132, 0, 0, 0.0016224384, -0.010000001, -0.208, -0.054640293, 0.056666665, 0, 0, 0.132, -0.049176216, -0.05666667, 0, 0, 0.132, -0.32881054, 0, 0, 0),
-"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+"times": PackedFloat32Array(5, 8.196035, 13.485256, 13.813098, 13.8146515, 21.947983)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
@@ -747,7 +791,7 @@ tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0.585, 0, 0, 0.0016224384, -0.016666662, 0.585, 0, 0, 0.0016224384, -0.016666662, 0.585, 0, 0, 0.0016224384, -0.016666662, 1.52, -0.054640293, -0.15583333, 0, 0, 1.22, -0.049176216, 0.049999993, 0, 0, 2.375, -0.32881054, -0.1925, 0, 0),
-"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+"times": PackedFloat32Array(5, 8.196035, 13.485256, 13.813098, 13.8146515, 21.947983)
 }
 tracks/14/type = "bezier"
 tracks/14/imported = false
@@ -758,7 +802,7 @@ tracks/14/loop_wrap = true
 tracks/14/keys = {
 "handle_modes": PackedInt32Array(2, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0.095, 0, 0, 0.0016224384, 0.009166668, 0.095, 0, 0, 0.0016224384, 0.009166668, 0.095, 0, 0, 0.0016224384, 0.009166668, 12, -0.054640293, -1.9841667, 0, 0, 12.23, -0.049176216, -0.038333256, 0, 0, 12.23, -0.32881054, 0, 0, 0),
-"times": PackedFloat32Array(5, 8.196035, 12.485256, 12.813098, 12.8146515, 20.947983)
+"times": PackedFloat32Array(5, 8.196035, 13.485256, 13.813098, 13.8146515, 21.947983)
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -767,7 +811,7 @@ tracks/15/path = NodePath("Camera2:current")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 5, 8.133333, 12.813098),
+"times": PackedFloat32Array(0, 5, 8.133333, 13.813098),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true]
@@ -914,7 +958,7 @@ tracks/28/path = NodePath("Camera2:rotation")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 12.518041, 12.813098, 12.8146515, 20.97651),
+"times": PackedFloat32Array(0, 13.518041, 13.813098, 13.8146515, 21.97651),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.12217306, -1.6231562, 0), Vector3(-0.12217306, -1.6231562, 0), Vector3(-1.1938052, -1.6231562, 0), Vector3(-1.5271631, -1.6231562, 0), Vector3(-1.5271631, 1.5550884, 0)]
@@ -938,7 +982,7 @@ tracks/30/path = NodePath("Camera2/FireWall9:visible")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0, 12.762178),
+"times": PackedFloat32Array(0, 13.762178),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -950,7 +994,7 @@ tracks/31/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
-"times": PackedFloat32Array(1.4, 12.81923, 15.1479845),
+"times": PackedFloat32Array(1.4, 13.81923, 16.147984),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [2.3930001136675, 0.0, 0.50000002375]
@@ -962,7 +1006,7 @@ tracks/32/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
-"times": PackedFloat32Array(12.81923, 15.31914),
+"times": PackedFloat32Array(13.81923, 16.319141),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.5137255, 0.11372549, 1)]
@@ -974,7 +1018,7 @@ tracks/33/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
-"times": PackedFloat32Array(12.81923, 15.31914),
+"times": PackedFloat32Array(13.81923, 16.319141),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.05490196, 0.18431373, 1)]
@@ -986,7 +1030,7 @@ tracks/34/path = NodePath("Camera2/FireWall9:material_override:shader_parameter/
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
-"times": PackedFloat32Array(12.733653, 16.201937),
+"times": PackedFloat32Array(13.733653, 17.201937),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.73600003496, 0.2750000130625]
@@ -1010,7 +1054,7 @@ tracks/36/path = NodePath("Camera2/FadeOut:modulate")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
-"times": PackedFloat32Array(18.41465, 19.647984, 20.847984),
+"times": PackedFloat32Array(19.41465, 20.647984, 21.847984),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0.43862727, 0, 0.155258, 0.49411765), Color(0, 0, 0, 1)]
@@ -1034,16 +1078,97 @@ tracks/38/path = NodePath("FireEffects/Firelight3:light_energy")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
-"times": PackedFloat32Array(14.5, 19.833334),
+"times": PackedFloat32Array(15.533334, 18.433332),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.1]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("CanvasLayer:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 7.6666665, 8.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/40/type = "method"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("CanvasLayer2/DialogueBox")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(23.066668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["start"],
+"method": &"start"
+}]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0.1, 4.9666667, 5.0333333, 19.337526, 22.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-19.985, -10.985, 0.0, 0.0, -13.534999999999997]
+}
+
+[sub_resource type="Animation" id="Animation_l6s06"]
+resource_name = "end_cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Particles:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0786326),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.1, 4.266667, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-19.985, -25.0, -36.278, -80.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_cutscene"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0vsy"]
 _data = {
 &"RESET": SubResource("Animation_1fw7t"),
-&"cutscene": SubResource("Animation_rd1te")
+&"cutscene": SubResource("Animation_rd1te"),
+&"end_cutscene": SubResource("Animation_l6s06")
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f0vsy"]
@@ -1188,7 +1313,90 @@ heightmap_texture = SubResource("CompressedTexture2D_efst0")
 texture_filter = 2
 billboard_keep_scale = true
 
+[sub_resource type="Gradient" id="Gradient_34my2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fyv15"]
+gradient = SubResource("Gradient_34my2")
+
+[sub_resource type="Theme" id="Theme_frjcx"]
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = ExtResource("11_fyv15")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6s06"]
+font = ExtResource("11_fyv15")
+font_size = 106
+shadow_size = 15
+shadow_color = Color(0.528457, 0.07116068, 0.17846128, 0.42745098)
+
+[sub_resource type="Gradient" id="Gradient_krhjt"]
+offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
+colors = PackedColorArray(0, 0, 0, 0, 0.023263674, 0.003527189, 0.0023902461, 1, 0.14760426, 0.022379445, 0.015165726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jfgyw"]
+gradient = SubResource("Gradient_krhjt")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spn38"]
+texture = SubResource("GradientTexture2D_jfgyw")
+expand_margin_left = 135.0
+expand_margin_top = 41.0
+expand_margin_right = 114.0
+
+[sub_resource type="Theme" id="Theme_l6s06"]
+Label/font_sizes/font_size = 31
+Label/fonts/font = ExtResource("12_jfgyw")
+Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
+RichTextLabel/font_sizes/normal_font_size = 27
+RichTextLabel/fonts/normal_font = ExtResource("12_jfgyw")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
+script = ExtResource("13_jfgyw")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
+script = ExtResource("14_spn38")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
+script = ExtResource("15_l6s06")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l6s06"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_phn2k"]
+offsets = PackedFloat32Array(0.12083308, 0.14687474, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.45742923, 0.45742923, 0.45742923, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efst0"]
+gradient = SubResource("Gradient_phn2k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_q6ftn"]
+_data = [Vector2(0.046198033, 0.70058125), 0.0, 0.0, 0, 0, Vector2(0.17131835, 0.36627895), 0.0, 0.0, 0, 0, Vector2(0.24350315, 0.5406975), 0.0, 0.0, 0, 0, Vector2(0.29162636, 0.5552324), 0.0, 0.0, 0, 0, Vector2(0.38306043, 0.7587208), 0.0, 0.0, 0, 0, Vector2(0.45043293, 0.5552324), 0.0, 0.0, 0, 0, Vector2(0.55149156, 0.6715115), 0.0, 0.0, 0, 0, Vector2(0.61405176, 0.46802312), 0.0, 0.0, 0, 0, Vector2(0.6814242, 0.8168603), 0.0, 0.0, 0, 0, Vector2(0.7199228, 0.36627895), 0.0, 0.0, 0, 0, Vector2(0.8161692, 0.64244175), 0.0, 0.0, 0, 0, Vector2(0.90760326, 0.482558), 0.0, 0.0, 0, 0, Vector2(0.9990374, 0.8459301), 0.0, 0.0, 0, 0]
+point_count = 13
+
+[sub_resource type="Gradient" id="Gradient_5e1o8"]
+offsets = PackedFloat32Array(0, 0.20105237, 0.75894713, 1)
+colors = PackedColorArray(1, 0.7764706, 0.63529414, 0, 0.9998215, 0.7777879, 0.6367194, 1, 1, 0.34913272, 0.36480904, 0.6147371, 1, 0.40849724, 0.2430417, 0)
+
+[sub_resource type="Gradient" id="Gradient_xwboj"]
+colors = PackedColorArray(0.6559958, 0.3508025, 0.07561792, 1, 0.49717116, 0, 0.018800063, 1)
+
+[sub_resource type="Gradient" id="Gradient_t712v"]
+offsets = PackedFloat32Array(0.12083308, 0.6729164, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.45742923, 0.45742923, 0.45742923, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u044k"]
+gradient = SubResource("Gradient_t712v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_l6s06")
 
 [node name="House" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102469444, 2.3841858e-07, -0.574759)
@@ -1280,7 +1488,7 @@ material_override = SubResource("ShaderMaterial_b6gsb")
 mesh = SubResource("QuadMesh_8ri6k")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
-stream = ExtResource("6_b6gsb")
+stream = ExtResource("6_l6s06")
 autoplay = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FireEffects"]
@@ -1304,7 +1512,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3
 current = true
 
 [node name="Camera2" type="Camera3D" parent="."]
-transform = Transform3D(-0.05233594, 0.121702336, -0.9911857, 0, 0.99254614, 0.12186934, 0.9986295, 0.0063781473, -0.051945828, 0.072, 0.485, 0.15)
+transform = Transform3D(-0.05233594, 0.121702336, -0.9911856, 0, 0.99254614, 0.121869326, 0.9986295, 0.0063781473, -0.051945824, 0.072, 0.485, 0.15)
 
 [node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
 transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)
@@ -1415,3 +1623,108 @@ alpha_cut = 2
 texture_filter = 2
 texture = ExtResource("9_fyv15")
 hframes = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fyv15")
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 15.0
+offset_top = 534.0
+offset_right = 1043.0
+offset_bottom = 745.0
+theme = SubResource("Theme_frjcx")
+text = "Till death do we part"
+label_settings = SubResource("LabelSettings_l6s06")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer2"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = -171.0
+offset_right = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_l6s06")
+script = ExtResource("12_krhjt")
+data = ExtResource("14_l6s06")
+start_id = "start"
+hide_portrait = true
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
+metadata/_custom_type_script = "uid://bmd4tue40ixjo"
+
+[node name="Particles" type="Node2D" parent="CanvasLayer2"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer2/Particles"]
+material = SubResource("CanvasItemMaterial_l6s06")
+position = Vector2(550, 697)
+amount = 128
+texture = SubResource("GradientTexture2D_efst0")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 20)
+direction = Vector2(0.15, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 80.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_q6ftn")
+color_ramp = SubResource("Gradient_5e1o8")
+color_initial_ramp = SubResource("Gradient_xwboj")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="CanvasLayer2/Particles"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_l6s06")
+position = Vector2(550, 697)
+amount = 256
+texture = SubResource("GradientTexture2D_efst0")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 20)
+direction = Vector2(0.15, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_q6ftn")
+color = Color(0.56032693, 0.560327, 0.56032693, 1)
+color_ramp = SubResource("Gradient_5e1o8")
+color_initial_ramp = SubResource("Gradient_xwboj")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="CanvasLayer2/Particles"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_l6s06")
+position = Vector2(550, 697)
+texture = SubResource("GradientTexture2D_u044k")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 20)
+direction = Vector2(0.15, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 20.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_q6ftn")
+color = Color(1, 1, 1, 0.22745098)
+color_ramp = SubResource("Gradient_5e1o8")
+color_initial_ramp = SubResource("Gradient_xwboj")
+
+[connection signal="dialogue_ended" from="CanvasLayer2/DialogueBox" to="." method="_on_dialogue_box_dialogue_ended"]

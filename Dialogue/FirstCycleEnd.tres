@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bsg46015j8seh"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_npdgu"]
+
+[resource]
+script = ExtResource("1_npdgu")
+starts = {
+"start": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-112, 62.40001),
+"start_id": "start"
+},
+&"1_1": {
+"dialogue": "You've fallen to a terrible fate.",
+"offset": Vector2(180, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240.00003),
+"speaker": ""
+},
+&"1_2": {
+"dialogue": "Doomed to act this story out over and over again... doomed to succumb to the fire.",
+"offset": Vector2(520, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300.00006, 240.00003),
+"speaker": ""
+},
+&"1_3": {
+"dialogue": "Your destiny and the destiny of the [color=”red”]Bunraku[/color] are one.",
+"offset": Vector2(860, 60),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 240.00003),
+"speaker": ""
+},
+&"1_4": {
+"dialogue": "There is no end.",
+"offset": Vector2(1200, 60),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240.00003),
+"speaker": ""
+}
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=53 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -38,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="30_duur3"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
-[ext_resource type="Shader" uid="uid://bu7ymm0fgn3pg" path="res://Shaders/blur.gdshader" id="34_gyqab"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
 [ext_resource type="Texture2D" uid="uid://chxg71u3k0lpa" path="res://Art Assets/plaque_num_49.png" id="39_nv3h5"]
@@ -49,7 +48,7 @@ data = PackedVector3Array(0, 0, -0.0001, -1.28, 0, 0.3198, -1.28, 0, -0.0001, 0,
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
-tonemap_mode = 2
+tonemap_mode = 3
 ssao_enabled = true
 ssao_intensity = 5.43
 glow_enabled = true
@@ -74,10 +73,6 @@ size = Vector3(0.325012, 0.541504, 0.648376)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0785"]
 albedo_texture = ExtResource("21_muv74")
 texture_filter = 2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gyqab"]
-shader = ExtResource("34_gyqab")
-shader_parameter/lod = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s0c2o"]
 render_priority = 0
@@ -137,7 +132,7 @@ light_energy = 0.313
 [node name="Objects" type="Node3D" parent="Environment"]
 
 [node name="Chandelier" type="Sprite3D" parent="Environment/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.38661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.5825508)
 billboard = 2
 shaded = true
 texture_filter = 2
@@ -329,17 +324,6 @@ transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.37
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3.493892, -0.09, 1.6080687)
 move_speed = 1.5
 
-[node name="HoldParent" parent="Player/CanvasLayer" index="2"]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3.493892, -0.09, 1.6080687)
-
-[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer" index="3"]
-material = SubResource("ShaderMaterial_gyqab")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67718714, -0.2, -3.9626334)
 script = ExtResource("21_kgyru")
@@ -430,4 +414,3 @@ stream = ExtResource("35_s0c2o")
 [connection signal="door_opened" from="Environment/YoroiPainting" to="Yoroi" method="activate_bunraku"]
 
 [editable path="Environment/Objects/Cupboards/Fridge4"]
-[editable path="Player"]
