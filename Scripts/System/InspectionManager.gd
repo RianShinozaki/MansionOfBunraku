@@ -59,8 +59,6 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	# Store current rotations before entering inspect mode
 	stored_player_rotation = player.rotation
 	stored_camera_rotation = player_camera.rotation
-	print("Stored player rotation: ", stored_player_rotation)
-	print("Stored camera rotation: ", stored_camera_rotation)
 	
 	# Position and activate inspect camera
 	inspect_camera.global_transform = camera_transform
@@ -80,8 +78,6 @@ func exit_inspect():
 	if current_mode != Mode.INSPECT:
 		return
 	
-	print("=== EXIT_INSPECT CALLED ===")
-	
 	# Re-enable player
 	player.active = true
 	
@@ -94,43 +90,25 @@ func exit_inspect():
 	current_mode = Mode.PLAY
 
 func _finalize_exit_inspect():
-	print("=== FINALIZE_EXIT_INSPECT CALLED ===")
-	
 	# Restore the exact rotations from before entering inspect mode
-	print("Player rotation before restore: ", player.rotation)
-	print("Camera rotation before restore: ", player_camera.rotation)
-	print("Restoring to player rotation: ", stored_player_rotation)
-	print("Restoring to camera rotation: ", stored_camera_rotation)
-	
 	player.rotation = stored_player_rotation
 	player_camera.rotation = stored_camera_rotation
 	
-	print("Player rotation after restore: ", player.rotation)
-	print("Camera rotation after restore: ", player_camera.rotation)
-	
 	var viewport_size = get_viewport().get_visible_rect().size
 	var center_pos = viewport_size / 2
-	print("Viewport size: ", viewport_size)
-	print("Center position: ", center_pos)
-	print("Mouse position before mode change: ", get_viewport().get_mouse_position())
 	
 	# Center the UI cursor sprite before switching modes
 	var ui_cursor = player.get_node_or_null("CanvasLayer/TextureRect")
 	if ui_cursor:
 		ui_cursor.position = center_pos - ui_cursor.size / 2
-		print("Centered UI cursor to: ", ui_cursor.position)
 	
 	# Switch to captured mode first
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print("Set mouse mode to CAPTURED")
 	await get_tree().process_frame
 	
 	# Now warp the mouse to center while in captured mode
 	get_viewport().warp_mouse(center_pos)
-	print("Called warp_mouse to: ", center_pos)
 	await get_tree().process_frame
-	
-	print("Final mouse position: ", get_viewport().get_mouse_position())
 
 func _process(_delta):
 	# Update UI cursor in inspect mode
