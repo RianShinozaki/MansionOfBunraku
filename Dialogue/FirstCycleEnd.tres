@@ -20,7 +20,7 @@ nodes = {
 &"1_1": {
 "audio_clip": ExtResource("1_uo186"),
 "dialogue": "You've fallen to a terrible fate.",
-"offset": Vector2(60, 60),
+"offset": Vector2(140, 40),
 "options": {
 0: {
 "condition": {},
@@ -28,7 +28,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(320, 439.99997),
+"size": Vector2(320.00003, 440.00006),
 "speaker": ""
 },
 &"1_2": {
@@ -42,7 +42,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.0001, 359.99997),
+"size": Vector2(300.00006, 360),
 "speaker": ""
 },
 &"1_3": {
@@ -56,7 +56,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 379.99997),
+"size": Vector2(300, 380.00003),
 "speaker": ""
 },
 &"1_4": {
@@ -70,7 +70,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.0001, 339.99997),
+"size": Vector2(300.00006, 340),
 "speaker": ""
 }
 }
