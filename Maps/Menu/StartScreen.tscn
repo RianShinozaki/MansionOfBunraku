@@ -1,11 +1,11 @@
-[gd_scene load_steps=57 format=3 uid="uid://dur0gs8lqb2mn"]
+[gd_scene load_steps=58 format=3 uid="uid://dur0gs8lqb2mn"]
 
 [ext_resource type="Script" uid="uid://c2bicfn7muhs2" path="res://Scripts/UI/start.gd" id="1_ko4ly"]
 [ext_resource type="FontFile" uid="uid://gep4rmecut2n" path="res://Art Assets/Fonts/Portmanteau-Regular.otf" id="2_phn2k"]
 [ext_resource type="FontFile" uid="uid://bt0adhmcwulfx" path="res://Art Assets/Fonts/OptimusPrinceps.ttf" id="2_xi03l"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="3_t712v"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="3_xi03l"]
-[ext_resource type="Script" uid="uid://t6iglq5j645c" path="res://Scripts/Environment/directional_light_flicker.gd" id="4_u2q6m"]
+[ext_resource type="Script" path="res://Scripts/Environment/directional_light_flicker.gd" id="4_u2q6m"]
 [ext_resource type="AudioStream" uid="uid://by663x7hq6g3" path="res://Audio/string-one-reverb.mp3" id="5_65acw"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="5_ku6ge"]
 [ext_resource type="AudioStream" uid="uid://coyo2nj6eoxv8" path="res://Audio/reverse_bell.mp3" id="9_65acw"]
@@ -22,36 +22,6 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_phn2k"]
 viewport_path = NodePath("SubViewport")
-
-[sub_resource type="SystemFont" id="SystemFont_ko4ly"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xi03l"]
-font = ExtResource("2_xi03l")
-font_size = 55
-font_color = Color(0.9902423, 0.7807822, 0.65531415, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phn2k"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi03l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t712v"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku6ge"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s33pb"]
-
-[sub_resource type="Theme" id="Theme_phn2k"]
-default_font = ExtResource("2_phn2k")
-Button/colors/font_color = Color(0.87682396, 0.4331633, 0.30429032, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_pressed_color = Color(0.3765638, 0.21604282, 0.14509723, 1)
-Button/font_sizes/font_size = 39
-Button/fonts/font = ExtResource("3_t712v")
-Button/styles/disabled = SubResource("StyleBoxEmpty_phn2k")
-Button/styles/focus = SubResource("StyleBoxEmpty_xi03l")
-Button/styles/hover = SubResource("StyleBoxEmpty_t712v")
-Button/styles/normal = SubResource("StyleBoxEmpty_ku6ge")
-Button/styles/pressed = SubResource("StyleBoxEmpty_s33pb")
 
 [sub_resource type="Environment" id="Environment_u2q6m"]
 ambient_light_source = 1
@@ -211,6 +181,41 @@ gradient = SubResource("Gradient_4bcn8")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="SystemFont" id="SystemFont_ko4ly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xi03l"]
+font = ExtResource("2_xi03l")
+font_size = 55
+font_color = Color(0.9882353, 0.7411765, 0.63529414, 0.5686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_65acw"]
+font = ExtResource("3_t712v")
+font_size = 25
+font_color = Color(0.99607843, 0.8745098, 0.827451, 0.3529412)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phn2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi03l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t712v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku6ge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s33pb"]
+
+[sub_resource type="Theme" id="Theme_phn2k"]
+default_font = ExtResource("2_phn2k")
+Button/colors/font_color = Color(0.87682396, 0.4331633, 0.30429032, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_pressed_color = Color(0.3765638, 0.21604282, 0.14509723, 1)
+Button/font_sizes/font_size = 39
+Button/fonts/font = ExtResource("3_t712v")
+Button/styles/disabled = SubResource("StyleBoxEmpty_phn2k")
+Button/styles/focus = SubResource("StyleBoxEmpty_xi03l")
+Button/styles/hover = SubResource("StyleBoxEmpty_t712v")
+Button/styles/normal = SubResource("StyleBoxEmpty_ku6ge")
+Button/styles/pressed = SubResource("StyleBoxEmpty_s33pb")
 
 [sub_resource type="Animation" id="Animation_xi03l"]
 length = 0.001
@@ -423,60 +428,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ViewportTexture_phn2k")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -237.0
-offset_top = -73.965
-offset_right = -237.0
-offset_bottom = -18.964905
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.913725, 0.913725, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_ko4ly")
-theme_override_font_sizes/font_size = 32
-text = "Fate of Bunraku"
-label_settings = SubResource("LabelSettings_xi03l")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BottomPanel" type="Control" parent="."]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StartButton" type="Button" parent="BottomPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -354.0
-offset_top = -115.99999
-offset_right = -159.0
-offset_bottom = -62.999992
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_phn2k")
-text = "Begin"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
-stream = ExtResource("5_65acw")
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
-
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(1152, 648)
@@ -602,6 +553,85 @@ scale_amount_curve = SubResource("Curve_u2q6m")
 color = Color(1, 1, 1, 0.22745098)
 color_ramp = SubResource("Gradient_u2q6m")
 color_initial_ramp = SubResource("Gradient_xi03l")
+
+[node name="Label" type="Label" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -75.96495
+offset_right = -237.0
+offset_bottom = -16.964966
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_ko4ly")
+theme_override_font_sizes/font_size = 32
+text = "Fate of Bunraku"
+label_settings = SubResource("LabelSettings_xi03l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = 262.0
+offset_right = -418.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_ko4ly")
+theme_override_font_sizes/font_size = 32
+text = "Press F4 for Fullscreen"
+label_settings = SubResource("LabelSettings_65acw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomPanel" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -115.99999
+offset_right = -159.0
+offset_bottom = -62.999992
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_phn2k")
+text = "Begin"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
+stream = ExtResource("5_65acw")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="BottomPanel/StartButton"]
 
 [node name="StartGame" type="AnimationPlayer" parent="."]
 libraries = {
