@@ -1,6 +1,10 @@
-[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bsg46015j8seh"]
+[gd_resource type="Resource" script_class="DialogueData" load_steps=6 format=3 uid="uid://bsg46015j8seh"]
 
 [ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_npdgu"]
+[ext_resource type="AudioStream" uid="uid://be5ar0kr8i8y1" path="res://Audio/Voice/Intro_1.wav" id="1_uo186"]
+[ext_resource type="AudioStream" uid="uid://b7y1ycp8nlevn" path="res://Audio/Voice/Intro_2.wav" id="2_qou5e"]
+[ext_resource type="AudioStream" uid="uid://6ehnyv1upch0" path="res://Audio/Voice/Intro_3.wav" id="3_s0ith"]
+[ext_resource type="AudioStream" uid="uid://1a5egfehhjh2" path="res://Audio/Voice/Intro_4.wav" id="4_hmym5"]
 
 [resource]
 script = ExtResource("1_npdgu")
@@ -14,8 +18,9 @@ nodes = {
 "start_id": "start"
 },
 &"1_1": {
+"audio_clip": ExtResource("1_uo186"),
 "dialogue": "You've fallen to a terrible fate.",
-"offset": Vector2(180, 60),
+"offset": Vector2(60, 60),
 "options": {
 0: {
 "condition": {},
@@ -23,11 +28,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00002),
+"size": Vector2(320, 439.99997),
 "speaker": ""
 },
 &"1_2": {
-"dialogue": "Doomed to act this story out over and over again... doomed to succumb to the fire.",
+"audio_clip": ExtResource("2_qou5e"),
+"dialogue": "Doomed to act out this story over and over again... doomed to succumb to the fire.",
 "offset": Vector2(520, 60),
 "options": {
 0: {
@@ -36,12 +42,13 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00002),
+"size": Vector2(300.0001, 359.99997),
 "speaker": ""
 },
 &"1_3": {
-"dialogue": "Your destiny and the destiny of the [color=”red”]Bunraku[/color] are one.",
-"offset": Vector2(860, 60),
+"audio_clip": ExtResource("3_s0ith"),
+"dialogue": "Your destiny and the destiny of the Bunraku are one.",
+"offset": Vector2(840, 60),
 "options": {
 0: {
 "condition": {},
@@ -49,12 +56,13 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 240.00002),
+"size": Vector2(300, 379.99997),
 "speaker": ""
 },
 &"1_4": {
+"audio_clip": ExtResource("4_hmym5"),
 "dialogue": "There is no end.",
-"offset": Vector2(1200, 60),
+"offset": Vector2(1200, 120),
 "options": {
 0: {
 "condition": {},
@@ -62,7 +70,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00002),
+"size": Vector2(300.0001, 339.99997),
 "speaker": ""
 }
 }

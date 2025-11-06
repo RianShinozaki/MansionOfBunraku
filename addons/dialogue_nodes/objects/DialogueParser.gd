@@ -10,7 +10,7 @@ signal dialogue_started(id : String)
 ## Triggered when a single dialogue block has been processed.
 ## Passes [param speaker] which can be a [String] or a [param Character] resource, a [param dialogue] containing the text to be displayed
 ## and an [param options] list containing the texts for each option.
-signal dialogue_processed(speaker : Variant, dialogue : String, options : Array[String])
+signal dialogue_processed(speaker : Variant, dialogue : String, options : Array[String], audio: AudioStream)
 ## Triggered when an option is selected
 signal option_selected(idx : int)
 ## Triggered when a SignalNode is encountered while processing the dialogue.
@@ -139,7 +139,9 @@ func _process_dialogue(dict : Dictionary):
 			option_texts.append(_parse_variables(option.text))
 			_option_links.append(option.link)
 	
-	dialogue_processed.emit(speaker, dialogue_text, option_texts)
+	var audio: AudioStream = null
+	audio = dict.audio_clip
+	dialogue_processed.emit(speaker, dialogue_text, option_texts, audio)
 
 
 # Processes the signal node data (dict).

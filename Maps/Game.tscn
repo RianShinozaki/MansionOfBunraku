@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=62 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -34,14 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://boq62uf6mpsdx" path="res://Objects/Interactables/CombinationLock.tscn" id="27_6uyic"]
 [ext_resource type="Texture2D" uid="uid://dvofr5cw007yl" path="res://Art Assets/painting_yoroi.png" id="28_gyqab"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="28_k0785"]
-[ext_resource type="Texture2D" uid="uid://ce0pvxvh3tnsd" path="res://Art Assets/plaque_num_78.png" id="29_s0c2o"]
-[ext_resource type="Texture2D" uid="uid://cq63ra3g44f76" path="res://Art Assets/plaque_num_78_blur.png" id="30_duur3"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
-[ext_resource type="Texture2D" uid="uid://chxg71u3k0lpa" path="res://Art Assets/plaque_num_49.png" id="39_nv3h5"]
-[ext_resource type="Texture2D" uid="uid://c08kducoy0akt" path="res://Art Assets/plaque_num_49_blur.png" id="40_ronf6"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
 [ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="45_eqorb"]
@@ -338,14 +334,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.895
 [node name="YonoPainting" parent="Environment" instance=ExtResource("20_6uyic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.1862979, -1.2932539)
 painting_artwork = ExtResource("28_k0785")
-plaque_number_texture = ExtResource("39_nv3h5")
-plaque_number_blur_texture = ExtResource("40_ronf6")
 
 [node name="YoroiPainting" parent="Environment" instance=ExtResource("20_6uyic")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.1862979, 4.4502807)
 painting_artwork = ExtResource("28_gyqab")
-plaque_number_texture = ExtResource("29_s0c2o")
-plaque_number_blur_texture = ExtResource("30_duur3")
 
 [node name="ShamisenLocked" type="Node3D" parent="Environment"]
 

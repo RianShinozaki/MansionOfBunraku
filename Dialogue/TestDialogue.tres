@@ -14,6 +14,7 @@ nodes = {
 "start_id": "start"
 },
 &"1_1": {
+"audio": null,
 "dialogue": "looks like I need a [bold]gear[ for the gear socket",
 "offset": Vector2(180, 220),
 "options": {
@@ -23,7 +24,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 294.00006),
+"size": Vector2(300, 266),
 "speaker": "Narrator"
 }
 }
