@@ -7,6 +7,7 @@ const SECONDS_TO_CHIME: int = 15
 @export var gear_target_position: Vector3 = Vector3(-2.3, 0.015, -1.15)  
 @export var gear_rotation: Vector3 = Vector3(0, 90, 0)  
 @export var wait_time_total = 1
+@export var dialogue_data: DialogueData
 
 var has_gear: bool = false
 var time_remaining: float = SECONDS_TO_CHIME
@@ -24,7 +25,8 @@ func _ready():
 	instance = self
 
 func can_interact() -> bool:
-	return Player.instance.held_object is Gear or has_gear
+	return true
+	#return Player.instance.held_object is Gear or has_gear
 
 func on_interact():
 	# When clicked with a gear held place it in the socket
@@ -80,7 +82,14 @@ func on_interact():
 		$"../TickSFX".stop()
 		
 		return
-
+	print("Playing dialogue")
+	var _dialogue_box: DialogueBox = DialogueBox.instance
+	_dialogue_box.data = dialogue_data
+	_dialogue_box.start("start")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	await _dialogue_box.dialogue_ended
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 func _on_wait_complete():
 	if has_gear:
 		if has_node("ChimeSound"):

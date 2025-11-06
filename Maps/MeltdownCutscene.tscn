@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://lqfrsxke2p01"]
+[gd_scene load_steps=84 format=3 uid="uid://lqfrsxke2p01"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="1_201l7"]
 [ext_resource type="Script" uid="uid://brkonuiro16lu" path="res://Scripts/UI/meltdown_cutscene.gd" id="1_l6s06"]
@@ -113,29 +113,157 @@ shader_parameter/fire_aperture = 0.3870000183825
 shader_parameter/emissive_power = 2.5
 shader_parameter/color_bands = 10
 
+[sub_resource type="Shader" id="Shader_l6s06"]
+code = "/*
+	Fire Shader for Flat Walls
+	Based on Fire.gdshader with optimizations for vertical surfaces
+*/
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, unshaded;
+
+uniform sampler2D noise_tex;
+uniform bool use_texture_noise = false;
+uniform vec4 root_color : source_color = vec4(1.0, 0.75, 0.3, 1.0);
+uniform vec4 tip_color : source_color = vec4(1.0, 0.03, 0.001, 1.0);
+
+uniform float fire_alpha : hint_range(0.0, 1.0) = 1.0;
+uniform vec2 fire_speed = vec2(0.0, 1.0);
+uniform float fire_aperture : hint_range(0.0, 3.0) = 0.22;
+uniform float emissive_power : hint_range(0.5, 8.0) = 2.5;
+uniform int color_bands : hint_range(2, 20) = 10;
+
+// Procedural noise functions (fallback when no texture is assigned)
+// Texture might be more efficient for large surfaces
+float random(vec2 pos) { 
+	return fract(sin(dot(pos, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+float value_noise(vec2 pos) {
+	vec2 p = floor(pos);
+	vec2 f = fract(pos);
+
+	float v00 = random(p + vec2(0.0, 0.0));
+	float v10 = random(p + vec2(1.0, 0.0));
+	float v01 = random(p + vec2(0.0, 1.0));
+	float v11 = random(p + vec2(1.0, 1.0));
+
+	vec2 u = f * f * (3.0 - 2.0 * f);
+
+	return mix(mix(v00, v10, u.x), mix(v01, v11, u.x), u.y);
+}
+
+float procedural_noise(vec2 shifted_uv) {
+	return (
+		value_noise(shifted_uv * 0.984864) * 20.0
+	+	value_noise(shifted_uv * 2.543) * 10.0
+	+	value_noise(shifted_uv * 9.543543) * 8.0
+	+	value_noise(shifted_uv * 21.65436) * 5.0
+	+	value_noise(shifted_uv * 42.0) * 2.0
+	+	value_noise(shifted_uv * 87.135148) * 2.0
+	+	value_noise(shifted_uv * 340.66534654)
+	) / 48.0;
+}
+
+void fragment() {
+	// Scale UV to maintain proper aspect ratio (compress horizontally)
+	vec2 adjusted_uv = vec2(UV.x * 5.0, UV.y);
+	vec2 shifted_uv = adjusted_uv + TIME * fire_speed;
+	
+	// Use texture noise if available, otherwise use procedural
+	float fire_noise;
+	if (use_texture_noise) {
+		fire_noise = texture(noise_tex, shifted_uv).r;
+	} else {
+		fire_noise = procedural_noise(shifted_uv);
+	}
+	
+	// Invert UV.y so flames are strong at bottom, fade at top
+	float height = 1.0 - UV.y;
+	
+	// Calculate fire intensity - flames are strong at bottom, fade at top
+	float noise = height * (((height + fire_aperture) * fire_noise - fire_aperture) * 75.0);
+	
+	// Separate alpha (smooth) from color temperature (bandable)
+	float alpha_value = clamp(noise, 0.0, 1.0);
+	
+	// Color temperature with optional banding
+	float color_temp = noise * 0.05;
+	color_temp = clamp(color_temp, 0.0, 1.0);
+	
+	// Apply color banding if requested
+	if (color_bands > 1) {
+		float band_size = 1.0 / float(color_bands);
+		color_temp = floor(color_temp / band_size) * band_size + band_size * 0.5;
+	}
+	
+	// Mix colors based on temperature
+	vec4 fire_color = mix(tip_color, root_color, color_temp);
+
+	ALPHA = alpha_value * fire_alpha;
+	ALBEDO = fire_color.rgb;
+	EMISSION = fire_color.rgb * ALPHA * emissive_power;
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fyv15"]
 render_priority = 0
-shader = ExtResource("4_1fw7t")
+shader = SubResource("Shader_l6s06")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 0.35200001672
+shader_parameter/fire_speed = Vector2(0, -0.305)
+shader_parameter/fire_aperture = 0.4590000218025
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_frjcx"]
+top_radius = 3.535
+bottom_radius = 0.0
+height = 0.001
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6s06"]
+render_priority = 0
+shader = SubResource("Shader_l6s06")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(1, 0.63529414, 0, 1)
+shader_parameter/fire_alpha = 0.090000004275
+shader_parameter/fire_speed = Vector2(0, -0.305)
+shader_parameter/fire_aperture = 0.75600003591
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_efst0"]
+top_radius = 3.535
+bottom_radius = 0.63
+height = 0.001
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efst0"]
+render_priority = 0
+shader = SubResource("Shader_l6s06")
 shader_parameter/use_texture_noise = false
 shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
 shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
 shader_parameter/fire_alpha = 0.1850000087875
 shader_parameter/fire_speed = Vector2(0, -0.305)
-shader_parameter/fire_aperture = 0.30800001463
+shader_parameter/fire_aperture = 0.43600002071
 shader_parameter/emissive_power = 2.5
 shader_parameter/color_bands = 10
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_frjcx"]
-bottom_radius = 1.819
+[sub_resource type="CylinderMesh" id="CylinderMesh_l6s06"]
+top_radius = 3.535
+bottom_radius = 0.0
+height = 6.751
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_b6gsb"]
-top_radius = 0.0
-bottom_radius = 3.783
-height = 0.001
-cap_top = false
-cap_bottom = false
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b6gsb"]
+size = Vector2(200, 100)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_frjcx"]
 resource_local_to_scene = true
@@ -149,9 +277,6 @@ shader_parameter/fire_speed = Vector2(0, -0.65)
 shader_parameter/fire_aperture = 0.0
 shader_parameter/emissive_power = 2.5
 shader_parameter/color_bands = 10
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b6gsb"]
-size = Vector2(200, 100)
 
 [sub_resource type="Animation" id="Animation_1fw7t"]
 length = 0.001
@@ -634,6 +759,18 @@ tracks/41/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Camera1/FadeOut:modulate")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rd1te"]
@@ -1164,10 +1301,65 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_efst0"]
+resource_name = "cutscene_skip"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2/FadeOut:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.43862727, 0, 0.155258, 0.49411765), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/DialogueBox")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["start"],
+"method": &"start"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1562097, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -13.534999999999997]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera1/FadeOut:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.43862727, 0, 0.155258, 0.49411765), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0vsy"]
 _data = {
 &"RESET": SubResource("Animation_1fw7t"),
 &"cutscene": SubResource("Animation_rd1te"),
+&"cutscene_skip": SubResource("Animation_efst0"),
 &"end_cutscene": SubResource("Animation_l6s06")
 }
 
@@ -1313,54 +1505,6 @@ heightmap_texture = SubResource("CompressedTexture2D_efst0")
 texture_filter = 2
 billboard_keep_scale = true
 
-[sub_resource type="Gradient" id="Gradient_34my2"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fyv15"]
-gradient = SubResource("Gradient_34my2")
-
-[sub_resource type="Theme" id="Theme_frjcx"]
-RichTextLabel/font_sizes/normal_font_size = 100
-RichTextLabel/fonts/normal_font = ExtResource("11_fyv15")
-
-[sub_resource type="LabelSettings" id="LabelSettings_l6s06"]
-font = ExtResource("11_fyv15")
-font_size = 106
-shadow_size = 15
-shadow_color = Color(0.528457, 0.07116068, 0.17846128, 0.42745098)
-
-[sub_resource type="Gradient" id="Gradient_krhjt"]
-offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
-colors = PackedColorArray(0, 0, 0, 0, 0.023263674, 0.003527189, 0.0023902461, 1, 0.14760426, 0.022379445, 0.015165726, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jfgyw"]
-gradient = SubResource("Gradient_krhjt")
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spn38"]
-texture = SubResource("GradientTexture2D_jfgyw")
-expand_margin_left = 135.0
-expand_margin_top = 41.0
-expand_margin_right = 114.0
-
-[sub_resource type="Theme" id="Theme_l6s06"]
-Label/font_sizes/font_size = 31
-Label/fonts/font = ExtResource("12_jfgyw")
-Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
-RichTextLabel/font_sizes/normal_font_size = 27
-RichTextLabel/fonts/normal_font = ExtResource("12_jfgyw")
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
-script = ExtResource("13_jfgyw")
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
-script = ExtResource("14_spn38")
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
-script = ExtResource("15_l6s06")
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l6s06"]
 blend_mode = 1
 
@@ -1394,6 +1538,62 @@ gradient = SubResource("Gradient_t712v")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_krhjt"]
+offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
+colors = PackedColorArray(0, 0, 0, 0, 0.023263674, 0.003527189, 0.0023902461, 1, 0.14760426, 0.022379445, 0.015165726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jfgyw"]
+gradient = SubResource("Gradient_krhjt")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spn38"]
+texture = SubResource("GradientTexture2D_jfgyw")
+expand_margin_left = 135.0
+expand_margin_top = 41.0
+expand_margin_right = 114.0
+
+[sub_resource type="Theme" id="Theme_l6s06"]
+Label/font_sizes/font_size = 31
+Label/fonts/font = ExtResource("12_jfgyw")
+Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
+RichTextLabel/font_sizes/normal_font_size = 27
+RichTextLabel/fonts/normal_font = ExtResource("12_jfgyw")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
+script = ExtResource("13_jfgyw")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
+script = ExtResource("14_spn38")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
+script = ExtResource("15_l6s06")
+
+[sub_resource type="LabelSettings" id="LabelSettings_efst0"]
+font = ExtResource("12_jfgyw")
+font_size = 33
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.4862745)
+
+[sub_resource type="Gradient" id="Gradient_34my2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fyv15"]
+gradient = SubResource("Gradient_34my2")
+
+[sub_resource type="Theme" id="Theme_frjcx"]
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = ExtResource("11_fyv15")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6s06"]
+font = ExtResource("11_fyv15")
+font_size = 106
+shadow_size = 15
+shadow_color = Color(0.528457, 0.07116068, 0.17846128, 0.42745098)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_l6s06")
@@ -1492,14 +1692,20 @@ stream = ExtResource("6_l6s06")
 autoplay = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FireEffects"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.102510214, 0.39870006, 12.314404)
+transform = Transform3D(1, 0, 0, 0, 1, 1.509958e-07, 0, 1.509958e-07, -1, 0.103, 0.021, 12.314)
 material_override = SubResource("ShaderMaterial_fyv15")
 mesh = SubResource("CylinderMesh_frjcx")
 
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="FireEffects"]
+transform = Transform3D(0.65270686, -1.14396016e-07, 0.75761056, 0, 1, 1.509958e-07, 0.75761056, 9.8555994e-08, -0.65270686, 0.103, 0.5219862, 12.314)
+material_override = SubResource("ShaderMaterial_l6s06")
+mesh = SubResource("CylinderMesh_efst0")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="FireEffects"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.103, 0.019, 12.314)
-material_override = SubResource("ShaderMaterial_fyv15")
-mesh = SubResource("CylinderMesh_b6gsb")
+transform = Transform3D(1, 0, 0, 0, 1, 1.509958e-07, 0, 1.509958e-07, -1, 0.103, 1.941, 12.314)
+visible = false
+material_override = SubResource("ShaderMaterial_efst0")
+mesh = SubResource("CylinderMesh_l6s06")
 
 [node name="Firelight3" type="DirectionalLight3D" parent="FireEffects"]
 transform = Transform3D(-1, -3.821371e-15, -8.742278e-08, -8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, -0.4, 3.1, 1.3000001)
@@ -1511,8 +1717,13 @@ light_cull_mask = 4294967293
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.355, 0.57, 0)
 current = true
 
+[node name="FadeOut" type="Sprite3D" parent="Camera1"]
+transform = Transform3D(1, -9.313226e-10, 0, 0, 1, 1.6298145e-09, -7.450581e-09, 1.6618287e-08, 1, -0.004878469, 0.011344433, -0.09239265)
+modulate = Color(0, 0, 0, 0)
+texture = SubResource("PlaceholderTexture2D_b6gsb")
+
 [node name="Camera2" type="Camera3D" parent="."]
-transform = Transform3D(-0.05233594, 0.121702336, -0.9911856, 0, 0.99254614, 0.121869326, 0.9986295, 0.0063781473, -0.051945824, 0.072, 0.485, 0.15)
+transform = Transform3D(-0.05233594, 0.121702336, -0.99118537, 0, 0.99254614, 0.121869296, 0.9986295, 0.0063781473, -0.05194581, 0.072, 0.485, 0.15)
 
 [node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
 transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)
@@ -1624,46 +1835,7 @@ texture_filter = 2
 texture = ExtResource("9_fyv15")
 hframes = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_fyv15")
-
-[node name="RichTextLabel" type="Label" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 15.0
-offset_top = 534.0
-offset_right = 1043.0
-offset_bottom = 745.0
-theme = SubResource("Theme_frjcx")
-text = "Till death do we part"
-label_settings = SubResource("LabelSettings_l6s06")
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="DialogueBox" type="Panel" parent="CanvasLayer2"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 131.0
-offset_top = -171.0
-offset_right = -113.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_l6s06")
-script = ExtResource("12_krhjt")
-data = ExtResource("14_l6s06")
-start_id = "start"
-hide_portrait = true
-custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
-metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [node name="Particles" type="Node2D" parent="CanvasLayer2"]
 
@@ -1726,5 +1898,67 @@ scale_amount_curve = SubResource("Curve_q6ftn")
 color = Color(1, 1, 1, 0.22745098)
 color_ramp = SubResource("Gradient_5e1o8")
 color_initial_ramp = SubResource("Gradient_xwboj")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+offset_right = 1162.0
+offset_bottom = 85.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+offset_left = -2.0
+offset_top = 562.0
+offset_right = 1160.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = -171.0
+offset_right = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_l6s06")
+script = ExtResource("12_krhjt")
+data = ExtResource("14_l6s06")
+start_id = "start"
+hide_portrait = true
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
+metadata/_custom_type_script = "uid://bmd4tue40ixjo"
+
+[node name="Left click to skip" type="Label" parent="CanvasLayer2"]
+offset_left = 873.0
+offset_top = 591.0
+offset_right = 1135.0
+offset_bottom = 676.0
+text = "Left click to skip"
+label_settings = SubResource("LabelSettings_efst0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fyv15")
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 15.0
+offset_top = 534.0
+offset_right = 1043.0
+offset_bottom = 745.0
+theme = SubResource("Theme_frjcx")
+text = "Till death do we part"
+label_settings = SubResource("LabelSettings_l6s06")
 
 [connection signal="dialogue_ended" from="CanvasLayer2/DialogueBox" to="." method="_on_dialogue_box_dialogue_ended"]

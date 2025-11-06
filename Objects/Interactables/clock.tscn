@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://qgrt3asn0m3f"]
+[gd_scene load_steps=16 format=3 uid="uid://qgrt3asn0m3f"]
 
 [ext_resource type="ArrayMesh" uid="uid://1keuprw3mcks" path="res://Art Assets/Models/Clock/Clock.obj" id="1_h4g30"]
 [ext_resource type="Texture2D" uid="uid://1144s66jueku" path="res://Art Assets/Models/Clock/texture_Clock_tex.png" id="2_eiut8"]
 [ext_resource type="Texture2D" uid="uid://cirn8jbhy81ot" path="res://Art Assets/Models/Clock/Clock-Glass.png" id="3_axheb"]
+[ext_resource type="Resource" uid="uid://c35ujefvmmuhf" path="res://Dialogue/TestDialogue.tres" id="4_guen5"]
 [ext_resource type="Texture2D" uid="uid://bw3rnqpxwpwvp" path="res://Art Assets/Models/Clock/Clock-Hand-Glass.png" id="4_l6xk5"]
 [ext_resource type="Script" uid="uid://cs781508x4a5b" path="res://Scripts/Environment/Clock/glass.gd" id="4_sngv3"]
 [ext_resource type="Texture2D" uid="uid://d1luglgh34gth" path="res://Art Assets/Pendulum.png" id="5_d7gb4"]
@@ -31,6 +32,7 @@ collision_layer = 4
 collision_mask = 0
 gear_target_position = Vector3(-0.25, -0.11, -0.1)
 gear_rotation = Vector3(0, 0, 0)
+dialogue_data = ExtResource("4_guen5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
