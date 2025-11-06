@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="1_201l7"]
 [ext_resource type="Script" uid="uid://brkonuiro16lu" path="res://Scripts/UI/meltdown_cutscene.gd" id="1_l6s06"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vkhgu"]
-[ext_resource type="Script" uid="uid://t6iglq5j645c" path="res://Scripts/Environment/directional_light_flicker.gd" id="3_34my2"]
+[ext_resource type="Script" path="res://Scripts/Environment/directional_light_flicker.gd" id="3_34my2"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="4_1fw7t"]
 [ext_resource type="Texture2D" uid="uid://bxnxrwkai4dnq" path="res://Art Assets/Yono/Yono_cutscene_e.png" id="6_1fw7t"]
 [ext_resource type="AudioStream" uid="uid://5xijd2tnn3tv" path="res://Audio/firewall.mp3" id="6_l6s06"]
@@ -1253,52 +1253,10 @@ tracks/41/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
-"times": PackedFloat32Array(0.1, 4.9666667, 5.0333333, 19.337526, 22.866667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.1, 4.9666667, 5.0333333, 7.633333, 7.6666665, 8.766666, 8.8, 19.337526, 22.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-19.985, -10.985, 0.0, 0.0, -13.534999999999997]
-}
-
-[sub_resource type="Animation" id="Animation_l6s06"]
-resource_name = "end_cutscene"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer2/Particles:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0786326),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.1, 4.266667, 4.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-19.985, -25.0, -36.278, -80.0]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4.866667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"end_cutscene"
-}]
+"values": [-19.985, -10.985, 0.0, 0.0, -80.0, -72.32563, 0.0, 0.0, -13.534999999999997]
 }
 
 [sub_resource type="Animation" id="Animation_efst0"]
@@ -1353,6 +1311,48 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0.43862727, 0, 0.155258, 0.49411765), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l6s06"]
+resource_name = "end_cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Particles:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0786326),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireEffects/AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.1, 4.266667, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-19.985, -25.0, -36.278, -80.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_cutscene"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0vsy"]
@@ -1723,7 +1723,7 @@ modulate = Color(0, 0, 0, 0)
 texture = SubResource("PlaceholderTexture2D_b6gsb")
 
 [node name="Camera2" type="Camera3D" parent="."]
-transform = Transform3D(-0.05233594, 0.121702336, -0.99118537, 0, 0.99254614, 0.121869296, 0.9986295, 0.0063781473, -0.05194581, 0.072, 0.485, 0.15)
+transform = Transform3D(-0.05233594, 0.121702336, -0.9911853, 0, 0.99254614, 0.12186929, 0.9986295, 0.0063781473, -0.05194581, 0.072, 0.485, 0.15)
 
 [node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
 transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)
