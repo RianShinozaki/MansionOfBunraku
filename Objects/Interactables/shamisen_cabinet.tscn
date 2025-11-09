@@ -1,0 +1,188 @@
+[gd_scene load_steps=16 format=3 uid="uid://drllaj1vfpbgx"]
+
+[ext_resource type="Texture2D" uid="uid://qrh4b1dsje6m" path="res://Art Assets/Models/ShamisenCase/ShamisenCase.png" id="1_cabinet"]
+[ext_resource type="Script" uid="uid://k0jbk8u7gj81" path="res://Scripts/Interactables/shamisen_cabinet.gd" id="1_f7fbf"]
+[ext_resource type="Texture2D" uid="uid://cnhotjxmgxwxt" path="res://Art Assets/Models/ShamisenCase/ShamisenCaseTop.png" id="2_cabinet_top"]
+[ext_resource type="Script" uid="uid://b3x71optmceij" path="res://Scripts/Interactables/shamisen_cabinet_door.gd" id="3_door_script"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_open_sfx"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_close_sfx"]
+[ext_resource type="Texture2D" uid="uid://8no3ftqmkxbj" path="res://Art Assets/Models/ShamisenCase/ShamisenLegs.png" id="6_legs"]
+[ext_resource type="Texture2D" uid="uid://dd3its2htqf0f" path="res://Art Assets/Models/ShamisenCase/ShamisenCaseGlass.png" id="7_glass_case"]
+[ext_resource type="Texture2D" uid="uid://tavd0wk8bdaq" path="res://Art Assets/Models/ShamisenCase/ShamisenTopGlass.png" id="8_glass_top"]
+[ext_resource type="Texture2D" uid="uid://ukclm13rtbif" path="res://Art Assets/Models/ShamisenCase/ShamisenDoorGlass.png" id="9_glass_door"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_legs"]
+size = Vector3(0.48, 0.24, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(0.48, 0.64, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_side"]
+size = Vector3(0.05, 0.64, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_top"]
+size = Vector3(0.48, 0.48, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door"]
+size = Vector3(0.48, 0.64, 0.05)
+
+[node name="ShamisenCabinet" type="Node3D"]
+script = ExtResource("1_f7fbf")
+
+[node name="Legs" type="Node3D" parent="."]
+
+[node name="FrontLeg" type="Sprite3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44, 0.24)
+texture_filter = 2
+texture = ExtResource("6_legs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Legs/FrontLeg"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/FrontLeg/StaticBody3D"]
+shape = SubResource("BoxShape3D_legs")
+
+[node name="BackLeg" type="Sprite3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44, -0.24)
+texture_filter = 2
+texture = ExtResource("6_legs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Legs/BackLeg"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/BackLeg/StaticBody3D"]
+shape = SubResource("BoxShape3D_legs")
+
+[node name="LeftLeg" type="Sprite3D" parent="Legs"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.24, -0.44, 0)
+texture_filter = 2
+texture = ExtResource("6_legs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Legs/LeftLeg"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/LeftLeg/StaticBody3D"]
+shape = SubResource("BoxShape3D_legs")
+
+[node name="RightLeg" type="Sprite3D" parent="Legs"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.24, -0.44, 0)
+texture_filter = 2
+texture = ExtResource("6_legs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Legs/RightLeg"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Legs/RightLeg/StaticBody3D"]
+shape = SubResource("BoxShape3D_legs")
+
+[node name="BackWall" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24)
+texture_filter = 2
+texture = ExtResource("1_cabinet")
+
+[node name="BackWallGlass" type="Sprite3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("7_glass_case")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BackWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="LeftWall" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.24, 0, 0)
+texture_filter = 2
+texture = ExtResource("1_cabinet")
+
+[node name="LeftWallGlass" type="Sprite3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("7_glass_case")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_side")
+
+[node name="RightWall" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.24, 0, 0)
+texture_filter = 2
+texture = ExtResource("1_cabinet")
+
+[node name="RightWallGlass" type="Sprite3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("7_glass_case")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_side")
+
+[node name="TopWall" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.32, 0)
+texture_filter = 2
+texture = ExtResource("2_cabinet_top")
+
+[node name="TopWallGlass" type="Sprite3D" parent="TopWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("8_glass_top")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TopWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_top")
+
+[node name="Bottom" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.32, 0)
+texture_filter = 2
+texture = ExtResource("2_cabinet_top")
+
+[node name="BottomGlass" type="Sprite3D" parent="Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("8_glass_top")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom/StaticBody3D"]
+shape = SubResource("BoxShape3D_top")
+
+[node name="DoorPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0, 0.24)
+
+[node name="Door" type="Sprite3D" parent="DoorPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0, 0)
+texture_filter = 2
+texture = ExtResource("1_cabinet")
+
+[node name="DoorGlass" type="Sprite3D" parent="DoorPivot/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+modulate = Color(1, 1, 1, 0.352941)
+shaded = true
+texture_filter = 2
+texture = ExtResource("9_glass_door")
+
+[node name="DoorBody" type="StaticBody3D" parent="DoorPivot/Door" groups=["Interactable"]]
+collision_layer = 5
+script = ExtResource("3_door_script")
+dir = -1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPivot/Door/DoorBody"]
+shape = SubResource("BoxShape3D_door")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_open_sfx")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_close_sfx")

@@ -180,6 +180,9 @@ height = 0.01
 radius = 0.013
 
 [sub_resource type="FontFile" id="FontFile_tods2"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/22/0/ascent = 0.0
 cache/0/22/0/descent = 0.0
 cache/0/22/0/underline_position = 0.0
@@ -470,7 +473,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_npfmm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel01Pivot" groups=["Interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4369884e-10, 0.09557518, -0.00012207031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.094358295, -0.00012207031)
 collision_layer = 53
 script = ExtResource("3_0kwpj")
 
