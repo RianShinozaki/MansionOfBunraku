@@ -74,7 +74,7 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	
 	# Keep UI cursor visible - it will be updated in _process
 
-func exit_inspect():
+func exit_inspect(target_position: Vector3 = Vector3.INF):
 	if current_mode != Mode.INSPECT:
 		return
 	
@@ -85,11 +85,16 @@ func exit_inspect():
 	player_camera.current = true
 	
 	# Defer camera centering and mouse centering to ensure proper sequencing
-	call_deferred("_finalize_exit_inspect")
+	call_deferred("_finalize_exit_inspect", target_position)
 	
 	current_mode = Mode.PLAY
 
-func _finalize_exit_inspect():
+func _finalize_exit_inspect(target_position: Vector3 = Vector3.INF):
+	# Teleport player to target position if specified (only X and Z, preserve Y)
+	if target_position != Vector3.INF:
+		var current_y = player.global_position.y
+		player.global_position = Vector3(target_position.x, current_y, target_position.z)
+	
 	# Restore the exact rotations from before entering inspect mode
 	player.rotation = stored_player_rotation
 	player_camera.rotation = stored_camera_rotation

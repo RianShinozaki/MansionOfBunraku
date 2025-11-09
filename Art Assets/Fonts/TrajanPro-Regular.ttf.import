@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dijk2scifae5p"
-path="res://.godot/imported/OptimusPrincepsSemiBold.ttf-1b4d0e8ce27ce20ba15fe15f3f874a68.fontdata"
+uid="uid://bgl0jstihx21o"
+path="res://.godot/imported/TrajanPro-Regular.ttf-fd704ab8eec76775fcccbdabfaf47778.fontdata"
 
 [deps]
 
-source_file="res://Art Assets/Fonts/OptimusPrincepsSemiBold.ttf"
-dest_files=["res://.godot/imported/OptimusPrincepsSemiBold.ttf-1b4d0e8ce27ce20ba15fe15f3f874a68.fontdata"]
+source_file="res://Art Assets/Fonts/TrajanPro-Regular.ttf"
+dest_files=["res://.godot/imported/TrajanPro-Regular.ttf-fd704ab8eec76775fcccbdabfaf47778.fontdata"]
 
 [params]
 

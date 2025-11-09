@@ -6,6 +6,7 @@ extends Node3D
 @export var slide_distance: float = 0.04  # How far the assembly slides out
 @export var slide_direction: Vector3 = Vector3(0, -1, 0)  # Direction to slide
 @export var inspect_fov: float = 40.0  # FOV for inspect camera
+@export var player_exit_marker: Node3D  # Optional: Where to teleport player on exit (to avoid door collision)
 
 var is_unlocked: bool = false
 
@@ -25,7 +26,7 @@ func _ready():
 	if unlock_sound and unlock_audio:
 		unlock_audio.stream = unlock_sound
 	
-	$"../Shamisen".remove_from_group("Item")
+
 
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -94,9 +95,6 @@ func unlock() -> void:
 	
 	# Emit signal for other systems
 	emit_signal("unlocked")
-	
-	#CHANGE THIS LATER
-	$"../Shamisen".add_to_group("Item")
 
 func _on_unlock_animation_finished() -> void:
 	# Wait 2 seconds after animation completes
@@ -109,8 +107,14 @@ func _on_unlock_animation_finished() -> void:
 	# Store original materials and create transparent duplicates
 	var material_data: Array[Dictionary] = []
 	for mesh_instance in mesh_instances:
-		for i in range(mesh_instance.get_surface_override_material_count()):
+		# Check all surfaces, not just override materials
+		var surface_count = mesh_instance.mesh.get_surface_count() if mesh_instance.mesh else 0
+		for i in range(surface_count):
+			# Try to get override material first, fallback to surface material
 			var original_mat = mesh_instance.get_surface_override_material(i)
+			if not original_mat:
+				original_mat = mesh_instance.mesh.surface_get_material(i)
+			
 			if original_mat:
 				var mat_copy = original_mat.duplicate()
 				mat_copy.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -128,8 +132,17 @@ func _on_unlock_animation_finished() -> void:
 	for data in material_data:
 		dissolve_tween.tween_property(data.material, "albedo_color:a", 0.0, 1.0)
 	
-	# Wait for dissolve to complete, then remove the object
+	# Wait for dissolve to complete, then exit inspection mode and remove the object
 	await dissolve_tween.finished
+	
+	# Exit inspection mode if still in it
+	if InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
+		# Use exit marker if provided, otherwise exit normally
+		if player_exit_marker:
+			InspectionManager.exit_inspect(player_exit_marker.global_position)
+		else:
+			InspectionManager.exit_inspect()
+	
 	queue_free()
 
 func _collect_mesh_instances(node: Node, result: Array[MeshInstance3D]) -> void:
