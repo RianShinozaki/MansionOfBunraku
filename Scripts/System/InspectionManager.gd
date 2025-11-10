@@ -8,6 +8,8 @@ var inspect_camera: Camera3D
 var player_camera: Camera3D
 var player: Player
 var inspect_collision_mask: int = 1 << 5  # Layer 6 for inspectable details
+var stored_player_rotation: Vector3
+var stored_camera_rotation: Vector3
 
 func _ready():
 	await get_tree().process_frame
@@ -54,6 +56,10 @@ func enter_inspect(target: Node3D, focus_marker: Node3D, fov: float = 50.0):
 	call_deferred("_finalize_inspect_mode", camera_transform, camera_fov)
 
 func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
+	# Store current rotations before entering inspect mode
+	stored_player_rotation = player.rotation
+	stored_camera_rotation = player_camera.rotation
+	
 	# Position and activate inspect camera
 	inspect_camera.global_transform = camera_transform
 	inspect_camera.fov = camera_fov
@@ -68,7 +74,7 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	
 	# Keep UI cursor visible - it will be updated in _process
 
-func exit_inspect():
+func exit_inspect(target_position: Vector3 = Vector3.INF):
 	if current_mode != Mode.INSPECT:
 		return
 	
@@ -78,10 +84,36 @@ func exit_inspect():
 	# Switch back to player camera
 	player_camera.current = true
 	
-	# Capture cursor
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# Defer camera centering and mouse centering to ensure proper sequencing
+	call_deferred("_finalize_exit_inspect", target_position)
 	
 	current_mode = Mode.PLAY
+
+func _finalize_exit_inspect(target_position: Vector3 = Vector3.INF):
+	# Teleport player to target position if specified (only X and Z, preserve Y)
+	if target_position != Vector3.INF:
+		var current_y = player.global_position.y
+		player.global_position = Vector3(target_position.x, current_y, target_position.z)
+	
+	# Restore the exact rotations from before entering inspect mode
+	player.rotation = stored_player_rotation
+	player_camera.rotation = stored_camera_rotation
+	
+	var viewport_size = get_viewport().get_visible_rect().size
+	var center_pos = viewport_size / 2
+	
+	# Center the UI cursor sprite before switching modes
+	var ui_cursor = player.get_node_or_null("CanvasLayer/TextureRect")
+	if ui_cursor:
+		ui_cursor.position = center_pos - ui_cursor.size / 2
+	
+	# Switch to captured mode first
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await get_tree().process_frame
+	
+	# Now warp the mouse to center while in captured mode
+	get_viewport().warp_mouse(center_pos)
+	await get_tree().process_frame
 
 func _process(_delta):
 	# Update UI cursor in inspect mode

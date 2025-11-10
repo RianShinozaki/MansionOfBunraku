@@ -29,7 +29,9 @@ var options : Array = []
 var empty_option : BoxContainer
 var first_option_index := -1
 var base_color : Color = Color.WHITE
-
+var audio_clip: AudioStream
+var audio_picker: EditorResourcePicker
+var audio_name: Label
 
 func _ready():
 	options.clear()
@@ -40,11 +42,16 @@ func _ready():
 			first_option_index = child.get_index()
 			break
 	update_slots()
-
+	audio_picker = EditorResourcePicker.new()
+	audio_picker.base_type = "AudioStream"
+	add_child(audio_picker)
+	audio_picker.resource_changed.connect(_on_audio_changed)
+	audio_name = Label.new()
+	add_child(audio_name)
+	audio_name.text = ""
 
 func _to_dict(graph : GraphEdit):
 	var dict = {}
-	
 	if custom_speaker.visible:
 		custom_speaker.text = custom_speaker.text.replace('{', '').replace('}', '')
 		dict['speaker'] = custom_speaker.text
@@ -56,7 +63,7 @@ func _to_dict(graph : GraphEdit):
 	
 	dict['dialogue'] = dialogue.text
 	dict['size'] = size
-	
+	dict['audio_clip'] = audio_clip
 	# get options connected to other nodes
 	var options_dict := {}
 	for connection in graph.get_connections(name):
@@ -134,6 +141,10 @@ func _from_dict(dict : Dictionary):
 			new_size = Vector2( float(dict['size']['x']), float(dict['size']['y']) )
 		size = new_size
 		last_size = size
+	
+	audio_clip = dict['audio_clip']
+	audio_picker.edited_resource = audio_clip
+	_on_audio_changed(audio_clip)
 	
 	return next_nodes
 
@@ -392,3 +403,8 @@ func _on_option_focus_exited(option : BoxContainer):
 
 func _on_modified():
 	modified.emit()
+
+func _on_audio_changed(_resource: Resource):
+	audio_clip = _resource
+	if _resource != null:
+		audio_name.text = _resource.resource_path.get_file().trim_suffix('.tres')

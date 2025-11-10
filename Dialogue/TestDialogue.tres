@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c35ujefvmmuhf"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_sof1c"]
+
+[resource]
+script = ExtResource("1_sof1c")
+starts = {
+"start": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-80, 220),
+"start_id": "start"
+},
+&"1_1": {
+"audio": null,
+"dialogue": "looks like I need a [bold]gear[ for the gear socket",
+"offset": Vector2(180, 220),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 266),
+"speaker": "Narrator"
+}
+}

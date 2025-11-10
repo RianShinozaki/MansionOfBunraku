@@ -22,6 +22,7 @@ signal variable_changed(variable_name : String, value)
 ## The [DialogueBox] may hide based on the [member hide_on_dialogue_end] property.
 signal dialogue_ended
 
+static var instance: DialogueBox
 
 @export_group('Data')
 ## Contains the [param DialogueData] resource created using the Dialogue Nodes editor.
@@ -149,7 +150,7 @@ var _dialogue_parser : DialogueParser
 var _main_container : BoxContainer
 var _sub_container : BoxContainer
 var _wait_effect : RichTextWait
-
+var _audio_stream_player: AudioStreamPlayer
 
 func _enter_tree():
 	if get_child_count() > 0:
@@ -212,9 +213,12 @@ func _enter_tree():
 	_dialogue_parser.dialogue_signal.connect(_on_dialogue_signal)
 	_dialogue_parser.variable_changed.connect(_on_variable_changed)
 	_dialogue_parser.dialogue_ended.connect(_on_dialogue_ended)
-
-
+	
+	_audio_stream_player = AudioStreamPlayer.new()
+	add_child(_audio_stream_player)
+	
 func _ready():
+	instance = self
 	for effect in custom_effects:
 		if effect is RichTextWait:
 			_wait_effect = effect
@@ -277,7 +281,7 @@ func _on_dialogue_started(id : String):
 	dialogue_started.emit(id)
 
 
-func _on_dialogue_processed(speaker : Variant, dialogue : String, options : Array[String]):
+func _on_dialogue_processed(speaker : Variant, dialogue : String, options : Array[String], audio: AudioStream):
 	# set speaker
 	speaker_label.text = ''
 	portrait.texture = null
@@ -313,6 +317,10 @@ func _on_dialogue_processed(speaker : Variant, dialogue : String, options : Arra
 	
 	dialogue_processed.emit(speaker, dialogue, options)
 
+	# play audio
+	if audio != null:
+		_audio_stream_player.stream = audio
+		_audio_stream_player.play()
 
 func _on_option_selected(idx : int):
 	option_selected.emit(idx)

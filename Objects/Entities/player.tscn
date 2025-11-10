@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://6hmil0dhqlfe"]
+[gd_scene load_steps=12 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
 [ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
+[ext_resource type="Resource" uid="uid://cgwy6tl0kuskc" path="res://Dialogue/player_dialogues.tres" id="2_yq6kl"]
 [ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
 [ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
 [ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
@@ -22,7 +23,8 @@ mouse_sensitivity = 0.005
 acceleration = 15.0
 deceleration = 5.0
 gravity = -15.0
-interaction_range = 0.6
+interaction_range = 1.0
+player_dialogues = ExtResource("2_yq6kl")
 circleUI = ExtResource("2_2i4gt")
 crossUI = ExtResource("2_3y5cq")
 

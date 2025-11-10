@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cgwy6tl0kuskc"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_s5q6q"]
+
+[resource]
+script = ExtResource("1_s5q6q")
+starts = {
+"first_cycle_begin": &"0_1",
+"pickup_shamisen": &"0_2"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-160, 140),
+"start_id": "first_cycle_begin"
+},
+&"0_2": {
+"link": &"1_6",
+"offset": Vector2(-340, 580),
+"start_id": "pickup_shamisen"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "(The smoke clears, and you gasp for air...)",
+"offset": Vector2(120, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 380),
+"speaker": ""
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "(You see the house around you once again. It's almost as if the fire never happened.)",
+"offset": Vector2(460, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(319.99994, 380),
+"speaker": ""
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "(...But the sense memory of the fire doesn't fade easily.)",
+"offset": Vector2(820, 140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 380),
+"speaker": ""
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "(You wonder if you'll feel the flame again.)",
+"offset": Vector2(1160, 140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.00006, 380),
+"speaker": ""
+},
+&"1_5": {
+"audio_clip": null,
+"dialogue": "(Perhaps if you took a moment to focus and feel the shamisen in your hands, the song would come back to you...)",
+"offset": Vector2(640, 560),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(319.99988, 360.00003),
+"speaker": ""
+},
+&"1_6": {
+"audio_clip": null,
+"dialogue": "(The shamisen rests familiarly in your hands.)",
+"offset": Vector2(-60, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300.00006, 360.00027),
+"speaker": ""
+},
+&"1_7": {
+"audio_clip": null,
+"dialogue": "(Muscle-memory urges you to play a song whose name eludes you.)",
+"offset": Vector2(300, 560),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(300, 359.99997),
+"speaker": ""
+}
+}
