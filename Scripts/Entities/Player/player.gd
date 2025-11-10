@@ -75,7 +75,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventKey:
 		#Allow the game to free the cursor when pressing escape
-		if event.pressed and event.keycode == KEY_ESCAPE:
+		if event.pressed and event.keycode == KEY_ESCAPE and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 		# Drop held object
@@ -99,7 +99,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				$Camera3D/Shamisen.append_note(3)
 			
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			click_object()
 
@@ -205,5 +205,8 @@ func run_dialogue(dialogue_id: String):
 	_dialogue_box.data = player_dialogues
 	_dialogue_box.start(dialogue_id)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 	await _dialogue_box.dialogue_ended
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InspectionManager.current_mode = InspectionManager.Mode.PLAY
+	
