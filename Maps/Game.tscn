@@ -25,9 +25,9 @@
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
-[ext_resource type="Texture2D" uid="uid://dvofr5cw007yl" path="res://Art Assets/painting_yoroi.png" id="28_gyqab"]
-[ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="28_k0785"]
+[ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Audio/yono-painting.png" id="29_nv3h5"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
+[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Audio/yoroi-painting.png" id="30_nv3h5"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
@@ -450,12 +450,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.895
 
 [node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.69812685, -10.579226)
-painting_artwork = ExtResource("28_k0785")
+painting_artwork = ExtResource("29_nv3h5")
 dialogue_id = "yono_painting"
 
 [node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
-painting_artwork = ExtResource("28_gyqab")
+painting_artwork = ExtResource("30_nv3h5")
 dialogue_id = "yoroi_painting"
 
 [node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]

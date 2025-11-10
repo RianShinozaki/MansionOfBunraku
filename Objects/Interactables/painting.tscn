@@ -52,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0)
 [node name="ArtworkSprite" type="Sprite3D" parent="VisualPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0, 0)
 material_override = SubResource("StandardMaterial3D_artwork")
+pixel_size = 0.003
 shaded = true
 double_sided = false
 alpha_cut = 2
