@@ -1,7 +1,12 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpeb4iqkai8lg"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bpeb4iqkai8lg"]
+
+[ext_resource type="Texture2D" uid="uid://bxaipbvwqc4ok" path="res://Art Assets/Materials/combination_numbers.png" id="1_7wj80"]
+[ext_resource type="Texture2D" uid="uid://slulknlvfuw" path="res://Art Assets/Materials/gold_tex_normal.png" id="2_qd6um"]
 
 [resource]
 albedo_color = Color(0.7647059, 0.5764706, 0.3019608, 1)
+albedo_texture = ExtResource("1_7wj80")
 metallic = 0.5
 metallic_specular = 0.0
-roughness = 0.6
+roughness_texture = ExtResource("2_qd6um")
+normal_enabled = true
