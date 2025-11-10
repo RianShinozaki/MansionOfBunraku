@@ -474,3 +474,5 @@ metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table2/Letter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/Letter" to="Environment/HouseEntrance/Yoroi" method="activate_bunraku"]
+[connection signal="unlock" from="Environment/HouseEntrance/Objects/ShamisenDoors" to="Environment/HouseEntrance/Objects/ShamisenDoors/StaticBody3D" method="unlock"]
+[connection signal="unlock" from="Environment/HouseEntrance/Objects/ShamisenDoors" to="Environment/HouseEntrance/Objects/ShamisenDoors/StaticBody3D2" method="unlock"]
