@@ -5,7 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://dj4muho1xkcx" path="res://Audio/key_lock_click.wav" id="2_fc70i"]
 [ext_resource type="Script" uid="uid://d08r5wcwv86v5" path="res://Scripts/Interactables/wheel_collision.gd" id="3_0kwpj"]
 [ext_resource type="AudioStream" uid="uid://3ccja3efsi5f" path="res://Audio/gear_place_clock.mp3" id="3_npfmm"]
-[ext_resource type="Material" uid="uid://bpeb4iqkai8lg" path="res://Art Assets/Materials/CombinationLockGold.tres" id="4_npfmm"]
+[ext_resource type="Material" uid="uid://c4k2p8yhn3qrf" path="res://Art Assets/Materials/Gold.tres" id="4_50xu3"]
+[ext_resource type="Material" uid="uid://bpeb4iqkai8lg" path="res://Art Assets/Materials/CombinationLockGold.tres" id="6_50xu3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpd7j"]
 
@@ -134,7 +135,7 @@ _surfaces = [{
 "lods": [0.00043410246, PackedByteArray("AAAWAAIAAAAmABYAJgAXABYAFwAnABYAFwAGACcABgAHACcABgAoAAcAKAApAAcAKAAYACkAGAAqACkAKgAZACkAKgAOABkADgArABkAKwAsABkAKwAaACwAGgAtACwALQADACwALQABAAMAAQAuAAMALgAvAAMALgAbAC8AGwAwAC8AMAAPAC8AMAAQAA8AEAAxAA8AMQAyAA8AMQAcADIAHAAzADIAMwARADIAMwAdABEAHQA0ABEANAA1ABEANAAFADUABQAEADUACQATADYAHgATAAkAHgASABMAEwASADcACgAeADgAHwAeAAoAEgAeAB8AHwAKADkAEgAfAAgACAAfADoAEgAIADsACwAhADwAIAAhAAsADAAgAD0ADAAhACAAIQAUAD4AJQAMAD8AIQAiABQAFAAiAEAAIQAMACMAIQAjACIAJAAMACUAJAAlAEEAIwAMACQAIgAjAA0AIgANAEIADQAjAEMAIwAkABUAFQAkAEQAIwAVAEUA"), 0.0019230703, PackedByteArray("AAAWAAIAAAAXABYAFwAHABYAFwAGAAcABgAYAAcAGAAZAAcAGAAOABkADgAaABkAGgADABkAGgABAAMAAQAbAAMAGwAPAAMAGwAQAA8AEAAcAA8AHAARAA8AHAAdABEAHQAEABEAHQAFAAQAHgATAAkAHgASABMAEgAeAB8AHwAeAAoAEgAfAAgAIAAhAAsADAAhACAAIQAiABQAIQAjACIAIQAMACMAIgAjAA0AIwAMACQAJAAMACUAIwAkABUA"), 0.00978757, PackedByteArray("AAAGAAIABgAHAAIABgAOAAcADgADAAcADgABAAMAAQAPAAMAAQAQAA8AEAARAA8AEAAFABEABQAEABEACQASABMAEgAJAAoAEgAKAAgACwANABQACwAMAA0ADQAMABUA"), 0.015843695, PackedByteArray("AAAGAAIABgAHAAIABgABAAcAAQADAAcAAQAEAAMAAQAFAAQACAAJAAoACwAMAA0A"), 0.036701802, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMAAQAFAAQA")],
 "material": SubResource("StandardMaterial3D_8q1ar"),
 "primitive": 3,
-"uv_scale": Vector4(2, 1.98, 0, 0),
+"uv_scale": Vector4(3, 3, 0, 0),
 "vertex_count": 98,
 "vertex_data": PackedByteArray("/38AAAAA///eXgAAovuqiv9///8AAP//3l7//6L7qor/f///AAD///9/AAAAAP//ovsAAN5eqcqi+///3l6pyt5e//+i+/+//3///wAA/7+i+///3l7/v6L7AADeXv8//38AAAAA/z/eXgAAovv/P4HaAACB2v+fXAT//yChVLVcBAAAIKFUtX0l//99Jf/fXAT//yCh/799Jf//fSX/v4HaAACB2v8/XAQAACCh/z8gof//XARU9YHaAAB9Jf/fovsAACChVLWB2v//gdr/nyChAACi+6qKfSUAAIHa/59cBAAA3l6pyn0lAAB9Jf/fIKH//1wE/7+B2v//gdr/v4HaAAB9Jf8/ovsAACCh/z8goQAAovv/P30lAACB2v8/XAQAAN5e/z99JQAAfSX/PyChAABcBFT1gdr//30l/9///wAA/3//v6L7//8goVS12O4AAP+/qar/vwAA2O5UlSCh//+i+6qK/38AAP//AID/PwAA2O5UlX0l//+B2v+fJhEAAP+/qaoAAAAA/3//v1wE///eXqnKJhEAAP8/VNX/PwAAJhGp6t5e//9cBFT13l7//1wE/79cBP//3l7/v4Ha//99Jf+/ovv//yCh/78gof//ovv/v30l//+B2v+///8AAP9//z8goQAAXAT/P9juAAD/v/8//z8AACYR/z//vwAA2O7/PyYRAAD/P/8//38AAP///z//PwAA2O7/PwAAAAD/f/8/JhEAAP+//z//v///JhGp6v+/AAAmEanq2O7///8/VNXY7gAA/z9U1f//////f/+/2O7///+/qar/v///2O5Ulf9//////wCA/z///9juVJUmEf///7+pqgAA////f/+/JhH///8/VNX/P///JhGp6t5eAABcBFT1/7///yYR/7//P///JhH/vyYR////P/+/AAD///9//7/Y7v///z//v///////f/+//7///9ju/7/Y7v///7//vyYR////v/+//z///9ju/7//f///////v95eAABcBP8//78AACYR/z/Y7gAA/z//P/9/////f////3////9/////f////3////9/AAD/fwAA////f////3/+//9/AAD/fwAA/38AAP9//38AAP9/////f////3////7//3////9/AAD/fwAA/3//fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3///////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3////7//3/+//9/////f/7//3/+//9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/////f////3///////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/")
 }]
@@ -178,31 +179,6 @@ shadow_mesh = SubResource("ArrayMesh_22eov")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0kwpj"]
 height = 0.01
 radius = 0.013
-
-[sub_resource type="FontFile" id="FontFile_tods2"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/22/0/ascent = 0.0
-cache/0/22/0/descent = 0.0
-cache/0/22/0/underline_position = 0.0
-cache/0/22/0/underline_thickness = 0.0
-cache/0/22/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/10/0/ascent = 0.0
-cache/0/10/0/descent = 0.0
-cache/0/10/0/underline_position = 0.0
-cache/0/10/0/underline_thickness = 0.0
-cache/0/10/0/scale = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0b2k"]
 
@@ -442,35 +418,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.318, 0)
 transform = Transform3D(0.2, 0, 0, 0, 0.8, 0, 0, 0, 0.2, 0, -0.058, 0)
 mesh = SubResource("ArrayMesh_secsk")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="Housing_R" type="MeshInstance3D" parent="MovingAssemblyPivot/MovingAssembly"]
 transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0.015, -0.05, 0)
 mesh = SubResource("ArrayMesh_mtbt4")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="Latch" type="MeshInstance3D" parent="MovingAssemblyPivot/MovingAssembly"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.03, -0.016999999, 0)
 mesh = SubResource("ArrayMesh_ov4g8")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="MovingRod" type="MeshInstance3D" parent="MovingAssemblyPivot/MovingAssembly"]
 transform = Transform3D(0.97, 0, 0, 0, 0.41000056, 0, 0, 0, 0.97, 0, -0.02, 0)
 mesh = SubResource("ArrayMesh_enub1")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="Wheel01Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
 script = ExtResource("2")
 
-[node name="Ring_03" type="MeshInstance3D" parent="Wheel01Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00024414061, 0.07021362, 0)
+[node name="Ring" type="MeshInstance3D" parent="Wheel01Pivot"]
+transform = Transform3D(0.5372996, 0, -0.8433915, 0, 1, 0, 0.8433915, 0, 0.5372996, -0.00024414061, 0.07021362, 0)
 mesh = SubResource("ArrayMesh_53j3m")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("6_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel01Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.094358295, -0.00012207031)
@@ -481,109 +457,16 @@ script = ExtResource("3_0kwpj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0005493164, 0.0010375977, 0.0009765625)
 shape = SubResource("CylinderShape3D_0kwpj")
 
-[node name="NumberLabels" type="Node3D" parent="Wheel01Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00022888184, 0, 0)
-
-[node name="0" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(4.3711395e-08, 1, 8.742278e-08, -1, 4.371139e-08, 8.742278e-08, 8.742277e-08, -8.7422784e-08, 1, -0.0006866455, 0.095, 0.012244141)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "0"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="1" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.809017, 0.58778524, -1, -4.371139e-08, 0, 2.569291e-08, -0.58778524, 0.809017, 0.006107334, 0.095, 0.010529434)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "1"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="2" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(-1.35075595e-08, 0.30901697, 0.95105654, -1, -4.371139e-08, 0, 4.1572e-08, -0.95105654, 0.30901697, 0.011173252, 0.095, 0.004761612)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "2"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="3" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(1.3507563e-08, -0.30901703, 0.9510565, -1, -4.371139e-08, 0, 4.1571997e-08, -0.9510565, -0.30901703, 0.0115699805, 0.095, -0.003239477)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "3"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="4" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(3.5363257e-08, -0.809017, 0.5877851, -1, -4.371138e-08, 0, 2.5692906e-08, -0.5877851, -0.809017, 0.007694248, 0.09493896, -0.009526098)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "4"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="5" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(4.371139e-08, -0.99999994, -8.742277e-08, -1, -4.3711385e-08, 0, -3.821371e-15, 8.742277e-08, -0.99999994, 0.00020218268, 0.095, -0.012455786)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "5"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="6" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(3.536325e-08, -0.8090169, -0.5877853, -1, -4.371139e-08, 0, -2.5692914e-08, 0.5877853, -0.8090169, -0.0068016015, 0.095, -0.009922827)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "6"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="7" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(1.3507567e-08, -0.30901706, -0.9510564, -1, -4.371138e-08, 0, -4.1571997e-08, 0.9510564, -0.30901706, -0.011363983, 0.095, -0.0040939692)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "7"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="8" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(-1.3507567e-08, 0.3090171, -0.95105636, -1, -4.3711385e-08, 0, -4.1571997e-08, 0.95105636, 0.3090171, -0.011791229, 0.095, 0.0032302495)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "8"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="9" type="Label3D" parent="Wheel01Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.8090169, -0.5877852, -1, -4.3711385e-08, 0, -2.569291e-08, 0.5877852, 0.8090169, -0.0077323895, 0.095, 0.009318506)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "9"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
 [node name="Wheel02Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 script = ExtResource("2")
 wheel_index = 2
 
-[node name="Ring_02" type="MeshInstance3D" parent="Wheel02Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999997, 0)
+[node name="Ring" type="MeshInstance3D" parent="Wheel02Pivot"]
+transform = Transform3D(0.551937, 0, -0.83388585, 0, 1, 0, 0.83388585, 0, 0.551937, 0, -0.049999997, 0)
 mesh = SubResource("ArrayMesh_2teq2")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("6_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel02Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.037, 0)
@@ -593,221 +476,35 @@ script = ExtResource("3_0kwpj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel02Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_onjdf")
 
-[node name="NumberLabels" type="Node3D" parent="Wheel02Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6293945e-06, -0.13256657, 0)
-
-[node name="0" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(4.3711395e-08, 1, 8.742278e-08, -1, 4.371139e-08, 8.742278e-08, 8.742277e-08, -8.7422784e-08, 1, -0.0008850042, 0.095, 0.01212207)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "0"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="1" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.809017, 0.58778524, -1, -4.371139e-08, 0, 2.569291e-08, -0.58778524, 0.809017, 0.006107334, 0.095, 0.010529434)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "1"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="2" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(-1.35075595e-08, 0.30901697, 0.95105654, -1, -4.371139e-08, 0, 4.1572e-08, -0.95105654, 0.30901697, 0.011173252, 0.095, 0.004761612)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "2"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="3" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(1.3507563e-08, -0.30901703, 0.9510565, -1, -4.371139e-08, 0, 4.1571997e-08, -0.9510565, -0.30901703, 0.0115699805, 0.095, -0.003239477)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "3"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="4" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(3.5363257e-08, -0.809017, 0.5877851, -1, -4.371138e-08, 0, 2.5692906e-08, -0.5877851, -0.809017, 0.0075721787, 0.09451172, -0.009404028)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "4"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="5" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(4.371139e-08, -0.99999994, -8.742277e-08, -1, -4.3711385e-08, 0, -3.821371e-15, 8.742277e-08, -0.99999994, 0.0007515084, 0.09408447, -0.011967504)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "5"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="6" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(3.536325e-08, -0.8090169, -0.5877853, -1, -4.371139e-08, 0, -2.5692914e-08, 0.5877853, -0.8090169, -0.0068016015, 0.095, -0.009922827)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "6"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="7" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(1.3507567e-08, -0.30901706, -0.9510564, -1, -4.371138e-08, 0, -4.1571997e-08, 0.9510564, -0.30901706, -0.011363983, 0.095, -0.0040939692)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "7"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="8" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(-1.3507567e-08, 0.3090171, -0.95105636, -1, -4.3711385e-08, 0, -4.1571997e-08, 0.95105636, 0.3090171, -0.011608124, 0.095, 0.0037185308)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "8"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="9" type="Label3D" parent="Wheel02Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.8090169, -0.5877852, -1, -4.3711385e-08, 0, -2.569291e-08, 0.5877852, 0.8090169, -0.0077323895, 0.095, 0.009318506)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "9"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
 [node name="Wheel03Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
 script = ExtResource("2")
 wheel_index = 3
 
-[node name="Ring_01" type="MeshInstance3D" parent="Wheel03Pivot"]
-transform = Transform3D(0.3851112, 0, 0.92287016, 0, 1, 0, -0.92287016, 0, 0.3851112, 0, -0.17, 0)
+[node name="Ring" type="MeshInstance3D" parent="Wheel03Pivot"]
+transform = Transform3D(0.5150381, 0, -0.8571673, 0, 1, 0, 0.8571673, 0, 0.5150381, 0, -0.17, 0)
 mesh = SubResource("ArrayMesh_g4pxv")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("6_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel03Pivot" groups=["Interactable"]]
-transform = Transform3D(0.3851112, 0, 0.92287016, 0, 1, 0, -0.92287016, 0, 0.3851112, -2.220446e-16, -0.17, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.220446e-16, -0.17, 0)
 collision_layer = 21
 script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel03Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_k4nch")
 
-[node name="NumberLabels" type="Node3D" parent="Wheel03Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6293945e-06, -0.2652619, 0)
-
-[node name="0" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(4.3711395e-08, 1, 8.742278e-08, -1, 4.371139e-08, 8.742278e-08, 8.742277e-08, -8.7422784e-08, 1, -0.00088500604, 0.095, 0.012)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "0"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="1" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.809017, 0.58778524, -1, -4.371139e-08, 0, 2.569291e-08, -0.58778524, 0.809017, 0.006107334, 0.095, 0.010529434)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "1"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="2" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(-1.35075595e-08, 0.30901697, 0.95105654, -1, -4.371139e-08, 0, 4.1572e-08, -0.95105654, 0.30901697, 0.011173252, 0.095, 0.004761612)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "2"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="3" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(1.3507563e-08, -0.30901703, 0.9510565, -1, -4.371139e-08, 0, 4.1571997e-08, -0.9510565, -0.30901703, 0.0115699805, 0.095, -0.003239477)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "3"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="4" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(3.5363257e-08, -0.809017, 0.5877851, -1, -4.371138e-08, 0, 2.5692906e-08, -0.5877851, -0.809017, 0.007572178, 0.09484741, -0.009526098)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "4"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="5" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(4.371139e-08, -0.99999994, -8.742277e-08, -1, -4.3711385e-08, 0, -3.821371e-15, 8.742277e-08, -0.99999994, 0.00020218268, 0.095, -0.012944067)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "5"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="6" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(3.536325e-08, -0.8090169, -0.5877853, -1, -4.371139e-08, 0, -2.5692914e-08, 0.5877853, -0.8090169, -0.0068016015, 0.095, -0.009922827)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "6"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="7" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(1.3507567e-08, -0.30901706, -0.9510564, -1, -4.371138e-08, 0, -4.1571997e-08, 0.9510564, -0.30901706, -0.011363983, 0.095, -0.0040939692)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "7"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="8" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(-1.3507567e-08, 0.3090171, -0.95105636, -1, -4.3711385e-08, 0, -4.1571997e-08, 0.95105636, 0.3090171, -0.011608124, 0.095, 0.0032302495)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "8"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="9" type="Label3D" parent="Wheel03Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.8090169, -0.5877852, -1, -4.3711385e-08, 0, -2.569291e-08, 0.5877852, 0.8090169, -0.0077323895, 0.095, 0.009318506)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "9"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
 [node name="Wheel04Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
 script = ExtResource("2")
 wheel_index = 4
 
-[node name="Ring_04" type="MeshInstance3D" parent="Wheel04Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13970001, 0)
+[node name="Ring" type="MeshInstance3D" parent="Wheel04Pivot"]
+transform = Transform3D(0.544639, 0, -0.8386706, 0, 1, 0, 0.8386706, 0, 0.544639, 0, 0.13970001, 0)
 mesh = SubResource("ArrayMesh_q47tl")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("6_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wheel04Pivot" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.642779e-09, 0.1775824, -0.00048828125)
@@ -816,99 +513,6 @@ script = ExtResource("3_0kwpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel04Pivot/StaticBody3D"]
 shape = SubResource("CylinderShape3D_fc70i")
-
-[node name="NumberLabels" type="Node3D" parent="Wheel04Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6293945e-06, 0.08229077, 0)
-
-[node name="0" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(4.3711395e-08, 1, 8.742278e-08, -1, 4.371139e-08, 8.742278e-08, 8.742277e-08, -8.7422784e-08, 1, -0.00088500604, 0.095, 0.01212207)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "0"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="1" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.809017, 0.58778524, -1, -4.371139e-08, 0, 2.569291e-08, -0.58778524, 0.809017, 0.006107334, 0.095, 0.010529434)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "1"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="2" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(-1.35075595e-08, 0.30901697, 0.95105654, -1, -4.371139e-08, 0, 4.1572e-08, -0.95105654, 0.30901697, 0.011173252, 0.095, 0.004761612)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "2"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="3" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(1.3507563e-08, -0.30901703, 0.9510565, -1, -4.371139e-08, 0, 4.1571997e-08, -0.9510565, -0.30901703, 0.0115699805, 0.095, -0.0033615474)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "3"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="4" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(3.5363257e-08, -0.809017, 0.5877851, -1, -4.371138e-08, 0, 2.5692906e-08, -0.5877851, -0.809017, 0.007892612, 0.095, -0.009892309)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "4"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="5" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(4.371139e-08, -0.99999994, -8.742277e-08, -1, -4.3711385e-08, 0, -3.821371e-15, 8.742277e-08, -0.99999994, 0.0006294288, 0.095, -0.012089575)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "5"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="6" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(3.536325e-08, -0.8090169, -0.5877853, -1, -4.371139e-08, 0, -2.5692914e-08, 0.5877853, -0.8090169, -0.0068016015, 0.095, -0.009922827)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "6"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="7" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(1.3507567e-08, -0.30901706, -0.9510564, -1, -4.371138e-08, 0, -4.1571997e-08, 0.9510564, -0.30901706, -0.011363983, 0.095, -0.0040939692)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "7"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="8" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(-1.3507567e-08, 0.3090171, -0.95105636, -1, -4.3711385e-08, 0, -4.1571997e-08, 0.95105636, 0.3090171, -0.011730194, 0.095, 0.0032302495)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "8"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
-
-[node name="9" type="Label3D" parent="Wheel04Pivot/NumberLabels"]
-transform = Transform3D(-3.5363257e-08, 0.8090169, -0.5877852, -1, -4.3711385e-08, 0, -2.569291e-08, 0.5877852, 0.8090169, -0.0077323895, 0.095, 0.009318506)
-pixel_size = 0.0005
-modulate = Color(0, 0, 0, 1)
-text = "9"
-font = SubResource("FontFile_tods2")
-font_size = 16
-outline_size = 0
 
 [node name="ClickSound" type="AudioStreamPlayer3D" parent="."]
 unit_size = 2.0
@@ -924,7 +528,7 @@ max_distance = 15.0
 transform = Transform3D(0.2, 0, 0, 0, 0.8, 0, 0, 0, 0.2, 0, 0.058, 0)
 mesh = SubResource("ArrayMesh_g52xn")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LockRoot/Endcap_L"]
 
@@ -935,7 +539,7 @@ shape = SubResource("ConcavePolygonShape3D_k4nch")
 transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0.015, 0.049999997, 0)
 mesh = SubResource("ArrayMesh_inrlf")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LockRoot/Housing_L"]
 
@@ -946,7 +550,7 @@ shape = SubResource("ConcavePolygonShape3D_0kwpj")
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.021, 0)
 mesh = SubResource("ArrayMesh_mrgti")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("4_npfmm")
+surface_material_override/0 = ExtResource("4_50xu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LockRoot/Rod"]
 
