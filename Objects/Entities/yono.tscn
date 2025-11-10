@@ -1,14 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbki4518ca03c"]
+[gd_scene load_steps=15 format=3 uid="uid://cbki4518ca03c"]
 
 [ext_resource type="Script" uid="uid://c3f5d5j8yehpf" path="res://Scripts/Entities/Bunraku/yono.gd" id="1_5sjfi"]
-[ext_resource type="PackedScene" uid="uid://bta7t4ubs7afy" path="res://Objects/Items/Key.tscn" id="2_h58cf"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="2_ua3am"]
 [ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="3_h58cf"]
 [ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="4_1vdij"]
 [ext_resource type="Texture2D" uid="uid://dykv45hyfieox" path="res://Art Assets/Yono/Yono-h.png" id="5_sih24"]
 [ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="6_xjoem"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_brmr6"]
-[ext_resource type="Script" uid="uid://bi4v038ilg5fo" path="res://Scripts/Items/key.gd" id="9_brmr6"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="9_h58cf"]
 [ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio/boss_rattling.mp3" id="10_1vdij"]
 [ext_resource type="AudioStream" uid="uid://dotcf3aqdlpwu" path="res://Audio/boss_breathing_female.wav" id="11_sih24"]
@@ -82,11 +80,6 @@ hframes = 4
 
 [node name="Lookat" type="Node" parent="Body"]
 script = ExtResource("7_brmr6")
-
-[node name="BlueKey" parent="Body" instance=ExtResource("2_h58cf")]
-transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, 1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37114e-08, -0.121365, -0.104862, 0.0337862)
-freeze = true
-script = ExtResource("9_brmr6")
 
 [node name="NegativeLight" type="OmniLight3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.193251, 0.663154)

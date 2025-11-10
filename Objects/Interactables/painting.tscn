@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ekfex3rpugck"]
+[gd_scene load_steps=10 format=3 uid="uid://ekfex3rpugck"]
 
 [ext_resource type="Script" uid="uid://bpqgtlve1xqte" path="res://Scripts/Interactables/painting.gd" id="1_painting"]
 [ext_resource type="Texture2D" uid="uid://dllibx1ktwcdj" path="res://Art Assets/painting_frame.png" id="2_frame_tex"]
@@ -31,9 +31,6 @@ heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("3_frame_h")
 texture_filter = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_artwork"]
-size = Vector3(0.8, 0.6, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(0.96, 0.7, 0.1)
