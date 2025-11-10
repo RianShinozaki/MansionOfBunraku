@@ -152,6 +152,7 @@ shape = SubResource("ConcavePolygonShape3D_2rhh3")
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.8027881, 0.43672052, 0.64520276)
 move_speed = 1.5
+do_intro = true
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
@@ -365,7 +366,7 @@ shape = SubResource("BoxShape3D_ceqvn")
 
 [node name="Letter" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("37_letter")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.13336754, 0.06688093, 0.3074291)
-message_text = "A lucky day in the 3rd moon of [color=red][b]17xx[/b][/color]
+message_text = "A lucky day in the 3rd moon of [color=red]17xx[/color]
 
 My lady,
 
@@ -395,7 +396,7 @@ shape = SubResource("BoxShape3D_ceqvn")
 
 [node name="Letter" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("37_letter")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.033367157, 0.06688093, 0.30742908)
-message_text = "A blessed day in the 4th moon of [color=red][b]xx11[/b][/color]
+message_text = "A blessed day in the 4th moon of [color=red]xx11[/color]
 
 My Kouya,
 
