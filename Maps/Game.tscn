@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=60 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="21_muv74"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="22_66c1n"]
 [ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="22_gpbpg"]
+[ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="23_nv3h5"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
@@ -163,7 +164,6 @@ shape = SubResource("ConcavePolygonShape3D_2rhh3")
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.8027881, 0.43672052, 0.64520276)
 move_speed = 1.5
-do_intro = true
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
@@ -389,6 +389,9 @@ The thought of you gives me courage to dream of what might be possible.
 
 – Kouya"
 
+[node name="Candle" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("23_nv3h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04413128, 0.050800502, 0.15119785)
+
 [node name="Table3" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.217737, 13.363986)
 mesh = ExtResource("10_xacle")
@@ -413,6 +416,9 @@ I read your note three times before I dared to breathe. Mother says I’ve grown
 The gatekeeper sleeps not long after sundown. If you truly mean what you whispered, I know of a spot that stays unlit.
 
 – Yono"
+
+[node name="Candle" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("23_nv3h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15999126, 0.050800502, 0.15119785)
 
 [node name="LobbyDoors" type="Node3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
@@ -445,10 +451,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.895
 [node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.69812685, -10.579226)
 painting_artwork = ExtResource("28_k0785")
+dialogue_id = "yono_painting"
 
 [node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
 painting_artwork = ExtResource("28_gyqab")
+dialogue_id = "yoroi_painting"
 
 [node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
 

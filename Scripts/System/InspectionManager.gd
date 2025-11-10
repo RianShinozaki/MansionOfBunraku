@@ -1,7 +1,7 @@
 extends Node
 
 # Simple 2-state inspection system: PLAY <-> INSPECT
-enum Mode { PLAY, INSPECT }
+enum Mode { PLAY, INSPECT, DIALOGUE }
 
 var current_mode: Mode = Mode.PLAY
 var inspect_camera: Camera3D
