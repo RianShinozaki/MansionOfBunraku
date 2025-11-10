@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://textoverlay001"]
+[gd_scene load_steps=8 format=3 uid="uid://bnbhrwdae0ypk"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables/text_overlay.gd" id="1_text"]
-[ext_resource type="FontFile" path="res://Art Assets/Fonts/Tangerine_Regular.ttf" id="2_font"]
-[ext_resource type="AudioStream" path="res://Audio/open_toolbox.mp3" id="3_paper_sound"]
+[ext_resource type="Script" uid="uid://cc3r0iwp5xvxr" path="res://Scripts/Interactables/text_overlay.gd" id="1_text"]
+[ext_resource type="Texture2D" uid="uid://cjqpwga50bfll" path="res://Art Assets/UI/grunge-paper-background.jpg" id="2_8d202"]
+[ext_resource type="FontFile" uid="uid://dt7cnq5bw6qep" path="res://Art Assets/Fonts/Tangerine_Regular.ttf" id="2_font"]
+[ext_resource type="AudioStream" uid="uid://bae0a1hsvb1e6" path="res://Audio/open_toolbox.mp3" id="3_paper_sound"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paper"]
 bg_color = Color(0.95, 0.94, 0.92, 1)
@@ -15,12 +16,6 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_letter"]
-font = ExtResource("2_font")
-font_size = 28
-font_color = Color(0.2, 0.2, 0.2, 1)
-line_spacing = 4
 
 [sub_resource type="Animation" id="Animation_slide_up"]
 resource_name = "slide_up"
@@ -59,8 +54,8 @@ _data = {
 script = ExtResource("1_text")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 0.85)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,7 +63,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -81,6 +75,14 @@ offset_bottom = 1780.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_paper")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_top = -58.0
+offset_right = 500.0
+offset_bottom = 609.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_8d202")
 
 [node name="BorderContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -100,30 +102,35 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/BorderContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 48
-theme_override_fonts/normal_font = ExtResource("2_font")
 theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
-text = "My Dearest Yoroi,
+text = "A lucky day in the 3rd moon of 17xx
 
-Do you remember when we first met in [u]1746[/u]? That spring evening when the cherry blossoms fell like snow, and your eyes met mine across the crowded theater.
 
-I found not just a partner in art, but my great love.
+My lady,
 
-Forever yours,
-Yono"
-horizontal_alignment = 1
+I hear your music through the screen each night. It sounds like a world I’m not allowed to touch.
+
+But tonight I wrote your name in the dust of the storeroom shelves, just once, before sweeping it away.
+
+The thought of you gives me courage to dream of what might be possible.
+
+– Kouya
+"
 autowrap_mode = 2
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/BorderContainer/VBoxContainer"]
-layout_mode = 2
 modulate = Color(0.6, 0.5, 0.3, 1)
+layout_mode = 2
 
 [node name="ClickHint" type="Label" parent="Panel/BorderContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 18
 theme_override_colors/font_color = Color(0.5, 0.4, 0.3, 1)
+theme_override_font_sizes/font_size = 18
 text = "Click anywhere to close"
 horizontal_alignment = 1
 

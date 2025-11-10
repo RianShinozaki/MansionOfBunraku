@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pownsbape1t"]
+[gd_scene load_steps=12 format=3 uid="uid://pownsbape1t"]
 
 [ext_resource type="Script" uid="uid://d14d1duqmv8rx" path="res://Scripts/Environment/front_doors.gd" id="1_gjtum"]
 [ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="1_mjwxi"]
@@ -17,6 +17,9 @@ size = Vector3(0.3, 0.3, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmavi"]
 size = Vector3(0.3, 0.3, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqn0k"]
+size = Vector3(0.9534912, 1.4885254, 0.07645798)
 
 [node name="FrontDoors" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -61,3 +64,9 @@ shape = SubResource("BoxShape3D_mmavi")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_mmavi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006164551, 0.74194336, -0.043779373)
+shape = SubResource("BoxShape3D_lqn0k")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://drllaj1vfpbgx"]
 
 [ext_resource type="Texture2D" uid="uid://qrh4b1dsje6m" path="res://Art Assets/Models/ShamisenCase/ShamisenCase.png" id="1_cabinet"]
-[ext_resource type="Script" uid="uid://k0jbk8u7gj81" path="res://Scripts/Interactables/shamisen_cabinet.gd" id="1_f7fbf"]
+[ext_resource type="Script" path="res://Scripts/Interactables/shamisen_cabinet.gd" id="1_f7fbf"]
 [ext_resource type="Texture2D" uid="uid://cnhotjxmgxwxt" path="res://Art Assets/Models/ShamisenCase/ShamisenCaseTop.png" id="2_cabinet_top"]
-[ext_resource type="Script" uid="uid://b3x71optmceij" path="res://Scripts/Interactables/shamisen_cabinet_door.gd" id="3_door_script"]
+[ext_resource type="Script" path="res://Scripts/Interactables/shamisen_cabinet_door.gd" id="3_door_script"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_open_sfx"]
 [ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_close_sfx"]
 [ext_resource type="Texture2D" uid="uid://8no3ftqmkxbj" path="res://Art Assets/Models/ShamisenCase/ShamisenLegs.png" id="6_legs"]

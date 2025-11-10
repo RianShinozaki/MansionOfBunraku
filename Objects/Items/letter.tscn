@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://letter001"]
+[gd_scene load_steps=7 format=3 uid="uid://c3jyphoehlcxh"]
 
-[ext_resource type="Texture2D" path="res://Art Assets/letter.png" id="1_letter"]
-[ext_resource type="Script" path="res://Scripts/Items/letter.gd" id="2_letter"]
+[ext_resource type="Texture2D" uid="uid://dhkquolw22nlu" path="res://Art Assets/letter.png" id="1_letter"]
+[ext_resource type="Script" uid="uid://b14n0yhd88x8s" path="res://Scripts/Items/letter.gd" id="2_letter"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_letter"]
 size = Vector3(0.2, 0.15, 0.01)
@@ -48,20 +48,25 @@ _data = {
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_letter")
-message_text = "My Dearest Yoroi,\n\nDo you remember when we first met in [u]1746[/u]? That spring evening when the cherry blossoms fell like snow, and your eyes met mine across the crowded theater.\n\nI found not just a partner in art, but my great love.\n\nForever yours,\nYono"
+message_text = "My Dearest Yoroi,
+
+Do you remember when we first met in [u]1746[/u]? That spring evening when the cherry blossoms fell like snow, and your eyes met mine across the crowded theater.
+
+I found not just a partner in art, but my great love.
+
+Forever yours,
+Yono"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_letter")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.01, 0, 0, 0)
 shaded = true
+texture_filter = 2
 texture = ExtResource("1_letter")
 hframes = 5
-frame = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_letter")
 }
-

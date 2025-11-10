@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var background = $ColorRect
 @onready var paper_sound: AudioStreamPlayer = $PaperSound
 
+signal hiding_message
+
 var target_top: float = -350.0
 var target_bottom: float = 350.0
 var start_top: float = 1080.0
@@ -45,10 +47,12 @@ func show_message(message: String) -> void:
 	get_viewport().set_input_as_handled()
 
 func _input(event):
-	if visible and event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			hide_message()
-			get_viewport().set_input_as_handled()
+	if visible:
+		get_viewport().set_input_as_handled()
+		if event is InputEventMouseButton:
+			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+				hide_message()
+				emit_signal("hiding_message")
 
 func hide_message() -> void:
 	hide()
