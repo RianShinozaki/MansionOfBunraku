@@ -20,3 +20,5 @@ player_exit_marker = NodePath("PlayerExitMarker")
 
 [node name="PlayerExitMarker" type="Node3D" parent="CombinationLock"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9082031, 0.07565305, 0.71203613)
+
+[editable path="CombinationLock"]

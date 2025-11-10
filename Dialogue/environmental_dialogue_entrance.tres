@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://br6eitq42ek5m"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_wuqbv"]
+
+[resource]
+script = ExtResource("1_wuqbv")
+starts = {
+"yono_painting": &"0_1",
+"yoroi_painting": &"0_2"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-160, 180),
+"start_id": "yono_painting"
+},
+&"0_2": {
+"link": &"1_4",
+"offset": Vector2(-160, 600),
+"start_id": "yoroi_painting"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "The woman you see in front of you is familiar. 
+You realize you know her, though you don’t remember how. ",
+"offset": Vector2(229.51501, 168.66),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(340.00006, 359.9999),
+"speaker": ""
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "She is Yono, the daughter of a wealthy family. 
+It is well known that Yono is very modest, and is uncomfortable being looked at. ",
+"offset": Vector2(600, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 400.00003),
+"speaker": ""
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "Sometimes, [color=red]it can make her very upset…[/color]",
+"offset": Vector2(940, 180),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(360.00006, 379.99997),
+"speaker": ""
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "The man you see in front of you is someone you know you’ve seen before and know, though you can’t recall how. 
+He is Kouya, a servant of Yono’s family.",
+"offset": Vector2(180, 660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(380, 380),
+"speaker": ""
+},
+&"1_5": {
+"audio_clip": null,
+"dialogue": "Kouya wants to make sure all is right with the house, and wants you to make sure you see that he is there to look after things.",
+"offset": Vector2(600, 660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(300, 380.00006),
+"speaker": ""
+},
+&"1_6": {
+"audio_clip": null,
+"dialogue": "In fact, if you look away for too long, [color=red]he can become extremely frustrated…[/color]
+",
+"offset": Vector2(940, 660),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(340, 399.99994),
+"speaker": ""
+}
+}

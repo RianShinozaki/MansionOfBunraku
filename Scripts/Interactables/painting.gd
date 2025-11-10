@@ -7,6 +7,8 @@ extends StaticBody3D
 @export var painting_artwork: Texture2D
 @export var inspect_fov: float = 40.0
 @export var can_be_opened: bool
+@export var dialogue_id: String
+@export var environmental_dialogues: DialogueData
 
 var anim_lock: bool = false
 var open: bool = false
@@ -59,8 +61,22 @@ func on_interact():
 
 func on_inspect_click():
 	# Called when artwork is clicked during inspection mode
+	if InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
+		return
+	
+	if dialogue_id != "":
+		var _dialogue_box: DialogueBox = DialogueBox.instance
+		_dialogue_box.data = environmental_dialogues
+		_dialogue_box.start(dialogue_id)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+		await _dialogue_box.dialogue_ended
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		InspectionManager.current_mode = InspectionManager.Mode.INSPECT
+		
 	if can_be_opened:
 		dissolve_painting()
+	
 
 func dissolve_painting():
 	if anim_lock: return

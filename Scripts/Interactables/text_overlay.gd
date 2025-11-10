@@ -23,7 +23,7 @@ func _ready():
 
 func show_message(message: String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	rich_text_label.text = message
+	rich_text_label.bbcode_text = message
 	
 	# Reset panel position to off-screen before showing
 	if panel:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwib3w46bbmho"
-path="res://.godot/imported/painting_yono.png-f8960e2cee22b5b98b5d845cccab12bd.ctex"
+uid="uid://dxs1edmtnmrfl"
+path="res://.godot/imported/candle.png-3c6524408c69beedca116133f43965a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/painting_yono.png"
-dest_files=["res://.godot/imported/painting_yono.png-f8960e2cee22b5b98b5d845cccab12bd.ctex"]
+source_file="res://Art Assets/candle.png"
+dest_files=["res://.godot/imported/candle.png-3c6524408c69beedca116133f43965a3.ctex"]
 
 [params]
 
