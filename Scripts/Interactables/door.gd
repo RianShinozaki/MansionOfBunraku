@@ -3,9 +3,13 @@ extends StaticBody3D
 var anim_lock: bool = false
 var open: bool = false
 @export var dir: int = -1
+@export var locked: bool = false
+
+func unlock():
+	locked = false
 
 func can_interact():
-	return true
+	return not locked
 	
 func on_interact():
 	if anim_lock: return

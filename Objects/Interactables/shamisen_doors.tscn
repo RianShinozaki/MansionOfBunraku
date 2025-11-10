@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://552qhmqu8bae"]
+
+[ext_resource type="Script" uid="uid://cl8vvd1xnwhii" path="res://Scripts/Interactables/door.gd" id="1_83tev"]
+[ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Scripts/Interactables/shamisen_lock.gd" id="1_arwcq"]
+[ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="2_cm0ms"]
+[ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="3_arwcq"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_2nhnd"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_8rdnd"]
+[ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="6_hcrvn"]
+[ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="7_cm0ms"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ronf6"]
+data = PackedVector3Array(0.48, 1.48, 0, 0, 0, 0, 0, 1.48, 0, 0.48, 0, 0, 0, 0, 0, 0.48, 1.48, 0, 0.48, 1.48, -0.08, 0.48, 0, 0, 0.48, 1.48, 0, 0.48, 0, -0.08, 0.48, 0, 0, 0.48, 1.48, -0.08, 0.48, 1.48, -0.08, 0, 1.48, 0, 0, 1.48, -0.08, 0.48, 1.48, 0, 0, 1.48, 0, 0.48, 1.48, -0.08, 0.48, 0, 0, 0, 0, -0.08, 0, 0, 0, 0.48, 0, -0.08, 0, 0, -0.08, 0.48, 0, 0, 0, 1.48, -0.08, 0.48, 0, -0.08, 0.48, 1.48, -0.08, 0, 0, -0.08, 0.48, 0, -0.08, 0, 1.48, -0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0785"]
+albedo_texture = ExtResource("3_arwcq")
+texture_filter = 2
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gyqab"]
+data = PackedVector3Array(-0.48, 1.48, 0, -0.48, 0, -0.08, -0.48, 1.48, -0.08, -0.48, 0, 0, -0.48, 0, -0.08, -0.48, 1.48, 0, 0, 1.48, 0, -0.48, 0, 0, -0.48, 1.48, 0, 0, 0, 0, -0.48, 0, 0, 0, 1.48, 0, 0, 1.48, -0.08, 0, 0, 0, 0, 1.48, 0, 0, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, -0.48, 1.48, -0.08, 0, 0, -0.08, 0, 1.48, -0.08, -0.48, 0, -0.08, 0, 0, -0.08, -0.48, 1.48, -0.08, 0, 0, 0, -0.48, 0, -0.08, -0.48, 0, 0, 0, 0, -0.08, -0.48, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, -0.48, 1.48, 0, -0.48, 1.48, -0.08, 0, 1.48, 0, -0.48, 1.48, 0, 0, 1.48, -0.08)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_arwcq"]
+radius = 1.5
+
+[node name="ShamisenDoors" type="Node3D"]
+script = ExtResource("1_arwcq")
+song_sequence = Array[int]([3, 2, 3, 1])
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.17, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("1_83tev")
+locked = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ronf6")
+
+[node name="DoorL2" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_cm0ms")
+skeleton = NodePath("../../../LobbyDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("4_2nhnd")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("5_8rdnd")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.21, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("1_83tev")
+dir = 1
+locked = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_gyqab")
+
+[node name="DoorR3" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = ExtResource("6_hcrvn")
+skeleton = NodePath("../../../FrontDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("4_2nhnd")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("5_8rdnd")
+
+[node name="FreedomSymbol" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.6841638, 0, -1.323915)
+texture_filter = 2
+texture = ExtResource("7_cm0ms")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FreedomSymbol"]
+light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+omni_range = 1.0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.6891813, 0, -1.5522497)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_arwcq")
+
+[connection signal="unlock" from="." to="StaticBody3D" method="unlock"]
+[connection signal="unlock" from="." to="StaticBody3D2" method="unlock"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

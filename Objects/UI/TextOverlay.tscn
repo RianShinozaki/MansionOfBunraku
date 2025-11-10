@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnbhrwdae0ypk"]
+[gd_scene load_steps=9 format=3 uid="uid://bnbhrwdae0ypk"]
 
 [ext_resource type="Script" uid="uid://cc3r0iwp5xvxr" path="res://Scripts/Interactables/text_overlay.gd" id="1_text"]
 [ext_resource type="Texture2D" uid="uid://cjqpwga50bfll" path="res://Art Assets/UI/grunge-paper-background.jpg" id="2_8d202"]
 [ext_resource type="FontFile" uid="uid://dt7cnq5bw6qep" path="res://Art Assets/Fonts/Tangerine_Regular.ttf" id="2_font"]
-[ext_resource type="FontFile" uid="uid://c5j5qxqyqo4c0" path="res://Art Assets/Fonts/Tangerine_Bold.ttf" id="3_bold_font"]
+[ext_resource type="FontFile" uid="uid://dwciwlheb2vpp" path="res://Art Assets/Fonts/Tangerine_Bold.ttf" id="3_bold_font"]
 [ext_resource type="AudioStream" uid="uid://bae0a1hsvb1e6" path="res://Audio/open_toolbox.mp3" id="3_paper_sound"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paper"]

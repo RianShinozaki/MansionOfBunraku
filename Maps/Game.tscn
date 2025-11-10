@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=55 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -14,19 +14,16 @@
 [ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio/cat_meow.mp3" id="17_di1da"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="20_3wfnh"]
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="20_6uyic"]
-[ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="20_47elk"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="20_66c1n"]
 [ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="21_di1da"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="21_kgyru"]
-[ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="21_muv74"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="22_66c1n"]
-[ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="22_gpbpg"]
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="23_nv3h5"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
-[ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="27_ronf6"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Audio/yono-painting.png" id="29_nv3h5"]
+[ext_resource type="PackedScene" uid="uid://552qhmqu8bae" path="res://Objects/Interactables/shamisen_doors.tscn" id="30_jwo5v"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Audio/yoroi-painting.png" id="30_nv3h5"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
@@ -92,16 +89,6 @@ fog_density = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceqvn"]
 size = Vector3(0.325012, 0.541504, 0.648376)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0785"]
-albedo_texture = ExtResource("21_muv74")
-texture_filter = 2
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ksnbm"]
-data = PackedVector3Array(0.48, 1.48, -0.08, 0.48, 0, 0, 0.48, 1.48, 0, 0.48, 0, -0.08, 0.48, 0, 0, 0.48, 1.48, -0.08, 0.48, 1.48, 0, 0, 0, 0, 0, 1.48, 0, 0.48, 0, 0, 0, 0, 0, 0.48, 1.48, 0)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tovua"]
-data = PackedVector3Array(0, 1.48, -0.08, 0, 0, 0, 0, 1.48, 0, 0, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, 0, 1.48, 0, -0.48, 0, 0, -0.48, 1.48, 0, 0, 0, 0, -0.48, 0, 0, 0, 1.48, 0, -0.48, 1.48, 0, -0.48, 0, -0.08, -0.48, 1.48, -0.08, -0.48, 0, 0, -0.48, 0, -0.08, -0.48, 1.48, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("33_nv3h5")
@@ -421,36 +408,6 @@ The gatekeeper sleeps not long after sundown. If you truly mean what you whisper
 [node name="Candle" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("23_nv3h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15999126, 0.050800502, 0.15119785)
 
-[node name="LockedDoors" type="Node3D" parent="Environment/HouseEntrance/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
-
-[node name="DoorL2" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects/LockedDoors"]
-transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 2.5093572, -0.521393, 1.0890596)
-mesh = ExtResource("20_47elk")
-skeleton = NodePath("../../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance/Objects/LockedDoors/DoorL2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseEntrance/Objects/LockedDoors/DoorL2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ksnbm")
-
-[node name="DoorR2" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects/LockedDoors"]
-transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 2.5093563, -0.521393, 2.0490594)
-mesh = ExtResource("22_gpbpg")
-skeleton = NodePath("../../FrontDoors")
-surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance/Objects/LockedDoors/DoorR2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseEntrance/Objects/LockedDoors/DoorR2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_tovua")
-
-[node name="Sprite3D" type="Sprite3D" parent="Environment/HouseEntrance/Objects/LockedDoors"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5006227, 0, 1.5801303)
-texture_filter = 2
-texture = ExtResource("27_ronf6")
-
 [node name="FrontDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_66c1n")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.89518, -0.521393, 1.56906)
 
@@ -468,6 +425,9 @@ dialogue_id = "yoroi_painting"
 
 [node name="YoroiDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
 transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -1.3709855, 0, 3.1010804)
+
+[node name="ShamisenDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("30_jwo5v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1743408, 0.002635777, 2.265312)
 
 [node name="ShamisenLocked" parent="Environment/HouseEntrance/Objects" instance=ExtResource("37_ksnbm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
