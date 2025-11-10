@@ -34,26 +34,3 @@ func _physics_process(_delta: float) -> void:
 			anger_decrease_delta = 0
 	else:
 		no_look_time = 0
-	
-	# Get mad if clock is on
-	if GearSocket.instance.has_gear:
-		anger_level += _delta * 0.08
-		anger_decrease_delta = 0
-	
-	# Get mad if cat is not attended to
-	if get_tree().get_nodes_in_group("Cat").size() > 0 and not Player.instance.held_object is Cat:
-		anger_level += _delta * 0.08
-		anger_decrease_delta = 0
-	
-	#If the player is holding meat and Yoroi is holding a gear, eat the meat and drop the gear
-	var _dist_to_player = _vec_to_player.length()
-	if _dist_to_player < 0.6 and Player.instance.held_object is Meatball and has_gear:
-		var gear = $Body/Gear
-		gear.get_parent().remove_child(gear)
-		$Eat.play()
-		appearance_update()
-		Player.instance.held_object.queue_free()
-		Player.instance.get_node("Camera3D").add_child(gear)
-		Player.instance.held_object = gear
-		gear.on_pickup(true)
-		has_gear = false

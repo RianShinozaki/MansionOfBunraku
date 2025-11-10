@@ -22,6 +22,7 @@ func _ready():
 		panel.offset_bottom = start_bottom
 
 func show_message(message: String) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	rich_text_label.text = message
 	
 	# Reset panel position to off-screen before showing
@@ -53,6 +54,7 @@ func _input(event):
 			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 				hide_message()
 				emit_signal("hiding_message")
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func hide_message() -> void:
 	hide()

@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmea2njewrpcl"]
+[gd_scene load_steps=12 format=3 uid="uid://bmea2njewrpcl"]
 
 [ext_resource type="Script" uid="uid://dybfb2tv5yjtb" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="1_uwb3h"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="2_uwb3h"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="3_w0sk8"]
-[ext_resource type="PackedScene" uid="uid://crid5pnloa3s1" path="res://Objects/Items/Gear.tscn" id="6_uwb3h"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_3ggw7"]
 [ext_resource type="AudioStream" uid="uid://cind0otmgupv5" path="res://Audio/boss_breathing_male.wav" id="8_uwb3h"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="9_t0ea4"]
@@ -67,11 +66,6 @@ omni_range = 430.46
 omni_attenuation = 0.5
 script = ExtResource("9_t0ea4")
 energy_range = 0.25
-
-[node name="Gear" parent="Body" instance=ExtResource("6_uwb3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0922416, -0.112737, 0.0593171)
-freeze = true
-freeze_mode = 0
 
 [node name="Rattle" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_1m7c1")

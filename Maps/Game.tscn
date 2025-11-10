@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=61 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -15,21 +15,25 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="20_6uyic"]
 [ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="20_47elk"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="20_66c1n"]
+[ext_resource type="Script" uid="uid://cl8vvd1xnwhii" path="res://Scripts/Interactables/door.gd" id="20_tovua"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="21_3wfnh"]
 [ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="21_di1da"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="21_kgyru"]
 [ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="21_muv74"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="22_66c1n"]
 [ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="22_gpbpg"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="22_nv3h5"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
-[ext_resource type="PackedScene" uid="uid://boq62uf6mpsdx" path="res://Objects/Interactables/CombinationLock.tscn" id="27_6uyic"]
 [ext_resource type="Texture2D" uid="uid://dvofr5cw007yl" path="res://Art Assets/painting_yoroi.png" id="28_gyqab"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="28_k0785"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
+[ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
+[ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
-[ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
+[ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="37_ksnbm"]
 [ext_resource type="PackedScene" uid="uid://c3jyphoehlcxh" path="res://Objects/Items/letter.tscn" id="37_letter"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
@@ -64,6 +68,12 @@ size = Vector3(0.325012, 0.541504, 0.648376)
 albedo_texture = ExtResource("21_muv74")
 texture_filter = 2
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ksnbm"]
+data = PackedVector3Array(0.48, 1.48, -0.08, 0.48, 0, 0, 0.48, 1.48, 0, 0.48, 0, -0.08, 0.48, 0, 0, 0.48, 1.48, -0.08, 0.48, 1.48, 0, 0, 0, 0, 0, 1.48, 0, 0.48, 0, 0, 0, 0, 0, 0.48, 1.48, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tovua"]
+data = PackedVector3Array(0, 1.48, -0.08, 0, 0, 0, 0, 1.48, 0, 0, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, 0, 1.48, 0, -0.48, 0, 0, -0.48, 1.48, 0, 0, 0, 0, -0.48, 0, 0, 0, 1.48, 0, -0.48, 1.48, 0, -0.48, 0, -0.08, -0.48, 1.48, -0.08, -0.48, 0, 0, -0.48, 0, -0.08, -0.48, 1.48, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s0c2o"]
 render_priority = 0
 shader = ExtResource("30_k0785")
@@ -92,6 +102,17 @@ shader_parameter/emissive_power = 2.5
 shader_parameter/color_bands = 10
 
 [sub_resource type="QuadMesh" id="QuadMesh_gpbpg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
+shader = ExtResource("33_nv3h5")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(0.9843137, 0.35686275, 1, 1)
+shader_parameter/fire_alpha = 0.0
+shader_parameter/fire_speed = Vector2(0, -1)
+shader_parameter/fire_aperture = 0.0
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
 
 [sub_resource type="Gradient" id="Gradient_krhjt"]
 offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
@@ -126,7 +147,6 @@ script = ExtResource("48_rkpjn")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_duur3")
-cycle_time = 120.0
 meltdown_time = 30.0
 
 [node name="Environment" type="Node3D" parent="."]
@@ -152,6 +172,7 @@ light_energy = 0.313
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.90630776, -0.39428324, -0.15214132, 0, -0.35999697, 0.9329535, -0.42261833, 0.84554297, 0.32626805, -1.99422, 4.33426, 0)
+visible = false
 light_color = Color(0.486241, 0.296815, 0.37067, 1)
 light_energy = 5.838
 editor_only = true
@@ -310,11 +331,21 @@ mesh = ExtResource("20_47elk")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/LobbyDoors/DoorL2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/LobbyDoors/DoorL2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ksnbm")
+
 [node name="DoorR2" type="MeshInstance3D" parent="Environment/LobbyDoors"]
 transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 2.5093563, -0.521393, 2.0490594)
 mesh = ExtResource("22_gpbpg")
 skeleton = NodePath("../../FrontDoors")
 surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/LobbyDoors/DoorR2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/LobbyDoors/DoorR2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tovua")
 
 [node name="FrontDoors" parent="Environment" instance=ExtResource("20_66c1n")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.89518, -0.521393, 1.56906)
@@ -327,22 +358,103 @@ painting_artwork = ExtResource("28_k0785")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
 painting_artwork = ExtResource("28_gyqab")
 
-[node name="ShamisenLocked" type="Node3D" parent="Environment"]
+[node name="YonoDoors" type="Node3D" parent="Environment"]
 
-[node name="Shamisen" parent="Environment/ShamisenLocked" instance=ExtResource("36_duur3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.20921549, -0.24623287, 1.5333581)
-freeze = true
-script = null
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/YonoDoors" groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.17, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("20_tovua")
 
-[node name="CombinationLock2" parent="Environment/ShamisenLocked" instance=ExtResource("27_6uyic")]
-transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.371139e-08, -1.0000001, 0, -0.24107781, -0.13284063, 1.5648665)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/YonoDoors/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ksnbm")
+
+[node name="DoorL2" type="MeshInstance3D" parent="Environment/YonoDoors/StaticBody3D"]
+mesh = ExtResource("20_47elk")
+skeleton = NodePath("../../../LobbyDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="Environment/YonoDoors/StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("21_3wfnh")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="Environment/YonoDoors/StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("22_nv3h5")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/YonoDoors" groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.21, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("20_tovua")
+dir = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/YonoDoors/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_tovua")
+
+[node name="DoorR3" type="MeshInstance3D" parent="Environment/YonoDoors/StaticBody3D2"]
+mesh = ExtResource("22_gpbpg")
+skeleton = NodePath("../../../FrontDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="Environment/YonoDoors/StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("21_3wfnh")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="Environment/YonoDoors/StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("22_nv3h5")
+
+[node name="YoroiDoors" type="Node3D" parent="Environment"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.3759464, 0, 3.1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/YoroiDoors" groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.17, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("20_tovua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/YoroiDoors/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ksnbm")
+
+[node name="DoorL2" type="MeshInstance3D" parent="Environment/YoroiDoors/StaticBody3D"]
+mesh = ExtResource("20_47elk")
+skeleton = NodePath("../../../LobbyDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="Environment/YoroiDoors/StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("21_3wfnh")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="Environment/YoroiDoors/StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("22_nv3h5")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/YoroiDoors" groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.21, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("20_tovua")
+dir = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/YoroiDoors/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_tovua")
+
+[node name="DoorR3" type="MeshInstance3D" parent="Environment/YoroiDoors/StaticBody3D2"]
+mesh = ExtResource("22_gpbpg")
+skeleton = NodePath("../../../FrontDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="Environment/YoroiDoors/StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("21_3wfnh")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="Environment/YoroiDoors/StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("22_nv3h5")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.1275342, -0.09, -9.415867)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3.1275342, -0.09, 1.5841331)
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677, -0.165, -7.669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677, -0.165, -7.0230684)
 script = ExtResource("21_kgyru")
 bunraku = NodePath("Yono")
 
@@ -359,7 +471,7 @@ material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
 
 [node name="Yoroi" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6582742, -0.2, 10.864071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6582742, -0.2, 10.376443)
 script = ExtResource("21_kgyru")
 bunraku = NodePath("Yoroi")
 
@@ -377,7 +489,6 @@ material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
 
 [node name="FireEffects" type="Node3D" parent="." node_paths=PackedStringArray("environment") groups=["FireFX"]]
-visible = false
 script = ExtResource("32_gpbpg")
 fire_material = SubResource("ShaderMaterial_muv74")
 fire_individual_material = SubResource("ShaderMaterial_s0c2o")
@@ -429,6 +540,20 @@ stream = ExtResource("35_s0c2o")
 
 [node name="InspectCamera" type="Camera3D" parent="."]
 
+[node name="ScreenFire" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="FireWallCanvas" type="ColorRect" parent="ScreenFire" groups=["FireFX"]]
+material = SubResource("ShaderMaterial_3wfnh")
+offset_left = 1411.2902
+offset_top = 875.94995
+offset_right = 3228.7832
+offset_bottom = 1983.0862
+rotation = 3.1415927
+mouse_filter = 2
+script = ExtResource("34_ronf6")
+fire_material = SubResource("ShaderMaterial_3wfnh")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" type="Panel" parent="CanvasLayer"]
@@ -452,6 +577,9 @@ custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), Sub
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [node name="TextOverlay" parent="." instance=ExtResource("38_textoverlay")]
+
+[node name="ShamisenLocked" parent="." instance=ExtResource("37_ksnbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 
 [connection signal="finished_reading" from="Environment/Table2/Letter" to="Yono" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/Table3/Letter" to="Yoroi" method="activate_bunraku"]
