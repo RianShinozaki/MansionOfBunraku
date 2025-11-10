@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvofr5cw007yl"
-path.s3tc="res://.godot/imported/painting_yoroi.png-53e663f18041ad1f843a27c5e5f500a3.s3tc.ctex"
+path="res://.godot/imported/painting_yoroi.png-53e663f18041ad1f843a27c5e5f500a3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/painting_yoroi.png"
-dest_files=["res://.godot/imported/painting_yoroi.png-53e663f18041ad1f843a27c5e5f500a3.s3tc.ctex"]
+dest_files=["res://.godot/imported/painting_yoroi.png-53e663f18041ad1f843a27c5e5f500a3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
