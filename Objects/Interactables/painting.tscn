@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ekfex3rpugck"]
+[gd_scene load_steps=11 format=3 uid="uid://ekfex3rpugck"]
 
 [ext_resource type="Script" uid="uid://bpqgtlve1xqte" path="res://Scripts/Interactables/painting.gd" id="1_painting"]
 [ext_resource type="Texture2D" uid="uid://dllibx1ktwcdj" path="res://Art Assets/painting_frame.png" id="2_frame_tex"]
 [ext_resource type="Texture2D" uid="uid://cq2djg8ooli6g" path="res://Art Assets/painting_frame_h.png" id="3_frame_h"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="4_artwork"]
+[ext_resource type="Resource" uid="uid://br6eitq42ek5m" path="res://Dialogue/environmental_dialogue_entrance.tres" id="4_lyr7h"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="9_open_sfx"]
 [ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="10_close_sfx"]
 
@@ -40,6 +41,7 @@ collision_layer = 37
 script = ExtResource("1_painting")
 painting_frame_texture = ExtResource("2_frame_tex")
 painting_frame_heightmap = ExtResource("3_frame_h")
+environmental_dialogues = ExtResource("4_lyr7h")
 
 [node name="FocusMarker" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)

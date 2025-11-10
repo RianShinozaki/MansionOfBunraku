@@ -417,6 +417,9 @@ The gatekeeper sleeps not long after sundown. If you truly mean what you whisper
 
 – Yono"
 
+[node name="Candle" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("23_nv3h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15999126, 0.050800502, 0.15119785)
+
 [node name="LobbyDoors" type="Node3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
 
@@ -448,10 +451,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.895
 [node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.69812685, -10.579226)
 painting_artwork = ExtResource("28_k0785")
+dialogue_id = "yono_painting"
 
 [node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
 painting_artwork = ExtResource("28_gyqab")
+dialogue_id = "yoroi_painting"
 
 [node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
 

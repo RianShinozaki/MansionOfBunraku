@@ -50,8 +50,7 @@ animations = [{
 
 [node name="Node3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-billboard = 1
-shaded = true
+billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_rjukc")
 autoplay = "default"
