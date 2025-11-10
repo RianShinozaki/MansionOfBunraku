@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=64 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -38,6 +38,8 @@
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="36_duur3"]
+[ext_resource type="PackedScene" path="res://Objects/Items/letter.tscn" id="37_letter"]
+[ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
 [ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="45_eqorb"]
@@ -381,6 +383,9 @@ script = null
 [node name="CombinationLock2" parent="Environment/ShamisenLocked" instance=ExtResource("27_6uyic")]
 transform = Transform3D(-8.881784e-16, 0, -1.0000001, 1, -4.371139e-08, 0, -4.371139e-08, -1.0000001, 0, -0.24107781, -0.13284063, 1.5648665)
 
+[node name="Letter" parent="Environment/ShamisenLocked" instance=ExtResource("37_letter")]
+transform = Transform3D(-0.06909684, 0.9976089, -0.0014606441, -0.021134363, 0, 0.99977666, 0.9973861, 0.06911228, 0.02108383, -0.5, -0.5, 1.2)
+
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3.493892, -0.09, 1.6080687)
 move_speed = 1.5
@@ -432,7 +437,7 @@ material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
 [node name="FireWall5" type="MeshInstance3D" parent="FireEffects"]
-transform = Transform3D(-5.684342e-14, 6.6240034, 4.371139e-08, -2.570229e-07, 2.8954437e-07, -0.99999994, -5.879998, -1.1368684e-13, 4.371138e-08, -0.89999986, -0.5, 1.6)
+transform = Transform3D(-5.684342e-14, 6.6240034, 4.371139e-08, -2.570229e-07, 2.8954437e-07, -0.99999994, -5.879998, -1.1368684e-13, 4.371138e-08, -0.897558, -0.5, 1.6023064)
 material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
@@ -493,6 +498,8 @@ start_id = "start"
 hide_portrait = true
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
+
+[node name="TextOverlay" parent="." instance=ExtResource("38_textoverlay")]
 
 [connection signal="door_opened" from="Environment/YonoPainting" to="Yono" method="activate_bunraku"]
 [connection signal="door_opened" from="Environment/YoroiPainting" to="Yoroi" method="activate_bunraku"]
