@@ -86,6 +86,3 @@ autoplay = true
 
 [node name="Eat" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_w0sk8")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 1)

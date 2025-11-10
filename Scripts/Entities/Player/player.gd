@@ -14,6 +14,7 @@ extends CharacterBody3D
 @export var gravity: float
 ##How far the player can click on things
 @export var interaction_range: float = 3.5
+@export var shamisen_wait_memory_time: float
 
 @export var player_dialogues: DialogueData
 
@@ -30,6 +31,7 @@ var active: bool = true
 
 var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
+var shamisen_wait_time: float
 
 static var instance: Player
 
@@ -44,6 +46,7 @@ func _ready() -> void:
 		run_dialogue("first_cycle_begin")
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		InspectionManager.current_mode = InspectionManager.Mode.PLAY
 	
 	
 func _physics_process(_delta: float) -> void:
@@ -52,6 +55,17 @@ func _physics_process(_delta: float) -> void:
 	#Sum up all movement vectors
 	velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
 	move_and_slide()
+	
+	if get_walk_velocity(_delta) == Vector3.ZERO and holding_shamisen:
+		shamisen_wait_time += _delta
+	else:
+		shamisen_wait_time = 0
+	
+	if shamisen_wait_time <= shamisen_wait_memory_time:	
+		if $"CanvasLayer/Music Memory".modulate.a > 0:
+			$"CanvasLayer/Music Memory".modulate.a -= _delta*4
+	elif shamisen_wait_time >= shamisen_wait_memory_time and $"CanvasLayer/Music Memory".modulate.a < 1:
+		$"CanvasLayer/Music Memory".modulate.a += _delta
 	
 	#Set the crosshair sprite depending on whether or not the raycast is touching something
 	$CanvasLayer/TextureRect.texture = crossUI

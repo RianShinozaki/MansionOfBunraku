@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5w0oaoup77rn"]
+
+[ext_resource type="Script" uid="uid://iwfh6a8sw248" path="res://Scripts/Interactables/GearSocket.gd" id="1_aps6w"]
+[ext_resource type="AudioStream" uid="uid://3ccja3efsi5f" path="res://Audio/gear_place_clock.mp3" id="2_wlgvd"]
+[ext_resource type="AudioStream" uid="uid://cjcd6hdvedamj" path="res://Audio/old_clock_chime.mp3" id="3_aypu3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rgnb"]
+size = Vector3(0.52734375, 0.61242676, 0.6385498)
+
+[node name="GearSocket" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("1_aps6w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Interactable"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.23632813, -0.19378662, -0.1807251)
+shape = SubResource("BoxShape3D_5rgnb")
+
+[node name="PlacementSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_wlgvd")
+
+[node name="ChimeSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_aypu3")

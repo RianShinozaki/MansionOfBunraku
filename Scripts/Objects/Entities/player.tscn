@@ -1,0 +1,201 @@
+[gd_scene load_steps=18 format=3 uid="uid://6hmil0dhqlfe"]
+
+[ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
+[ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
+[ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
+[ext_resource type="Resource" uid="uid://cgwy6tl0kuskc" path="res://Dialogue/player_dialogues.tres" id="2_yq6kl"]
+[ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
+[ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
+[ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
+[ext_resource type="Texture2D" uid="uid://c31l684kdl1hu" path="res://Art Assets/song_freedom_symbol.png" id="6_i5lno"]
+[ext_resource type="Texture2D" uid="uid://be7qc154nrbwm" path="res://Art Assets/note-three.png" id="7_8tll8"]
+[ext_resource type="FontFile" uid="uid://dijk2scifae5p" path="res://Art Assets/Fonts/OptimusPrincepsSemiBold.ttf" id="7_v1plu"]
+[ext_resource type="AudioStream" uid="uid://den8c5s3qior8" path="res://Audio/string-two.mp3" id="7_vhsen"]
+[ext_resource type="Texture2D" uid="uid://bqy5i0t7b28js" path="res://Art Assets/note-one.png" id="7_w48y6"]
+[ext_resource type="Texture2D" uid="uid://favmip5alj1i" path="res://Art Assets/note-two.png" id="8_ka5ud"]
+[ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="8_yq6kl"]
+[ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Scripts/Objects/Items/shamisen.tscn" id="9_vhsen"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
+radius = 0.15
+height = 0.87738
+
+[sub_resource type="LabelSettings" id="LabelSettings_w48y6"]
+font = ExtResource("7_v1plu")
+font_size = 31
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_y0qk3")
+move_speed = 2.0
+mouse_sensitivity = 0.005
+acceleration = 15.0
+deceleration = 5.0
+gravity = -15.0
+interaction_range = 1.0
+player_dialogues = ExtResource("2_yq6kl")
+circleUI = ExtResource("2_2i4gt")
+crossUI = ExtResource("2_3y5cq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0783997, 0)
+shape = SubResource("CapsuleShape3D_8edix")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+remote_path = NodePath("../../CanvasLayer/HoldParent")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, 1)
+collision_mask = 4
+
+[node name="Shamisen" parent="Camera3D" instance=ExtResource("9_vhsen")]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(7.5, 7.5)
+mouse_filter = 2
+texture = ExtResource("2_3y5cq")
+metadata/_edit_use_anchors_ = true
+
+[node name="HoldParent" type="Node3D" parent="CanvasLayer"]
+
+[node name="Music Memory" type="Control" parent="CanvasLayer"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -74.0
+offset_right = 23.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SongOfFreedom" type="Control" parent="CanvasLayer/Music Memory"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 162.0
+offset_right = 175.5
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("6_i5lno")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 142.0
+offset_right = 129.0
+offset_bottom = 157.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 164.0
+offset_right = 161.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("8_ka5ud")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 143.0
+offset_right = 198.0
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 185.0
+offset_right = 225.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Music Memory/SongOfFreedom"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 103.0
+offset_right = 300.0
+offset_bottom = 138.0
+text = "Song of Freedom"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="EatingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0ad8t")
+
+[node name="WalkingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x20fu")
+parameters/looping = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1)
+
+[node name="string-one" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hdqis")
+
+[node name="string-two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vhsen")
+
+[node name="string-three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yq6kl")

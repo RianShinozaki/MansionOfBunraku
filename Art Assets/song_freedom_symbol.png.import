@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://favmip5alj1i"
-path="res://.godot/imported/note-two.png-bd263d56ac35478018be8b55f5e8bdeb.ctex"
+uid="uid://c31l684kdl1hu"
+path="res://.godot/imported/song_freedom_symbol.png-650ab91abd49ea89eb142645ae15f713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/note-two.png"
-dest_files=["res://.godot/imported/note-two.png-bd263d56ac35478018be8b55f5e8bdeb.ctex"]
+source_file="res://Art Assets/song_freedom_symbol.png"
+dest_files=["res://.godot/imported/song_freedom_symbol.png-650ab91abd49ea89eb142645ae15f713.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bta7t4ubs7afy"]
+
+[ext_resource type="Script" uid="uid://wmb1b8ycmxo0" path="res://Scripts/Environment/Clock/clock_key.gd" id="1_wsawc"]
+[ext_resource type="Texture2D" uid="uid://cbs5aau6h1g5o" path="res://Art Assets/BlueKey.png" id="2_jqamt"]
+[ext_resource type="Texture2D" uid="uid://bwhs0nbyonhrv" path="res://Art Assets/BlueKey-h.png" id="3_wsawc"]
+[ext_resource type="Texture2D" uid="uid://dgti445hohbce" path="res://Art Assets/BlueKey-met.png" id="4_eslyi"]
+[ext_resource type="Texture2D" uid="uid://bfnwsm7aow1s4" path="res://Art Assets/BlueKey-h_n.png" id="5_f2rix"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqamt"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_jqamt")
+metallic = 0.73
+metallic_specular = 0.48
+metallic_texture = ExtResource("4_eslyi")
+emission_energy_multiplier = 0.05
+emission_texture = ExtResource("2_jqamt")
+normal_enabled = true
+normal_scale = 0.6
+normal_texture = ExtResource("5_f2rix")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_wsawc")
+texture_filter = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ib7np"]
+size = Vector3(0.2, 0.1, 0.2)
+
+[node name="Key" type="RigidBody3D" groups=["Item"]]
+collision_layer = 4
+collision_mask = 5
+freeze_mode = 1
+script = ExtResource("1_wsawc")
+
+[node name="Sprite3D" type="Sprite3D" parent="." groups=["Interactable"]]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jqamt")
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_jqamt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ib7np")

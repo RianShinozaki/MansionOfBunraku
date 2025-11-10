@@ -14,6 +14,7 @@ extends Bunraku
 var no_look_time: float = 0
 var has_been_fed: bool = false 
 var has_gear := true
+@onready var raycast = $RayCast3D
 
 func _ready() -> void:
 	super._ready()
@@ -22,15 +23,19 @@ func _physics_process(_delta: float) -> void:
 	
 	if not active: return
 	
-	#Handles Yoroi's anger when not looked at for long enough
 	var _vec_to_player = (Player.instance.global_position - (global_position + Vector3.UP * 0.2))
-	var _player_forward = Player.instance.get_node("Camera3D").global_basis * Vector3.FORWARD
-	var _angle = _player_forward.angle_to(-_vec_to_player)
-	if _angle > look_anger_range:
-		no_look_time += _delta
-		if no_look_time > no_look_max_time:
-			var _samp = look_anger_curve.sample(1-(_angle/360))
-			anger_level += _delta * _samp * look_anger_factor
-			anger_decrease_delta = 0
-	else:
-		no_look_time = 0
+	raycast.target_position = _vec_to_player
+	
+	if not raycast.is_colliding():
+		#Handles Yoroi's anger when not looked at for long enough
+		
+		var _player_forward = Player.instance.get_node("Camera3D").global_basis * Vector3.FORWARD
+		var _angle = _player_forward.angle_to(-_vec_to_player)
+		if _angle > look_anger_range:
+			no_look_time += _delta
+			if no_look_time > no_look_max_time:
+				var _samp = look_anger_curve.sample(1-(_angle/360))
+				anger_level += _delta * _samp * look_anger_factor
+				anger_decrease_delta = 0
+		else:
+			no_look_time = 0
