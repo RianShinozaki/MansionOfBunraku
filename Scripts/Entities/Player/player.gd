@@ -15,9 +15,12 @@ extends CharacterBody3D
 ##How far the player can click on things
 @export var interaction_range: float = 3.5
 
+@export var player_dialogues: DialogueData
+
 @export var circleUI: Texture2D
 @export var crossUI: Texture2D
 @onready var raycast: RayCast3D = $Camera3D/RayCast3D
+@export var do_intro: bool = false
 
 var walk_velocity: Vector3
 var air_velocity: float
@@ -31,10 +34,17 @@ var toggle_shamisen: bool = false
 static var instance: Player
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# RAYCAST SETUP 
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	raycast.target_position = Vector3(0, 0, -interaction_range)
 	instance = self
+	
+	if do_intro:
+		await get_tree().create_timer(1).timeout
+		run_dialogue("first_cycle_begin")
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	
 func _physics_process(_delta: float) -> void:
 	if not active: return
@@ -117,6 +127,7 @@ func pick_up_object(object: Node3D):
 		return
 	
 	if object.is_in_group("Shamisen"):
+		run_dialogue("pickup_shamisen")
 		holding_shamisen = true
 		toggle_shamisen = true
 		$Camera3D/Shamisen.visible = toggle_shamisen
@@ -162,6 +173,9 @@ func drop_held_object():
 
 func get_walk_velocity(_delta: float):
 	#Do some matrix calculations to turn input into world movement
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return Vector3.ZERO
+		
 	walk_velocity = walk_velocity.move_toward(Vector3.ZERO, deceleration * _delta)
 	var _input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
 	var _forward: Vector3 = global_transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)
@@ -182,6 +196,14 @@ func get_air_velocity(_delta: float):
 		air_velocity += gravity * _delta
 	return air_velocity
 
-#I don't know why this is its own function but I think it's funny so it gets to live
+#I don't know why this is its own function but I think it's funny so it gets to stay
 func play_eating_sfx():
 	$EatingSFX.play()
+
+func run_dialogue(dialogue_id: String):
+	var _dialogue_box: DialogueBox = DialogueBox.instance
+	_dialogue_box.data = player_dialogues
+	_dialogue_box.start(dialogue_id)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	await _dialogue_box.dialogue_ended
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

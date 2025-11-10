@@ -12,7 +12,7 @@ func end_cutscene() -> void:
 	get_tree().change_scene_to_file("res://Maps/Game.tscn")
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "cutscene":
+	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "cutscene" and $AnimationPlayer.current_animation_position < 20:
 		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if $"CanvasLayer2/Left click to skip".visible == false:
 				$"CanvasLayer2/Left click to skip".visible = true

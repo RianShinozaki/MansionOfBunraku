@@ -23,4 +23,5 @@ func _process(delta: float) -> void:
 		for _node in _fire_nodes:
 			_node.begin_meltdown()
 	if timer >= cycle_time + meltdown_time:
-		$Yono.jumpscare()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().change_scene_to_file("res://Maps/MeltdownCutscene.tscn")

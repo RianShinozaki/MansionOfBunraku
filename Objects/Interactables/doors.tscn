@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://blbdccve37yma"]
+
+[ext_resource type="Script" uid="uid://cl8vvd1xnwhii" path="res://Scripts/Interactables/door.gd" id="1_336w1"]
+[ext_resource type="ArrayMesh" uid="uid://db0rwo08fbaj0" path="res://Art Assets/Models/Door/DoorL.obj" id="2_ekra6"]
+[ext_resource type="Texture2D" uid="uid://bas78earo7w1w" path="res://Art Assets/Models/Door/texture_0.png" id="3_1k6c1"]
+[ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_vh06p"]
+[ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_ax28l"]
+[ext_resource type="ArrayMesh" uid="uid://csy55dnxmgnrr" path="res://Art Assets/Models/Door/DoorR.obj" id="6_k3oyu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ronf6"]
+data = PackedVector3Array(0.48, 1.48, 0, 0, 0, 0, 0, 1.48, 0, 0.48, 0, 0, 0, 0, 0, 0.48, 1.48, 0, 0.48, 1.48, -0.08, 0.48, 0, 0, 0.48, 1.48, 0, 0.48, 0, -0.08, 0.48, 0, 0, 0.48, 1.48, -0.08, 0.48, 1.48, -0.08, 0, 1.48, 0, 0, 1.48, -0.08, 0.48, 1.48, 0, 0, 1.48, 0, 0.48, 1.48, -0.08, 0.48, 0, 0, 0, 0, -0.08, 0, 0, 0, 0.48, 0, -0.08, 0, 0, -0.08, 0.48, 0, 0, 0, 1.48, -0.08, 0.48, 0, -0.08, 0.48, 1.48, -0.08, 0, 0, -0.08, 0.48, 0, -0.08, 0, 1.48, -0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0785"]
+albedo_texture = ExtResource("3_1k6c1")
+texture_filter = 2
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gyqab"]
+data = PackedVector3Array(-0.48, 1.48, 0, -0.48, 0, -0.08, -0.48, 1.48, -0.08, -0.48, 0, 0, -0.48, 0, -0.08, -0.48, 1.48, 0, 0, 1.48, 0, -0.48, 0, 0, -0.48, 1.48, 0, 0, 0, 0, -0.48, 0, 0, 0, 1.48, 0, 0, 1.48, -0.08, 0, 0, 0, 0, 1.48, 0, 0, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, -0.48, 1.48, -0.08, 0, 0, -0.08, 0, 1.48, -0.08, -0.48, 0, -0.08, 0, 0, -0.08, -0.48, 1.48, -0.08, 0, 0, 0, -0.48, 0, -0.08, -0.48, 0, 0, 0, 0, -0.08, -0.48, 0, -0.08, 0, 0, 0, 0, 1.48, -0.08, -0.48, 1.48, 0, -0.48, 1.48, -0.08, 0, 1.48, 0, -0.48, 1.48, 0, 0, 1.48, -0.08)
+
+[node name="Doors" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.17, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("1_336w1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ronf6")
+
+[node name="DoorL2" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_ekra6")
+skeleton = NodePath("../../../LobbyDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("4_vh06p")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("5_ax28l")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.21, -0.521, -1.351)
+collision_layer = 5
+script = ExtResource("1_336w1")
+dir = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_gyqab")
+
+[node name="DoorR3" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = ExtResource("6_k3oyu")
+skeleton = NodePath("../../../FrontDoors")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0785")
+
+[node name="OpenSFX" type="AudioStreamPlayer3D" parent="StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("4_vh06p")
+
+[node name="CloseSFX" type="AudioStreamPlayer3D" parent="StaticBody3D2"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.08106685, -0.100171804, 0.02006352)
+stream = ExtResource("5_ax28l")

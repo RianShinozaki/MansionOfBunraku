@@ -6,8 +6,13 @@ enum {YONO, YOROI}
 
 @export var bunraku: Bunraku
 
+func _ready() -> void:
+	bunraku.deactivate()
+	visible = false
+	
 func activate_bunraku():
 	bunraku.activate()
+	visible = true
 
 func jumpscare():
 	$"../Environment/DirectionalLight3D".light_energy = 0.2

@@ -100,7 +100,9 @@ func deactivate():
 	appearance_update()
 	active = false
 	visible = false
-
+	$CollisionShape3D.disabled = true
+	
 func activate():
 	active = true
 	visible = true
+	$CollisionShape3D.disabled = false

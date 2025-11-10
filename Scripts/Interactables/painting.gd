@@ -6,6 +6,7 @@ extends StaticBody3D
 @export var painting_frame_heightmap: Texture2D
 @export var painting_artwork: Texture2D
 @export var inspect_fov: float = 40.0
+@export var can_be_opened: bool
 
 var anim_lock: bool = false
 var open: bool = false
@@ -58,7 +59,8 @@ func on_interact():
 
 func on_inspect_click():
 	# Called when artwork is clicked during inspection mode
-	dissolve_painting()
+	if can_be_opened:
+		dissolve_painting()
 
 func dissolve_painting():
 	if anim_lock: return
