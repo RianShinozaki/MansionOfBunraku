@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cxw4air1dxmqd" path="res://Audio/wind_howl_ambient_1.wav" id="14_r1twq"]
 [ext_resource type="Script" uid="uid://btoioc0dqqkf8" path="res://Scripts/Environment/cat_eyes.gd" id="16_baccv"]
 [ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio/cat_meow.mp3" id="17_di1da"]
-[ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="20_3wfnh"]
+[ext_resource type="PackedScene" path="res://Objects/Interactables/doors.tscn" id="20_3wfnh"]
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="20_6uyic"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="20_66c1n"]
 [ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="21_di1da"]
@@ -31,7 +31,7 @@
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="37_ksnbm"]
-[ext_resource type="PackedScene" uid="uid://c3jyphoehlcxh" path="res://Objects/Items/letter.tscn" id="37_letter"]
+[ext_resource type="PackedScene" path="res://Objects/Items/letter.tscn" id="37_letter"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
@@ -366,7 +366,7 @@ shape = SubResource("BoxShape3D_ceqvn")
 
 [node name="Letter" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("37_letter")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.13336754, 0.06688093, 0.3074291)
-message_text = "A lucky day in the 3rd moon of 17xx
+message_text = "A lucky day in the 3rd moon of [color=red][b]17xx[/b][/color]
 
 My lady,
 
@@ -396,7 +396,7 @@ shape = SubResource("BoxShape3D_ceqvn")
 
 [node name="Letter" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("37_letter")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.033367157, 0.06688093, 0.30742908)
-message_text = "A blessed day in the 4th moon of xx11
+message_text = "A blessed day in the 4th moon of [color=red][b]xx11[/b][/color]
 
 My Kouya,
 
