@@ -70,7 +70,7 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	
 	# Disable player and confine cursor to window (hide OS cursor)
 	player.active = false
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	# Keep UI cursor visible - it will be updated in _process
 
