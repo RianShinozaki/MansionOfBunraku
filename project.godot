@@ -75,3 +75,8 @@ Right={
 3d_physics/layer_2="Entity"
 3d_physics/layer_3="Clickable"
 3d_physics/layer_32="Player"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

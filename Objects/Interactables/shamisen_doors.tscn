@@ -78,6 +78,10 @@ texture = ExtResource("7_cm0ms")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FreedomSymbol"]
 light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+distance_fade_enabled = true
+distance_fade_begin = 2.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
 omni_range = 1.0
 
 [node name="Area3D" type="Area3D" parent="."]
