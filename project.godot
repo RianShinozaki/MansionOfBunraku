@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mansion Of Bunraku"
-run/main_scene="uid://dur0gs8lqb2mn"
+run/main_scene="uid://8juywf5mne8w"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -74,3 +74,9 @@ Right={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Entity"
 3d_physics/layer_3="Clickable"
+3d_physics/layer_32="Player"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

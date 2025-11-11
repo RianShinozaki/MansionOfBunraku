@@ -11,6 +11,7 @@ alpha_antialiasing_mode = 0
 diffuse_mode = 1
 albedo_texture = ExtResource("1_86qua")
 normal_enabled = true
+normal_scale = 0.5
 normal_texture = ExtResource("3_7vmhy")
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("2_s3jlg")

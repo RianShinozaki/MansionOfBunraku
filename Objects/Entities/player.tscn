@@ -27,7 +27,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 2
+collision_layer = 2147483650
 script = ExtResource("1_y0qk3")
 move_speed = 2.0
 mouse_sensitivity = 0.005
@@ -35,6 +35,7 @@ acceleration = 15.0
 deceleration = 5.0
 gravity = -15.0
 interaction_range = 1.0
+shamisen_wait_memory_time = 3.0
 player_dialogues = ExtResource("2_yq6kl")
 circleUI = ExtResource("2_2i4gt")
 crossUI = ExtResource("2_3y5cq")
@@ -92,6 +93,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HoldParent" type="Node3D" parent="CanvasLayer"]
 
 [node name="Music Memory" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

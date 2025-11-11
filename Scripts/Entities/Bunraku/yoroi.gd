@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 	
 	raycast.target_position = _vec_to_player
 	
-	if not raycast.is_colliding():
+	if not raycast.is_colliding() and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		var _player_forward = Player.instance.get_node("Camera3D").global_basis * Vector3.FORWARD
 		var _angle = _player_forward.angle_to(-_vec_to_player)
 		if _angle > look_anger_range:

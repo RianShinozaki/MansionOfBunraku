@@ -11,7 +11,6 @@ var timer: float
 
 var meltdown_begun: bool
 
-
 func _enter_tree():
 	instance = self
 

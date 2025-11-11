@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 	
 	raycast.target_position = _vec_to_player
 	
-	if not raycast.is_colliding():
+	if not raycast.is_colliding() and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		if _dist_to_player < too_close_distance:
 			var _samp = too_close_curve.sample(1-(_dist_to_player/too_close_distance))
 			anger_level += _delta * _samp * too_close_factor

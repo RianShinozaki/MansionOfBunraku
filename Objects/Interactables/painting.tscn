@@ -34,7 +34,7 @@ heightmap_texture = ExtResource("3_frame_h")
 texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(0.96, 0.7, 0.1)
+size = Vector3(0.8009131, 1.2375, 0.1)
 
 [node name="Painting" type="StaticBody3D"]
 collision_layer = 37
@@ -68,6 +68,7 @@ texture_filter = 2
 texture = ExtResource("2_frame_tex")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00042238832, 0.0072266012, 0)
 shape = SubResource("BoxShape3D_1")
 
 [node name="OpenSFX" type="AudioStreamPlayer3D" parent="."]
