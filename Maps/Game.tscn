@@ -134,7 +134,7 @@ script = ExtResource("48_rkpjn")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_duur3")
-cycle_time = 180.0
+cycle_time = 300.0
 meltdown_time = 30.0
 
 [node name="Environment" type="Node3D" parent="."]
