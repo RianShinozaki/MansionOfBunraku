@@ -7,6 +7,7 @@ extends StaticBody3D
 @export var painting_artwork: Texture2D
 @export var inspect_fov: float = 40.0
 @export var can_be_opened: bool
+@export var bunraku_appeasement: bool = true
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
 

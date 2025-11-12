@@ -9,6 +9,8 @@ var player: Player
 var inspect_collision_mask: int = 1 << 5  # Layer 6 for inspectable details
 var stored_player_rotation: Vector3
 var stored_camera_rotation: Vector3
+var current_inspect_target: Node3D = null
+var stored_bunraku_states: Dictionary = {}
 
 
 func _ready():
@@ -46,6 +48,9 @@ func enter_inspect(target: Node3D, focus_marker: Node3D, fov: float = 50.0):
 	if not player.active:
 		player.active = true
 	
+	# Store the target object
+	current_inspect_target = target
+	
 	# Store camera setup for deferred execution
 	var camera_transform = focus_marker.global_transform
 	var camera_fov = fov
@@ -71,7 +76,10 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	
 	# Disable player and confine cursor to window (hide OS cursor)
 	player.active = false
-
+	
+	# Handle bunraku deactivation if target has the flag set
+	if current_inspect_target and current_inspect_target.get("disable_bunraku_on_inspect"):
+		_deactivate_bunraku()
 
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
@@ -95,6 +103,10 @@ func exit_inspect(target_position: Vector3 = Vector3.INF):
 	current_mode = Mode.PLAY
 
 func _finalize_exit_inspect(target_position: Vector3 = Vector3.INF):
+	# Restore bunraku states if they were deactivated
+	if not stored_bunraku_states.is_empty():
+		_restore_bunraku()
+	
 	# Teleport player to target position if specified (only X and Z, preserve Y)
 	if target_position != Vector3.INF:
 		var current_y = player.global_position.y
@@ -175,6 +187,51 @@ func _unhandled_input(event):
 			# Right click to exit
 			exit_inspect()
 			get_viewport().set_input_as_handled()
+
+func _deactivate_bunraku():
+	# Clear any previous stored states
+	stored_bunraku_states.clear()
+	
+	# Find all bunraku in the scene
+	var bunraku_list = []
+	for node in get_tree().get_nodes_in_group("Bunraku"):
+		if node is Bunraku:
+			bunraku_list.append(node)
+	
+	# If no bunraku found via group, search by type
+	if bunraku_list.is_empty():
+		var root = get_tree().root
+		bunraku_list = _find_bunraku_recursive(root)
+	
+	# Store current states and deactivate
+	for bunraku in bunraku_list:
+		stored_bunraku_states[bunraku] = bunraku.active
+		bunraku.active = false
+
+func _find_bunraku_recursive(node: Node) -> Array:
+	var bunraku_list = []
+	if node is Bunraku:
+		bunraku_list.append(node)
+	for child in node.get_children():
+		bunraku_list.append_array(_find_bunraku_recursive(child))
+	return bunraku_list
+
+func _restore_bunraku():
+	# Restore all bunraku to their previous states
+	for bunraku in stored_bunraku_states:
+		if is_instance_valid(bunraku):
+			bunraku.active = stored_bunraku_states[bunraku]
+	
+	# Clear stored states
+	stored_bunraku_states.clear()
+	current_inspect_target = null
+
+# Public functions for external scripts to temporarily disable/restore bunraku
+func disable_bunraku_external() -> void:
+	_deactivate_bunraku()
+
+func restore_bunraku_external() -> void:
+	_restore_bunraku()
 
 func raycast_from_mouse(mouse_pos: Vector2) -> Dictionary:
 	if not inspect_camera:
