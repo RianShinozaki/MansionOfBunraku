@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=6 format=3 uid="uid://bsg46015j8seh"]
 
 [ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_npdgu"]
-[ext_resource type="AudioStream" uid="uid://be5ar0kr8i8y1" path="res://Audio/Voice/Intro_1.wav" id="1_uo186"]
-[ext_resource type="AudioStream" uid="uid://b7y1ycp8nlevn" path="res://Audio/Voice/Intro_2.wav" id="2_qou5e"]
-[ext_resource type="AudioStream" uid="uid://6ehnyv1upch0" path="res://Audio/Voice/Intro_3.wav" id="3_s0ith"]
-[ext_resource type="AudioStream" uid="uid://1a5egfehhjh2" path="res://Audio/Voice/Intro_4.wav" id="4_hmym5"]
+[ext_resource type="AudioStream" uid="uid://b87l2kj7dqxwg" path="res://Audio/Voice/num1.wav" id="1_uo186"]
+[ext_resource type="AudioStream" uid="uid://dn358fybuxh6g" path="res://Audio/Voice/num2.wav" id="2_qou5e"]
+[ext_resource type="AudioStream" uid="uid://dqs32caxvlxvy" path="res://Audio/Voice/num3.wav" id="3_s0ith"]
+[ext_resource type="AudioStream" uid="uid://c8l2loww528n0" path="res://Audio/Voice/num4.wav" id="4_hmym5"]
 
 [resource]
 script = ExtResource("1_npdgu")
@@ -28,7 +28,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(320, 439.99994),
+"size": Vector2(320, 439.9999),
 "speaker": ""
 },
 &"1_2": {
@@ -42,7 +42,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 360.00006),
+"size": Vector2(300, 360.00015),
 "speaker": ""
 },
 &"1_3": {
@@ -56,7 +56,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 380.00006),
+"size": Vector2(300, 380.00015),
 "speaker": ""
 },
 &"1_4": {
@@ -70,7 +70,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 340.00006),
+"size": Vector2(300.00012, 340.00003),
 "speaker": ""
 }
 }

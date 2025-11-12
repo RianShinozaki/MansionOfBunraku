@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgmoxxqv7tf5r"]
+
+[ext_resource type="Texture2D" uid="uid://dxs1edmtnmrfl" path="res://Art Assets/candle.png" id="1_f054x"]
+[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="2_qqfdy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqfdy"]
+atlas = ExtResource("1_f054x")
+region = Rect2(0, 0, 5, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aarkt"]
+atlas = ExtResource("1_f054x")
+region = Rect2(5, 0, 5, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj013"]
+atlas = ExtResource("1_f054x")
+region = Rect2(10, 0, 5, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcfth"]
+atlas = ExtResource("1_f054x")
+region = Rect2(15, 0, 5, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lufvi"]
+atlas = ExtResource("1_f054x")
+region = Rect2(20, 0, 5, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjukc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqfdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aarkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj013")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcfth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lufvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Candle" type="Node3D"]
+
+[node name="Node3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+billboard = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_rjukc")
+autoplay = "default"
+frame_progress = 0.39798093
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+light_color = Color(0.96070224, 0.7103247, 0.5258202, 1)
+light_energy = 0.7
+distance_fade_enabled = true
+distance_fade_begin = 5.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
+omni_range = 1.0
+script = ExtResource("2_qqfdy")
+energy_median = 0.5
+energy_range = 0.1
+energy_delta_range = 0.003

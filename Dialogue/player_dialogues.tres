@@ -30,7 +30,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00012, 380),
+"size": Vector2(300.00006, 380),
 "speaker": ""
 },
 &"1_2": {
@@ -44,7 +44,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(319.99994, 380),
+"size": Vector2(320, 380),
 "speaker": ""
 },
 &"1_3": {
@@ -58,7 +58,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00012, 380),
+"size": Vector2(300.00024, 380),
 "speaker": ""
 },
 &"1_4": {
@@ -72,21 +72,21 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 380),
+"size": Vector2(300, 380),
 "speaker": ""
 },
 &"1_5": {
 "audio_clip": null,
-"dialogue": "(Perhaps if you took a moment to focus and feel the shamisen in your hands, the song would come back to you...)",
+"dialogue": "([color=\"yellow\"]Perhaps if you took a moment to focus and feel the shamisen in your hands, the song would come back to you...[/color])",
 "offset": Vector2(640, 560),
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"1_8",
 "text": ""
 }
 },
-"size": Vector2(319.99988, 360.00003),
+"size": Vector2(319.99988, 360),
 "speaker": ""
 },
 &"1_6": {
@@ -100,7 +100,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 360.00027),
+"size": Vector2(300.00006, 360.00024),
 "speaker": ""
 },
 &"1_7": {
@@ -114,7 +114,21 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 359.99997),
+"size": Vector2(300, 360),
+"speaker": ""
+},
+&"1_8": {
+"audio_clip": null,
+"dialogue": "([color=\"yellow\"]Press E to put away the Shamisen and take it back out. Use 1, 2, and 3 to play.[/color])",
+"offset": Vector2(1020, 560),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(320, 360),
 "speaker": ""
 }
 }

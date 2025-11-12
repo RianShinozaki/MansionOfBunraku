@@ -14,6 +14,7 @@ extends CharacterBody3D
 @export var gravity: float
 ##How far the player can click on things
 @export var interaction_range: float = 3.5
+@export var shamisen_wait_memory_time: float
 
 @export var player_dialogues: DialogueData
 
@@ -30,6 +31,9 @@ var active: bool = true
 
 var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
+var shamisen_wait_time: float
+
+signal played_note_signal(note: int)
 
 static var instance: Player
 
@@ -44,6 +48,7 @@ func _ready() -> void:
 		run_dialogue("first_cycle_begin")
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		InspectionManager.current_mode = InspectionManager.Mode.PLAY
 	
 	
 func _physics_process(_delta: float) -> void:
@@ -52,6 +57,17 @@ func _physics_process(_delta: float) -> void:
 	#Sum up all movement vectors
 	velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
 	move_and_slide()
+	
+	if get_walk_velocity(_delta) == Vector3.ZERO and holding_shamisen:
+		shamisen_wait_time += _delta
+	else:
+		shamisen_wait_time = 0
+	
+	if shamisen_wait_time <= shamisen_wait_memory_time:	
+		if $"CanvasLayer/Music Memory".modulate.a > 0:
+			$"CanvasLayer/Music Memory".modulate.a -= _delta*4
+	elif shamisen_wait_time >= shamisen_wait_memory_time and $"CanvasLayer/Music Memory".modulate.a < 1:
+		$"CanvasLayer/Music Memory".modulate.a += _delta
 	
 	#Set the crosshair sprite depending on whether or not the raycast is touching something
 	$CanvasLayer/TextureRect.texture = crossUI
@@ -75,7 +91,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventKey:
 		#Allow the game to free the cursor when pressing escape
-		if event.pressed and event.keycode == KEY_ESCAPE:
+		if event.pressed and event.keycode == KEY_ESCAPE and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 		# Drop held object
@@ -93,13 +109,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if toggle_shamisen:
 			if event.pressed and event.keycode == KEY_1:
 				$Camera3D/Shamisen.append_note(1)
+				emit_signal("played_note_signal", 1)
 			if event.pressed and event.keycode == KEY_2:
 				$Camera3D/Shamisen.append_note(2)
+				emit_signal("played_note_signal", 2)
 			if event.pressed and event.keycode == KEY_3:
 				$Camera3D/Shamisen.append_note(3)
+				emit_signal("played_note_signal", 3)
+
 			
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			click_object()
 
@@ -205,5 +225,8 @@ func run_dialogue(dialogue_id: String):
 	_dialogue_box.data = player_dialogues
 	_dialogue_box.start(dialogue_id)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 	await _dialogue_box.dialogue_ended
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InspectionManager.current_mode = InspectionManager.Mode.PLAY
+	

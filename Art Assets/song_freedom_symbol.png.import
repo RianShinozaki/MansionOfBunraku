@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwib3w46bbmho"
-path="res://.godot/imported/painting_yono.png-f8960e2cee22b5b98b5d845cccab12bd.ctex"
+uid="uid://bx3fh046eukvt"
+path.s3tc="res://.godot/imported/song_freedom_symbol.png-650ab91abd49ea89eb142645ae15f713.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Art Assets/painting_yono.png"
-dest_files=["res://.godot/imported/painting_yono.png-f8960e2cee22b5b98b5d845cccab12bd.ctex"]
+source_file="res://Art Assets/song_freedom_symbol.png"
+dest_files=["res://.godot/imported/song_freedom_symbol.png-650ab91abd49ea89eb142645ae15f713.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
