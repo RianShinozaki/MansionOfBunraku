@@ -1,6 +1,5 @@
 extends Node
 
-# Simple 2-state inspection system: PLAY <-> INSPECT
 enum Mode { PLAY, INSPECT, DIALOGUE }
 
 var current_mode: Mode = Mode.PLAY
@@ -11,11 +10,13 @@ var inspect_collision_mask: int = 1 << 5  # Layer 6 for inspectable details
 var stored_player_rotation: Vector3
 var stored_camera_rotation: Vector3
 
+
 func _ready():
 	await get_tree().process_frame
 	player = Player.instance
 	if player:
 		player_camera = player.get_node_or_null("Camera3D")
+		
 
 func _ensure_cameras() -> bool:
 	# Lazily find cameras when first needed to ensure game scene is ready
@@ -70,9 +71,10 @@ func _finalize_inspect_mode(camera_transform: Transform3D, camera_fov: float):
 	
 	# Disable player and confine cursor to window (hide OS cursor)
 	player.active = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
-	# Keep UI cursor visible - it will be updated in _process
 
 func exit_inspect(target_position: Vector3 = Vector3.INF):
 	if current_mode != Mode.INSPECT:
@@ -86,6 +88,9 @@ func exit_inspect(target_position: Vector3 = Vector3.INF):
 	
 	# Defer camera centering and mouse centering to ensure proper sequencing
 	call_deferred("_finalize_exit_inspect", target_position)
+	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 	
 	current_mode = Mode.PLAY
 
