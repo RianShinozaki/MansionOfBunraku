@@ -2,8 +2,13 @@ extends OmniLight3D
 
 @export var energy_median: float
 @export var energy_range: float
-@export var energy_change: float
+@export var energy_change: float = 0.0
 @export var energy_delta_range: float
+
+func _ready() -> void:
+	# Initialize to prevent Mac/Metal uninitialized memory issues
+	energy_change = 0.0
+	light_energy = energy_median
 
 func _process(_delta: float) -> void:
 	energy_change += randf_range(-energy_delta_range, energy_delta_range)
