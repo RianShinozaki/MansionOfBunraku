@@ -6,6 +6,7 @@ extends Node3D
 @export var slide_distance: float = 0.04  # How far the assembly slides out
 @export var slide_direction: Vector3 = Vector3(0, -1, 0)  # Direction to slide
 @export var inspect_fov: float = 40.0  # FOV for inspect camera
+@export var bunraku_appeasement: bool = false
 @export var player_exit_marker: Node3D  # Optional: Where to teleport player on exit (to avoid door collision)
 
 var is_unlocked: bool = false

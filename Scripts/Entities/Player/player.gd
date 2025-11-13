@@ -39,7 +39,7 @@ static var instance: Player
 
 func _ready() -> void:
 	# RAYCAST SETUP 
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	raycast.target_position = Vector3(0, 0, -interaction_range)
 	instance = self
 	
@@ -47,9 +47,11 @@ func _ready() -> void:
 		await get_tree().create_timer(1).timeout
 		run_dialogue("first_cycle_begin")
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		InspectionManager.current_mode = InspectionManager.Mode.PLAY
-	
+		call_deferred("_deferred_mouse_capture")
+
+func _deferred_mouse_capture():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _physics_process(_delta: float) -> void:
 	if not active: return

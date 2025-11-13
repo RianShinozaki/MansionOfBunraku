@@ -4,6 +4,9 @@ extends StaticBody3D
 ## The message text to display when the letter is clicked
 @export_multiline  var message_text: String = "This is a test message. Replace this with your actual letter content."
 
+## Whether to disable bunraku while reading the letter
+@export var disable_bunraku_on_inspect: bool = false
+
 ## Reference to the text overlay (will be found in scene)
 var text_overlay: CanvasLayer
 
@@ -31,6 +34,10 @@ func on_interact():
 		# Wait for animation to finish before showing text
 		await animation_player.animation_finished
 	
+	# Disable bunraku if flag is set
+	if disable_bunraku_on_inspect:
+		InspectionManager.disable_bunraku_external()
+	
 	# Find the text overlay in the scene
 	text_overlay = get_tree().root.find_child("TextOverlay", true, false) as CanvasLayer
 	if text_overlay and text_overlay.has_method("show_message"):
@@ -42,6 +49,10 @@ func on_interact():
 	get_viewport().set_input_as_handled()
 
 func on_finished_reading():
+	# Restore bunraku if they were disabled
+	if disable_bunraku_on_inspect:
+		InspectionManager.restore_bunraku_external()
+	
 	emit_signal("finished_reading")
 	text_overlay.hiding_message.disconnect(on_finished_reading)
 
