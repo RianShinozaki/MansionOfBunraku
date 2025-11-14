@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://851nwuk023lu"]
 
-[ext_resource type="PackedScene" uid="uid://boq62uf6mpsdx" path="res://Objects/Interactables/CombinationLock.tscn" id="1_m3qml"]
 [ext_resource type="PackedScene" uid="uid://drllaj1vfpbgx" path="res://Objects/Interactables/shamisen_cabinet.tscn" id="2_bfpfi"]
+[ext_resource type="PackedScene" uid="uid://do4xuix8ysrn1" path="res://Objects/Interactables/CombinationPanel.tscn" id="3_1g4wi"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="3_shamisen"]
 
 [node name="ShamisenLocked" type="Node3D"]
@@ -9,16 +9,12 @@
 [node name="ShamisenCabinet" parent="." instance=ExtResource("2_bfpfi")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
+[node name="CombinationPanel" parent="ShamisenCabinet/DoorPivot/Door" index="2" instance=ExtResource("3_1g4wi")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.15631004, -0.04240161, 0.002599001)
+
 [node name="Shamisen" parent="." instance=ExtResource("3_shamisen")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.015123695, -0.04777706, 0.0067468)
 freeze = true
 script = null
 
-[node name="CombinationLock" parent="." node_paths=PackedStringArray("player_exit_marker") instance=ExtResource("1_m3qml")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, -0.2523079, -0.0868456, 0.2551139)
-player_exit_marker = NodePath("PlayerExitMarker")
-
-[node name="PlayerExitMarker" type="Node3D" parent="CombinationLock"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9082031, 0.07565305, 0.71203613)
-
-[editable path="CombinationLock"]
+[editable path="ShamisenCabinet"]
