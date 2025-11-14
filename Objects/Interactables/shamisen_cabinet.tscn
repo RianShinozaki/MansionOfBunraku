@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://drllaj1vfpbgx"]
+[gd_scene load_steps=17 format=3 uid="uid://drllaj1vfpbgx"]
 
 [ext_resource type="Texture2D" uid="uid://qrh4b1dsje6m" path="res://Art Assets/Models/ShamisenCase/ShamisenCase.png" id="1_cabinet"]
 [ext_resource type="Script" uid="uid://k0jbk8u7gj81" path="res://Scripts/Interactables/shamisen_cabinet.gd" id="1_f7fbf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dd3its2htqf0f" path="res://Art Assets/Models/ShamisenCase/ShamisenCaseGlass.png" id="7_glass_case"]
 [ext_resource type="Texture2D" uid="uid://tavd0wk8bdaq" path="res://Art Assets/Models/ShamisenCase/ShamisenTopGlass.png" id="8_glass_top"]
 [ext_resource type="Texture2D" uid="uid://ukclm13rtbif" path="res://Art Assets/Models/ShamisenCase/ShamisenDoorGlass.png" id="9_glass_door"]
+[ext_resource type="Material" uid="uid://bxtbfcr0g2wcd" path="res://Art Assets/Materials/GlassEmissive.tres" id="10_glass_material"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_legs"]
 size = Vector3(0.48, 0.24, 0.05)
@@ -83,6 +84,7 @@ texture = ExtResource("1_cabinet")
 
 [node name="BackWallGlass" type="Sprite3D" parent="BackWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 texture_filter = 2
@@ -101,6 +103,7 @@ texture = ExtResource("1_cabinet")
 
 [node name="LeftWallGlass" type="Sprite3D" parent="LeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 double_sided = false
@@ -121,6 +124,7 @@ texture = ExtResource("1_cabinet")
 
 [node name="RightWallGlass" type="Sprite3D" parent="RightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 texture_filter = 2
@@ -140,6 +144,7 @@ texture = ExtResource("2_cabinet_top")
 
 [node name="TopWallGlass" type="Sprite3D" parent="TopWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 texture_filter = 2
@@ -158,6 +163,7 @@ texture = ExtResource("2_cabinet_top")
 
 [node name="BottomGlass" type="Sprite3D" parent="Bottom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 texture_filter = 2
@@ -179,6 +185,7 @@ texture = ExtResource("1_cabinet")
 
 [node name="DoorGlass" type="Sprite3D" parent="DoorPivot/Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+material_override = ExtResource("10_glass_material")
 modulate = Color(1, 1, 1, 0.352941)
 shaded = true
 texture_filter = 2

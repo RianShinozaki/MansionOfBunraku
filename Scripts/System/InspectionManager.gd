@@ -195,6 +195,7 @@ func _deactivate_bunraku():
 	# Find all bunraku in the scene
 	var bunraku_list = []
 	for node in get_tree().get_nodes_in_group("Bunraku"):
+		print("test. Bunraku found: ", node.name)
 		if node is Bunraku:
 			bunraku_list.append(node)
 	
