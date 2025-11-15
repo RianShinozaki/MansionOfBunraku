@@ -10,7 +10,7 @@
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CombinationPanel" parent="ShamisenCabinet/DoorPivot/Door" index="2" instance=ExtResource("3_1g4wi")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.15631004, -0.04240161, 0.002599001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14723106, -0.04240161, 0.0040614754)
 
 [node name="Shamisen" parent="." instance=ExtResource("3_shamisen")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.015123695, -0.04777706, 0.0067468)

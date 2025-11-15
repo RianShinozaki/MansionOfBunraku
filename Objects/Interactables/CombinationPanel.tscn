@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://do4xuix8ysrn1"]
+[gd_scene load_steps=12 format=3 uid="uid://do4xuix8ysrn1"]
 
 [ext_resource type="Script" uid="uid://cei4mseko34kb" path="res://Scripts/Interactables/combination_panel.gd" id="1_panel"]
+[ext_resource type="Texture2D" uid="uid://dph20kph2mir7" path="res://Art Assets/LockPanelSmall.png" id="2_panel_small_tex"]
 [ext_resource type="Texture2D" uid="uid://cjeguxjh6lgd1" path="res://Art Assets/LockPanel.png" id="2_panel_tex"]
 [ext_resource type="Texture2D" uid="uid://degiy4u3tl420" path="res://Art Assets/LockWheel.png" id="3_wheel_tex"]
 [ext_resource type="Script" uid="uid://btmvtpjfn64uw" path="res://Scripts/Interactables/sprite_number_wheel.gd" id="4_wheel_script"]
@@ -16,7 +17,7 @@ albedo_texture = ExtResource("2_panel_tex")
 texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_panel"]
-size = Vector3(1.2, 0.6, 0.5)
+size = Vector3(0.2, 0.1, 0.083333336)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wheel"]
 transparency = 2
@@ -27,15 +28,21 @@ albedo_texture = ExtResource("3_wheel_tex")
 texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wheel"]
-size = Vector3(0.15, 0.2, 0.6)
+size = Vector3(0.025, 0.03333333, 0.1)
 
 [node name="CombinationPanel" type="StaticBody3D"]
 collision_layer = 5
 script = ExtResource("1_panel")
 
+[node name="RegularViewSprite" type="Sprite3D" parent="."]
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_panel_small_tex")
+
 [node name="PanelSprite" type="Sprite3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_panel")
-pixel_size = 0.003
+pixel_size = 0.0005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -46,13 +53,14 @@ texture = ExtResource("2_panel_tex")
 shape = SubResource("BoxShape3D_panel")
 
 [node name="Wheel1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0.008333333)
+visible = false
 collision_layer = 37
 script = ExtResource("4_wheel_script")
 
 [node name="WheelSprite" type="Sprite3D" parent="Wheel1"]
 material_override = SubResource("StandardMaterial3D_wheel")
-pixel_size = 0.003
+pixel_size = 0.0005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -61,18 +69,19 @@ texture = ExtResource("3_wheel_tex")
 vframes = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004166667)
 shape = SubResource("BoxShape3D_wheel")
 
 [node name="Wheel2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016666668, 0, 0.008333333)
+visible = false
 collision_layer = 37
 script = ExtResource("4_wheel_script")
 wheel_index = 2
 
 [node name="WheelSprite" type="Sprite3D" parent="Wheel2"]
 material_override = SubResource("StandardMaterial3D_wheel")
-pixel_size = 0.003
+pixel_size = 0.0005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -81,18 +90,19 @@ texture = ExtResource("3_wheel_tex")
 vframes = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004166667)
 shape = SubResource("BoxShape3D_wheel")
 
 [node name="Wheel3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016666668, 0, 0.008333333)
+visible = false
 collision_layer = 37
 script = ExtResource("4_wheel_script")
 wheel_index = 3
 
 [node name="WheelSprite" type="Sprite3D" parent="Wheel3"]
 material_override = SubResource("StandardMaterial3D_wheel")
-pixel_size = 0.003
+pixel_size = 0.0005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -101,18 +111,19 @@ texture = ExtResource("3_wheel_tex")
 vframes = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004166667)
 shape = SubResource("BoxShape3D_wheel")
 
 [node name="Wheel4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0.008333333)
+visible = false
 collision_layer = 37
 script = ExtResource("4_wheel_script")
 wheel_index = 4
 
 [node name="WheelSprite" type="Sprite3D" parent="Wheel4"]
 material_override = SubResource("StandardMaterial3D_wheel")
-pixel_size = 0.003
+pixel_size = 0.0005
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -121,11 +132,11 @@ texture = ExtResource("3_wheel_tex")
 vframes = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004166667)
 shape = SubResource("BoxShape3D_wheel")
 
 [node name="FocusMarker" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3615723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024166107, 0, 0.2208252)
 
 [node name="ClickSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_apvni")
