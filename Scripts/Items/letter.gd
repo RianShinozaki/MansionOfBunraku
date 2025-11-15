@@ -28,11 +28,6 @@ func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
 
 func on_interact():
-	# Play opening animation
-	if animation_player:
-		animation_player.play("open")
-		# Wait for animation to finish before showing text
-		await animation_player.animation_finished
 	
 	# Disable bunraku if flag is set
 	if disable_bunraku_on_inspect:

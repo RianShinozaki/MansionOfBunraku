@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mansion Of Bunraku"
-run/main_scene="uid://8juywf5mne8w"
+run/main_scene="uid://dur0gs8lqb2mn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -45,6 +45,7 @@ Item=""
 Cat=""
 FireFX=""
 Shamisen=""
+Bunraku=""
 
 [input]
 
