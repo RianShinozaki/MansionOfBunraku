@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mansion Of Bunraku"
-run/main_scene="uid://8juywf5mne8w"
+run/main_scene="uid://dur0gs8lqb2mn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -45,6 +45,7 @@ Item=""
 Cat=""
 FireFX=""
 Shamisen=""
+Bunraku=""
 
 [input]
 
@@ -80,7 +81,4 @@ Right={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-shader_compiler/shader_cache/enabled=true
-shader_compiler/shader_cache/compress=true
 shader_compiler/shader_cache/strip_debug=true
-shader_compiler/shader_cache/use_zstd_compression=true

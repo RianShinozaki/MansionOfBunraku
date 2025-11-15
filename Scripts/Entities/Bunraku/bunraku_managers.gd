@@ -5,6 +5,7 @@ extends Node3D
 enum {YONO, YOROI}
 
 @export var bunraku: Bunraku
+@export var can_jumpscare_command: bool
 
 func _ready() -> void:
 	bunraku.deactivate()
@@ -13,8 +14,15 @@ func _ready() -> void:
 func activate_bunraku():
 	bunraku.activate()
 	visible = true
+	
+func _process(delta: float) -> void:
+	if can_jumpscare_command:
+		if Input.is_key_pressed(KEY_0):
+			jumpscare()
 
 func jumpscare():
+	visible = true
+	bunraku.visible = true
 	$"../DirectionalLight3D".light_energy = 0.2
 	var lights: Array = get_tree().get_nodes_in_group("Light")
 	for _light in lights:
@@ -24,10 +32,11 @@ func jumpscare():
 	$JumpscareSFX.play()
 	Player.instance.look_at( global_position, Vector3.UP, true)
 	Player.instance.rotate_y(PI)
+	Player.instance.rotation.x = 0
 	Player.instance.get_node("Camera3D").rotation_degrees = Vector3(0.2, 0, 0)
 	global_position = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.3
-	global_position.y = -0.2
+	global_position.y = 0.355
 	var _to = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.15
-	await get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, -0.2, _to.z) , 1.4).finished
+	await get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 1.4).finished
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file("res://Maps/Menu/StartScreen.tscn")

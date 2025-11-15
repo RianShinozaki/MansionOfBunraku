@@ -60,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
 	move_and_slide()
 	
-	if get_walk_velocity(_delta) == Vector3.ZERO and holding_shamisen:
+	if get_walk_velocity(_delta) == Vector3.ZERO and toggle_shamisen and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		shamisen_wait_time += _delta
 	else:
 		shamisen_wait_time = 0
