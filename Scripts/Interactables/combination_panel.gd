@@ -10,12 +10,15 @@ extends StaticBody3D
 
 var is_unlocked: bool = false
 var wheels: Array[Node3D] = []
+var was_in_inspect_mode: bool = false
 
 signal unlocked
 
 @onready var click_audio: AudioStreamPlayer3D = $ClickSound
 @onready var unlock_audio: AudioStreamPlayer3D = $UnlockSound
 @onready var focus_marker: Node3D = $FocusMarker
+@onready var regular_view_sprite: Sprite3D = $RegularViewSprite
+@onready var panel_sprite: Sprite3D = $PanelSprite
 
 func _ready():
 	add_to_group("Interactable")
@@ -32,6 +35,15 @@ func _ready():
 		var wheel = get_node_or_null("Wheel" + str(i))
 		if wheel:
 			wheels.append(wheel)
+	
+	# Ensure we start in regular view mode
+	_update_visibility_for_mode(false)
+
+func _process(_delta):
+	# Check if we've transitioned out of inspect mode
+	if was_in_inspect_mode and InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
+		was_in_inspect_mode = false
+		_update_visibility_for_mode(false)
 
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -40,7 +52,20 @@ func on_interact() -> void:
 	# Enter inspection mode
 	if focus_marker and InspectionManager:
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
+		was_in_inspect_mode = true
+		_update_visibility_for_mode(true)
 		get_viewport().set_input_as_handled()
+
+func _update_visibility_for_mode(is_inspect_mode: bool):
+	# In inspect mode: show detailed panel and wheels, hide regular view sprite
+	# In regular mode: show regular view sprite, hide detailed panel and wheels
+	if regular_view_sprite:
+		regular_view_sprite.visible = not is_inspect_mode
+	if panel_sprite:
+		panel_sprite.visible = is_inspect_mode
+	for wheel in wheels:
+		if wheel:
+			wheel.visible = is_inspect_mode
 
 func on_wheel_changed(wheel_index: int) -> void:
 	# Play click sound
