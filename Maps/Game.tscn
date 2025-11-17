@@ -33,7 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="37_ksnbm"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
-[ext_resource type="PackedScene" uid="uid://dqp73d60m1fpu" path="res://Objects/Interactables/time_travel_clock.tscn" id="41_ronf6"]
+[ext_resource type="PackedScene" path="res://Objects/Interactables/time_travel_clock.tscn" id="41_ronf6"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
 [ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="45_eqorb"]
@@ -481,4 +481,3 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.32
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/InspectionLetter" to="Environment/HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/YonoPainting/InspectionLetter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
-[connection signal="unlock" from="Environment/HouseEntrance/Objects/ShamisenDoors" to="Environment/HouseEntrance/Objects/ShamisenDoors/PaperDoor" method="unlock"]
