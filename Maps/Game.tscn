@@ -152,7 +152,7 @@ surface_material_override/0 = ExtResource("3_ceqvn")
 shape = SubResource("ConcavePolygonShape3D_2rhh3")
 
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.19965255, 0.43672052, -9.076993)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -0.7044749, 0.43672052, 0.7314091)
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
@@ -219,7 +219,7 @@ material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
 [node name="FireWall2" type="MeshInstance3D" parent="Environment/HouseEntrance/FireEffects"]
-transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.59999985, 0.40000004, -1.1999999)
+transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.5970474, 0.40000004, -1.1996578)
 material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
@@ -423,12 +423,13 @@ painting_artwork = ExtResource("30_nv3h5")
 dialogue_id = "yoroi_painting"
 
 [node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16, -0.527, -1.258)
 
 [node name="YoroiDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
-transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -1.3709855, 0, 3.1010804)
+transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -0.20142674, -0.52672064, 4.4086986)
 
 [node name="ShamisenDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("30_jwo5v")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1743408, 0.002635777, 2.265312)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4763021, -0.5314524, 1.0815306)
 
 [node name="ShamisenLocked" parent="Environment/HouseEntrance/Objects" instance=ExtResource("37_ksnbm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
@@ -475,3 +476,4 @@ metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/InspectionLetter" to="Environment/HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/YonoPainting/InspectionLetter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
+[connection signal="unlock" from="Environment/HouseEntrance/Objects/ShamisenDoors" to="Environment/HouseEntrance/Objects/ShamisenDoors/PaperDoor" method="unlock"]
