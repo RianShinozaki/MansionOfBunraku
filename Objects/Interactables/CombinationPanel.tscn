@@ -35,6 +35,7 @@ collision_layer = 5
 script = ExtResource("1_panel")
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
+render_priority = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_panel_small_tex")

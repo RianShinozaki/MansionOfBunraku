@@ -1,45 +1,43 @@
-[gd_scene load_steps=56 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=54 format=3 uid="uid://c6ejxydfqm7ic"]
 
-[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
-[ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
-[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ceqvn"]
-[ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="4_mdqsx"]
-[ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="6_jxyng"]
-[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="10_ceqvn"]
-[ext_resource type="ArrayMesh" uid="uid://d1a51phvwn6gd" path="res://Art Assets/Models/Table.obj" id="10_xacle"]
-[ext_resource type="PackedScene" uid="uid://0ywigdieb0vn" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
-[ext_resource type="Texture2D" uid="uid://bbnqd6ssch114" path="res://Art Assets/Katseye.png" id="11_xacle"]
-[ext_resource type="AudioStream" uid="uid://cxw4air1dxmqd" path="res://Audio/wind_howl_ambient_1.wav" id="14_r1twq"]
-[ext_resource type="Script" uid="uid://btoioc0dqqkf8" path="res://Scripts/Environment/cat_eyes.gd" id="16_baccv"]
-[ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio/cat_meow.mp3" id="17_di1da"]
-[ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="20_3wfnh"]
-[ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="20_6uyic"]
-[ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="20_66c1n"]
-[ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="21_di1da"]
-[ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="21_kgyru"]
-[ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="22_66c1n"]
-[ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="23_nv3h5"]
-[ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="24_0llml"]
-[ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="25_l8r31"]
-[ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="26_fire"]
-[ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Audio/yono-painting.png" id="29_nv3h5"]
-[ext_resource type="PackedScene" uid="uid://552qhmqu8bae" path="res://Objects/Interactables/shamisen_doors.tscn" id="30_jwo5v"]
-[ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="30_k0785"]
-[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Audio/yoroi-painting.png" id="30_nv3h5"]
-[ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="32_gpbpg"]
-[ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
-[ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
-[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
-[ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="37_ksnbm"]
-[ext_resource type="PackedScene" uid="uid://c3jyphoehlcxh" path="res://Objects/Items/letter.tscn" id="37_letter"]
-[ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
-[ext_resource type="PackedScene" uid="uid://dqp73d60m1fpu" path="res://Objects/Interactables/time_travel_clock.tscn" id="41_ronf6"]
-[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
-[ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
-[ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="45_eqorb"]
-[ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="46_1wkvv"]
-[ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="47_t5ayh"]
-[ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="48_rkpjn"]
+[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_konid"]
+[ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="2_yefaq"]
+[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_ag6nm"]
+[ext_resource type="PackedScene" uid="uid://0ywigdieb0vn" path="res://Objects/Entities/player.tscn" id="4_wnhw8"]
+[ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="5_8kkll"]
+[ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="6_817j4"]
+[ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="7_fhwm8"]
+[ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="8_7p2t7"]
+[ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="9_jxchb"]
+[ext_resource type="PackedScene" uid="uid://bmea2njewrpcl" path="res://Objects/Entities/yoroi.tscn" id="10_fthbd"]
+[ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="11_5k04n"]
+[ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="12_rcxls"]
+[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="13_8ss2k"]
+[ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="14_bfeia"]
+[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="15_rcguu"]
+[ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="16_6c44e"]
+[ext_resource type="Texture2D" uid="uid://bbnqd6ssch114" path="res://Art Assets/Katseye.png" id="17_x0d62"]
+[ext_resource type="Script" uid="uid://btoioc0dqqkf8" path="res://Scripts/Environment/cat_eyes.gd" id="18_qlo5a"]
+[ext_resource type="AudioStream" uid="uid://c0220h410mqn8" path="res://Audio/cat_meow.mp3" id="19_wjaot"]
+[ext_resource type="AudioStream" uid="uid://cxw4air1dxmqd" path="res://Audio/wind_howl_ambient_1.wav" id="20_mndru"]
+[ext_resource type="ArrayMesh" uid="uid://d1a51phvwn6gd" path="res://Art Assets/Models/Table.obj" id="21_43pfy"]
+[ext_resource type="PackedScene" uid="uid://c3jyphoehlcxh" path="res://Objects/Items/letter.tscn" id="22_aw07n"]
+[ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="23_7g058"]
+[ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="24_rqqtj"]
+[ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="25_ir75t"]
+[ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Audio/yono-painting.png" id="26_xi07q"]
+[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Audio/yoroi-painting.png" id="27_uwa3i"]
+[ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_14h6k"]
+[ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="31_wnf02"]
+[ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="32_djgft"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="33_kvr3d"]
+[ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="34_xm7ev"]
+[ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="35_b36xp"]
+[ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="36_yx2nw"]
+[ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="37_6vmvm"]
+[ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="38_wujem"]
+[ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="39_2vxfu"]
+[ext_resource type="PackedScene" uid="uid://dqp73d60m1fpu" path="res://Objects/Interactables/time_travel_clock.tscn" id="40_64flp"]
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
@@ -60,7 +58,7 @@ data = PackedVector3Array(0, 0, -0.00029999999, -1.28, 0, 0.3199, -1.28, 0, -0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s0c2o"]
 render_priority = 0
-shader = ExtResource("30_k0785")
+shader = ExtResource("9_jxchb")
 shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
 shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
 shader_parameter/fire_alpha = 0.0
@@ -75,7 +73,7 @@ radius = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_muv74"]
 render_priority = 0
-shader = ExtResource("26_fire")
+shader = ExtResource("12_rcxls")
 shader_parameter/use_texture_noise = false
 shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
 shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
@@ -91,7 +89,7 @@ shader_parameter/color_bands = 10
 size = Vector3(0.325012, 0.541504, 0.648376)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
-shader = ExtResource("33_nv3h5")
+shader = ExtResource("31_wnf02")
 shader_parameter/use_texture_noise = false
 shader_parameter/root_color = Color(1, 1, 1, 1)
 shader_parameter/tip_color = Color(0.9843137, 0.35686275, 1, 1)
@@ -118,22 +116,22 @@ expand_margin_right = 114.0
 
 [sub_resource type="Theme" id="Theme_uy6wr"]
 Label/font_sizes/font_size = 31
-Label/fonts/font = ExtResource("43_5d1nl")
+Label/fonts/font = ExtResource("33_kvr3d")
 Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
 RichTextLabel/font_sizes/normal_font_size = 27
-RichTextLabel/fonts/normal_font = ExtResource("43_5d1nl")
+RichTextLabel/fonts/normal_font = ExtResource("33_kvr3d")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
-script = ExtResource("46_1wkvv")
+script = ExtResource("36_yx2nw")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
-script = ExtResource("47_t5ayh")
+script = ExtResource("37_6vmvm")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
-script = ExtResource("48_rkpjn")
+script = ExtResource("38_wujem")
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_duur3")
+script = ExtResource("1_konid")
 cycle_time = 300.0
 meltdown_time = 30.0
 
@@ -144,31 +142,31 @@ environment = SubResource("Environment_8puwx")
 
 [node name="HouseEntrance" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7220864, 0)
-mesh = ExtResource("1_e5w3l")
+mesh = ExtResource("2_yefaq")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_ceqvn")
+surface_material_override/0 = ExtResource("3_ag6nm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseEntrance/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2rhh3")
 
-[node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
+[node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("4_wnhw8")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.8027881, 0.43672052, 0.64520276)
 move_speed = 1.5
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
-script = ExtResource("21_kgyru")
+script = ExtResource("5_8kkll")
 bunraku = NodePath("Yono")
 
-[node name="Yono" parent="Environment/HouseEntrance/Yono" instance=ExtResource("22_66c1n")]
+[node name="Yono" parent="Environment/HouseEntrance/Yono" instance=ExtResource("6_817j4")]
 
 [node name="CreakSFX" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Yono"]
-stream = ExtResource("24_0llml")
+stream = ExtResource("7_fhwm8")
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Yono"]
-stream = ExtResource("25_l8r31")
+stream = ExtResource("8_7p2t7")
 
 [node name="BunrakuFire" type="MeshInstance3D" parent="Environment/HouseEntrance/Yono"]
 material_override = SubResource("ShaderMaterial_s0c2o")
@@ -176,16 +174,16 @@ mesh = SubResource("SphereMesh_duur3")
 
 [node name="Yoroi" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66647184, 0.32672054, 9.437512)
-script = ExtResource("21_kgyru")
+script = ExtResource("5_8kkll")
 bunraku = NodePath("Yoroi")
 
-[node name="Yoroi" parent="Environment/HouseEntrance/Yoroi" instance=ExtResource("21_di1da")]
+[node name="Yoroi" parent="Environment/HouseEntrance/Yoroi" instance=ExtResource("10_fthbd")]
 
 [node name="CreakSFX" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Yoroi"]
-stream = ExtResource("24_0llml")
+stream = ExtResource("7_fhwm8")
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Yoroi"]
-stream = ExtResource("25_l8r31")
+stream = ExtResource("8_7p2t7")
 
 [node name="BunrakuFire" type="MeshInstance3D" parent="Environment/HouseEntrance/Yoroi"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.9999995)
@@ -194,7 +192,7 @@ mesh = SubResource("SphereMesh_duur3")
 
 [node name="FireEffects" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("environment") groups=["FireFX"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.324746, 0.5267205, -0.9389304)
-script = ExtResource("32_gpbpg")
+script = ExtResource("11_5k04n")
 fire_material = SubResource("ShaderMaterial_muv74")
 fire_individual_material = SubResource("ShaderMaterial_s0c2o")
 environment = NodePath("../../../WorldEnvironment")
@@ -241,7 +239,7 @@ light_color = Color(0.94477975, 0.5544401, 0, 1)
 light_energy = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Environment/HouseEntrance/FireEffects"]
-stream = ExtResource("35_s0c2o")
+stream = ExtResource("13_8ss2k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/HouseEntrance"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.669474, 4.8609805, -0.9389304)
@@ -263,7 +261,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.582550
 billboard = 2
 shaded = true
 texture_filter = 2
-texture = ExtResource("4_mdqsx")
+texture = ExtResource("14_bfeia")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment/HouseEntrance/Objects/Chandelier" groups=["Light"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
@@ -278,13 +276,13 @@ distance_fade_shadow = 0.0
 distance_fade_length = 6.0
 omni_range = 8.438
 omni_attenuation = 2.068
-script = ExtResource("10_ceqvn")
+script = ExtResource("15_rcguu")
 energy_median = 1.5
 energy_range = 0.25
 energy_delta_range = 0.02
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Objects/Chandelier"]
-stream = ExtResource("6_jxyng")
+stream = ExtResource("16_6c44e")
 autoplay = true
 
 [node name="Chandelier2" type="Sprite3D" parent="Environment/HouseEntrance/Objects"]
@@ -292,7 +290,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6376681, 0.900854, -7.3284
 billboard = 2
 shaded = true
 texture_filter = 2
-texture = ExtResource("4_mdqsx")
+texture = ExtResource("14_bfeia")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment/HouseEntrance/Objects/Chandelier2" groups=["Light"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
@@ -307,13 +305,13 @@ distance_fade_shadow = 0.0
 distance_fade_length = 6.0
 omni_range = 8.438
 omni_attenuation = 2.068
-script = ExtResource("10_ceqvn")
+script = ExtResource("15_rcguu")
 energy_median = 1.5
 energy_range = 0.25
 energy_delta_range = 0.02
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Objects/Chandelier2"]
-stream = ExtResource("6_jxyng")
+stream = ExtResource("16_6c44e")
 autoplay = true
 
 [node name="Chandelier3" type="Sprite3D" parent="Environment/HouseEntrance/Objects"]
@@ -321,7 +319,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6376681, 0.900854, 10.6715
 billboard = 2
 shaded = true
 texture_filter = 2
-texture = ExtResource("4_mdqsx")
+texture = ExtResource("14_bfeia")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment/HouseEntrance/Objects/Chandelier3" groups=["Light"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
@@ -336,13 +334,13 @@ distance_fade_shadow = 0.0
 distance_fade_length = 6.0
 omni_range = 8.438
 omni_attenuation = 2.068
-script = ExtResource("10_ceqvn")
+script = ExtResource("15_rcguu")
 energy_median = 1.5
 energy_range = 0.25
 energy_delta_range = 0.02
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Objects/Chandelier3"]
-stream = ExtResource("6_jxyng")
+stream = ExtResource("16_6c44e")
 autoplay = true
 
 [node name="Cat" type="Sprite3D" parent="Environment/HouseEntrance/Objects"]
@@ -350,22 +348,22 @@ transform = Transform3D(0.487616, 0, 0.873058, 0, 1, 0, -0.873058, 0, 0.487616, 
 modulate = Color(1, 1, 1, 0.109804)
 billboard = 1
 texture_filter = 2
-texture = ExtResource("11_xacle")
-script = ExtResource("16_baccv")
+texture = ExtResource("17_x0d62")
+script = ExtResource("18_qlo5a")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Objects/Cat"]
-stream = ExtResource("17_di1da")
+stream = ExtResource("19_wjaot")
 
 [node name="Wind" type="AudioStreamPlayer3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19077, 0, -0.557155)
-stream = ExtResource("14_r1twq")
+stream = ExtResource("20_mndru")
 autoplay = true
 
 [node name="Table2" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.217737, -10.436013)
-mesh = ExtResource("10_xacle")
+mesh = ExtResource("21_43pfy")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("3_ceqvn")
+surface_material_override/0 = ExtResource("3_ag6nm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance/Objects/Table2"]
 
@@ -373,7 +371,7 @@ surface_material_override/0 = ExtResource("3_ceqvn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118622, -0.229248, 0.270416)
 shape = SubResource("BoxShape3D_ceqvn")
 
-[node name="Letter" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("37_letter")]
+[node name="Letter" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("22_aw07n")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.13336754, 0.06688093, 0.3074291)
 message_text = "A lucky day in the 3rd moon of [color=red]17xx[/color]
 
@@ -387,14 +385,14 @@ The thought of you gives me courage to dream of what might be possible.
 
 – Kouya"
 
-[node name="Candle" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("23_nv3h5")]
+[node name="Candle" parent="Environment/HouseEntrance/Objects/Table2" instance=ExtResource("23_7g058")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04413128, 0.050800502, 0.15119785)
 
 [node name="Table3" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.217737, 13.363986)
-mesh = ExtResource("10_xacle")
+mesh = ExtResource("21_43pfy")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("3_ceqvn")
+surface_material_override/0 = ExtResource("3_ag6nm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance/Objects/Table3"]
 visible = false
@@ -403,7 +401,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118622, -0.229248, 0.270416)
 shape = SubResource("BoxShape3D_ceqvn")
 
-[node name="Letter" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("37_letter")]
+[node name="Letter" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("22_aw07n")]
 transform = Transform3D(0.9973861, 0.069112234, 0.02108383, -0.021134363, 0, 0.99977666, 0.069096796, -0.9976089, 0.0014606431, 0.033367157, 0.06688093, 0.30742908)
 message_text = "A blessed day in the 4th moon of [color=red]xx11[/color]
 
@@ -415,32 +413,26 @@ The gatekeeper sleeps not long after sundown. If you truly mean what you whisper
 
 – Yono"
 
-[node name="Candle" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("23_nv3h5")]
+[node name="Candle" parent="Environment/HouseEntrance/Objects/Table3" instance=ExtResource("23_7g058")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15999126, 0.050800502, 0.15119785)
 
-[node name="FrontDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_66c1n")]
+[node name="FrontDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("24_rqqtj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.89518, -0.521393, 1.56906)
 
-[node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
+[node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("25_ir75t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.69812685, -10.579226)
-painting_artwork = ExtResource("29_nv3h5")
+painting_artwork = ExtResource("26_xi07q")
 dialogue_id = "yono_painting"
 
-[node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
+[node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("25_ir75t")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
-painting_artwork = ExtResource("30_nv3h5")
+painting_artwork = ExtResource("27_uwa3i")
 dialogue_id = "yoroi_painting"
 
-[node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
+[node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("28_14h6k")]
 
-[node name="YoroiDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
+[node name="YoroiDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("28_14h6k")]
 transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -1.3709855, 0, 3.1010804)
-
-[node name="ShamisenDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("30_jwo5v")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1743408, 0.002635777, 2.265312)
-
-[node name="ShamisenLocked" parent="Environment/HouseEntrance/Objects" instance=ExtResource("37_ksnbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 
 [node name="InspectCamera" type="Camera3D" parent="."]
 
@@ -455,7 +447,7 @@ offset_right = 3228.7832
 offset_bottom = 1983.0862
 rotation = 3.1415927
 mouse_filter = 2
-script = ExtResource("34_ronf6")
+script = ExtResource("32_djgft")
 fire_material = SubResource("ShaderMaterial_3wfnh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -473,17 +465,17 @@ offset_right = -113.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_uy6wr")
-script = ExtResource("44_40tdl")
-data = ExtResource("45_eqorb")
+script = ExtResource("34_xm7ev")
+data = ExtResource("35_b36xp")
 start_id = "start"
 hide_portrait = true
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
-[node name="TextOverlay" parent="." instance=ExtResource("38_textoverlay")]
+[node name="TextOverlay" parent="." instance=ExtResource("39_2vxfu")]
 
-[node name="TimeTravelClock" parent="." groups=["Interactable"] instance=ExtResource("41_ronf6")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.32101893, -0.7220862, 1.1328924)
+[node name="TimeTravelClock" parent="." groups=["Interactable"] instance=ExtResource("40_64flp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.97745407, -0.7220862, 0.24321902)
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table2/Letter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/Letter" to="Environment/HouseEntrance/Yoroi" method="activate_bunraku"]
