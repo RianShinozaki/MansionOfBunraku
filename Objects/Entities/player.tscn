@@ -93,24 +93,25 @@ metadata/_edit_use_anchors_ = true
 [node name="HoldParent" type="Node3D" parent="CanvasLayer"]
 
 [node name="Music Memory" type="Control" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = -74.0
-offset_right = 23.0
-offset_bottom = -74.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="SongOfFreedom" type="Control" parent="CanvasLayer/Music Memory"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 3.0
+offset_top = -24.0
+offset_right = 43.0
+offset_bottom = 16.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFreedom"]

@@ -6,7 +6,9 @@ extends Node3D
 var time_elapsed: float = 0.0
 
 func _process(delta: float) -> void:
-	if not $"../GearSocket".has_gear: return
+	# Check if GearSocket exists and has gear, otherwise just run normally
+	if has_node("../GearSocket") and not $"../GearSocket".has_gear: 
+		return
 	
 	time_elapsed += delta * 4
 	

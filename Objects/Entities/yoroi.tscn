@@ -18,7 +18,7 @@ point_count = 2
 radius = 0.12
 height = 0.727539
 
-[node name="Yoroi" type="AnimatableBody3D"]
+[node name="Yoroi" type="AnimatableBody3D" groups=["Bunraku"]]
 script = ExtResource("1_uwb3h")
 look_anger_range = 0.5
 look_anger_curve = SubResource("Curve_uwb3h")

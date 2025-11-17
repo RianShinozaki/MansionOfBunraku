@@ -23,6 +23,7 @@ func _ready():
 
 func show_message(message: String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 	rich_text_label.bbcode_text = message
 	
 	# Reset panel position to off-screen before showing
@@ -57,6 +58,8 @@ func _input(event):
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func hide_message() -> void:
+	InspectionManager.current_mode = InspectionManager.Mode.PLAY
+	
 	hide()
 	# Reset panel position for next time
 	if panel:
@@ -67,3 +70,19 @@ func hide_message() -> void:
 	var letter = get_tree().root.find_child("Letter", true, false)
 	if letter and letter.has_method("reset_animation"):
 		letter.reset_animation()
+	
+	var viewport_size = get_viewport().get_visible_rect().size
+	var center_pos = viewport_size / 2
+	
+	# Center the UI cursor sprite before switching modes
+	var ui_cursor = Player.instance.get_node_or_null("CanvasLayer/TextureRect")
+	if ui_cursor:
+		ui_cursor.position = center_pos - ui_cursor.size / 2
+	
+	# Switch to captured mode first
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await get_tree().process_frame
+	
+	# Now warp the mouse to center while in captured mode
+	get_viewport().warp_mouse(center_pos)
+	await get_tree().process_frame

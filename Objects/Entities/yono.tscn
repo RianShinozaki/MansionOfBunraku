@@ -109,5 +109,5 @@ volume_db = -80.0
 pitch_scale = 1.83
 autoplay = true
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." groups=["Bunraku"]]
 target_position = Vector3(0, 0, 1)

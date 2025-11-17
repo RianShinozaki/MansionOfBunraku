@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0k8vxp8jy5mn"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/time_vortex.gd" id="1_time_vortex"]
+
+[node name="TimeVortex" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_time_vortex")
