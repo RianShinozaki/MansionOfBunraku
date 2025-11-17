@@ -231,4 +231,3 @@ func run_dialogue(dialogue_id: String):
 	await _dialogue_box.dialogue_ended
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	InspectionManager.current_mode = InspectionManager.Mode.PLAY
-	
