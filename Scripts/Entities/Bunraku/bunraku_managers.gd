@@ -23,10 +23,11 @@ func _process(delta: float) -> void:
 func jumpscare():
 	visible = true
 	bunraku.visible = true
-	$"../DirectionalLight3D".light_energy = 0.2
+	bunraku.anger_level = 1
 	var lights: Array = get_tree().get_nodes_in_group("Light")
 	for _light in lights:
 		get_tree().create_tween().tween_property(_light, "energy_median", 0, 0.1)
+	$"../UnderLight".light_energy = 1.5
 	Player.instance.active = false
 	Player.instance.get_node("CanvasLayer").visible = false
 	$JumpscareSFX.play()

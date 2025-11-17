@@ -14,6 +14,7 @@ extends StaticBody3D
 var anim_lock: bool = false
 var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
+var first_viewing: bool = true
 
 @onready var focus_marker: Node3D = $FocusMarker
 
@@ -59,6 +60,18 @@ func on_interact():
 	if focus_marker and InspectionManager:
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		get_viewport().set_input_as_handled()
+		
+		await get_tree().create_timer(0.1).timeout
+		if dialogue_id != "" and first_viewing:
+			first_viewing = false
+			var _dialogue_box: DialogueBox = DialogueBox.instance
+			_dialogue_box.data = environmental_dialogues
+			_dialogue_box.start(dialogue_id)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+			await _dialogue_box.dialogue_ended
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 
 func on_inspect_click():
 	# Called when artwork is clicked during inspection mode
@@ -66,15 +79,15 @@ func on_inspect_click():
 		return
 	
 	if dialogue_id != "":
-		var _dialogue_box: DialogueBox = DialogueBox.instance
-		_dialogue_box.data = environmental_dialogues
-		_dialogue_box.start(dialogue_id)
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
-		await _dialogue_box.dialogue_ended
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		InspectionManager.current_mode = InspectionManager.Mode.INSPECT
-		
+			var _dialogue_box: DialogueBox = DialogueBox.instance
+			_dialogue_box.data = environmental_dialogues
+			_dialogue_box.start(dialogue_id)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+			await _dialogue_box.dialogue_ended
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			InspectionManager.current_mode = InspectionManager.Mode.INSPECT
+			
 	if can_be_opened:
 		dissolve_painting()
 	
