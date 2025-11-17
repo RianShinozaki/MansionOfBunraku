@@ -155,6 +155,7 @@ shape = SubResource("ConcavePolygonShape3D_2rhh3")
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -0.7044749, 0.43672052, 0.7314091)
 move_speed = 1.5
+do_intro = true
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
