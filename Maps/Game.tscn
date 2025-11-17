@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=55 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_e5w3l"]
@@ -33,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="35_s0c2o"]
 [ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="37_ksnbm"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
-[ext_resource type="PackedScene" path="res://Objects/Interactables/time_travel_clock.tscn" id="41_ronf6"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="43_5d1nl"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="44_40tdl"]
 [ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="45_eqorb"]
@@ -475,9 +474,6 @@ custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), Sub
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [node name="TextOverlay" parent="." instance=ExtResource("38_textoverlay")]
-
-[node name="TimeTravelClock" parent="." groups=["Interactable"] instance=ExtResource("41_ronf6")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.32101893, -0.7220862, 1.1328924)
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/InspectionLetter" to="Environment/HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/YonoPainting/InspectionLetter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
