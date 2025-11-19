@@ -5,6 +5,7 @@ extends StaticBody3D
 @export var painting_frame_texture: Texture2D
 @export var painting_frame_heightmap: Texture2D
 @export var painting_artwork: Texture2D
+@export var painting_artwork_alt: Texture2D
 @export var inspect_fov: float = 40.0
 @export var can_be_opened: bool
 @export var bunraku_appeasement: bool = true
@@ -174,3 +175,21 @@ func trigger_time_vortex():
 	)
 	
 	# Note: No need to reset anim_lock since the scene will change
+
+func switch_to_alt_tex():
+	if painting_artwork_alt and has_node("VisualPivot/ArtworkSprite"):
+		$VisualPivot/ArtworkSprite.texture = painting_artwork_alt
+		if $VisualPivot/ArtworkSprite.material_override:
+			var material = $VisualPivot/ArtworkSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = painting_artwork_alt
+				$VisualPivot/ArtworkSprite.material_override = material
+
+func switch_to_main_tex():
+	if painting_artwork and has_node("VisualPivot/ArtworkSprite"):
+		$VisualPivot/ArtworkSprite.texture = painting_artwork
+		if $VisualPivot/ArtworkSprite.material_override:
+			var material = $VisualPivot/ArtworkSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = painting_artwork
+				$VisualPivot/ArtworkSprite.material_override = material
