@@ -155,7 +155,6 @@ shape = SubResource("ConcavePolygonShape3D_2rhh3")
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -0.7044749, 0.43672052, 0.7314091)
 move_speed = 1.5
-do_intro = true
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
@@ -363,7 +362,7 @@ stream = ExtResource("14_r1twq")
 autoplay = true
 
 [node name="Table2" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.217737, -10.436013)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.21773702, -10.213428)
 mesh = ExtResource("10_xacle")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("3_ceqvn")
@@ -381,7 +380,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16117096, 0.050800502, 0.44
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07498455, 0.050800502, 0.06364757)
 
 [node name="Table3" type="MeshInstance3D" parent="Environment/HouseEntrance/Objects"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.41405404, -0.217737, 13.363986)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.42364132, -0.21773702, 13.102116)
 mesh = ExtResource("10_xacle")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("3_ceqvn")
@@ -412,26 +411,29 @@ The gatekeeper sleeps not long after sundown. If you truly mean what you whisper
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.89518, -0.521393, 1.56906)
 
 [node name="YonoPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.69812685, -10.579226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.612408, -10.258897)
 painting_artwork = ExtResource("29_nv3h5")
 dialogue_id = "yono_painting"
 
 [node name="InspectionLetter" parent="Environment/HouseEntrance/Objects/YonoPainting" instance=ExtResource("22_3wfnh")]
 transform = Transform3D(0.90542567, -0.42407298, 0.019139912, 0.42397818, 0.90562797, 0.008962545, -0.02113441, -1.3120186e-08, 0.9997766, 0.3, -0.522, 0.002)
 
-[node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)
+[node name="KouyaPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6843251, 0.6862979, 13.4131365)
 painting_artwork = ExtResource("30_nv3h5")
 dialogue_id = "yoroi_painting"
 
 [node name="YonoDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16, -0.527, -1.258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3227541, -0.527, -1.258)
 
 [node name="YoroiDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_3wfnh")]
-transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -0.20142674, -0.52672064, 4.4086986)
+transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -0.030857682, -0.52672064, 4.4086986)
 
 [node name="ShamisenDoors" parent="Environment/HouseEntrance/Objects" instance=ExtResource("30_jwo5v")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4763021, -0.5314524, 1.0815306)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4763021, -0.5314524, 0.30263323)
+
+[node name="ShamisenDoors2" parent="Environment/HouseEntrance/Objects" instance=ExtResource("30_jwo5v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4763021, -0.5314524, 1.6072634)
 
 [node name="ShamisenLocked" parent="Environment/HouseEntrance/Objects" instance=ExtResource("37_ksnbm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
