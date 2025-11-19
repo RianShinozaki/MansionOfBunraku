@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2jyvuwtubqnn"
-path.s3tc="res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.s3tc.ctex"
+uid="uid://cgcubs55mbeqw"
+path.s3tc="res://.godot/imported/blue_nebulae_1.png-c6b12aa2a15d898fa8325290a9b59421.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Source/PaperDoor/PaperDoor.png"
-dest_files=["res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.s3tc.ctex"]
+source_file="res://Art Assets/Space/blue_nebulae_1.png"
+dest_files=["res://.godot/imported/blue_nebulae_1.png-c6b12aa2a15d898fa8325290a9b59421.s3tc.ctex"]
 
 [params]
 

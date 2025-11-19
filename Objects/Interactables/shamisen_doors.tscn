@@ -1,19 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://552qhmqu8bae"]
+[gd_scene load_steps=10 format=3 uid="uid://552qhmqu8bae"]
 
 [ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Scripts/Interactables/shamisen_lock.gd" id="1_arwcq"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_2nhnd"]
+[ext_resource type="Material" uid="uid://c256u6nlg68eb" path="res://Art Assets/Materials/doors.tres" id="4_cm0ms"]
 [ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_8rdnd"]
 [ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="7_cm0ms"]
 [ext_resource type="Script" uid="uid://dyfx6veebgbqu" path="res://Objects/Interactables/paper_door.gd" id="9_hcrvn"]
-[ext_resource type="Texture2D" uid="uid://btc5qm4f0okvr" path="res://Art Assets/Models/PaperDoor/texture_0.png" id="10_sg6xe"]
-[ext_resource type="ArrayMesh" uid="uid://dhg4ta0xv1vdt" path="res://Art Assets/Models/PaperDoor/PaperDoor.obj" id="11_uei06"]
+[ext_resource type="ArrayMesh" uid="uid://dhg4ta0xv1vdt" path="res://Art Assets/Models/PaperDoor.obj" id="11_uei06"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_arwcq"]
 radius = 1.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgww7"]
-albedo_texture = ExtResource("10_sg6xe")
-texture_filter = 2
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y5uap"]
 data = PackedVector3Array(0.96, 1.4399999, 0, 0, 0, 0, 0, 1.4399999, 0, 0.96, 0, 0, 0, 0, 0, 0.96, 1.4399999, 0, 0, 1.4399999, 0, 0, 0, -0.049999997, 0, 1.4399999, -0.049999997, 0, 0, 0, 0, 0, -0.049999997, 0, 1.4399999, 0, 0.96, 1.4399999, -0.049999997, 0.96, 0, 0, 0.96, 1.4399999, 0, 0.96, 0, -0.049999997, 0.96, 0, 0, 0.96, 1.4399999, -0.049999997, 0, 1.4399999, -0.049999997, 0.96, 0, -0.049999997, 0.96, 1.4399999, -0.049999997, 0, 0, -0.049999997, 0.96, 0, -0.049999997, 0, 1.4399999, -0.049999997)
@@ -23,7 +19,7 @@ script = ExtResource("1_arwcq")
 song_sequence = Array[int]([3, 2, 3, 1])
 
 [node name="FreedomSymbol" type="Sprite3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.5091745, 0.7332022, 0.009782553)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.66534686, 0.7332022, 0.009782553)
 texture_filter = 2
 texture = ExtResource("7_cm0ms")
 
@@ -49,8 +45,8 @@ script = ExtResource("9_hcrvn")
 locked = true
 
 [node name="PaperDoor" type="MeshInstance3D" parent="PaperDoor"]
-transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1920929e-07)
-material_override = SubResource("StandardMaterial3D_wgww7")
+transform = Transform3D(1.02, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1920929e-07)
+material_override = ExtResource("4_cm0ms")
 mesh = ExtResource("11_uei06")
 skeleton = NodePath("../..")
 
