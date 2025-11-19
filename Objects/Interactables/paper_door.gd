@@ -5,7 +5,11 @@ var open: bool = false
 @export var dir: int = -1
 @export var locked: bool = false
 var timer: SceneTreeTimer
+var orig_position: Vector3
 
+func _ready() -> void:
+	orig_position = global_position
+	
 func unlock():
 	locked = false
 
@@ -17,7 +21,7 @@ func on_interact():
 	anim_lock = true
 	if not open:
 		$"OpenSFX".play()
-		await get_tree().create_tween().tween_property(self, "position", Vector3(dir*1, 0, 0), 0.25).finished
+		await get_tree().create_tween().tween_property(self, "global_position", orig_position + Vector3(dir*1, 0, 0), 0.25).finished
 		open = true
 		anim_lock = false
 		
@@ -29,6 +33,6 @@ func on_interact():
 			on_interact()
 	else:
 		$"CloseSFX".play()
-		await get_tree().create_tween().tween_property(self, "position", Vector3(0, 0, 0), 0.25).finished
+		await get_tree().create_tween().tween_property(self, "global_position", orig_position + Vector3(0, 0, 0), 0.25).finished
 		open = false
 		anim_lock = false
