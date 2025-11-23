@@ -71,7 +71,7 @@ func _physics_process(_delta: float) -> void:
 	# displays thinking bar to load music pattern memories
 	$"CanvasLayer/ThinkingBar/TextureProgressBar".value = shamisen_wait_time
 
-	if shamisen_wait_time <= 1.0 and shamisen_wait_time >= shamisen_wait_memory_time:
+	if shamisen_wait_time <= 1.0 or shamisen_wait_time >= shamisen_wait_memory_time:
 		if $"CanvasLayer/ThinkingBar".modulate.a > 0:
 			$"CanvasLayer/ThinkingBar".modulate.a -= _delta*4
 	elif shamisen_wait_time >= 1.0 and shamisen_wait_time <= shamisen_wait_memory_time and $"CanvasLayer/ThinkingBar".modulate.a < 1:
