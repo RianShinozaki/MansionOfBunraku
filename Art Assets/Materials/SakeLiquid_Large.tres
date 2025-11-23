@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d4mbe5un340ds"]
+
+[ext_resource type="Shader" uid="uid://ccbqsukn0gs2p" path="res://Shaders/SakeLiquid.gdshader" id="1_sake_shader"]
+[ext_resource type="Texture2D" uid="uid://drpy00iviqm4a" path="res://Art Assets/sakeGame/sakazuki_large_mask.png" id="2_mask_texture"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sake_shader")
+shader_parameter/fill_level = 0.0
+shader_parameter/sake_color = Color(0.98039216, 0.9490196, 0.7490196, 0.6431373)
+shader_parameter/cup_interior_mask = ExtResource("2_mask_texture")
+shader_parameter/wave_speed = 0.5
+shader_parameter/wave_amplitude = 0.02

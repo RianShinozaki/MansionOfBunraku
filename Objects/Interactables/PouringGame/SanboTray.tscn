@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqxm8y7w8r5cd"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/sanbo_tray.gd" id="1_tray_script"]
+[ext_resource type="Texture2D" uid="uid://b51a8jb4oigcw" path="res://Art Assets/sakeGame/sanboTray.png" id="2_tray_tex_hires"]
+[ext_resource type="Texture2D" path="res://Art Assets/sakeGame/sanboTray_downsized.png" id="3_tray_tex_downsized"]
+[ext_resource type="Texture2D" uid="uid://0dlwsigwgdw4" path="res://Art Assets/sakeGame/sanboTray_downsized_h.png" id="4_tray_heightmap"]
+[ext_resource type="Material" path="res://Art Assets/Materials/SimpleShadow.tres" id="5_shadow_material"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_shadow"]
+size = Vector2(0.35, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tray"]
+render_priority = -1
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_tray_tex_hires")
+heightmap_texture = ExtResource("4_tray_heightmap")
+heightmap_scale = 0.5
+texture_filter = 0
+
+[node name="SanboTray" type="Node3D"]
+script = ExtResource("1_tray_script")
+
+[node name="RegularViewSprite" type="Sprite3D" parent="."]
+pixel_size = 0.01
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_tray_tex_downsized")
+
+[node name="Shadow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.008, 0.005)
+material_override = ExtResource("5_shadow_material")
+mesh = SubResource("QuadMesh_shadow")
+
+[node name="TrayModel" type="Sprite3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_tray")
+pixel_size = 0.0003
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_tray_tex_hires")
