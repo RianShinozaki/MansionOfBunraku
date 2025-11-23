@@ -35,10 +35,10 @@ acceleration = 15.0
 deceleration = 5.0
 gravity = -15.0
 interaction_range = 1.0
-shamisen_wait_memory_time = 3.0
 player_dialogues = ExtResource("2_yq6kl")
 circleUI = ExtResource("2_2i4gt")
 crossUI = ExtResource("2_3y5cq")
+shamisen_wait_memory_time = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0783997, 0)
@@ -184,9 +184,14 @@ offset_bottom = 138.0
 text = "Song of Freedom"
 label_settings = SubResource("LabelSettings_w48y6")
 
-[node name="Thinking" type="Control" parent="CanvasLayer"]
+[node name="ThinkingBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/ThinkingBar"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
