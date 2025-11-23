@@ -12,7 +12,7 @@
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="10_font"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_game"]
-size = Vector3(1, 0.3, 0.3)
+size = Vector3(0.6, 0.7, 0.3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_instruction"]
 font = ExtResource("10_font")
@@ -27,42 +27,49 @@ inspect_fov = 45.0
 intro_dialogue = ExtResource("8_intro_dialogue")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029299572, -0.07265444, 0)
 shape = SubResource("BoxShape3D_game")
 
 [node name="FocusMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.19531056, 0.15644169, 0.8880566)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.0070616007, 0.15644169, 0.8880566)
 
 [node name="ChoshiPitcher" parent="." instance=ExtResource("2_pitcher")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10669717, 0.12261891, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29219523, 0.12261891, 0)
 
 [node name="CupSmall" parent="." instance=ExtResource("3_cup_small")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.317, -0.055, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13150194, -0.055, 0.005)
 
 [node name="CupMedium" parent="." instance=ExtResource("4_cup_medium")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.195, -0.056, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009501934, -0.056, 0.005)
 target_fill_level = 0.5
 
 [node name="CupLarge" parent="." instance=ExtResource("5_cup_large")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055, -0.051, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13049805, -0.051, 0.005)
 target_fill_level = 0.6
 
 [node name="SuccessSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 
 [node name="FailureSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
 [node name="CupCompleteSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 
 [node name="RitualCompleteSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 
 [node name="PouringSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("6_lfh5t")
 
 [node name="SpillSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
 [node name="SanboTray" parent="." instance=ExtResource("9_4xdfg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176, -0.193, -0.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00949806, -0.193, -0.001)
 
 [node name="InstructionLabel" type="Label" parent="."]
 visible = false
