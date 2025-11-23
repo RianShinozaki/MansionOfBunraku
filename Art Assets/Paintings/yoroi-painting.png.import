@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5db5m6r4mmj7"
-path.s3tc="res://.godot/imported/yono-painting.png-acf07001c412777c57ce4c04fb2efca3.s3tc.ctex"
+uid="uid://dqmkxdhimiwjr"
+path.s3tc="res://.godot/imported/yoroi-painting.png-3625133c12a897ea43ba175a8fc582e0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Audio/yono-painting.png"
-dest_files=["res://.godot/imported/yono-painting.png-acf07001c412777c57ce4c04fb2efca3.s3tc.ctex"]
+source_file="res://Art Assets/Paintings/yoroi-painting.png"
+dest_files=["res://.godot/imported/yoroi-painting.png-3625133c12a897ea43ba175a8fc582e0.s3tc.ctex"]
 
 [params]
 

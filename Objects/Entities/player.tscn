@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0ywigdieb0vn"]
+[gd_scene load_steps=18 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
@@ -183,6 +183,12 @@ offset_right = 300.0
 offset_bottom = 138.0
 text = "Song of Freedom"
 label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="Thinking" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="EatingSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0ad8t")

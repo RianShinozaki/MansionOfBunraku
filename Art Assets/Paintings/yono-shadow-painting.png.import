@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://12m1o2wh5v1j"
-path="res://.godot/imported/yoroi-shadow-painting-2.png-5493599ebc953cb7123620c07b25fc16.ctex"
+uid="uid://b6cm1rbfxxs01"
+path="res://.godot/imported/yono-shadow-painting.png-d81c39d3462af11393f1cca6b4657f40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Audio/yoroi-shadow-painting-2.png"
-dest_files=["res://.godot/imported/yoroi-shadow-painting-2.png-5493599ebc953cb7123620c07b25fc16.ctex"]
+source_file="res://Art Assets/Paintings/yono-shadow-painting.png"
+dest_files=["res://.godot/imported/yono-shadow-painting.png-d81c39d3462af11393f1cca6b4657f40.ctex"]
 
 [params]
 
