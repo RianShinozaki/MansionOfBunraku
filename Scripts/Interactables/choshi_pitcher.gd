@@ -292,7 +292,7 @@ func update_particle_lifetime():
 	
 	# Reduce lifetime to stop particles at cup rim
 	# Cup origin is at center, so we want to stop particles earlier
-	var lifetime = max(0.1, time_to_cup * 1.0)  # reduce to end earlier
+	var lifetime = max(0.1, time_to_cup * 1.1)  # reduce to end earlier
 	
 	# Always update the lifetime
 	pour_stream.lifetime = lifetime
