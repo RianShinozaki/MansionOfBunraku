@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cjcpfvhnsapwc"]
+[gd_scene load_steps=39 format=3 uid="uid://cjcpfvhnsapwc"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_6x6o2"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_5bquy"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="5_oqeds"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="6_of6ne"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="7_520f7"]
-[ext_resource type="PackedScene" uid="uid://kjgabcbsk3xy" path="res://Objects/Entities/kouya.tscn" id="8_sd30w"]
+[ext_resource type="PackedScene" path="res://Objects/Entities/kouya.tscn" id="8_sd30w"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="9_omkcf"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="10_xr1ea"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="11_4ac6g"]
@@ -22,12 +22,14 @@
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="20_tgsso"]
 [ext_resource type="PackedScene" uid="uid://pownsbape1t" path="res://Objects/Interactables/front_doors.tscn" id="21_0o084"]
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="22_hf7f6"]
-[ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Audio/yono-painting.png" id="23_ha2qu"]
-[ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Audio/yono-shadow-painting.png" id="24_e18u1"]
-[ext_resource type="PackedScene" uid="uid://cgnpoc8lkf3qu" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
-[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Audio/yoroi-painting.png" id="26_jlesl"]
-[ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Audio/yoroi-shadow-painting-2.png" id="27_lar5f"]
+[ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="23_ha2qu"]
+[ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="24_e18u1"]
+[ext_resource type="PackedScene" uid="uid://b510j3k1byatv" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
+[ext_resource type="Texture2D" uid="uid://cwpgtkcwofy83" path="res://Art Assets/Letters/kouya-letter-one.png" id="26_aj4cu"]
+[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="26_jlesl"]
+[ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="27_lar5f"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_secwt"]
+[ext_resource type="Texture2D" uid="uid://bh7cwgr2pim4w" path="res://Art Assets/Letters/yono-letter-one.png" id="29_dmi03"]
 [ext_resource type="PackedScene" uid="uid://552qhmqu8bae" path="res://Objects/Interactables/shamisen_doors.tscn" id="29_ym1qs"]
 [ext_resource type="PackedScene" uid="uid://851nwuk023lu" path="res://Objects/Interactables/shamisen_locked.tscn" id="30_3dgct"]
 
@@ -316,6 +318,7 @@ dialogue_id = "yono_painting"
 
 [node name="InspectionLetter" parent="HouseEntrance/Objects/YonoPainting" instance=ExtResource("25_acepu")]
 transform = Transform3D(0.82706237, 0.56183785, 0.017483393, -0.5617124, 0.82724726, -0.011874106, -0.021134412, -1.2330288e-08, 0.9997766, 0.49979734, -0.10616836, 0.001999855)
+letter_image = ExtResource("26_aj4cu")
 
 [node name="KouyaPainting" parent="HouseEntrance/Objects" instance=ExtResource("22_hf7f6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6843251, 0.6862979, 13.4131365)
@@ -325,15 +328,7 @@ dialogue_id = "yoroi_painting"
 
 [node name="InspectionLetter" parent="HouseEntrance/Objects/KouyaPainting" instance=ExtResource("25_acepu")]
 transform = Transform3D(0.81602585, -0.57775795, 0.017249964, 0.5776288, 0.81620824, 0.0122104995, -0.021134255, -3.562295e-08, 0.99977666, -0.5253899, -0.20669502, 0.0005836487)
-message_text = "A blessed day in the 4th moon of [color=red]xx11[/color]
-
-My Kouya,
-
-I read your note three times before I dared to breathe. Mother says I’ve grown quiet. She doesn’t know it’s because of you.
-
-The gatekeeper sleeps not long after sundown. If you truly mean what you whispered, I know of a spot that stays unlit.
-
-– Yono"
+letter_image = ExtResource("29_dmi03")
 
 [node name="YonoDoors" parent="HouseEntrance/Objects" instance=ExtResource("28_secwt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3227541, -0.527, -1.2774469)

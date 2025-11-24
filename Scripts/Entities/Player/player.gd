@@ -14,7 +14,6 @@ extends CharacterBody3D
 @export var gravity: float
 ##How far the player can click on things
 @export var interaction_range: float = 3.5
-@export var shamisen_wait_memory_time: float
 
 @export var player_dialogues: DialogueData
 
@@ -32,6 +31,7 @@ var active: bool = true
 var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
 var shamisen_wait_time: float
+@export var shamisen_wait_memory_time: float # 3.0
 
 signal played_note_signal(note: int)
 
@@ -49,6 +49,8 @@ func _ready() -> void:
 	else:
 		InspectionManager.current_mode = InspectionManager.Mode.PLAY
 		call_deferred("_deferred_mouse_capture")
+	
+	$"CanvasLayer/ThinkingBar/TextureProgressBar".max_value = shamisen_wait_memory_time
 
 func _deferred_mouse_capture():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -65,11 +67,22 @@ func _physics_process(_delta: float) -> void:
 	else:
 		shamisen_wait_time = 0
 	
+	
+	# displays thinking bar to load music pattern memories
+	$"CanvasLayer/ThinkingBar/TextureProgressBar".value = shamisen_wait_time
+
+	if shamisen_wait_time <= 1.0 or shamisen_wait_time >= shamisen_wait_memory_time:
+		if $"CanvasLayer/ThinkingBar".modulate.a > 0:
+			$"CanvasLayer/ThinkingBar".modulate.a -= _delta*4
+	elif shamisen_wait_time >= 1.0 and shamisen_wait_time <= shamisen_wait_memory_time and $"CanvasLayer/ThinkingBar".modulate.a < 1:
+		$"CanvasLayer/ThinkingBar".modulate.a += _delta*2
+		
+	# displays music pattern memories
 	if shamisen_wait_time <= shamisen_wait_memory_time:	
 		if $"CanvasLayer/Music Memory".modulate.a > 0:
 			$"CanvasLayer/Music Memory".modulate.a -= _delta*4
 	elif shamisen_wait_time >= shamisen_wait_memory_time and $"CanvasLayer/Music Memory".modulate.a < 1:
-		$"CanvasLayer/Music Memory".modulate.a += _delta
+		$"CanvasLayer/Music Memory".modulate.a += _delta*2
 	
 	#Set the crosshair sprite depending on whether or not the raycast is touching something
 	$CanvasLayer/TextureRect.texture = crossUI

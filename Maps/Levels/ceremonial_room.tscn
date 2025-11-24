@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="5_7ea4m"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="6_lo88o"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="7_jpvmm"]
-[ext_resource type="PackedScene" uid="uid://kjgabcbsk3xy" path="res://Objects/Entities/kouya.tscn" id="8_d8nvh"]
+[ext_resource type="PackedScene" path="res://Objects/Entities/kouya.tscn" id="8_d8nvh"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="9_kjnl1"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="10_0bfda"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="11_2t57r"]

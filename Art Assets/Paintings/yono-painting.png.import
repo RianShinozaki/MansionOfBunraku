@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5db5m6r4mmj7"
-path.s3tc="res://.godot/imported/yono-painting.png-acf07001c412777c57ce4c04fb2efca3.s3tc.ctex"
+path.s3tc="res://.godot/imported/yono-painting.png-270ea266e1a3d3162c2fb40df7e039eb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Audio/yono-painting.png"
-dest_files=["res://.godot/imported/yono-painting.png-acf07001c412777c57ce4c04fb2efca3.s3tc.ctex"]
+source_file="res://Art Assets/Paintings/yono-painting.png"
+dest_files=["res://.godot/imported/yono-painting.png-270ea266e1a3d3162c2fb40df7e039eb.s3tc.ctex"]
 
 [params]
 
