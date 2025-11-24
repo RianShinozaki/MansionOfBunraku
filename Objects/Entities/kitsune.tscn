@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8j4m3kn5w2p1"]
 
-[ext_resource type="Script" path="res://Scripts/Entities/kitsune.gd" id="1_kitsune_script"]
-[ext_resource type="Texture2D" path="res://Art Assets/Kitsune/kitsune.png" id="2_kitsune_tex"]
-[ext_resource type="Texture2D" path="res://Art Assets/Kitsune/kitsune_h.png" id="3_kitsune_h"]
+[ext_resource type="Script" uid="uid://cpfsture4s4s" path="res://Scripts/Entities/kitsune.gd" id="1_kitsune_script"]
+[ext_resource type="Texture2D" uid="uid://dv3vaecv3s42e" path="res://Art Assets/Kitsune/kitsune.png" id="2_kitsune_tex"]
+[ext_resource type="Texture2D" uid="uid://btqphc2tkwc5b" path="res://Art Assets/Kitsune/kitsune_h.png" id="3_kitsune_h"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_billboard"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsune"]
@@ -63,7 +63,6 @@ alpha_cut = 2
 texture_filter = 2
 texture = ExtResource("2_kitsune_tex")
 hframes = 4
-frame = 0
 
 [node name="Lookat" type="Node" parent="Body"]
 script = ExtResource("4_billboard")
