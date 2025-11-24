@@ -19,8 +19,8 @@ func _ready():
 		panel.offset_bottom = start_bottom
 
 func show_image(texture: Texture2D) -> void:
-	InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 	texture_rect.texture = texture
 	
 	# Slide the panel up
@@ -34,12 +34,10 @@ func show_image(texture: Texture2D) -> void:
 		paper_sound.play()
 		
 	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(panel, "offset_top", target_top, 0.5)
 	tween.parallel().tween_property(panel, "offset_bottom", target_bottom, 0.5)
-	
-	
 		
 	get_viewport().set_input_as_handled()
 
@@ -51,9 +49,9 @@ func _input(event):
 				hide_image()
 				emit_signal("hiding_message")
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			hide_image()
 
 func hide_image() -> void:
+	InspectionManager.current_mode = InspectionManager.Mode.PLAY
 	hide()
 	
 	if panel:

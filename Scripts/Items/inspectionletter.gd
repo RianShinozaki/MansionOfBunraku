@@ -45,7 +45,7 @@ func on_inspect_click():
 		var tex_rect := image_overlay.find_child("TextureRect", true, false)
 		if tex_rect:
 			tex_rect.texture = letter_image
-			image_overlay.visible = true
+			image_overlay.show_image(letter_image)
 			emit_signal("started_reading")
 			image_overlay.hiding_message.connect(on_finished_reading)
 
@@ -59,9 +59,6 @@ func on_finished_reading():
 	
 	emit_signal("finished_reading")
 	image_overlay.hiding_message.disconnect(on_finished_reading)
-	
-	if image_overlay:
-		image_overlay.visible = false
 	
 	await get_tree().create_timer(0.1).timeout
 	InspectionManager.current_mode = InspectionManager.Mode.INSPECT

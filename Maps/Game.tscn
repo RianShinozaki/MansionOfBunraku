@@ -77,12 +77,13 @@ cycle_time = 300.0
 meltdown_time = 30.0
 
 [node name="EmptyLevel" parent="." instance=ExtResource("3_lntlw")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 2.0162241, 0.39714053, -2.9294896)
+transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, -1.4792845, 0.39714053, 0.6291586)
 move_speed = 1.5
 
 [node name="InspectCamera" type="Camera3D" parent="."]
