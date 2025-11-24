@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c6ejxydfqm7ic"]
+[gd_scene load_steps=56 format=3 uid="uid://c6ejxydfqm7ic"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_konid"]
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="2_yefaq"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="39_2vxfu"]
 [ext_resource type="PackedScene" uid="uid://dw8p5qm3nh2xf" path="res://Objects/Interactables/PouringGame/SakePouringGame.tscn" id="39_k5pgf"]
 [ext_resource type="PackedScene" uid="uid://dqp73d60m1fpu" path="res://Objects/Interactables/time_travel_clock.tscn" id="40_64flp"]
+[ext_resource type="PackedScene" uid="uid://c8j4m3kn5w2p1" path="res://Objects/Entities/kitsune.tscn" id="40_konid"]
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
@@ -480,7 +481,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.97
 
 [node name="SakePouringGame" parent="." instance=ExtResource("39_k5pgf")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.10134244, -0.30967274, 1.285252)
+visible = false
 collision_layer = 1
+
+[node name="Kitsune" parent="." instance=ExtResource("40_konid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579394, -0.30152434, 1.1513363)
 
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table2/Letter" to="Environment/HouseEntrance/Yono" method="activate_bunraku"]
 [connection signal="finished_reading" from="Environment/HouseEntrance/Objects/Table3/Letter" to="Environment/HouseEntrance/Yoroi" method="activate_bunraku"]

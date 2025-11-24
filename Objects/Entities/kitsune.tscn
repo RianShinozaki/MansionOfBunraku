@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8j4m3kn5w2p1"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/kitsune.gd" id="1_kitsune_script"]
+[ext_resource type="Texture2D" path="res://Art Assets/Kitsune/kitsune.png" id="2_kitsune_tex"]
+[ext_resource type="Texture2D" path="res://Art Assets/Kitsune/kitsune_h.png" id="3_kitsune_h"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_billboard"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsune"]
+radius = 0.12
+height = 0.727539
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kitsune"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_kitsune_tex")
+rim = 0.43
+rim_tint = 0.3
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_kitsune_h")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kitsune_head"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_kitsune_tex")
+rim = 0.43
+rim_tint = 0.3
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_kitsune_h")
+texture_filter = 2
+billboard_keep_scale = true
+
+[node name="Kitsune" type="AnimatableBody3D"]
+script = ExtResource("1_kitsune_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
+shape = SubResource("CapsuleShape3D_kitsune")
+
+[node name="Body" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kitsune")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_kitsune_tex")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = SubResource("StandardMaterial3D_kitsune_head")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_kitsune_tex")
+hframes = 4
+frame = 0
+
+[node name="Lookat" type="Node" parent="Body"]
+script = ExtResource("4_billboard")
