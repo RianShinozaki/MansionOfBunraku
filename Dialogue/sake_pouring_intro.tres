@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dfwpvf65vvuc5"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_dialogue"]
+
+[resource]
+script = ExtResource("1_dialogue")
+starts = {
+"earth": &"0_2",
+"heaven": &"0_1",
+"humanity": &"0_3",
+"instruction1": &"0_4",
+"instruction2": &"0_5"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-160, 180),
+"start_id": "heaven"
+},
+&"0_2": {
+"link": &"1_2",
+"offset": Vector2(-160, 400),
+"start_id": "earth"
+},
+&"0_3": {
+"link": &"1_3",
+"offset": Vector2(-160, 620),
+"start_id": "humanity"
+},
+&"0_4": {
+"link": &"1_4",
+"offset": Vector2(-160, 840),
+"start_id": "instruction1"
+},
+&"0_5": {
+"link": &"1_5",
+"offset": Vector2(-160, 1060),
+"start_id": "instruction2"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "heaven",
+"offset": Vector2(180, 180),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "earth",
+"offset": Vector2(180, 400),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "humanity",
+"offset": Vector2(180, 620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "three cups, three pours each",
+"offset": Vector2(180, 840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
+},
+&"1_5": {
+"audio_clip": null,
+"dialogue": "proceed carefully lest you upset the bunraku",
+"offset": Vector2(180, 1060),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
+}
+}
