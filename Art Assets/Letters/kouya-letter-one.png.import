@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjqpwga50bfll"
-path="res://.godot/imported/grunge-paper-background.jpg-9b8e9ad1bf20b7538928117d2c39b93d.ctex"
+uid="uid://cwpgtkcwofy83"
+path="res://.godot/imported/kouya-letter-one.png-dedf2228043b09a39b8d71eea4489e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/UI/grunge-paper-background.jpg"
-dest_files=["res://.godot/imported/grunge-paper-background.jpg-9b8e9ad1bf20b7538928117d2c39b93d.ctex"]
+source_file="res://Art Assets/Letters/kouya-letter-one.png"
+dest_files=["res://.godot/imported/kouya-letter-one.png-dedf2228043b09a39b8d71eea4489e88.ctex"]
 
 [params]
 
