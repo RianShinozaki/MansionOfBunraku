@@ -34,7 +34,7 @@ heightmap_texture = ExtResource("3_frame_h")
 texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(0.8009131, 1.2375, 0.1)
+size = Vector3(1.3587976, 0.90541995, 0.1)
 
 [node name="Painting" type="StaticBody3D"]
 collision_layer = 37
