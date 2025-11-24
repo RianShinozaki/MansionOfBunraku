@@ -155,7 +155,6 @@ shape = SubResource("ConcavePolygonShape3D_2rhh3")
 [node name="Player" parent="Environment/HouseEntrance" instance=ExtResource("11_lntlw")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -0.7044749, 0.43672052, 0.7314091)
 move_speed = 1.5
-do_intro = true
 
 [node name="Yono" type="Node3D" parent="Environment/HouseEntrance" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647746, 0.3617205, -7.961999)
@@ -258,6 +257,16 @@ editor_only = true
 
 [node name="Objects" type="Node3D" parent="Environment/HouseEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.324746, 0.5267205, -0.9389304)
+
+[node name="light_for_door1" type="OmniLight3D" parent="Environment/HouseEntrance/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69563115, 1.9638263, 5.2932777)
+light_energy = 0.093
+light_volumetric_fog_energy = 0.0
+
+[node name="light_for_door2" type="OmniLight3D" parent="Environment/HouseEntrance/Objects/light_for_door1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69563115, -0.09430158, -7.219265)
+light_energy = 0.093
+light_volumetric_fog_energy = 0.0
 
 [node name="Chandelier" type="Sprite3D" parent="Environment/HouseEntrance/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.5825508)
@@ -418,6 +427,11 @@ dialogue_id = "yono_painting"
 
 [node name="InspectionLetter" parent="Environment/HouseEntrance/Objects/YonoPainting" instance=ExtResource("22_3wfnh")]
 transform = Transform3D(0.90542567, -0.42407298, 0.019139912, 0.42397818, 0.90562797, 0.008962545, -0.02113441, -1.3120186e-08, 0.9997766, 0.3, -0.522, 0.002)
+
+[node name="FruitPainting2" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9087406, 0.69812685, -1.2930971)
+painting_artwork = ExtResource("29_nv3h5")
+dialogue_id = "yono_painting"
 
 [node name="YoroiPainting" parent="Environment/HouseEntrance/Objects" instance=ExtResource("20_6uyic")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.69882166, 0.6862979, 13.685444)

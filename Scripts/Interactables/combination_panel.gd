@@ -66,6 +66,10 @@ func _update_visibility_for_mode(is_inspect_mode: bool):
 	for wheel in wheels:
 		if wheel:
 			wheel.visible = is_inspect_mode
+			# Disable collision when not in inspect mode to prevent blocking raycast
+			var collision_shape = wheel.get_node_or_null("CollisionShape3D")
+			if collision_shape:
+				collision_shape.disabled = not is_inspect_mode
 
 func on_wheel_changed(wheel_index: int) -> void:
 	# Play click sound
