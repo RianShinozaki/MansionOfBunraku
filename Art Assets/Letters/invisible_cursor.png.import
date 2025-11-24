@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjqpwga50bfll"
-path="res://.godot/imported/grunge-paper-background.jpg-9b8e9ad1bf20b7538928117d2c39b93d.ctex"
+uid="uid://bpqars2h73kiw"
+path="res://.godot/imported/invisible_cursor.png-281f697665cc829d2515ad186dc46a49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/UI/grunge-paper-background.jpg"
-dest_files=["res://.godot/imported/grunge-paper-background.jpg-9b8e9ad1bf20b7538928117d2c39b93d.ctex"]
+source_file="res://Art Assets/Letters/invisible_cursor.png"
+dest_files=["res://.godot/imported/invisible_cursor.png-281f697665cc829d2515ad186dc46a49.ctex"]
 
 [params]
 

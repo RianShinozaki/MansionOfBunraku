@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh7cwgr2pim4w"
-path="res://.godot/imported/yono-letter-one.png-aa0c0e42815e26fb2a96998a696c1984.ctex"
+uid="uid://cwpgtkcwofy83"
+path="res://.godot/imported/kouya-letter-one.png-dedf2228043b09a39b8d71eea4489e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/UI/yono-letter-one.png"
-dest_files=["res://.godot/imported/yono-letter-one.png-aa0c0e42815e26fb2a96998a696c1984.ctex"]
+source_file="res://Art Assets/Letters/kouya-letter-one.png"
+dest_files=["res://.godot/imported/kouya-letter-one.png-dedf2228043b09a39b8d71eea4489e88.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgnpoc8lkf3qu"]
+[gd_scene load_steps=7 format=3 uid="uid://b510j3k1byatv"]
 
 [ext_resource type="Script" uid="uid://cv04ea6eniq7p" path="res://Scripts/Items/inspectionletter.gd" id="1_3wjih"]
 [ext_resource type="Texture2D" uid="uid://dhkquolw22nlu" path="res://Art Assets/letter.png" id="2_xc02w"]
@@ -49,17 +49,6 @@ transform = Transform3D(-0.02113444, -3.5980676e-08, 0.99977666, -0.63156354, 0.
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_3wjih")
-message_text = "A lucky day in the 3rd moon of [color=red]17xx[/color]
-
-My lady,
-
-I hear your music through the screen each night. It sounds like a world I’m not allowed to touch.
-
-But tonight I wrote your name in the dust of the storeroom shelves, just once, before sweeping it away.
-
-The thought of you gives me courage to dream of what might be possible.
-
-– Kouya"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_letter")
