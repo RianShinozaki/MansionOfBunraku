@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0ywigdieb0vn"]
+[gd_scene load_steps=20 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://favmip5alj1i" path="res://Art Assets/note-two.png" id="8_ka5ud"]
 [ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="8_yq6kl"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="9_vhsen"]
+[ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
+[ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15
@@ -35,10 +37,10 @@ acceleration = 15.0
 deceleration = 5.0
 gravity = -15.0
 interaction_range = 1.0
-shamisen_wait_memory_time = 3.0
 player_dialogues = ExtResource("2_yq6kl")
 circleUI = ExtResource("2_2i4gt")
 crossUI = ExtResource("2_3y5cq")
+shamisen_wait_memory_time = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0783997, 0)
@@ -183,6 +185,30 @@ offset_right = 300.0
 offset_bottom = 138.0
 text = "Song of Freedom"
 label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="ThinkingBar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ThinkingBar"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 548.0
+offset_right = 722.0
+offset_bottom = 583.0
+text = "remembering..."
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/ThinkingBar"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 578.0
+offset_right = 742.0
+offset_bottom = 618.0
+texture_under = ExtResource("11_m2h7m")
+texture_progress = ExtResource("12_67lg5")
 
 [node name="EatingSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0ad8t")

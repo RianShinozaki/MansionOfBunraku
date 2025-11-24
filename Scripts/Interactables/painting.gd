@@ -5,15 +5,25 @@ extends StaticBody3D
 @export var painting_frame_texture: Texture2D
 @export var painting_frame_heightmap: Texture2D
 @export var painting_artwork: Texture2D
+@export var painting_artwork_alt: Texture2D
 @export var inspect_fov: float = 40.0
 @export var can_be_opened: bool
 @export var bunraku_appeasement: bool = true
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
 
+@export_group("Time Vortex Settings")
+@export var use_time_vortex: bool = false
+@export var time_travel_target: String = ""
+@export var vortex_duration: float = 2.5
+@export var vortex_clockwise: bool = true
+@export var vortex_color: Color = Color(0.1, 0.05, 0.15, 1.0)
+@export var vortex_center_color: Color = Color(0.3, 0.3, 0.35, 1.0)
+
 var anim_lock: bool = false
 var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
+var first_viewing: bool = true
 
 @onready var focus_marker: Node3D = $FocusMarker
 
@@ -59,6 +69,18 @@ func on_interact():
 	if focus_marker and InspectionManager:
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		get_viewport().set_input_as_handled()
+		
+		await get_tree().create_timer(0.1).timeout
+		if dialogue_id != "" and first_viewing:
+			first_viewing = false
+			var _dialogue_box: DialogueBox = DialogueBox.instance
+			_dialogue_box.data = environmental_dialogues
+			_dialogue_box.start(dialogue_id)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+			await _dialogue_box.dialogue_ended
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 
 func on_inspect_click():
 	# Called when artwork is clicked during inspection mode
@@ -74,8 +96,11 @@ func on_inspect_click():
 		await _dialogue_box.dialogue_ended
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		InspectionManager.current_mode = InspectionManager.Mode.INSPECT
-		
-	if can_be_opened:
+	
+	# Check if time vortex should be triggered
+	if use_time_vortex and time_travel_target != "":
+		trigger_time_vortex()
+	elif can_be_opened:
 		dissolve_painting()
 	
 
@@ -126,3 +151,45 @@ func dissolve_painting():
 		
 		open = false
 	anim_lock = false
+
+func trigger_time_vortex():
+	if anim_lock: return
+	anim_lock = true
+	
+	# Exit inspection mode first
+	if InspectionManager:
+		InspectionManager.exit_inspect()
+	
+	# Create and add the time vortex effect
+	var vortex_scene = preload("res://Objects/Effects/TimeVortex.tscn")
+	var vortex = vortex_scene.instantiate()
+	get_tree().root.add_child(vortex)
+	
+	# Trigger the transition with configured parameters
+	vortex.trigger_transition(
+		time_travel_target,
+		vortex_duration,
+		vortex_clockwise,
+		vortex_color,
+		vortex_center_color
+	)
+	
+	# Note: No need to reset anim_lock since the scene will change
+
+func switch_to_alt_tex():
+	if painting_artwork_alt and has_node("VisualPivot/ArtworkSprite"):
+		$VisualPivot/ArtworkSprite.texture = painting_artwork_alt
+		if $VisualPivot/ArtworkSprite.material_override:
+			var material = $VisualPivot/ArtworkSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = painting_artwork_alt
+				$VisualPivot/ArtworkSprite.material_override = material
+
+func switch_to_main_tex():
+	if painting_artwork and has_node("VisualPivot/ArtworkSprite"):
+		$VisualPivot/ArtworkSprite.texture = painting_artwork
+		if $VisualPivot/ArtworkSprite.material_override:
+			var material = $VisualPivot/ArtworkSprite.material_override.duplicate() as StandardMaterial3D
+			if material:
+				material.albedo_texture = painting_artwork
+				$VisualPivot/ArtworkSprite.material_override = material

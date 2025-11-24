@@ -24,3 +24,4 @@ func _process(delta: float) -> void:
 	if timer >= cycle_time + meltdown_time:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().change_scene_to_file("res://Maps/MeltdownCutscene.tscn")
+	

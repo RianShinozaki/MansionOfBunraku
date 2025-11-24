@@ -58,7 +58,7 @@ frame_progress = 0.39798093
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-light_color = Color(0.96070224, 0.7103247, 0.5258202, 1)
+light_color = Color(0.88379055, 0.74030745, 0.62088317, 1)
 light_energy = 0.7
 distance_fade_enabled = true
 distance_fade_begin = 5.0

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bjbacp8ru2goh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ocvb3"]
+load_path = "res://.godot/imported/sakazuki_shadow_tex.png-622399d8f9ca14cbc2400328dd418e85.s3tc.ctex"
+
+[resource]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.74509805)
+albedo_texture = SubResource("CompressedTexture2D_ocvb3")

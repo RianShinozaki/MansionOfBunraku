@@ -1,0 +1,289 @@
+[gd_scene load_steps=44 format=3 uid="uid://dhm48m8gpv8qs"]
+
+[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_3q1an"]
+[ext_resource type="Texture2D" uid="uid://cgcubs55mbeqw" path="res://Art Assets/Space/blue_nebulae_1.png" id="2_jdi4g"]
+[ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="3_jdi4g"]
+[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_os8w6"]
+[ext_resource type="PackedScene" uid="uid://0ywigdieb0vn" path="res://Objects/Entities/player.tscn" id="4_5a5n5"]
+[ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="6_5cq55"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_k2ooc"]
+[ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="8_kvyvy"]
+[ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="9_n0lt2"]
+[ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="31_lvbye"]
+[ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="32_3gchg"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="33_f3by7"]
+[ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="34_goh2o"]
+[ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="35_8v37l"]
+[ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="36_8nrvc"]
+[ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="37_14brq"]
+[ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="38_r2cbr"]
+[ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="39_v8g40"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0gfdh"]
+panorama = ExtResource("2_jdi4g")
+energy_multiplier = 1.5
+
+[sub_resource type="Sky" id="Sky_5cq55"]
+sky_material = SubResource("PanoramaSkyMaterial_0gfdh")
+
+[sub_resource type="Environment" id="Environment_k2ooc"]
+background_mode = 2
+sky = SubResource("Sky_5cq55")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.35
+tonemap_mode = 3
+ssao_intensity = 5.43
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.29
+glow_bloom = 0.54
+glow_blend_mode = 0
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 1.77
+fog_density = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdi4g"]
+size = Vector3(6.392517, 1, 5.6849365)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2q6m"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_phn2k"]
+load_path = "res://.godot/imported/Yono_cutscene_e.png-27f8349e0bced4a61777096d1031d5d6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi03l"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t712v"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ku6ge"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvyvy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_u2q6m")
+emission_energy_multiplier = 0.07
+emission_texture = SubResource("CompressedTexture2D_phn2k")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_t712v")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_ku6ge")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_xi03l")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n0lt2"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c5y5x"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q71i1"]
+load_path = "res://.godot/imported/Yono_cutscene_e.png-27f8349e0bced4a61777096d1031d5d6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iii72"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uikdk"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_popje"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0q68"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_c5y5x")
+emission_enabled = true
+emission_energy_multiplier = 0.02
+emission_texture = SubResource("CompressedTexture2D_q71i1")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_uikdk")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_popje")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_iii72")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
+shader = ExtResource("31_lvbye")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(0.9843137, 0.35686275, 1, 1)
+shader_parameter/fire_alpha = 0.0
+shader_parameter/fire_speed = Vector2(0, -1)
+shader_parameter/fire_aperture = 0.0
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="Gradient" id="Gradient_krhjt"]
+offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
+colors = PackedColorArray(0, 0, 0, 0, 0.023263674, 0.003527189, 0.0023902461, 1, 0.14760426, 0.022379445, 0.015165726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i0n63"]
+gradient = SubResource("Gradient_krhjt")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spn38"]
+texture = SubResource("GradientTexture2D_i0n63")
+expand_margin_left = 135.0
+expand_margin_top = 41.0
+expand_margin_right = 114.0
+
+[sub_resource type="Theme" id="Theme_uy6wr"]
+Label/font_sizes/font_size = 31
+Label/fonts/font = ExtResource("33_f3by7")
+Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
+RichTextLabel/font_sizes/normal_font_size = 27
+RichTextLabel/fonts/normal_font = ExtResource("33_f3by7")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
+script = ExtResource("36_8nrvc")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
+script = ExtResource("37_14brq")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
+script = ExtResource("38_r2cbr")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_3q1an")
+cycle_time = 300.0
+meltdown_time = 30.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k2ooc")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="HouseEntrance" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, -0.7220864, 0)
+mesh = ExtResource("3_jdi4g")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_os8w6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseEntrance/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6473694, 0, 0.6220093)
+shape = SubResource("BoxShape3D_jdi4g")
+
+[node name="UnderLight" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -4.3711398e-10, -1, 0, 1, -4.3698378e-10, -0.669474, -0.67347664, -0.9389304)
+light_color = Color(0.4447146, 0.27573416, 0.56085294, 1)
+light_energy = 0.094
+
+[node name="UnderLight2" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.6153509, -0.7880339, 0.018599197, 0.72747654, 0.5768326, 0.3715402, -0.3035149, -0.2150971, 0.92823064, -0.669474, 1.1072806, -0.9389304)
+light_color = Color(0.5572787, 0.6063106, 1, 1)
+light_energy = 0.343
+
+[node name="Player" parent="Environment" instance=ExtResource("4_5a5n5")]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -0.7044749, 0.6822808, 0.7314091)
+move_speed = 1.5
+
+[node name="Yono" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-95.34594, 0, -18.842703, 0, 97.19, 0, 18.842703, 0, -95.34594, 44.942425, 12.735, 20.860798)
+layers = 3
+material_override = SubResource("StandardMaterial3D_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_5cq55")
+hframes = 4
+
+[node name="Lookat" type="Node" parent="Environment/Yono"]
+script = ExtResource("7_k2ooc")
+
+[node name="Yono2" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-95.34594, 0, -18.842703, 0, 97.19, 0, 18.842703, 0, -95.34594, -33.066574, 12.735, 15.523344)
+layers = 3
+material_override = ExtResource("8_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_5cq55")
+hframes = 4
+
+[node name="Lookat" type="Node" parent="Environment/Yono2"]
+script = ExtResource("7_k2ooc")
+
+[node name="InspectCamera" type="Camera3D" parent="."]
+
+[node name="ScreenFire" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="FireWallCanvas" type="ColorRect" parent="ScreenFire" groups=["FireFX"]]
+material = SubResource("ShaderMaterial_3wfnh")
+offset_left = 1411.2902
+offset_top = 875.94995
+offset_right = 3228.7832
+offset_bottom = 1983.0862
+rotation = 3.1415927
+mouse_filter = 2
+script = ExtResource("32_3gchg")
+fire_material = SubResource("ShaderMaterial_3wfnh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = -171.0
+offset_right = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_uy6wr")
+script = ExtResource("34_goh2o")
+data = ExtResource("35_8v37l")
+start_id = "start"
+hide_portrait = true
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
+metadata/_custom_type_script = "uid://bmd4tue40ixjo"
+
+[node name="TextOverlay" parent="." instance=ExtResource("39_v8g40")]

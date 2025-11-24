@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dph20kph2mir7" path="res://Art Assets/LockPanelSmall.png" id="2_panel_small_tex"]
 [ext_resource type="Texture2D" uid="uid://cjeguxjh6lgd1" path="res://Art Assets/LockPanel.png" id="2_panel_tex"]
 [ext_resource type="Texture2D" uid="uid://degiy4u3tl420" path="res://Art Assets/LockWheel.png" id="3_wheel_tex"]
-[ext_resource type="Script" uid="uid://btmvtpjfn64uw" path="res://Scripts/Interactables/sprite_number_wheel.gd" id="4_wheel_script"]
+[ext_resource type="Script" path="res://Scripts/Interactables/sprite_number_wheel.gd" id="4_wheel_script"]
 [ext_resource type="AudioStream" uid="uid://be8xdrhmpc5uo" path="res://Audio/combination_lock_wheel.mp3" id="5_apvni"]
 [ext_resource type="AudioStream" uid="uid://dj4muho1xkcx" path="res://Audio/key_lock_click.wav" id="6_f8sk3"]
 
@@ -35,6 +35,7 @@ collision_layer = 5
 script = ExtResource("1_panel")
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
+render_priority = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_panel_small_tex")

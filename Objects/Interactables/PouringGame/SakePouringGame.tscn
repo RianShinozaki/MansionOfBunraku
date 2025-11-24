@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://dw8p5qm3nh2xf"]
+
+[ext_resource type="Script" uid="uid://cwv6dup466ew5" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
+[ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
+[ext_resource type="PackedScene" uid="uid://dy0jfvvg05iav" path="res://Objects/Interactables/PouringGame/SakazukiCup_Small.tscn" id="3_cup_small"]
+[ext_resource type="PackedScene" uid="uid://dxuadpye5rqa" path="res://Objects/Interactables/PouringGame/SakazukiCup_Medium.tscn" id="4_cup_medium"]
+[ext_resource type="PackedScene" uid="uid://mb1yvhgddwxf" path="res://Objects/Interactables/PouringGame/SakazukiCup_Large.tscn" id="5_cup_large"]
+[ext_resource type="AudioStream" uid="uid://dr86bluktue4u" path="res://Audio/sake_pour.mp3" id="6_lfh5t"]
+[ext_resource type="AudioStream" uid="uid://plnoeu14brlp" path="res://Audio/sake_spill.wav" id="7_oimcx"]
+[ext_resource type="Resource" uid="uid://dfwpvf65vvuc5" path="res://Dialogue/sake_pouring_intro.tres" id="8_intro_dialogue"]
+[ext_resource type="PackedScene" uid="uid://bqxm8y7w8r5cd" path="res://Objects/Interactables/PouringGame/SanboTray.tscn" id="9_4xdfg"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="10_font"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_game"]
+size = Vector3(0.6, 0.7, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_instruction"]
+font = ExtResource("10_font")
+font_size = 25
+font_color = Color(0.99607843, 0.8745098, 0.827451, 0.3529412)
+
+[node name="SakePouringGame" type="StaticBody3D"]
+collision_layer = 37
+collision_mask = 0
+script = ExtResource("1_game_script")
+inspect_fov = 45.0
+intro_dialogue = ExtResource("8_intro_dialogue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029299572, -0.07265444, 0)
+shape = SubResource("BoxShape3D_game")
+
+[node name="FocusMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.0070616007, 0.15644169, 0.8880566)
+
+[node name="ChoshiPitcher" parent="." instance=ExtResource("2_pitcher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29219523, 0.12261891, 0)
+
+[node name="CupSmall" parent="." instance=ExtResource("3_cup_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13150194, -0.055, 0.005)
+
+[node name="CupMedium" parent="." instance=ExtResource("4_cup_medium")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009501934, -0.056, 0.005)
+target_fill_level = 0.5
+
+[node name="CupLarge" parent="." instance=ExtResource("5_cup_large")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13049805, -0.051, 0.005)
+target_fill_level = 0.6
+
+[node name="SuccessSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+
+[node name="FailureSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+stream = ExtResource("7_oimcx")
+
+[node name="CupCompleteSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+
+[node name="RitualCompleteSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+
+[node name="PouringSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+stream = ExtResource("6_lfh5t")
+
+[node name="SpillSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
+stream = ExtResource("7_oimcx")
+
+[node name="SanboTray" parent="." instance=ExtResource("9_4xdfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00949806, -0.193, -0.001)
+
+[node name="InstructionLabel" type="Label" parent="."]
+visible = false
+z_index = -1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Spacebar to Pour"
+label_settings = SubResource("LabelSettings_instruction")
+horizontal_alignment = 1
+vertical_alignment = 1
