@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=22 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="PackedScene" uid="uid://drj1idk7skuj4" path="res://Maps/Levels/ceremonial_room.tscn" id="3_lntlw"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
-[ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -76,17 +75,16 @@ script = ExtResource("1_duur3")
 cycle_time = 300.0
 meltdown_time = 30.0
 
-[node name="EmptyLevel" parent="." instance=ExtResource("3_lntlw")]
-visible = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, -1.4792845, 0.39714053, 0.6291586)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.5533884, 0.39714053, -0.6728406)
 move_speed = 1.5
 
 [node name="InspectCamera" type="Camera3D" parent="."]
+
+[node name="HouseEntranceLevel" parent="." instance=ExtResource("3_lntlw")]
 
 [node name="ScreenFire" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -125,9 +123,6 @@ custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), Sub
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [node name="TextOverlay" parent="." instance=ExtResource("38_textoverlay")]
-visible = false
-
-[node name="ImageOverlay" parent="." instance=ExtResource("14_1shu2")]
 
 [node name="WorldLighting" type="Node3D" parent="."]
 
