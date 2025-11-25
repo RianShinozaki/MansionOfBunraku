@@ -1,9 +1,7 @@
 extends StaticBody3D
 
-# Painting interactable that will open the door
+# Painting interactable that will give the player an apple when clicked
 
-@export var painting_frame_texture: Texture2D
-@export var painting_frame_heightmap: Texture2D
 @export var painting_artwork: Texture2D
 @export var painting_artwork_alt: Texture2D
 @export var inspect_fov: float = 40.0
@@ -48,24 +46,6 @@ func _apply_textures():
 				material.albedo_texture = painting_artwork
 				$VisualPivot/ArtworkSprite.material_override = material
 	
-	# Apply frame texture and heightmap
-	if has_node("VisualPivot/FrameSprite"):
-		var frame_material = null
-		
-		if $VisualPivot/FrameSprite.material_override:
-			frame_material = $VisualPivot/FrameSprite.material_override.duplicate() as StandardMaterial3D
-			
-			if painting_frame_texture and frame_material:
-				frame_material.albedo_texture = painting_frame_texture
-			
-			if painting_frame_heightmap and frame_material:
-				frame_material.heightmap_texture = painting_frame_heightmap
-			
-			$VisualPivot/FrameSprite.material_override = frame_material
-		
-		if painting_frame_texture:
-			$VisualPivot/FrameSprite.texture = painting_frame_texture
-
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
 

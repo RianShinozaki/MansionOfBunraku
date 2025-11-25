@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=22 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vy2yi"]
@@ -14,9 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="12_pdxjr"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="13_1vayw"]
 [ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="14_6558k"]
-[ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="15_bqk1a"]
-[ext_resource type="Texture2D" uid="uid://7hwt0xb7nfog" path="res://Art Assets/Paintings/apple-painting.PNG" id="16_ybcrh"]
-[ext_resource type="Texture2D" uid="uid://bmrhegkmglod0" path="res://Art Assets/Paintings/blood-painting.png" id="17_patpw"]
+[ext_resource type="PackedScene" uid="uid://q74apqdvsfyf" path="res://Objects/Interactables/apple_painting.tscn" id="15_bqk1a"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_32mcr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m72l6"]
@@ -51,7 +49,7 @@ shader_parameter/color_bands = 10
 
 [sub_resource type="QuadMesh" id="QuadMesh_gpbpg"]
 
-[node name="HouseEntranceLevel" type="Node3D"]
+[node name="Ceremonial Room" type="Node3D"]
 
 [node name="HouseEntrance" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7220864, 0)
@@ -182,20 +180,7 @@ stream = ExtResource("14_6558k")
 autoplay = true
 
 [node name="ApplePainting" parent="HouseEntrance/Objects" instance=ExtResource("15_bqk1a")]
-transform = Transform3D(1, 0, 0, 0, 0.9999955, 0.0030019628, 0, -0.0030019628, 0.9999955, 2.495276, 1.5386548, -5.100357)
-painting_artwork = ExtResource("16_ybcrh")
-painting_artwork_alt = ExtResource("17_patpw")
-switch_texture_on_click = true
-spawn_apple_on_click = true
-
-[node name="ArtworkSprite" parent="HouseEntrance/Objects/ApplePainting/VisualPivot" index="0"]
-transform = Transform3D(1.15, 0, 0, 0, 1.2121419, 2.3283064e-10, 0, -2.3283064e-10, 1.1501836, 0.48000002, 1.7881393e-07, -0.012000084)
-
-[node name="FrameSprite" parent="HouseEntrance/Objects/ApplePainting/VisualPivot" index="1"]
-transform = Transform3D(-0.0037349812, 0.9998444, -0.017242877, -0.9998444, -0.00343655, 0.017304828, 0.017242877, 0.017304828, 0.99970156, 0.48, 0, 0.01)
-
-[node name="CollisionShape3D" parent="HouseEntrance/Objects/ApplePainting" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 4.842972e-08, 0, -4.842972e-08, 1, 0, 0, 0)
+transform = Transform3D(0.00047119058, 0.0030019626, -0.9999954, -1.3877788e-17, 0.99999547, 0.0030019628, 0.9999998, -1.4144966e-06, 0.00047118845, 5.083269, 1.7179686, -2.5644493)
 
 [node name="Doors" parent="HouseEntrance" instance=ExtResource("28_32mcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 0.715, -0.049999982)
@@ -203,5 +188,3 @@ dir = 1
 
 [node name="Doors2" parent="HouseEntrance" instance=ExtResource("28_32mcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2499999, 0.715, -0.049999982)
-
-[editable path="HouseEntrance/Objects/ApplePainting"]

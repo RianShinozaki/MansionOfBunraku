@@ -21,9 +21,6 @@ extends StaticBody3D
 @export var vortex_color: Color = Color(0.1, 0.05, 0.15, 1.0)
 @export var vortex_center_color: Color = Color(0.3, 0.3, 0.35, 1.0)
 
-@export_group("Apple Spawn Settings")
-@export var spawn_apple_on_click: bool = false  # If true, spawns an apple item when clicked
-
 var anim_lock: bool = false
 var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
@@ -106,10 +103,6 @@ func on_inspect_click():
 	if switch_texture_on_click and painting_artwork_alt and not texture_switched:
 		switch_to_alt_tex()
 		texture_switched = true
-		
-		# Spawn apple if enabled
-		if spawn_apple_on_click:
-			spawn_apple_for_player()
 		
 		# Exit inspect mode after switching
 		if InspectionManager:
@@ -214,32 +207,3 @@ func switch_to_main_tex():
 			if material:
 				material.albedo_texture = painting_artwork
 				$VisualPivot/ArtworkSprite.material_override = material
-
-func spawn_apple_for_player():
-	# Spawn an apple item and give it directly to the player
-	var apple_scene = preload("res://Objects/Items/apple.tscn")
-	if not apple_scene:
-		push_error("Apple scene not found!")
-		return
-	
-	var player = Player.instance
-	if not player:
-		push_error("Player instance not found!")
-		return
-	
-	# Don't spawn if player already has something held
-	if player.held_object:
-		return
-	
-	# Instantiate the apple
-	var apple = apple_scene.instantiate()
-	if not apple:
-		push_error("Failed to instantiate apple!")
-		return
-	
-	# Add to scene tree first (required for proper setup)
-	get_tree().root.add_child(apple)
-	
-	# Use the player's pick_up_object method to properly handle the pickup
-	# This ensures it's set up correctly like other items
-	player.pick_up_object(apple)
