@@ -9,7 +9,9 @@ var meltdown_in_progress: bool = false
 var meltdown_length: float = 5
 
 func _ready() -> void:
-	meltdown_length = GameManager.instance.meltdown_time
+	# Only set meltdown_length if GameManager is initialized (for testing scenes directly)
+	if GameManager.instance:
+		meltdown_length = GameManager.instance.meltdown_time
 	
 func _process(delta: float) -> void:
 	if meltdown_in_progress:

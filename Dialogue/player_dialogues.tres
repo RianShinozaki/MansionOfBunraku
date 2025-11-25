@@ -30,7 +30,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 380),
+"size": Vector2(300.00006, 576),
 "speaker": ""
 },
 &"1_2": {
@@ -44,7 +44,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(320, 380),
+"size": Vector2(319.99792, 576),
 "speaker": ""
 },
 &"1_3": {
@@ -58,7 +58,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00024, 380),
+"size": Vector2(300, 576),
 "speaker": ""
 },
 &"1_4": {
@@ -72,7 +72,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 380),
+"size": Vector2(300, 576),
 "speaker": ""
 },
 &"1_5": {
@@ -86,7 +86,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(319.99988, 360),
+"size": Vector2(319.99744, 576.00055),
 "speaker": ""
 },
 &"1_6": {
@@ -100,7 +100,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 360.00024),
+"size": Vector2(300.00006, 576.00055),
 "speaker": ""
 },
 &"1_7": {
@@ -114,7 +114,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 360),
+"size": Vector2(300.00037, 576.00055),
 "speaker": ""
 },
 &"1_8": {
@@ -128,7 +128,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(320, 360),
+"size": Vector2(320, 576.00055),
 "speaker": ""
 }
 }
