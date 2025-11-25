@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dandbna7hyew7"
-path="res://.godot/imported/no-apple-painting.png-ad3f84eb2846cbb34b30a0eacc9092f3.ctex"
+uid="uid://dcrnibyqhar1w"
+path="res://.godot/imported/non-apple-painting.PNG-90713e0fde6f646e9f8d2ed5820d65ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Paintings/no-apple-painting.png"
-dest_files=["res://.godot/imported/no-apple-painting.png-ad3f84eb2846cbb34b30a0eacc9092f3.ctex"]
+source_file="res://Art Assets/Paintings/non-apple-painting.PNG"
+dest_files=["res://.godot/imported/non-apple-painting.PNG-90713e0fde6f646e9f8d2ed5820d65ad.ctex"]
 
 [params]
 

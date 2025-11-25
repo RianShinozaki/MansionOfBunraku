@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://q74apqdvsfyf"]
+[gd_scene load_steps=8 format=3 uid="uid://q74apqdvsfyf"]
 
 [ext_resource type="Script" uid="uid://dlfee0lqjpqh7" path="res://Scripts/Interactables/apple_painting.gd" id="1_jclf5"]
+[ext_resource type="Texture2D" uid="uid://wjooh0pytlvp" path="res://Art Assets/Paintings/apple-painting.PNG" id="2_jclf5"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="7_cjkyv"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="8_dusc7"]
 [ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="9_i44dp"]
@@ -20,9 +21,10 @@ texture_filter = 2
 size = Vector3(1.3587976, 0.90541995, 0.1)
 
 [node name="ApplePainting" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.9999955, 0.0030019628, 0, -0.0030019628, 0.9999955, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 2.9999864, 0.009005889, 0, -0.009005889, 2.9999864, 0, 0, 0)
 collision_layer = 37
 script = ExtResource("1_jclf5")
+painting_artwork = ExtResource("2_jclf5")
 
 [node name="FocusMarker" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)
@@ -31,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0, 0)
 
 [node name="ArtworkSprite" type="Sprite3D" parent="VisualPivot"]
-transform = Transform3D(1.15, 0, 0, 0, 1.2121419, 2.3283064e-10, 0, -2.3283064e-10, 1.1501836, 0.48000002, 1.7881393e-07, -0.012000084)
+transform = Transform3D(2.2, 0, 0, 0, 2.318, 4.2258042e-10, 0, -4.452461e-10, 2.2, 0.48000002, 1.7881393e-07, -0.012000084)
 material_override = SubResource("StandardMaterial3D_artwork")
 pixel_size = 0.003
 shaded = true
@@ -40,7 +42,7 @@ alpha_cut = 2
 texture_filter = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 4.842972e-08, 0, -4.842972e-08, 1, 0, 0, 0)
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 1.0633353e-07, 0, -1.0633353e-07, 2.2, 0, 0, 0)
 shape = SubResource("BoxShape3D_1")
 
 [node name="OpenSFX" type="AudioStreamPlayer3D" parent="."]
