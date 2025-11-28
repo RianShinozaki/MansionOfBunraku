@@ -43,9 +43,9 @@ size = Vector3(0.15, 0.2, 0.1)
 [node name="ChoshiPitcher" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.040612437)
 script = ExtResource("1_pitcher_script")
-spill_threshold = 0.055
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("3_pitcher_downsized_tex")
