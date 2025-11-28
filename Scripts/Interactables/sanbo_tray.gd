@@ -5,7 +5,7 @@ class_name SanboTray
 var inspection_manager: Node = null
 var is_in_inspection_mode: bool = false
 
-@onready var regular_view_sprite: Sprite3D = $RegularViewSprite
+@onready var regular_view_3d_model: Node3D = $RegularView3DModel
 @onready var tray_model: Node3D = $TrayModel
 
 func _ready():
@@ -46,8 +46,8 @@ func check_inspection_mode():
 		_update_visibility_for_mode(new_inspection_state)
 
 func _update_visibility_for_mode(is_inspect_mode: bool):
-	"""Toggle visibility between regular and inspection sprites"""
-	if regular_view_sprite:
-		regular_view_sprite.visible = not is_inspect_mode
+	"""Toggle visibility between regular 3D model and inspection sprite"""
+	if regular_view_3d_model:
+		regular_view_3d_model.visible = not is_inspect_mode
 	if tray_model:
 		tray_model.visible = is_inspect_mode
