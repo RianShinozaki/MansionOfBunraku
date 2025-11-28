@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dw8p5qm3nh2xf"]
+[gd_scene load_steps=16 format=3 uid="uid://dw8p5qm3nh2xf"]
 
 [ext_resource type="Script" uid="uid://cwv6dup466ew5" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
 [ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
@@ -8,14 +8,25 @@
 [ext_resource type="AudioStream" uid="uid://dr86bluktue4u" path="res://Audio/sake_pour.mp3" id="6_lfh5t"]
 [ext_resource type="AudioStream" uid="uid://plnoeu14brlp" path="res://Audio/sake_spill.wav" id="7_oimcx"]
 [ext_resource type="Resource" uid="uid://dfwpvf65vvuc5" path="res://Dialogue/sake_pouring_intro.tres" id="8_intro_dialogue"]
-[ext_resource type="PackedScene" uid="uid://bqxm8y7w8r5cd" path="res://Objects/Interactables/PouringGame/SanboTray.tscn" id="9_4xdfg"]
-[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="10_font"]
+[ext_resource type="PackedScene" uid="uid://3c0xjcekjemh" path="res://Objects/Interactables/PouringGame/sanboTray3D.tscn" id="9_tray3d"]
+[ext_resource type="Texture2D" uid="uid://htbfpct3iv3" path="res://Art Assets/sakeGame/sanboTray.png" id="10_tray_tex"]
+[ext_resource type="Texture2D" uid="uid://0dlwsigwgdw4" path="res://Art Assets/sakeGame/sanboTray_downsized_h.png" id="11_tray_heightmap"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_font"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_game"]
 size = Vector3(0.6, 0.7, 0.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tray_sprite"]
+render_priority = -1
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("10_tray_tex")
+heightmap_scale = 0.5
+heightmap_texture = ExtResource("11_tray_heightmap")
+texture_filter = 0
+
 [sub_resource type="LabelSettings" id="LabelSettings_instruction"]
-font = ExtResource("10_font")
+font = ExtResource("12_font")
 font_size = 25
 font_color = Color(0.99607843, 0.8745098, 0.827451, 0.3529412)
 
@@ -68,8 +79,18 @@ stream = ExtResource("6_lfh5t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
-[node name="SanboTray" parent="." instance=ExtResource("9_4xdfg")]
+[node name="SanboTray3D" parent="." instance=ExtResource("9_tray3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00450194, -0.35205764, -0.001)
+
+[node name="TraySprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00949806, -0.193, -0.001)
+visible = false
+material_override = SubResource("StandardMaterial3D_tray_sprite")
+pixel_size = 0.0003
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_tray_tex")
 
 [node name="InstructionLabel" type="Label" parent="."]
 visible = false

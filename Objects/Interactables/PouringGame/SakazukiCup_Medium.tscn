@@ -70,6 +70,7 @@ script = ExtResource("1_cup_script")
 cup_size = 1
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("3_cup_downsized_tex")
