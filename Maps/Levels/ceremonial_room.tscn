@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=24 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vy2yi"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="13_1vayw"]
 [ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="14_6558k"]
 [ext_resource type="PackedScene" uid="uid://q74apqdvsfyf" path="res://Objects/Interactables/apple_painting.tscn" id="15_bqk1a"]
+[ext_resource type="PackedScene" uid="uid://bfqun1whg3ovj" path="res://Objects/Items/lowTable3D.tscn" id="18_74uo1"]
+[ext_resource type="PackedScene" uid="uid://dw8p5qm3nh2xf" path="res://Objects/Interactables/PouringGame/SakePouringGame.tscn" id="18_patpw"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_32mcr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m72l6"]
@@ -52,7 +54,7 @@ shader_parameter/color_bands = 10
 [node name="Ceremonial Room" type="Node3D"]
 
 [node name="HouseEntrance" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7220864, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045928955, -0.7152505, -0.0056152344)
 mesh = ExtResource("1_78kg7")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_vy2yi")
@@ -60,6 +62,9 @@ surface_material_override/0 = ExtResource("2_vy2yi")
 [node name="StaticBody3D" type="StaticBody3D" parent="HouseEntrance"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseEntrance/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m72l6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HouseEntrance/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m72l6")
 
 [node name="Yono" type="Node3D" parent="HouseEntrance" node_paths=PackedStringArray("bunraku")]
@@ -188,3 +193,32 @@ dir = 1
 
 [node name="Doors2" parent="HouseEntrance" instance=ExtResource("28_32mcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2499999, 0.715, -0.049999982)
+
+[node name="FruitTableLeft" parent="HouseEntrance" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9855881, 0.7200928, -3.927246)
+
+[node name="FruitTableRight" parent="HouseEntrance" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1592808, 0.71984863, -3.9661865)
+
+[node name="SakePouringGame" parent="HouseEntrance" instance=ExtResource("18_patpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0.96593404, -3.9)
+
+[node name="GuestTables" type="Node3D" parent="HouseEntrance"]
+
+[node name="Left1" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.72, -3.182)
+
+[node name="Left2" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.72, -2.422)
+
+[node name="Left3" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.72, -1.648)
+
+[node name="Right1" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.72, -3.252)
+
+[node name="Right2" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.72, -2.509)
+
+[node name="Right3" parent="HouseEntrance/GuestTables" instance=ExtResource("18_74uo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.72, -1.796)
