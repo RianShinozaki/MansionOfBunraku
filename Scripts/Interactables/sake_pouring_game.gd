@@ -49,8 +49,7 @@ signal pour_failed
 @onready var pouring_audio: AudioStreamPlayer3D = $PouringSound
 @onready var spill_audio: AudioStreamPlayer3D = $SpillSound
 @onready var instruction_label: Label = $InstructionLabel
-@onready var sanbo_tray_3d: Node3D = $SanboTray3D
-@onready var tray_sprite: Sprite3D = $TraySprite
+@onready var low_table_3d: Node3D = $LowTable3D
 
 var cups: Array[SakazukiCup] = []
 var instruction_hide_timer: Timer
@@ -104,13 +103,6 @@ func _process(_delta):
 	"""Continuously check if we should hide the instruction label and detect mode changes"""
 	# Check for mode transitions to detect when leaving inspect mode
 	var current_mode = InspectionManager.current_mode
-	
-	# Update tray visibility based on current mode
-	var is_inspect_or_dialogue = (current_mode == InspectionManager.Mode.INSPECT or current_mode == InspectionManager.Mode.DIALOGUE)
-	if sanbo_tray_3d:
-		sanbo_tray_3d.visible = not is_inspect_or_dialogue  # Show in PLAY mode only
-	if tray_sprite:
-		tray_sprite.visible = is_inspect_or_dialogue  # Show in INSPECT/DIALOGUE modes only
 	
 	# Detect transition from INSPECT or DIALOGUE mode to PLAY mode
 	if previous_mode != -1:  # Skip first frame

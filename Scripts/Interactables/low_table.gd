@@ -1,5 +1,5 @@
 extends Node3D
-class_name SanboTray
+class_name LowTable
 
 # Sprite visibility for mode switching
 var inspection_manager: Node = null

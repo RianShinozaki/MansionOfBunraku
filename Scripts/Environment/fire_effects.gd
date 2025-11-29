@@ -2,13 +2,22 @@ extends Node3D
 
 @export var fire_material: ShaderMaterial
 @export var fire_individual_material: ShaderMaterial
-@export var environment: WorldEnvironment
+var environment: WorldEnvironment
 
 var counter = 0
 var meltdown_in_progress: bool = false
 var meltdown_length: float = 5
 
 func _ready() -> void:
+	# Find WorldEnvironment by searching up the scene tree
+	var node = self
+	while node:
+		var world_env = node.get_node_or_null("WorldEnvironment")
+		if world_env:
+			environment = world_env
+			break
+		node = node.get_parent()
+	
 	# Only set meltdown_length if GameManager is initialized (for testing scenes directly)
 	if GameManager.instance:
 		meltdown_length = GameManager.instance.meltdown_time

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfqun1whg3ovj"]
+
+[ext_resource type="ArrayMesh" uid="uid://dmfry8u88rw75" path="res://Art Assets/sakeGame/lowTable.obj" id="1_mesh"]
+[ext_resource type="Texture2D" uid="uid://d4iqu4g34xt60" path="res://Art Assets/Models/lowTable_0.png" id="2_plsl1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lowTable"]
+albedo_texture = ExtResource("2_plsl1")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mu7u"]
+size = Vector3(2.5, 1.2, 2.5)
+
+[node name="lowTable3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014259294, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
+mesh = ExtResource("1_mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032905936, 0.10098648, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.15, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mu7u")
