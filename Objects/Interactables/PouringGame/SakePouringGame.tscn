@@ -80,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
 [node name="SanboTray3D" parent="." instance=ExtResource("9_tray3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00450194, -0.35205764, -0.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00450194, -0.35205764, -0.029186666)
 
 [node name="TraySprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00949806, -0.193, -0.001)
