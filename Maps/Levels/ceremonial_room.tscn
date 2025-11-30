@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
-[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_vy2yi"]
+[ext_resource type="Material" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_84ys0"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_lmuaq"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="5_7ea4m"]
@@ -54,16 +54,17 @@ shader_parameter/color_bands = 10
 
 [node name="Ceremonial Room" type="Node3D"]
 
-[node name="HouseEntrance" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.005680084, -0.06282738, -0.08630371)
-mesh = ExtResource("1_78kg7")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_vy2yi")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HouseEntrance"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseEntrance/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_74uo1")
+
+[node name="RoomMesh" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 40.15039, 0.02578926, -47.837856)
+mesh = ExtResource("1_78kg7")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("2_74uo1")
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6534261, -0.33070284, -8.048303)
@@ -192,11 +193,11 @@ autoplay = true
 transform = Transform3D(0.00047119058, 0.0030019626, -0.9999954, -1.3877788e-17, 0.99999547, 0.0030019628, 0.9999998, -1.4144966e-06, 0.00047118845, 5.083269, 1.7179686, -2.5644493)
 
 [node name="Doors" parent="." instance=ExtResource("28_32mcr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55568, 0.02257663, -0.1363037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5024488, 0.02257663, -0.1363037)
 dir = 1
 
 [node name="Doors2" parent="." instance=ExtResource("28_32mcr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25568, 0.02257663, -0.1363037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2024487, 0.02257663, -0.1363037)
 
 [node name="FruitTableLeft" parent="." instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9195122, 0.028, -4.682)
