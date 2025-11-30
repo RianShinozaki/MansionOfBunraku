@@ -5,6 +5,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lowTable"]
 albedo_texture = ExtResource("2_plsl1")
+metallic = 0.12
+metallic_specular = 0.8
+roughness = 0.0
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mu7u"]
