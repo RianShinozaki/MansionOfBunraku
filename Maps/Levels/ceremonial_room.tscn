@@ -60,7 +60,9 @@ mesh = ExtResource("1_78kg7")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_vy2yi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseEntrance"]
+[node name="StaticBody3D" type="StaticBody3D" parent="HouseEntrance"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseEntrance/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_74uo1")
 
 [node name="Yono" type="Node3D" parent="." node_paths=PackedStringArray("bunraku")]
