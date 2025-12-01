@@ -68,7 +68,14 @@ func on_interact():
 			InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 
 func on_inspect_click():
-	# Called when artwork is clicked during inspection mode
+	# Called when main painting is clicked during inspection mode
+	# Do nothing - only the apple area should be clickable in inspect mode
+	# This prevents clicking outside the apple from doing anything
+	pass
+
+func on_apple_area_clicked():
+	# Called when the apple area is clicked during inspection mode
+	# This contains the original on_inspect_click logic
 	if InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
 		return
 	
