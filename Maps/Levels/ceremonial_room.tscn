@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=35 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_84ys0"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_lmuaq"]
+[ext_resource type="Texture2D" uid="uid://dcrnibyqhar1w" path="res://Art Assets/Paintings/non-apple-painting.PNG" id="4_pd0vp"]
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="5_7ea4m"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="6_lo88o"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="7_jpvmm"]
@@ -83,6 +84,9 @@ transform = Transform3D(1.28, 0, 0, 0, 1.28, 0, 0, 0, 1.28, 0.005680084, -0.8687
 
 [node name="ApplePainting" parent="Objects" instance=ExtResource("15_bqk1a")]
 transform = Transform3D(0.00047119058, 0.0030019626, -0.9999954, -1.3877788e-17, 0.99999547, 0.0030019628, 0.9999998, -1.4144966e-06, 0.00047118845, 4.9801555, 1.7179686, -2.5644493)
+painting_artwork_alt = ExtResource("4_pd0vp")
+switch_texture_on_click = true
+spawn_apple_on_click = true
 
 [node name="ShrineBowl1" parent="Objects" instance=ExtResource("16_rou6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2526422, 1.363244, -5.7799306)
