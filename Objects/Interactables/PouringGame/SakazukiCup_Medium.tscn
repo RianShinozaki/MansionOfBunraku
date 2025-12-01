@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dxuadpye5rqa"]
 
-[ext_resource type="Script" uid="uid://bc7uve4lrghpx" path="res://Scripts/Interactables/sakazuki_cup.gd" id="1_cup_script"]
+[ext_resource type="Script" path="res://Scripts/Interactables/sakazuki_cup.gd" id="1_cup_script"]
 [ext_resource type="Texture2D" uid="uid://moxhhnm5pac8" path="res://Art Assets/sakeGame/sakazuki_medium.png" id="2_cup_tex"]
 [ext_resource type="Texture2D" uid="uid://c83hqsry2tism" path="res://Art Assets/sakeGame/sakazuki_medium_downsized.png" id="3_cup_downsized_tex"]
-[ext_resource type="Shader" uid="uid://ccbqsukn0gs2p" path="res://Shaders/SakeLiquid.gdshader" id="4_x1wwu"]
+[ext_resource type="Shader" path="res://Shaders/SakeLiquid.gdshader" id="4_x1wwu"]
 [ext_resource type="Texture2D" uid="uid://di8jkt0trehbw" path="res://Art Assets/sakeGame/sakazuki_small_mask.png" id="5_nmd5e"]
 [ext_resource type="Texture2D" uid="uid://bd4mbdofu4v0m" path="res://Art Assets/sakeGame/sakazukiMedium_target1.png" id="5_target1_tex"]
 [ext_resource type="Texture2D" uid="uid://c8ap6yg742w5p" path="res://Art Assets/sakeGame/sakazukiMedium_target2.png" id="6_target2_tex"]
@@ -117,7 +117,7 @@ texture_filter = 0
 texture = ExtResource("7_target3_tex")
 
 [node name="CollisionArea" type="Area3D" parent="."]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
