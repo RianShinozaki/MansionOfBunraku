@@ -57,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if not active: return
 	
-	if anger_level == 1:
+	if anger_level >= 1:
 		active = false
 		get_parent().jumpscare()
 	

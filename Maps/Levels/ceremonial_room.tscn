@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=39 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
@@ -22,8 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://dw8p5qm3nh2xf" path="res://Objects/Interactables/PouringGame/SakePouringGame.tscn" id="18_patpw"]
 [ext_resource type="PackedScene" uid="uid://dcnnkggbkq1d8" path="res://Objects/Items/shrine_sake.tscn" id="18_vy35f"]
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="19_74uo1"]
-[ext_resource type="Script" path="res://Scripts/Entities/Bunraku/bunraku_coordinator.gd" id="21_tfhdh"]
+[ext_resource type="Script" uid="uid://dku62rsrvc6a4" path="res://Scripts/Entities/Bunraku/bunraku_coordinator.gd" id="21_tfhdh"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="23_shp2h"]
+[ext_resource type="Script" uid="uid://cqtrapo287ppw" path="res://Scripts/Entities/Bunraku/kouya_sake_location.gd" id="23_uqtih"]
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="24_luy6v"]
 [ext_resource type="Resource" uid="uid://bat7fmvfu8fmt" path="res://Dialogue/kitsune_hints.tres" id="24_vy35f"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="25_pd0vp"]
@@ -225,6 +226,13 @@ transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631,
 [node name="Candle6" parent="Objects" instance=ExtResource("29_pd0vp")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631, 0.71765316, -4.715435)
 
+[node name="KouyaSakeLocation" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5178518, 0.9939353, -4.830327)
+script = ExtResource("23_uqtih")
+
+[node name="KouyaNormalPosition" type="Node3D" parent="Objects"]
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 0.9939353, -1.9657795)
+
 [node name="Bunraku" type="Node3D" parent="."]
 script = ExtResource("21_tfhdh")
 time_before_initiation = 5.0
@@ -248,7 +256,7 @@ material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
 
 [node name="Kouya" type="Node3D" parent="Bunraku" node_paths=PackedStringArray("bunraku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.636949, 0.4035269, -2.6214955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4430742, 0.4035269, -2.6025016)
 script = ExtResource("3_84ys0")
 bunraku = NodePath("Kouya")
 can_jumpscare_command = true
@@ -320,3 +328,5 @@ light_energy = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
 stream = ExtResource("11_2t57r")
+
+[connection signal="pour_failed" from="Objects/SakePouringGame" to="Objects/KouyaSakeLocation" method="handle_failed_game"]

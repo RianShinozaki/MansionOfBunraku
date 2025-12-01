@@ -46,3 +46,7 @@ func switch_bunraku() -> void:
 		yono_manager.activate_bunraku()
 		active_bunraku = yono_manager
 		
+func switch_to_yono():
+	yono_manager.deactivate_bunraku()
+	kouya_manager.activate_bunraku()
+	active_bunraku = kouya_manager
