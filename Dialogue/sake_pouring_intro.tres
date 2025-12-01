@@ -8,12 +8,18 @@ starts = {
 "earth": &"0_2",
 "heaven": &"0_1",
 "humanity": &"0_3",
+"instruction0": &"0_0",
 "instruction1": &"0_4",
 "instruction2": &"0_5"
 }
 nodes = {
+&"0_0": {
+"link": &"1_0",
+"offset": Vector2(-160, 620),
+"start_id": "instruction0"
+},
 &"0_1": {
-"link": &"1_1",
+"link": &"1_0",
 "offset": Vector2(-160, 180),
 "start_id": "heaven"
 },
@@ -36,6 +42,20 @@ nodes = {
 "link": &"1_5",
 "offset": Vector2(-160, 1060),
 "start_id": "instruction2"
+},
+&"1_0": {
+"audio_clip": null,
+"dialogue": "In the san-san kudo marriage ritual, bride and groom take 3 sips each from 3 sake cups",
+"offset": Vector2(180, 620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_1",
+"text": ""
+}
+},
+"size": Vector2(300, 200),
+"speaker": ""
 },
 &"1_1": {
 "audio_clip": null,

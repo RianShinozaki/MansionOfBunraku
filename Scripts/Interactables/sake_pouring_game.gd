@@ -52,8 +52,7 @@ signal pour_failed
 @onready var low_table_3d: Node3D = $LowTable3D
 
 var cups: Array[SakazukiCup] = []
-var instruction_hide_timer: Timer
-var instruction_show_timer: Timer
+var pitcher_ever_dragged: bool = false
 var spacebar_ever_pressed: bool = false
 var previous_mode: int = -1  # Track previous inspection mode
 
@@ -95,9 +94,6 @@ func _ready():
 	for cup in cups:
 		if cup:
 			cup.cup_completed.connect(_on_cup_completed)
-	
-	# Set up instruction label timers
-	setup_instruction_timers()
 
 func _process(_delta):
 	"""Continuously check if we should hide the instruction label and detect mode changes"""
@@ -119,8 +115,11 @@ func _process(_delta):
 	if instruction_label and instruction_label.visible:
 		if InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
 			instruction_label.visible = false
-			# Also stop any running timers since we're no longer in inspect mode
-			cleanup_instruction_timers()
+	
+	# Hide label if both actions have been performed
+	if instruction_label and instruction_label.visible:
+		if pitcher_ever_dragged and spacebar_ever_pressed:
+			instruction_label.visible = false
 
 func can_interact() -> bool:
 	var result = InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -167,40 +166,19 @@ func play_intro_sequence():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 	
-	# Line 1: "heaven" with small cup flash
+	# Line 1: "heaven" (no flash)
 	dialogue_box.start("heaven")
-	# Prepare small cup for flashing
-	cup_small.is_active = true
-	if not cup_small.original_material and cup_small.cup_model and cup_small.cup_model.material_override:
-		cup_small.original_material = cup_small.cup_model.material_override.duplicate()
-	cup_small.pulse_emission(3)
 	await dialogue_box.dialogue_ended
-	cup_small.stop_pulse_sequence()
-	cup_small.is_active = false
 	await get_tree().create_timer(0.3).timeout
 	
-	# Line 2: "earth" with medium cup flash
+	# Line 2: "earth" (no flash)
 	dialogue_box.start("earth")
-	# Prepare medium cup for flashing
-	cup_medium.is_active = true
-	if not cup_medium.original_material and cup_medium.cup_model and cup_medium.cup_model.material_override:
-		cup_medium.original_material = cup_medium.cup_model.material_override.duplicate()
-	cup_medium.pulse_emission(3)
 	await dialogue_box.dialogue_ended
-	cup_medium.stop_pulse_sequence()
-	cup_medium.is_active = false
 	await get_tree().create_timer(0.3).timeout
 	
-	# Line 3: "humanity" with large cup flash
+	# Line 3: "humanity" (no flash)
 	dialogue_box.start("humanity")
-	# Prepare large cup for flashing
-	cup_large.is_active = true
-	if not cup_large.original_material and cup_large.cup_model and cup_large.cup_model.material_override:
-		cup_large.original_material = cup_large.cup_model.material_override.duplicate()
-	cup_large.pulse_emission(3)
 	await dialogue_box.dialogue_ended
-	cup_large.stop_pulse_sequence()
-	cup_large.is_active = false
 	await get_tree().create_timer(0.3).timeout
 	
 	# Line 4: instructions (no flash)
@@ -222,8 +200,22 @@ func play_intro_sequence():
 	
 	await get_tree().create_timer(0.5).timeout
 	
-	# Show instruction label after dialogue completes
-	show_instruction_label()
+	# Flash choshi first
+	if pitcher:
+		pitcher.pulse_emission(3)
+		await get_tree().create_timer(2.0).timeout  # Wait for 3 pulses to complete
+	
+	# Then flash smallest sakazuki (just visual pulse, don't activate yet)
+	if cup_small:
+		if not cup_small.original_material and cup_small.cup_model and cup_small.cup_model.material_override:
+			cup_small.original_material = cup_small.cup_model.material_override.duplicate()
+		cup_small.pulse_emission(3)
+		await get_tree().create_timer(2.0).timeout  # Wait for 3 pulses to complete
+		cup_small.stop_pulse_sequence()
+	
+	# Show instruction label after flashing completes
+	if instruction_label:
+		instruction_label.visible = true
 
 func activate_current_cup():
 	"""Activate the current cup for pouring"""
@@ -453,11 +445,9 @@ func _unhandled_input(event):
 	# Handle SPACE key for pouring
 	if event is InputEventKey and event.keycode == KEY_SPACE:
 		if event.pressed and not event.is_echo():
-			# Mark spacebar as pressed and hide instruction label permanently
+			# Mark spacebar as pressed
 			if not spacebar_ever_pressed:
 				spacebar_ever_pressed = true
-				if instruction_label and instruction_label.visible:
-					hide_instruction_label()
 			
 			# Start pouring when space is pressed
 			if current_state == GameState.WAITING_FOR_POUR:
@@ -480,6 +470,9 @@ func _unhandled_input(event):
 					# Clicked on pitcher - start dragging
 					if current_state == GameState.WAITING_FOR_POUR and not pitcher.is_being_dragged:
 						pitcher.start_drag(get_viewport().get_mouse_position())
+						# Mark pitcher as dragged
+						if not pitcher_ever_dragged:
+							pitcher_ever_dragged = true
 					get_viewport().set_input_as_handled()
 		else:
 			# Mouse released - just end drag, don't start pouring
@@ -500,75 +493,16 @@ func reset_game():
 	current_cup_index = 0
 	total_pours_completed = 0
 	pour_start_time = 0.0
-	spacebar_ever_pressed = false  # Reset spacebar flag so instruction can show again
+	pitcher_ever_dragged = false  # Reset flags so instruction can show again
+	spacebar_ever_pressed = false
 	
 	for cup in cups:
 		cup.reset_cup()
 	
 	pitcher.set_clickable(false)
 	pitcher.stop_pour()
+	pitcher.reset_position()  # Reset pitcher to original position
 	
 	# Reset instruction label
 	if instruction_label:
 		instruction_label.visible = false
-	cleanup_instruction_timers()
-
-func setup_instruction_timers():
-	"""Create and configure the instruction label timers"""
-	# Timer to hide label after 5 seconds
-	instruction_hide_timer = Timer.new()
-	instruction_hide_timer.wait_time = 5.0
-	instruction_hide_timer.one_shot = true
-	instruction_hide_timer.timeout.connect(_on_instruction_hide_timeout)
-	add_child(instruction_hide_timer)
-	
-	# Timer to show label again after 10 seconds of no input
-	instruction_show_timer = Timer.new()
-	instruction_show_timer.wait_time = 10.0
-	instruction_show_timer.one_shot = true
-	instruction_show_timer.timeout.connect(_on_instruction_show_timeout)
-	add_child(instruction_show_timer)
-
-func show_instruction_label():
-	"""Show the instruction label and start hide timer"""
-	# Only show label if in INSPECT mode
-	if instruction_label and InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
-		instruction_label.visible = true
-		
-		# Stop show timer if running
-		if instruction_show_timer and instruction_show_timer.time_left > 0:
-			instruction_show_timer.stop()
-		
-		# Start hide timer
-		if instruction_hide_timer:
-			instruction_hide_timer.start()
-
-func hide_instruction_label():
-	"""Hide the instruction label and start show timer"""
-	if instruction_label:
-		instruction_label.visible = false
-		
-		# Stop hide timer if running
-		if instruction_hide_timer and instruction_hide_timer.time_left > 0:
-			instruction_hide_timer.stop()
-		
-		# Only start show timer if spacebar has never been pressed
-		if instruction_show_timer and not spacebar_ever_pressed:
-			instruction_show_timer.start()
-
-func _on_instruction_hide_timeout():
-	"""Called when the 5-second hide timer expires"""
-	hide_instruction_label()
-
-func _on_instruction_show_timeout():
-	"""Called when the 10-second show timer expires"""
-	# Only show label if we're still in WAITING_FOR_POUR state, spacebar has never been pressed, and in INSPECT mode
-	if current_state == GameState.WAITING_FOR_POUR and not spacebar_ever_pressed and InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
-		show_instruction_label()
-
-func cleanup_instruction_timers():
-	"""Stop and clean up instruction timers"""
-	if instruction_hide_timer:
-		instruction_hide_timer.stop()
-	if instruction_show_timer:
-		instruction_show_timer.stop()

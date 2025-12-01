@@ -106,7 +106,6 @@ pixel_size = 0.0003
 shaded = true
 texture_filter = 0
 texture = ExtResource("5_target2_tex")
-script = ExtResource("1_cup_script")
 
 [node name="Target3" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003)
