@@ -15,9 +15,9 @@ texture_filter = 0
 texture_repeat = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpdiw"]
-size = Vector3(7, 5.4052734, 3.0986938)
+size = Vector3(7, 5.7836914, 3.0986938)
 
-[node name="Shrine" type="StaticBody3D"]
+[node name="Shrine" type="StaticBody3D" groups=["Interactable"]]
 collision_layer = 37
 script = ExtResource("1_a88pr")
 environmental_dialogues = ExtResource("2_govao")
@@ -43,5 +43,8 @@ mesh = ExtResource("4_vqiuj")
 surface_material_override/0 = SubResource("StandardMaterial3D_shrine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -1.9973633, 1.8479209)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.186572, 1.8479209)
 shape = SubResource("BoxShape3D_qpdiw")
+
+[node name="FocusMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)

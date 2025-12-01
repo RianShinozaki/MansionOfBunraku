@@ -1,10 +1,10 @@
-extends Node3D
+extends StaticBody3D
 
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
 
 var first_viewing: bool = true
-@export var inspect_fov: float = 40.0
+@export var inspect_fov: float = 20.0
 @onready var focus_marker: Node3D = $FocusMarker
 
 func can_interact() -> bool:
@@ -16,7 +16,7 @@ func on_interact():
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		get_viewport().set_input_as_handled()
 		
-		dialogue_id = "left_submission" if randf() > 0.5 else "right_selection"
+		dialogue_id = "left_submission" if randf() > 0.5 else "right_submission"
 
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "" and first_viewing:

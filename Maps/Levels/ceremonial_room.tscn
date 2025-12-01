@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="19_74uo1"]
 [ext_resource type="Script" uid="uid://dku62rsrvc6a4" path="res://Scripts/Entities/Bunraku/bunraku_coordinator.gd" id="21_tfhdh"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="23_shp2h"]
-[ext_resource type="Script" path="res://Scripts/Entities/Bunraku/kouya_sake_location.gd" id="23_uqtih"]
+[ext_resource type="Script" uid="uid://cqtrapo287ppw" path="res://Scripts/Entities/Bunraku/kouya_sake_location.gd" id="23_uqtih"]
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="24_luy6v"]
 [ext_resource type="Resource" uid="uid://bat7fmvfu8fmt" path="res://Dialogue/kitsune_hints.tres" id="24_vy35f"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="25_pd0vp"]
