@@ -15,6 +15,10 @@ func _ready() -> void:
 func activate_bunraku():
 	bunraku.activate()
 	visible = true
+
+func deactivate_bunraku():
+	bunraku.deactivate()
+	visible = false
 	
 func _process(delta: float) -> void:
 	if can_jumpscare_command:
