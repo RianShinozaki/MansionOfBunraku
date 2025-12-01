@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 			jumpscare()
 
 func jumpscare():
+	InspectionManager.exit_inspect()
 	visible = true
 	bunraku.visible = true
 	bunraku.anger_level = 1
