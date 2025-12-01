@@ -118,7 +118,6 @@ script = ExtResource("44_40tdl")
 data = ExtResource("45_eqorb")
 start_id = "start"
 hide_portrait = true
-skip_input_action = "ui_cancel"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 

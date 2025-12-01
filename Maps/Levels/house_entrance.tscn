@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="22_hf7f6"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="23_ha2qu"]
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="24_e18u1"]
-[ext_resource type="PackedScene" uid="uid://b510j3k1byatv" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
+[ext_resource type="PackedScene" uid="uid://cgnpoc8lkf3qu" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
 [ext_resource type="Texture2D" uid="uid://cwpgtkcwofy83" path="res://Art Assets/Letters/kouya-letter-one.png" id="26_aj4cu"]
 [ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="26_jlesl"]
 [ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="27_lar5f"]
@@ -328,7 +328,7 @@ painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("26_jlesl")
 painting_artwork_alt = ExtResource("27_lar5f")
-dialogue_id = "yoroi_painting"
+dialogue_id = "kouya_painting"
 
 [node name="InspectionLetter" parent="HouseEntrance/Objects/KouyaPainting" instance=ExtResource("25_acepu")]
 transform = Transform3D(0.81602585, -0.57775795, 0.017249964, 0.5776288, 0.81620824, 0.0122104995, -0.021134255, -3.562295e-08, 0.99977666, -0.5253899, -0.20669502, 0.0005836487)
@@ -337,7 +337,7 @@ letter_image = ExtResource("29_dmi03")
 [node name="YonoDoors" parent="HouseEntrance/Objects" instance=ExtResource("28_secwt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3227541, -0.527, -1.2774469)
 
-[node name="YoroiDoors" parent="HouseEntrance/Objects" instance=ExtResource("28_secwt")]
+[node name="KouyaDoors" parent="HouseEntrance/Objects" instance=ExtResource("28_secwt")]
 transform = Transform3D(-1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -1, -0.030857682, -0.52672064, 4.4086986)
 
 [node name="ShamisenDoors" parent="HouseEntrance/Objects" instance=ExtResource("29_ym1qs")]
