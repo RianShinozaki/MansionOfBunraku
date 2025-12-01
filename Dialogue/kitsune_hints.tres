@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bat7fmvfu8fmt"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_2e5rx"]
+
+[resource]
+script = ExtResource("1_2e5rx")
+starts = {
+"kitsune_left": &"0_1",
+"kitsune_right": &"0_2"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(69, 531),
+"start_id": "kitsune_left"
+},
+&"0_2": {
+"link": &"1_2",
+"offset": Vector2(80, 860),
+"start_id": "kitsune_right"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "Hehe, that loyal servant of hers has been fussing over those fruits for a while, running all around the mansion. Mortals always overthink these things.",
+"offset": Vector2(500, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(759.99976, 680),
+"speaker": ""
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "This night is quite auspicious, for a fated bride and groom. If you would like to please the kami I will aid you in your pursuit.  ",
+"offset": Vector2(500, 840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(759.9995, 719.9999),
+"speaker": ""
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "I thought it quite obvious what the kami desired. Perhaps I'll give you a hint.",
+"offset": Vector2(1380, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(659.9995, 640),
+"speaker": ""
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "Crisp as the morning air, skin polished like laquered wool, sweet yet tart to the taste.",
+"offset": Vector2(2220, 0),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(620, 640),
+"speaker": ""
+},
+&"1_5": {
+"audio_clip": null,
+"dialogue": "The kami is quite partial to the harvest of the season.  Summer is soon to set and its flesh will be perfectly ripe. ",
+"offset": Vector2(1420, 840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(759.99976, 720.0001),
+"speaker": ""
+},
+&"1_6": {
+"audio_clip": null,
+"dialogue": "Soft and sweet, with a velvet coat. ",
+"offset": Vector2(2280, 840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(639.9999, 699.9999),
+"speaker": ""
+}
+}

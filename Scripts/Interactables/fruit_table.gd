@@ -8,11 +8,10 @@ var fruit_object: Fruit
 @export var fruit_target_position: Vector3 = Vector3(0.0, 0., 0.0)  
 
 func _ready():
-	return
+	pass
 
 func can_interact() -> bool:
 	return true
-	#return Player.instance.held_object is Fruit or has_fruit
 
 func on_interact():
 	if Player.instance.held_object is Fruit:
