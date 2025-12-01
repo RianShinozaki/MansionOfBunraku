@@ -75,7 +75,7 @@ func _ready():
 	if collision_area:
 		collision_area.collision_layer = 0
 		collision_area.collision_mask = 0
-		collision_area.set_collision_layer_value(6, true)
+		#collision_area.set_collision_layer_value(6, true)
 	
 	# Initialize liquid surface material to empty
 	if liquid_surface and liquid_surface.material_override:
