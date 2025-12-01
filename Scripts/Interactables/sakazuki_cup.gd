@@ -7,7 +7,6 @@ enum CupSize { SMALL, MEDIUM, LARGE }
 @export var target_fill_level: float = 0.4  # Target fill for perfect pour
 @export var fill_tolerance: float = 0.1  # Acceptable variance
 @export var overflow_threshold: float = 0.7  # Too full = failure
-@export var reminder_pulse_delay: float = 5.0  # Time before pulsing again to remind player
 
 var current_fill_level: float = 0.0
 var pours_completed: int = 0
@@ -37,11 +36,6 @@ func _ready():
 	# Get InspectionManager
 	inspection_manager = get_node_or_null("/root/InspectionManager")
 	
-	# Create a timer for reminder pulses
-	pulse_timer = Timer.new()
-	pulse_timer.one_shot = true
-	pulse_timer.timeout.connect(_on_pulse_timer_timeout)
-	add_child(pulse_timer)
 	
 	if liquid_surface:
 		# LiquidSurface is a CHILD of the cup, so it moves with the cup automatically
@@ -170,9 +164,6 @@ func add_liquid(amount: float):
 	update_liquid_visual()
 	check_target_range()
 	
-	# Stop reminder pulses while pouring
-	if pulse_timer and pulse_timer.time_left > 0:
-		pulse_timer.stop()
 
 func update_liquid_visual():
 	"""Update shader parameter to show fill level"""
@@ -301,6 +292,12 @@ func reset_cup():
 	is_in_target_range = false
 	stop_target_range_flash()
 	stop_pulse_sequence()  # Stop any ongoing pulse and timer
+	
+	# Remove emission glow and restore original material
+	if cup_model and cup_model is Sprite3D and original_material:
+		var sprite = cup_model as Sprite3D
+		sprite.material_override = original_material
+	
 	update_liquid_visual()
 	update_target_visibility()
 
@@ -343,9 +340,6 @@ func pulse_emission(pulses_remaining: int):
 	"""Pulse the emission on and off"""
 	if not is_active or pulses_remaining <= 0:
 		is_pulsing = false
-		# Start timer for reminder pulse
-		if is_active and pulse_timer:
-			pulse_timer.start(reminder_pulse_delay)
 		return
 	
 	if cup_model and cup_model is Sprite3D:
@@ -378,15 +372,8 @@ func pulse_emission(pulses_remaining: int):
 				pulse_emission(pulses_remaining - 1)
 
 func stop_pulse_sequence():
-	"""Stop any ongoing pulse sequences and timers"""
+	"""Stop any ongoing pulse sequences"""
 	is_pulsing = false
-	if pulse_timer:
-		pulse_timer.stop()
-
-func _on_pulse_timer_timeout():
-	"""Called when reminder pulse timer expires"""
-	if is_active and not is_pulsing:
-		start_pulse_sequence()
 
 func on_inspect_click():
 	"""Called when clicked in inspection mode - not used for cups"""
