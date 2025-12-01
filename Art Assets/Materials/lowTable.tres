@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d4aa5bb6cd7ef"]
+
+[ext_resource type="Texture2D" uid="uid://dg27qh4nqrlqk" path="res://Art Assets/sakeGame/lowTable_0.png" id="1_tray"]
+
+[resource]
+albedo_texture = ExtResource("1_tray")
+roughness = 1.0
+metallic = 0.0
+texture_filter = 2

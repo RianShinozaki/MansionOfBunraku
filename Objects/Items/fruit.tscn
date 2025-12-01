@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://pple001"]
+
+[ext_resource type="Script" uid="uid://ccy0w6r2mle5b" path="res://Scripts/Items/fruit.gd" id="1_meucj"]
+[ext_resource type="Texture2D" uid="uid://c1bx1u8xgqvw6" path="res://Art Assets/apple.png" id="2_mbpin"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apple"]
+size = Vector3(0.056970216, 0.05288086, 0.053686522)
+
+[node name="Fruit" type="RigidBody3D" groups=["Item"]]
+collision_layer = 4
+collision_mask = 5
+freeze_mode = 1
+script = ExtResource("1_meucj")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+pixel_size = 0.003
+billboard = 1
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_mbpin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039001442, 0.006420899, 0.0024292022)
+shape = SubResource("BoxShape3D_apple")

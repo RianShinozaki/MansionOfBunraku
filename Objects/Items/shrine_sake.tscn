@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcnnkggbkq1d8"]
+
+[ext_resource type="Texture2D" uid="uid://dx5mi7ai7jct2" path="res://Art Assets/shrine_sake.png" id="1_sake"]
+
+[node name="ShrineSake" type="Node3D"]
+
+[node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_sake")

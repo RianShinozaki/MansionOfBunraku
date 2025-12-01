@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bou2vu6pekbo5" path="res://Audio/floor_creak_loud.wav" id="5_oqeds"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="6_of6ne"]
 [ext_resource type="Shader" uid="uid://c7ey4batttr8m" path="res://Shaders/SingleFlame.gdshader" id="7_520f7"]
-[ext_resource type="PackedScene" path="res://Objects/Entities/kouya.tscn" id="8_sd30w"]
+[ext_resource type="PackedScene" uid="uid://kjgabcbsk3xy" path="res://Objects/Entities/kouya.tscn" id="8_sd30w"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="9_omkcf"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="10_xr1ea"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="11_4ac6g"]
@@ -312,6 +312,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.895
 
 [node name="YonoPainting" parent="HouseEntrance/Objects" instance=ExtResource("22_hf7f6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69882166, 0.612408, -10.258897)
+painting_frame_texture = null
+painting_frame_heightmap = null
 painting_artwork = ExtResource("23_ha2qu")
 painting_artwork_alt = ExtResource("24_e18u1")
 dialogue_id = "yono_painting"
@@ -322,6 +324,8 @@ letter_image = ExtResource("26_aj4cu")
 
 [node name="KouyaPainting" parent="HouseEntrance/Objects" instance=ExtResource("22_hf7f6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6843251, 0.6862979, 13.4131365)
+painting_frame_texture = null
+painting_frame_heightmap = null
 painting_artwork = ExtResource("26_jlesl")
 painting_artwork_alt = ExtResource("27_lar5f")
 dialogue_id = "yoroi_painting"

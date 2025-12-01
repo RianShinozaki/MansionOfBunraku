@@ -49,6 +49,7 @@ signal pour_failed
 @onready var pouring_audio: AudioStreamPlayer3D = $PouringSound
 @onready var spill_audio: AudioStreamPlayer3D = $SpillSound
 @onready var instruction_label: Label = $InstructionLabel
+@onready var low_table_3d: Node3D = $LowTable3D
 
 var cups: Array[SakazukiCup] = []
 var instruction_hide_timer: Timer

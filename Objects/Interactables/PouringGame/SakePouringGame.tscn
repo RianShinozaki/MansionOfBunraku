@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dw8p5qm3nh2xf"]
 
-[ext_resource type="Script" uid="uid://cwv6dup466ew5" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
+[ext_resource type="Script" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
 [ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
 [ext_resource type="PackedScene" uid="uid://dy0jfvvg05iav" path="res://Objects/Interactables/PouringGame/SakazukiCup_Small.tscn" id="3_cup_small"]
 [ext_resource type="PackedScene" uid="uid://dxuadpye5rqa" path="res://Objects/Interactables/PouringGame/SakazukiCup_Medium.tscn" id="4_cup_medium"]
@@ -8,19 +8,19 @@
 [ext_resource type="AudioStream" uid="uid://dr86bluktue4u" path="res://Audio/sake_pour.mp3" id="6_lfh5t"]
 [ext_resource type="AudioStream" uid="uid://plnoeu14brlp" path="res://Audio/sake_spill.wav" id="7_oimcx"]
 [ext_resource type="Resource" uid="uid://dfwpvf65vvuc5" path="res://Dialogue/sake_pouring_intro.tres" id="8_intro_dialogue"]
-[ext_resource type="PackedScene" uid="uid://bqxm8y7w8r5cd" path="res://Objects/Interactables/PouringGame/SanboTray.tscn" id="9_4xdfg"]
-[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="10_font"]
+[ext_resource type="PackedScene" uid="uid://bfqun1whg3ovj" path="res://Objects/Items/lowTable3D.tscn" id="9_nqoe1"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_font"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_game"]
 size = Vector3(0.6, 0.7, 0.3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_instruction"]
-font = ExtResource("10_font")
+font = ExtResource("12_font")
 font_size = 25
 font_color = Color(0.99607843, 0.8745098, 0.827451, 0.3529412)
 
 [node name="SakePouringGame" type="StaticBody3D"]
-collision_layer = 37
+collision_layer = 5
 collision_mask = 0
 script = ExtResource("1_game_script")
 inspect_fov = 45.0
@@ -68,11 +68,10 @@ stream = ExtResource("6_lfh5t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
-[node name="SanboTray" parent="." instance=ExtResource("9_4xdfg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00949806, -0.193, -0.001)
+[node name="LowTable3D" parent="." instance=ExtResource("9_nqoe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014053984, -0.26435012, -0.015368164)
 
 [node name="InstructionLabel" type="Label" parent="."]
-visible = false
 z_index = -1
 anchors_preset = 7
 anchor_left = 0.5
@@ -85,7 +84,8 @@ offset_right = 200.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Press Spacebar to Pour"
+text = "Click and drag pitcher
+Press Spacebar to Pour"
 label_settings = SubResource("LabelSettings_instruction")
 horizontal_alignment = 1
 vertical_alignment = 1

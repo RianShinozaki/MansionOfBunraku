@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1t8axaaqvjtt"]
+
+[ext_resource type="Texture2D" uid="uid://bvxvevino3oua" path="res://Art Assets/shrine_cup.png" id="1_cup"]
+
+[node name="ShrineCup" type="Node3D"]
+
+[node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_cup")

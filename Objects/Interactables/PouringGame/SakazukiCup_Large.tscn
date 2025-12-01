@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://mb1yvhgddwxf"]
 
-[ext_resource type="Script" uid="uid://bc7uve4lrghpx" path="res://Scripts/Interactables/sakazuki_cup.gd" id="1_cup_script"]
+[ext_resource type="Script" path="res://Scripts/Interactables/sakazuki_cup.gd" id="1_cup_script"]
 [ext_resource type="Texture2D" uid="uid://cem6mhqdqvlne" path="res://Art Assets/sakeGame/sakazuki_large.png" id="2_cup_tex"]
 [ext_resource type="Texture2D" uid="uid://biugrg28qwvqe" path="res://Art Assets/sakeGame/sakazuki_large_downsized.png" id="3_cup_downsized_tex"]
-[ext_resource type="Shader" uid="uid://ccbqsukn0gs2p" path="res://Shaders/SakeLiquid.gdshader" id="4_jjq7u"]
+[ext_resource type="Shader" path="res://Shaders/SakeLiquid.gdshader" id="4_jjq7u"]
 [ext_resource type="Texture2D" uid="uid://bhi71w0yr25q8" path="res://Art Assets/sakeGame/sakazukiLarge_target1.png" id="4_target1_tex"]
-[ext_resource type="Texture2D" uid="uid://di8jkt0trehbw" path="res://Art Assets/sakeGame/sakazuki_large_mask.png" id="5_8kq7l"]
+[ext_resource type="Texture2D" uid="uid://di8jkt0trehbw" path="res://Art Assets/sakeGame/sakazuki_small_mask.png" id="5_8kq7l"]
 [ext_resource type="Texture2D" uid="uid://bof55at721mqo" path="res://Art Assets/sakeGame/sakazukiLarge_target2.png" id="5_target2_tex"]
 [ext_resource type="Texture2D" uid="uid://dha3gfn270dra" path="res://Art Assets/sakeGame/sakazukiLarge_target3.png" id="6_target3_tex"]
 [ext_resource type="Material" uid="uid://bjbacp8ru2goh" path="res://Art Assets/Materials/SakazukiShadow.tres" id="8_olnv8"]
@@ -16,9 +16,6 @@ cull_mode = 2
 albedo_texture = ExtResource("2_cup_tex")
 texture_filter = 0
 
-[sub_resource type="QuadMesh" id="QuadMesh_liquid"]
-size = Vector2(0.022, 0.022)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_823lo"]
 render_priority = 0
 shader = ExtResource("4_jjq7u")
@@ -27,6 +24,9 @@ shader_parameter/sake_color = Color(0.98039216, 0.9490196, 0.7490196, 0.39215687
 shader_parameter/cup_interior_mask = ExtResource("5_8kq7l")
 shader_parameter/wave_speed = 0.5
 shader_parameter/wave_amplitude = 0.02
+
+[sub_resource type="QuadMesh" id="QuadMesh_liquid"]
+size = Vector2(0.022, 0.022)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_target1"]
 render_priority = 2
@@ -70,6 +70,7 @@ script = ExtResource("1_cup_script")
 cup_size = 2
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("3_cup_downsized_tex")
@@ -117,7 +118,7 @@ texture_filter = 0
 texture = ExtResource("6_target3_tex")
 
 [node name="CollisionArea" type="Area3D" parent="."]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]

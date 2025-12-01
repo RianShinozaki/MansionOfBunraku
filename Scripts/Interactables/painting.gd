@@ -8,6 +8,7 @@ extends StaticBody3D
 @export var painting_artwork_alt: Texture2D
 @export var inspect_fov: float = 40.0
 @export var can_be_opened: bool
+@export var switch_texture_on_click: bool = false  # If true, switches to alt texture when clicked in inspect mode
 @export var bunraku_appeasement: bool = true
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
@@ -24,6 +25,7 @@ var anim_lock: bool = false
 var open: bool = false
 var dir: int = -1  # -1 for left pivot (counterclockwise rotation)
 var first_viewing: bool = true
+var texture_switched: bool = false  # Track if texture has been switched
 
 @onready var focus_marker: Node3D = $FocusMarker
 
@@ -97,6 +99,15 @@ func on_inspect_click():
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		InspectionManager.current_mode = InspectionManager.Mode.INSPECT
 	
+	# Check if texture should be switched on click (prioritize this)
+	if switch_texture_on_click and painting_artwork_alt and not texture_switched:
+		switch_to_alt_tex()
+		texture_switched = true
+		
+		# Exit inspect mode after switching
+		if InspectionManager:
+			InspectionManager.exit_inspect()
+		return  # Exit after switching texture
 	# Check if time vortex should be triggered
 	if use_time_vortex and time_travel_target != "":
 		trigger_time_vortex()
@@ -184,6 +195,9 @@ func switch_to_alt_tex():
 			if material:
 				material.albedo_texture = painting_artwork_alt
 				$VisualPivot/ArtworkSprite.material_override = material
+	# Hide the frame if it exists
+	if has_node("VisualPivot/FrameSprite"):
+		$VisualPivot/FrameSprite.visible = false
 
 func switch_to_main_tex():
 	if painting_artwork and has_node("VisualPivot/ArtworkSprite"):
