@@ -69,13 +69,13 @@ size = Vector2(0.18, 0.04)
 script = ExtResource("1_cup_script")
 
 [node name="RegularViewSprite" type="Sprite3D" parent="."]
-visible = false
 billboard = 1
 shaded = true
 texture_filter = 0
 texture = ExtResource("3_cup_downsized_tex")
 
 [node name="CupModel" type="Sprite3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_cup")
 pixel_size = 0.0003
 billboard = 1
