@@ -13,3 +13,25 @@ extends Node3D
 
 @onready var yono_manager: BunrakuManager = $Yono
 @onready var kouya_manager: BunrakuManager = $Kouya
+var bunraku_counter: float
+var initiated: bool = false
+var active_bunraku: BunrakuManager = null
+
+func _ready() -> void:
+	initiated = false
+	
+func _process(delta: float) -> void:
+	bunraku_counter += delta
+	if !initiated and bunraku_counter > time_before_initiation:
+		initiated = true
+		bunraku_counter = 0
+
+func switch_bunraku() -> void:
+	if active_bunraku == null:
+		yono_manager.activate_bunraku()
+	elif active_bunraku == yono_manager:
+		yono_manager.deactivate_bunraku()
+		kouya_manager.activate_bunraku()
+	else:
+		kouya_manager.deactivate_bunraku()
+		yono_manager.activate_bunraku()

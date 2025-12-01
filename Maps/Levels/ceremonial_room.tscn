@@ -223,6 +223,8 @@ transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631,
 
 [node name="Bunraku" type="Node3D" parent="."]
 script = ExtResource("21_tfhdh")
+time_before_initiation = 2.0
+bunraku_switch_time = 5.0
 
 [node name="Yono" type="Node3D" parent="Bunraku" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7765708, 0.39425087, -2.60999)
@@ -247,6 +249,8 @@ script = ExtResource("3_84ys0")
 bunraku = NodePath("Kouya")
 can_jumpscare_command = true
 
+[node name="Kouya" parent="Bunraku/Kouya" instance=ExtResource("8_d8nvh")]
+
 [node name="CreakSFX" type="AudioStreamPlayer3D" parent="Bunraku/Kouya"]
 stream = ExtResource("5_7ea4m")
 
@@ -257,8 +261,6 @@ stream = ExtResource("6_lo88o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.9999995)
 material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
-
-[node name="Kouya" parent="Bunraku/Kouya" instance=ExtResource("8_d8nvh")]
 
 [node name="FireEffects" type="Node3D" parent="." groups=["FireFX"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3304261, -0.16570282, -1.0252341)
