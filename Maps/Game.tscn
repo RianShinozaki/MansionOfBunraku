@@ -118,6 +118,7 @@ script = ExtResource("44_40tdl")
 data = ExtResource("45_eqorb")
 start_id = "start"
 hide_portrait = true
+skip_input_action = "ui_cancel"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
@@ -139,3 +140,4 @@ light_color = Color(0.454751, 0.2933656, 0.48266262, 1)
 light_energy = 0.683
 
 [node name="Ceremonial Room" parent="." instance=ExtResource("2_xacle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002041459, -5.9604645e-08, 0.0076642036)

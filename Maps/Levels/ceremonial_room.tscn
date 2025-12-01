@@ -180,7 +180,7 @@ dir = 1
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, 0.010104828)
 
 [node name="YonoPainting" parent="Objects" instance=ExtResource("24_luy6v")]
-transform = Transform3D(-3.4149522e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.4149522e-08, 0.035545513, 1.2743111, -2.0879633)
+transform = Transform3D(-3.4149522e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.4149522e-08, 0.035545513, 1.376065, -1.4962835)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("25_pd0vp")
@@ -188,7 +188,7 @@ painting_artwork_alt = ExtResource("26_tfhdh")
 dialogue_id = "yono_painting"
 
 [node name="KouyaPainting" parent="Objects" instance=ExtResource("24_luy6v")]
-transform = Transform3D(-0.78125, 0, -6.8299045e-08, 0, 0.78125, 0, 6.8299045e-08, 0, -0.78125, -0.53906655, 1.2148502, 10.546437)
+transform = Transform3D(-3.414952e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.414952e-08, 0.05019572, 1.376122, -4.4835725)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("27_nvkic")
