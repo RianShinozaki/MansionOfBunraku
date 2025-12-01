@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8k3m4ln6x3q2"]
+[gd_scene load_steps=9 format=3 uid="uid://b8k3m4ln6x3q2"]
 
-[ext_resource type="Script" path="res://Scripts/Entities/kitsune_small.gd" id="1_kitsune_small_script"]
+[ext_resource type="Script" uid="uid://cbgub6du2wog5" path="res://Scripts/Entities/kitsune_small.gd" id="1_kitsune_small_script"]
 [ext_resource type="Texture2D" uid="uid://dcnklnolnxer5" path="res://Art Assets/kitsune_small.png" id="2_kitsune_small"]
 [ext_resource type="Texture2D" uid="uid://be4vxyyt1sk8o" path="res://Art Assets/kitsune_small_talking.png" id="3_kitsune_small_talking"]
 [ext_resource type="Texture2D" uid="uid://c05c82r3k7sit" path="res://Art Assets/kitsune_small_h.png" id="4_kitsune_small_h"]
@@ -34,8 +34,15 @@ heightmap_texture = ExtResource("5_kitsune_small_talking_h")
 texture_filter = 2
 billboard_keep_scale = true
 
-[node name="KitsuneSmall" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_osfgr"]
+size = Vector3(0.3447876, 0.45922852, 0.21868896)
+
+[node name="KitsuneSmall" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 37
 script = ExtResource("1_kitsune_small_script")
+
+[node name="FocusMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)
 
 [node name="PlaySprite" type="Sprite3D" parent="."]
 material_override = SubResource("StandardMaterial3D_kitsune_small_play")
@@ -53,3 +60,7 @@ double_sided = false
 alpha_cut = 2
 texture_filter = 2
 texture = ExtResource("3_kitsune_small_talking")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010345459, 0.002319336, -0.021331787)
+shape = SubResource("BoxShape3D_osfgr")

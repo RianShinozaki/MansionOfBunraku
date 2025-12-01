@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="PackedScene" uid="uid://drj1idk7skuj4" path="res://Maps/Levels/ceremonial_room.tscn" id="2_xacle"]
-[ext_resource type="PackedScene" uid="uid://0ywigdieb0vn" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
-[ext_resource type="PackedScene" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
+[ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
+[ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -76,14 +76,11 @@ script = ExtResource("1_duur3")
 cycle_time = 300.0
 meltdown_time = 30.0
 
-[node name="Ceremonial Room" parent="." instance=ExtResource("2_xacle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 2.3401551, -0.59786546, -0.9646208)
+transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 2.3401551, 0.3832556, -0.9646208)
 move_speed = 1.5
 
 [node name="InspectCamera" type="Camera3D" parent="."]
@@ -140,3 +137,6 @@ light_energy = 0.313
 transform = Transform3D(-0.90630776, -0.39428324, -0.15214132, 0, -0.35999697, 0.9329535, -0.42261833, 0.84554297, 0.32626805, -0.669474, 4.138894, -0.9389304)
 light_color = Color(0.454751, 0.2933656, 0.48266262, 1)
 light_energy = 0.683
+
+[node name="Ceremonial Room" parent="." instance=ExtResource("2_xacle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002041459, -5.9604645e-08, 0.0076642036)

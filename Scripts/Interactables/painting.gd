@@ -77,7 +77,7 @@ func on_interact():
 			first_viewing = false
 			var _dialogue_box: DialogueBox = DialogueBox.instance
 			_dialogue_box.data = environmental_dialogues
-			_dialogue_box.start(dialogue_id)
+			_dialogue_box.start(dialogue_id) 
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 			await _dialogue_box.dialogue_ended

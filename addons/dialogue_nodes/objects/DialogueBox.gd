@@ -59,7 +59,7 @@ static var instance: DialogueBox
 ## Speed of scroll when using joystick/keyboard input
 @export var scroll_speed := 4
 ## Input action used to skip dialogue animation
-@export var skip_input_action := 'ui_cancel'
+@export var skip_input_action := 'Left-Click'
 ## Custom RichTextEffects that can be used in the dialogue as bbcodes.[br]
 ## Example: [code][ghost]Spooky dialogue![/ghost][/code]
 @export var custom_effects : Array[RichTextEffect] = [

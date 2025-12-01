@@ -69,7 +69,7 @@ signal dialogue_ended
 		if speaker_label: speaker_label.modulate = default_speaker_color
 @export_group('Dialogue')
 ## Input action used to skip dialogue animation
-@export var skip_input_action := 'ui_cancel'
+@export var skip_input_action := 'Left-Click'
 ## Custom RichTextEffects that can be used in the dialogue as bbcodes.[br]
 ## Example: [code][ghost]Spooky dialogue![/ghost][/code]
 @export var dialogue_custom_effects : Array[RichTextEffect] = [
