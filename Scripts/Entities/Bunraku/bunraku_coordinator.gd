@@ -25,13 +25,22 @@ func _process(delta: float) -> void:
 	if !initiated and bunraku_counter > time_before_initiation:
 		initiated = true
 		bunraku_counter = 0
+		switch_bunraku()
+		
+	if initiated and bunraku_counter > bunraku_switch_time:
+		switch_bunraku()
+		bunraku_counter = 0
 
 func switch_bunraku() -> void:
 	if active_bunraku == null:
 		yono_manager.activate_bunraku()
+		active_bunraku = yono_manager
 	elif active_bunraku == yono_manager:
 		yono_manager.deactivate_bunraku()
 		kouya_manager.activate_bunraku()
+		active_bunraku = kouya_manager
 	else:
 		kouya_manager.deactivate_bunraku()
 		yono_manager.activate_bunraku()
+		active_bunraku = yono_manager
+		

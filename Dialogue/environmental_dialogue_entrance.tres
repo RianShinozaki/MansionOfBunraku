@@ -5,8 +5,10 @@
 [resource]
 script = ExtResource("1_wuqbv")
 starts = {
+"kouya_painting": &"0_2",
+"kouya_painting_ceremony": &"0_4",
 "yono_painting": &"0_1",
-"yoroi_painting": &"0_2"
+"yono_painting_ceremony": &"0_3"
 }
 nodes = {
 &"0_1": {
@@ -17,7 +19,17 @@ nodes = {
 &"0_2": {
 "link": &"1_4",
 "offset": Vector2(-160, 600),
-"start_id": "yoroi_painting"
+"start_id": "kouya_painting"
+},
+&"0_3": {
+"link": &"1_7",
+"offset": Vector2(-300, 1500),
+"start_id": "yono_painting_ceremony"
+},
+&"0_4": {
+"link": &"1_10",
+"offset": Vector2(-220, 1820),
+"start_id": "kouya_painting_ceremony"
 },
 &"1_1": {
 "audio_clip": null,
@@ -34,6 +46,48 @@ You realize you know her, though you don’t remember how. ",
 "size": Vector2(339.99982, 576),
 "speaker": ""
 },
+&"1_10": {
+"audio_clip": null,
+"dialogue": "Once again, you gaze upon the mysteriously familiar figure whom  you know as Kouya.",
+"offset": Vector2(160, 1840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": Vector2(340, 400),
+"speaker": ""
+},
+&"1_11": {
+"audio_clip": null,
+"dialogue": "Kouya has, of course, assisted many of the famous and wealthy in their courting rituals. All the while, he dreamt of someone one day preparing these rituals for him.",
+"offset": Vector2(560, 1840),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(360.00012, 400),
+"speaker": ""
+},
+&"1_12": {
+"audio_clip": null,
+"dialogue": "These dreams in mind, he performed his ceremonial duties with gusto. And if any mistakes were made in the process, [color=red] his temper could be a sight to behold.[/color]",
+"offset": Vector2(960, 1840),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(340, 400),
+"speaker": ""
+},
 &"1_2": {
 "audio_clip": null,
 "dialogue": "She is Yono, the daughter of a wealthy family. 
@@ -46,7 +100,7 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(300, 576),
+"size": Vector2(300, 575.9999),
 "speaker": ""
 },
 &"1_3": {
@@ -60,7 +114,7 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.0003, 576),
+"size": Vector2(360.00037, 575.9999),
 "speaker": ""
 },
 &"1_4": {
@@ -75,7 +129,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(380.00034, 576.0003),
+"size": Vector2(380.00024, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -89,7 +143,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(300, 576.0003),
+"size": Vector2(300, 576.0005),
 "speaker": ""
 },
 &"1_6": {
@@ -104,7 +158,49 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.0003, 576.0003),
+"size": Vector2(340.00012, 576.0005),
+"speaker": ""
+},
+&"1_7": {
+"audio_clip": null,
+"dialogue": "Once again, you gaze upon the mysteriously familiar figure whom  you know as Yono.",
+"offset": Vector2(160, 1360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(340, 420.00037),
+"speaker": ""
+},
+&"1_8": {
+"audio_clip": null,
+"dialogue": "Notoriously shy, she would often find herself lost for words before others... her beloved, especially.",
+"offset": Vector2(560, 1360),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(360.00037, 420.00037),
+"speaker": ""
+},
+&"1_9": {
+"audio_clip": null,
+"dialogue": "With an [color=yellow] inkwell in hand[/color], however, she privately renders her rich internal world onto pages upon pages of letters.",
+"offset": Vector2(960, 1360),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(340, 420.00037),
 "speaker": ""
 }
 }
