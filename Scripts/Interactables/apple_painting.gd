@@ -197,7 +197,7 @@ func switch_to_main_tex():
 
 func spawn_apple_for_player():
 	# Spawn an apple item and give it directly to the player
-	var apple_scene = preload("res://Objects/Items/apple.tscn")
+	var apple_scene = preload("res://Objects/Items/fruit.tscn")
 	if not apple_scene:
 		push_error("Apple scene not found!")
 		return
