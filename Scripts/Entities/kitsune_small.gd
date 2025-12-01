@@ -3,14 +3,19 @@ extends Node3D
 @onready var play_sprite: Sprite3D = $PlaySprite
 @onready var dialogue_sprite: Sprite3D = $DialogueSprite
 
+@export var facing_left = false
+
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
 
 var first_viewing: bool = true
-@export var inspect_fov: float = 40.0
+@export var inspect_fov: float = 20.0
 @onready var focus_marker: Node3D = $FocusMarker
 
 func _ready():
+	if facing_left:
+		play_sprite.flip_h = -1
+		dialogue_sprite.flip_h = -1
 	set_play_mode()
 
 func set_play_mode():
@@ -32,6 +37,8 @@ func on_interact():
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		get_viewport().set_input_as_handled()
 		
+		set_dialogue_mode()
+
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "" and first_viewing:
 			first_viewing = false
@@ -48,9 +55,7 @@ func on_inspect_click():
 	# Called when artwork is clicked during inspection mode
 	if InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
 		return
-	
-	set_dialogue_mode()
-	
+		
 	if dialogue_id != "":
 		var _dialogue_box: DialogueBox = DialogueBox.instance
 		_dialogue_box.data = environmental_dialogues
@@ -65,5 +70,6 @@ func on_inspect_click():
 		# Exit inspect mode after switching
 		if InspectionManager:
 			InspectionManager.exit_inspect()
-			set_play_mode()
+			
+		set_play_mode()
 		return  # Exit after switching texture
