@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8k3m4ln6x3q2"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/kitsune_small.gd" id="1_kitsune_small_script"]
+[ext_resource type="Texture2D" uid="uid://dcnklnolnxer5" path="res://Art Assets/kitsune_small.png" id="2_kitsune_small"]
+[ext_resource type="Texture2D" uid="uid://be4vxyyt1sk8o" path="res://Art Assets/kitsune_small_talking.png" id="3_kitsune_small_talking"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kitsune_small"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_kitsune_small")
+rim = 0.43
+rim_tint = 0.3
+heightmap_enabled = false
+texture_filter = 2
+billboard_keep_scale = true
+
+[node name="KitsuneSmall" type="Node3D"]
+script = ExtResource("1_kitsune_small_script")
+
+[node name="PlaySprite" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kitsune_small")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_kitsune_small")
+
+[node name="DialogueSprite" type="Sprite3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_kitsune_small")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_kitsune_small_talking")

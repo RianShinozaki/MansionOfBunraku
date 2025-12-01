@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccjmqax2q2k7v"]
+
+[ext_resource type="Texture2D" uid="uid://vnwhx3ld30g3" path="res://Art Assets/shrine_bowl.png" id="1_bxcwh"]
+
+[node name="ShrineBowl" type="Node3D"]
+
+[node name="RegularViewSprite" type="Sprite3D" parent="."]
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_bxcwh")
