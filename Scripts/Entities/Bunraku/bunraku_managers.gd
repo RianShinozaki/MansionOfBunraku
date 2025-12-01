@@ -1,4 +1,5 @@
 ###Handles the logic behind switching the Bunraku as well as initiating jumpscares
+class_name BunrakuManager
 
 extends Node3D
 
