@@ -79,7 +79,7 @@ meltdown_time = 30.0
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 2.3401551, -0.59786546, -0.9646208)
+transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 2.3401551, 0.3832556, -0.9646208)
 move_speed = 1.5
 
 [node name="InspectCamera" type="Camera3D" parent="."]
