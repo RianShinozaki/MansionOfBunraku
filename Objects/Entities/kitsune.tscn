@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8j4m3kn5w2p1"]
+[gd_scene load_steps=9 format=3 uid="uid://c8j4m3kn5w2p1"]
 
 [ext_resource type="Script" uid="uid://cpfsture4s4s" path="res://Scripts/Entities/kitsune.gd" id="1_kitsune_script"]
 [ext_resource type="Texture2D" uid="uid://dv3vaecv3s42e" path="res://Art Assets/Kitsune/kitsune.png" id="2_kitsune_tex"]
 [ext_resource type="Texture2D" uid="uid://btqphc2tkwc5b" path="res://Art Assets/Kitsune/kitsune_h.png" id="3_kitsune_h"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_billboard"]
+[ext_resource type="Resource" uid="uid://cn8j4m3kn5w2p2" path="res://Dialogue/kitsune_intro.tres" id="5_dialogue"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsune"]
 radius = 0.12
@@ -38,7 +39,10 @@ texture_filter = 2
 billboard_keep_scale = true
 
 [node name="Kitsune" type="AnimatableBody3D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_kitsune_script")
+dialogue_data = ExtResource("5_dialogue")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
