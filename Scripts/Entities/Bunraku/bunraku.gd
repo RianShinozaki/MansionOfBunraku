@@ -83,7 +83,7 @@ func appearance_update():
 	var lights: Array = get_tree().get_nodes_in_group("Light")
 	for _light in lights:
 		get_tree().create_tween().tween_property(_light, "energy_median", 0, 0.1)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.15).timeout
 	for _light in lights:
 		get_tree().create_tween().tween_property(_light, "energy_median", 1.5, 0.2)
 
@@ -94,15 +94,22 @@ func appearance_update():
 	emit_signal("appearance_update_end")
 	for _light in lights:
 		get_tree().create_tween().tween_property(_light, "energy_median", 1.5, 0.2)
+	get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color(0, 0, 0, 0), 0.2)
 	update_lock = false
 
 func deactivate():
+	await get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color.BLACK, 0.05).finished
 	appearance_update()
 	active = false
 	visible = false
 	$CollisionShape3D.disabled = true
+	get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color(0, 0, 0, 0), 0.2)
 	
 func activate():
+	appearance_update()
+	await get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color.BLACK, 0.05).finished
 	active = true
 	visible = true
 	$CollisionShape3D.disabled = false
+	get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color(0, 0, 0, 0), 0.2)
+	

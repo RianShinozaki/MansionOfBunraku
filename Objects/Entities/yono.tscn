@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbki4518ca03c"]
+[gd_scene load_steps=17 format=3 uid="uid://cbki4518ca03c"]
 
 [ext_resource type="Script" uid="uid://c3f5d5j8yehpf" path="res://Scripts/Entities/Bunraku/yono.gd" id="1_5sjfi"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="2_ua3am"]
@@ -40,6 +40,18 @@ heightmap_scale = 1.0
 heightmap_texture = ExtResource("5_sih24")
 texture_filter = 2
 billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_35v1j"]
+offsets = PackedFloat32Array(0.3190883, 0.49287748, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.5890411, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aioip"]
+gradient = SubResource("Gradient_35v1j")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Yono" type="AnimatableBody3D"]
 script = ExtResource("1_5sjfi")
@@ -91,6 +103,12 @@ omni_range = 430.46
 omni_attenuation = 0.5
 script = ExtResource("9_h58cf")
 energy_range = 0.25
+
+[node name="BlackFade" type="Sprite3D" parent="Body"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0.043985963)
+modulate = Color(1, 1, 1, 0)
+no_depth_test = true
+texture = SubResource("GradientTexture2D_aioip")
 
 [node name="Rattle" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_1vdij")

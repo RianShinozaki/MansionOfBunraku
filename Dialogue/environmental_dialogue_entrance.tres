@@ -43,7 +43,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(339.99982, 576),
+"size": Vector2(339.9998, 576),
 "speaker": ""
 },
 &"1_10": {
@@ -57,7 +57,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(340, 400),
+"size": Vector2(339.99997, 400),
 "speaker": ""
 },
 &"1_11": {
@@ -71,7 +71,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360.00012, 400),
+"size": Vector2(360.0001, 400),
 "speaker": ""
 },
 &"1_12": {
@@ -114,7 +114,7 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00037, 575.9999),
+"size": Vector2(360.0005, 575.9999),
 "speaker": ""
 },
 &"1_4": {
@@ -129,7 +129,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(380.00024, 576.0005),
+"size": Vector2(380.0002, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -158,7 +158,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00012, 576.0005),
+"size": Vector2(340.00024, 576.0005),
 "speaker": ""
 },
 &"1_7": {
@@ -172,7 +172,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340, 420.00037),
+"size": Vector2(339.99997, 420.00037),
 "speaker": ""
 },
 &"1_8": {
@@ -186,7 +186,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(360.00037, 420.00037),
+"size": Vector2(360.00034, 420.00037),
 "speaker": ""
 },
 &"1_9": {

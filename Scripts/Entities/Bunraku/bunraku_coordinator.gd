@@ -21,7 +21,9 @@ func _ready() -> void:
 	initiated = false
 	
 func _process(delta: float) -> void:
-	bunraku_counter += delta
+	if InspectionManager.current_mode == InspectionManager.Mode.PLAY:
+		bunraku_counter += delta
+		
 	if !initiated and bunraku_counter > time_before_initiation:
 		initiated = true
 		bunraku_counter = 0
