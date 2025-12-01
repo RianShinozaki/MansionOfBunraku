@@ -197,7 +197,7 @@ stream = ExtResource("14_6558k")
 autoplay = true
 
 [node name="ApplePainting" parent="Objects" instance=ExtResource("15_bqk1a")]
-transform = Transform3D(0.00047119058, 0.0030019626, -0.9999954, -1.3877788e-17, 0.99999547, 0.0030019628, 0.9999998, -1.4144966e-06, 0.00047118845, 5.083269, 1.7179686, -2.5644493)
+transform = Transform3D(0.00047119058, 0.0030019626, -0.9999954, -1.3877788e-17, 0.99999547, 0.0030019628, 0.9999998, -1.4144966e-06, 0.00047118845, 4.974653, 1.5086919, -2.9807243)
 
 [node name="ShrineBowl1" parent="Objects" instance=ExtResource("16_rou6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2526422, 1.363244, -5.7799306)
