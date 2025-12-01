@@ -331,6 +331,6 @@ light_energy = 0.0
 stream = ExtResource("11_2t57r")
 
 [node name="Kitsune" parent="." instance=ExtResource("33_uqtih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2292373, 0.37740698, -4.90834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2292373, 0.37740698, -3.877424)
 
 [connection signal="pour_failed" from="Objects/SakePouringGame" to="Objects/KouyaSakeLocation" method="handle_failed_game"]
