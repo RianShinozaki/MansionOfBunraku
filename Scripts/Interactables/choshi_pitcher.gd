@@ -18,6 +18,9 @@ var screen_to_world_scale: float = 1.0  # Scale factor for screen-to-world conve
 var screen_x_direction: Vector2 = Vector2.ZERO  # Direction of X-axis in screen space
 var previous_lifetime: float = 0.0  # Track previous lifetime to detect changes
 var restart_counter: int = 0  # Counter for periodic particle restarts
+var original_material: Material = null
+var is_pulsing: bool = false
+var original_position: Vector3 = Vector3.ZERO  # Store original position for reset
 
 # Sprite visibility for mode switching
 var inspection_manager: Node = null
@@ -41,6 +44,9 @@ signal spill_detected
 func _ready():
 	# Get InspectionManager
 	inspection_manager = get_node_or_null("/root/InspectionManager")
+	
+	# Store original position for reset
+	original_position = position
 	
 	# Set up collision layer for inspection mode raycasting (layer 6)
 	if collision_area:
@@ -325,3 +331,60 @@ func _update_visibility_for_mode(is_inspect_mode: bool):
 		regular_view_sprite.visible = not is_inspect_mode
 	if model:
 		model.visible = is_inspect_mode
+
+func pulse_emission(pulses_remaining: int):
+	"""Pulse the emission on and off"""
+	if pulses_remaining <= 0:
+		is_pulsing = false
+		return
+	
+	is_pulsing = true
+	
+	# The Model node itself is the Sprite3D
+	var sprite: Sprite3D = model as Sprite3D
+	
+	if sprite and sprite.material_override:
+		# Store original material if not already stored
+		if not original_material:
+			original_material = sprite.material_override.duplicate()
+		
+		# Create glowing material
+		var glow_material = sprite.material_override.duplicate() as StandardMaterial3D
+		if glow_material:
+			glow_material.emission_enabled = true
+			glow_material.emission = Color(0.98, 0.98, 0.8)  
+			glow_material.emission_energy_multiplier = 0.1
+			
+			# Pulse on
+			var tween = create_tween()
+			sprite.material_override = glow_material
+			tween.tween_property(glow_material, "emission_energy_multiplier", 0.4, 0.1)
+			tween.tween_property(glow_material, "emission_energy_multiplier", 0.1, 0.4)
+			
+			# After pulse completes, either do next pulse or finish
+			await tween.finished
+			
+			# Restore original material
+			if original_material:
+				sprite.material_override = original_material
+			
+			# Brief pause between pulses
+			await get_tree().create_timer(0.2).timeout
+			
+			# Continue with remaining pulses
+			pulse_emission(pulses_remaining - 1)
+
+func stop_pulse_sequence():
+	"""Stop any ongoing pulse sequences"""
+	is_pulsing = false
+	
+	# Restore original material if needed - Model is the Sprite3D
+	var sprite: Sprite3D = model as Sprite3D
+	
+	if sprite and original_material:
+		sprite.material_override = original_material
+
+func reset_position():
+	"""Reset pitcher to its original position"""
+	position = original_position
+	is_being_dragged = false

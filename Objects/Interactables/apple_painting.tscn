@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://q74apqdvsfyf"]
+[gd_scene load_steps=10 format=3 uid="uid://q74apqdvsfyf"]
 
 [ext_resource type="Script" uid="uid://dlfee0lqjpqh7" path="res://Scripts/Interactables/apple_painting.gd" id="1_jclf5"]
+[ext_resource type="Script" uid="uid://d3kshblbtr878" path="res://Scripts/Interactables/apple_area.gd" id="2_apple_area"]
 [ext_resource type="Texture2D" uid="uid://wjooh0pytlvp" path="res://Art Assets/Paintings/apple-painting.PNG" id="2_jclf5"]
 [ext_resource type="Texture2D" uid="uid://cwib3w46bbmho" path="res://Art Assets/painting_yono.png" id="7_cjkyv"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="8_dusc7"]
@@ -20,9 +21,12 @@ texture_filter = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(1.3587976, 0.90541995, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_apple_area"]
+size = Vector3(0.11859741, 0.14667968, 0.1)
+
 [node name="ApplePainting" type="StaticBody3D"]
 transform = Transform3D(3, 0, 0, 0, 2.9999864, 0.009005889, 0, -0.009005889, 2.9999864, 0, 0, 0)
-collision_layer = 37
+collision_layer = 5
 script = ExtResource("1_jclf5")
 painting_artwork = ExtResource("2_jclf5")
 
@@ -50,3 +54,11 @@ stream = ExtResource("8_dusc7")
 
 [node name="CloseSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_i44dp")
+
+[node name="AppleArea" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, -6.9849193e-10, 0, 6.9849193e-10, 0.9999999, 0.17697594, 0.15362366, -0.00043941825)
+script = ExtResource("2_apple_area")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AppleArea"]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, -5.4948032e-08, 0, 5.4948032e-08, 0.9999999, -0.9667553, -0.060119398, -0.00010044436)
+shape = SubResource("BoxShape3D_apple_area")
