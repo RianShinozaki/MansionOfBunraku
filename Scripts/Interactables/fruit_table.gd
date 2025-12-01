@@ -4,6 +4,8 @@ extends StaticBody3D
 
 @export var has_fruit: bool = true
 var fruit_object: Fruit
+@export var fruit_type: String = "apple"
+@export var offering_table: bool = false
 
 @export var fruit_target_position: Vector3 = Vector3(0.0, 0.2, 0.0)  
 

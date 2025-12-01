@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=35 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://dw8p5qm3nh2xf" path="res://Objects/Interactables/PouringGame/SakePouringGame.tscn" id="18_patpw"]
 [ext_resource type="PackedScene" uid="uid://dcnnkggbkq1d8" path="res://Objects/Items/shrine_sake.tscn" id="18_vy35f"]
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="19_74uo1"]
+[ext_resource type="Script" uid="uid://ckwue7nf5yqn2" path="res://Scripts/Interactables/fruit_table.gd" id="20_3ueig"]
+[ext_resource type="ArrayMesh" uid="uid://dmfry8u88rw75" path="res://Art Assets/sakeGame/lowTable.obj" id="21_luy6v"]
+[ext_resource type="Texture2D" uid="uid://d4iqu4g34xt60" path="res://Art Assets/Models/lowTable_0.png" id="22_pd0vp"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="23_shp2h"]
 [ext_resource type="Resource" uid="uid://bat7fmvfu8fmt" path="res://Dialogue/kitsune_hints.tres" id="24_vy35f"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_32mcr"]
@@ -56,6 +59,16 @@ shader_parameter/emissive_power = 2.5
 shader_parameter/color_bands = 10
 
 [sub_resource type="QuadMesh" id="QuadMesh_gpbpg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lowTable"]
+albedo_texture = ExtResource("22_pd0vp")
+metallic = 0.12
+metallic_specular = 0.8
+roughness = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vpohh"]
+size = Vector3(1, 0.7008667, 1)
 
 [node name="Ceremonial Room" type="Node3D"]
 
@@ -222,11 +235,35 @@ dir = 1
 [node name="Doors2" parent="." instance=ExtResource("28_32mcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2024487, 0.02257663, -0.1363037)
 
-[node name="FruitTableLeft" parent="." instance=ExtResource("18_74uo1")]
+[node name="FruitTableLeft" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9195122, 0.028, -4.682)
+collision_layer = 5
+script = ExtResource("20_3ueig")
+offering_table = true
 
-[node name="FruitTableRight" parent="." instance=ExtResource("18_74uo1")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FruitTableLeft"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
+mesh = ExtResource("21_luy6v")
+surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FruitTableLeft"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.026203156, 0)
+shape = SubResource("BoxShape3D_vpohh")
+
+[node name="FruitTableRight" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1206307, 0.027, -4.682)
+collision_layer = 5
+script = ExtResource("20_3ueig")
+offering_table = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FruitTableRight"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
+mesh = ExtResource("21_luy6v")
+surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FruitTableRight"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.026203156, 0)
+shape = SubResource("BoxShape3D_vpohh")
 
 [node name="Shrine" parent="." instance=ExtResource("19_74uo1")]
 transform = Transform3D(0.12499924, 0, 0.00043633144, 0, 0.125, 0, -0.00043633144, 0, 0.12499924, 2.1903694, 1.1870704, -6.173538)
