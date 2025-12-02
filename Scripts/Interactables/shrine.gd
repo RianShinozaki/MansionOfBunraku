@@ -20,11 +20,10 @@ func on_interact():
 		
 		#dialogue_id = "left_submission" if randf() > 0.5 else "right_submission"
 		if left_table.has_fruit and right_table.has_fruit:
-			if  left_table.fruit_type == "apple" and right_table.fruit_type == "peach":
-				dialogue_id = "success"
-			else: 
-				dialogue_id = "failure"
-			
+			dialogue_id = "success" if left_table.fruit_type == "apple" and right_table.fruit_type == "peach" else "failure"
+		else:
+			dialogue_id = "failure"
+
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "":
 			var _dialogue_box: DialogueBox = DialogueBox.instance

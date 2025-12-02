@@ -13,7 +13,7 @@ starts = {
 nodes = {
 &"0_1": {
 "link": &"1_1",
-"offset": Vector2(-380, 260),
+"offset": Vector2(-380, 200),
 "start_id": "left_submission"
 },
 &"0_2": {
@@ -23,12 +23,12 @@ nodes = {
 },
 &"0_3": {
 "link": &"1_3",
-"offset": Vector2(1650.209, 1026.8143),
+"offset": Vector2(1460, 920),
 "start_id": "success"
 },
 &"0_4": {
 "link": &"1_4",
-"offset": Vector2(1680, 1260),
+"offset": Vector2(1460, 1120),
 "start_id": "failure"
 },
 &"1_1": {
@@ -42,7 +42,7 @@ nodes = {
 "text": "Submit Offerings"
 }
 },
-"size": Vector2(559.99963, 706.00024),
+"size": Vector2(559.9995, 706.00024),
 "speaker": "Kitsune Left"
 },
 &"1_2": {
@@ -56,13 +56,15 @@ nodes = {
 "text": "Submit Offerings"
 }
 },
-"size": Vector2(579.99963, 706),
+"size": Vector2(579.9995, 706.001),
 "speaker": "Kitsune Right"
 },
 &"1_3": {
 "audio_clip": null,
-"dialogue": "Success",
-"offset": Vector2(2320, 40),
+"dialogue": "Tart and sweet... yes,  much like love itself.
+In this pairing, you have reached harmony.
+I shall bear witness to your sacred matrimony.",
+"offset": Vector2(2340, 440),
 "options": {
 0: {
 "condition": {},
@@ -70,13 +72,16 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(760.00085, 680.00037),
+"size": Vector2(760.0024, 680.00037),
 "speaker": "Kami"
 },
 &"1_4": {
 "audio_clip": null,
-"dialogue": "Failure",
-"offset": Vector2(2320, 800),
+"dialogue": "Before me lays a discordant pair.
+In love, you must have been led astray.
+Perhaps you should come ask again another day...
+",
+"offset": Vector2(2340, 1220),
 "options": {
 0: {
 "condition": {},
@@ -84,7 +89,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(760.00085, 680),
+"size": Vector2(760.0024, 680.0016),
 "speaker": "Kami"
 },
 &"5_1": {
@@ -110,19 +115,5 @@ nodes = {
 "true": &"1_3",
 "value1": "sake_poured",
 "value2": "1"
-}
-}
-variables = {
-"left_fruit": {
-"type": 4,
-"value": ""
-},
-"right_fruit": {
-"type": 4,
-"value": ""
-},
-"sake_poured": {
-"type": 1,
-"value": false
 }
 }
