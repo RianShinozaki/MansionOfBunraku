@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c4j8ibqlesadt"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_yepph"]
+
+[resource]
+script = ExtResource("1_yepph")
+starts = {
+"left_submission": &"0_1",
+"right_submission": &"0_2"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-380, 260),
+"start_id": "left_submission"
+},
+&"0_2": {
+"link": &"1_2",
+"offset": Vector2(-380, 600),
+"start_id": "right_submission"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "left",
+"offset": Vector2(100, -120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": "Submit Offerings"
+},
+1: {
+"condition": {},
+"link": "END",
+"text": "Contemplate More"
+}
+},
+"size": Vector2(559.99963, 706),
+"speaker": "Kitsune Left"
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "right",
+"offset": Vector2(100, 700),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": "Submit Offerings"
+},
+1: {
+"condition": {},
+"link": "END",
+"text": "Contemplate More"
+}
+},
+"size": Vector2(579.99963, 706.0005),
+"speaker": "Kitsune Right"
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "Success",
+"offset": Vector2(2320, 40),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(760.0012, 680.0001),
+"speaker": "Kami"
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "Failure",
+"offset": Vector2(2320, 800),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(760.0012, 680.001),
+"speaker": "Kami"
+},
+&"5_1": {
+"false": "END",
+"offset": Vector2(1060, 60),
+"operator": 0,
+"true": "END",
+"value1": "left_fruit",
+"value2": "apple"
+},
+&"5_2": {
+"false": "END",
+"offset": Vector2(1440, 60),
+"operator": 0,
+"true": "END",
+"value1": "right_fruit",
+"value2": "peach"
+},
+&"5_3": {
+"false": "END",
+"offset": Vector2(1820, 60),
+"operator": 0,
+"true": "END",
+"value1": "sake_poured",
+"value2": "1"
+}
+}
+strays = Array[String](["5_1", "5_2", "5_3", "1_3", "1_4"])
