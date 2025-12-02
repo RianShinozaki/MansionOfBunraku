@@ -9,7 +9,6 @@ var fruit_object: Fruit
 
 @export var offering_table: bool = false
 @export var left: bool = false
-signal offering_correct(table: FruitTable, fruit_type: String)
 @export var required_offering: String = ""
 
 @export var fruit_target_position: Vector3 = Vector3(0.0, 0.2, 0.0)  
@@ -50,8 +49,6 @@ func on_interact():
 		
 		if has_node("PlacementSound"):
 			$PlacementSound.play()
-			
-		_check_offering()
 		
 		return
 		
@@ -70,16 +67,3 @@ func on_interact():
 		fruit_object = null
 		
 		return
-
-func _check_offering():
-	if not offering_table:
-		return
-
-	if required_offering == "":
-		return  # no offering needed
-
-	if fruit_type == required_offering:
-		print("Offering correct:", fruit_type)
-		emit_signal("offering_correct", self, fruit_type)
-	else:
-		print("Offering incorrect:", fruit_type, "expected:", required_offering)

@@ -3,23 +3,11 @@ extends StaticBody3D
 @export var dialogue_id: String
 @export var environmental_dialogues: DialogueData
 
-var first_viewing: bool = true
 @export var inspect_fov: float = 20.0
 @onready var focus_marker: Node3D = $FocusMarker
 
 @export var left_table: FruitTable
 @export var right_table: FruitTable
-
-#func check_offerings():
-	#if not left_table.has_fruit or not right_table.has_fruit:
-		#return false  # One or both tables empty
-#
-	#if left_table.fruit_type == "apple" and right_table.fruit_type == "peach":
-		#print("Both offerings are correct")
-		#return true
-	#else:
-		#print("Offerings incorrect. Left:", left_table.fruit_type, "Right:", right_table.fruit_type)
-		#return false
 
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -38,8 +26,7 @@ func on_interact():
 				dialogue_id = "failure"
 			
 		await get_tree().create_timer(0.1).timeout
-		if dialogue_id != "" and first_viewing:
-			#first_viewing = false
+		if dialogue_id != "":
 			var _dialogue_box: DialogueBox = DialogueBox.instance
 			_dialogue_box.data = environmental_dialogues
 			_dialogue_box.start(dialogue_id)
