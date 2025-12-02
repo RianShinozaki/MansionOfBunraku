@@ -22,6 +22,9 @@ collision_layer = 37
 script = ExtResource("1_a88pr")
 environmental_dialogues = ExtResource("2_govao")
 
+[node name="FocusMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)
+
 [node name="Shrine" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07692146, 2.8268466, 0)
 mesh = ExtResource("1_shrine_mesh")
@@ -45,6 +48,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_shrine")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.186572, 1.8479209)
 shape = SubResource("BoxShape3D_qpdiw")
-
-[node name="FocusMarker" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)

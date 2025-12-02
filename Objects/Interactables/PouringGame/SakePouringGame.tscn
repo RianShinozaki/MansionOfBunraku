@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dw8p5qm3nh2xf"]
+[gd_scene load_steps=17 format=3 uid="uid://dw8p5qm3nh2xf"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
+[ext_resource type="Script" uid="uid://cwv6dup466ew5" path="res://Scripts/Interactables/sake_pouring_game.gd" id="1_game_script"]
 [ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
 [ext_resource type="PackedScene" uid="uid://dy0jfvvg05iav" path="res://Objects/Interactables/PouringGame/SakazukiCup_Small.tscn" id="3_cup_small"]
 [ext_resource type="PackedScene" uid="uid://dxuadpye5rqa" path="res://Objects/Interactables/PouringGame/SakazukiCup_Medium.tscn" id="4_cup_medium"]
@@ -8,11 +8,23 @@
 [ext_resource type="AudioStream" uid="uid://dr86bluktue4u" path="res://Audio/sake_pour.mp3" id="6_lfh5t"]
 [ext_resource type="AudioStream" uid="uid://plnoeu14brlp" path="res://Audio/sake_spill.wav" id="7_oimcx"]
 [ext_resource type="Resource" uid="uid://dfwpvf65vvuc5" path="res://Dialogue/sake_pouring_intro.tres" id="8_intro_dialogue"]
-[ext_resource type="PackedScene" uid="uid://bfqun1whg3ovj" path="res://Objects/Items/lowTable3D.tscn" id="9_nqoe1"]
+[ext_resource type="Script" uid="uid://ckwue7nf5yqn2" path="res://Scripts/Interactables/fruit_table.gd" id="9_nqoe1"]
+[ext_resource type="ArrayMesh" uid="uid://dmfry8u88rw75" path="res://Art Assets/sakeGame/lowTable.obj" id="10_jt0yu"]
+[ext_resource type="Texture2D" uid="uid://d4iqu4g34xt60" path="res://Art Assets/Models/lowTable_0.png" id="11_w7usb"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_font"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_game"]
 size = Vector3(0.6, 0.7, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lowTable"]
+albedo_texture = ExtResource("11_w7usb")
+metallic = 0.12
+metallic_specular = 0.8
+roughness = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vpohh"]
+size = Vector3(1, 0.7008667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_instruction"]
 font = ExtResource("12_font")
@@ -68,8 +80,20 @@ stream = ExtResource("6_lfh5t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18549806, 0, 0)
 stream = ExtResource("7_oimcx")
 
-[node name="LowTable3D" parent="." instance=ExtResource("9_nqoe1")]
+[node name="LowTable3D" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014053984, -0.26435012, -0.015368164)
+collision_layer = 5
+script = ExtResource("9_nqoe1")
+has_fruit = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LowTable3D"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
+mesh = ExtResource("10_jt0yu")
+surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowTable3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.026203156, 0)
+shape = SubResource("BoxShape3D_vpohh")
 
 [node name="InstructionLabel" type="Label" parent="."]
 z_index = -1

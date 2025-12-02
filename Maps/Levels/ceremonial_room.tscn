@@ -164,8 +164,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.026203156, 0)
 shape = SubResource("BoxShape3D_vpohh")
 
-[node name="Shrine" parent="Objects" instance=ExtResource("19_74uo1")]
+[node name="Shrine" parent="Objects" node_paths=PackedStringArray("left_table", "right_table") instance=ExtResource("19_74uo1")]
 transform = Transform3D(0.12499924, 0, 0.00043633144, 0, 0.125, 0, -0.00043633144, 0, 0.12499924, 2.1846893, 1.8794937, -6.0872345)
+left_table = NodePath("../FruitTableLeft")
+right_table = NodePath("../FruitTableRight")
 
 [node name="SakePouringGame" parent="Objects" instance=ExtResource("18_patpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5047536, 0.96593404, -4.580326)
