@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=53 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
@@ -15,15 +15,23 @@
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="12_pdxjr"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="13_1vayw"]
 [ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="14_6558k"]
+[ext_resource type="Texture2D" uid="uid://ghvdkpjx5jxk" path="res://Art Assets/Fruits/mandarin.png" id="14_utloy"]
+[ext_resource type="Texture2D" uid="uid://bnwv5aavbffxb" path="res://Art Assets/Fruits/peach.png" id="15_5th4s"]
 [ext_resource type="PackedScene" uid="uid://q74apqdvsfyf" path="res://Objects/Interactables/apple_painting.tscn" id="15_bqk1a"]
+[ext_resource type="Texture2D" uid="uid://iwy33sqkuxtr" path="res://Art Assets/Fruits/persimmon.png" id="16_awubs"]
 [ext_resource type="PackedScene" uid="uid://ccjmqax2q2k7v" path="res://Objects/Items/shrine_bowl.tscn" id="16_rou6r"]
+[ext_resource type="Texture2D" uid="uid://ba47v5ww87tl1" path="res://Art Assets/Fruits/grapes.png" id="17_kugd7"]
 [ext_resource type="PackedScene" uid="uid://d1t8axaaqvjtt" path="res://Objects/Items/shrine_cup.tscn" id="17_shp2h"]
 [ext_resource type="PackedScene" uid="uid://bfqun1whg3ovj" path="res://Objects/Items/lowTable3D.tscn" id="18_74uo1"]
+[ext_resource type="Texture2D" uid="uid://iu8ickjbln7g" path="res://Art Assets/Fruits/pear.png" id="18_d0rv8"]
 [ext_resource type="PackedScene" uid="uid://dw8p5qm3nh2xf" path="res://Objects/Interactables/PouringGame/SakePouringGame.tscn" id="18_patpw"]
 [ext_resource type="PackedScene" uid="uid://dcnnkggbkq1d8" path="res://Objects/Items/shrine_sake.tscn" id="18_vy35f"]
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="19_74uo1"]
+[ext_resource type="Texture2D" uid="uid://cj4n5iu7pqm5k" path="res://Art Assets/Fruits/melon.png" id="19_stm81"]
 [ext_resource type="Script" uid="uid://ckwue7nf5yqn2" path="res://Scripts/Interactables/fruit_table.gd" id="20_3ueig"]
+[ext_resource type="Texture2D" uid="uid://bvn7624pm3y6o" path="res://Art Assets/Fruits/strawberry.png" id="20_kmkot"]
 [ext_resource type="ArrayMesh" uid="uid://dmfry8u88rw75" path="res://Art Assets/sakeGame/lowTable.obj" id="21_luy6v"]
+[ext_resource type="Texture2D" uid="uid://mmd47bbphwbu" path="res://Art Assets/Fruits/banana.png" id="21_t3s4c"]
 [ext_resource type="Script" uid="uid://dku62rsrvc6a4" path="res://Scripts/Entities/Bunraku/bunraku_coordinator.gd" id="21_tfhdh"]
 [ext_resource type="Texture2D" uid="uid://d4iqu4g34xt60" path="res://Art Assets/Models/lowTable_0.png" id="22_pd0vp"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="23_shp2h"]
@@ -126,8 +134,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9138321, 0.72042334, -4.595
 collision_layer = 5
 script = ExtResource("20_3ueig")
 has_fruit = false
-fruit_type = ""
 offering_table = true
+left = true
+required_offering = "apple"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/FruitTableLeft"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
@@ -143,8 +152,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1149507, 0.71942335, -4.595
 collision_layer = 5
 script = ExtResource("20_3ueig")
 has_fruit = false
-fruit_type = ""
 offering_table = true
+required_offering = "peach"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/FruitTableRight"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
@@ -165,27 +174,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5047536, 0.96593404, -4.580
 
 [node name="Left1" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2160873, 0.72, -3.605584)
+fruit_texture = ExtResource("14_utloy")
+fruit_type = "mandarin"
 
 [node name="Left2" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2160873, 0.72, -2.845584)
+fruit_texture = ExtResource("15_5th4s")
+fruit_type = "peach"
 
 [node name="Left3" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2160873, 0.72, -2.071584)
+fruit_texture = ExtResource("16_awubs")
+fruit_type = "persimmon"
 
 [node name="Left4" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.216, 0.692, -1.298)
+fruit_texture = ExtResource("17_kugd7")
+fruit_type = "grapes"
 
 [node name="Right1" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.765, 0.72, -3.606)
+fruit_texture = ExtResource("18_d0rv8")
+fruit_type = "pear"
 
 [node name="Right2" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.765, 0.72, -2.846)
+fruit_texture = ExtResource("19_stm81")
+fruit_type = "melon"
 
 [node name="Right3" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.765, 0.72, -2.072)
+fruit_texture = ExtResource("20_kmkot")
+fruit_type = "strawberry"
 
 [node name="Right4" parent="Objects/GuestTables" instance=ExtResource("18_74uo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7645662, 0.69242334, -1.295105)
+fruit_texture = ExtResource("21_t3s4c")
+fruit_type = "banana"
 
 [node name="KitsuneSmallLeft" parent="Objects" instance=ExtResource("23_shp2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 1.2905266, -5.8941684)
