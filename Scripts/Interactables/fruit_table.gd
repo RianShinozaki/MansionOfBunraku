@@ -45,6 +45,12 @@ func on_interact():
 	if has_fruit:
 		print("Trying to get fruit")
 		
+		# Check if fruit_object exists
+		if fruit_object == null:
+			print("Error: has_fruit is true but no fruit_object found")
+			has_fruit = false
+			return
+		
 		# Find the fruit
 		fruit_object.freeze = false
 		has_fruit = false
@@ -56,4 +62,3 @@ func on_interact():
 		fruit_object = null
 		
 		return
-	
