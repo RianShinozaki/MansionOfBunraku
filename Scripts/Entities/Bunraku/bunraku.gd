@@ -24,6 +24,8 @@ func _ready() -> void:
 	mat.emission_energy_multiplier = 0
 	
 func _physics_process(_delta: float) -> void:
+	position = Vector3(0, 0, 0)
+	
 	body_sprite.offset = Vector2.ZERO
 	head_sprite.rotation.z = 0
 	if anger_level > 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6hmil0dhqlfe"]
+[gd_scene load_steps=21 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://favmip5alj1i" path="res://Art Assets/note-two.png" id="8_ka5ud"]
 [ext_resource type="AudioStream" uid="uid://5jdqbii4w0ax" path="res://Audio/string-three.mp3" id="8_yq6kl"]
 [ext_resource type="PackedScene" uid="uid://b7u1tmkftym6b" path="res://Objects/Items/shamisen.tscn" id="9_vhsen"]
+[ext_resource type="Texture2D" uid="uid://c4u4u8forifqo" path="res://Art Assets/song_matrimony_symbol.png" id="11_67lg5"]
 [ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
 [ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
 
@@ -184,6 +185,84 @@ offset_top = 103.0
 offset_right = 300.0
 offset_bottom = 138.0
 text = "Song of Freedom"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="SongOfMatrimony" type="Control" parent="CanvasLayer/Music Memory"]
+anchors_preset = 0
+offset_left = 820.0
+offset_top = -24.0
+offset_right = 860.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 142.0
+offset_right = 234.5
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("11_67lg5")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("8_ka5ud")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 185.0
+offset_right = 236.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 185.0
+offset_right = 108.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 185.0
+offset_right = 149.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Music Memory/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 103.0
+offset_right = 328.0
+offset_bottom = 138.0
+text = "Song of Matrimony"
 label_settings = SubResource("LabelSettings_w48y6")
 
 [node name="ThinkingBar" type="Control" parent="CanvasLayer"]
