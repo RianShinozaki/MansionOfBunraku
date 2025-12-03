@@ -13,7 +13,7 @@ roughness = 0.0
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vpohh"]
-size = Vector3(1, 0.7008667, 1)
+size = Vector3(1, 0.76560974, 1)
 
 [node name="lowTable3D" type="StaticBody3D" groups=["Interactable"]]
 collision_layer = 5
@@ -26,8 +26,8 @@ mesh = ExtResource("1_mesh")
 surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.026203156, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0032905936, 0.042388916, 0)
 shape = SubResource("BoxShape3D_vpohh")
 
 [node name="Fruit" parent="." instance=ExtResource("4_vpohh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20225996, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2565731, 0)
