@@ -11,7 +11,7 @@ var fruit_object: Fruit
 @export var left: bool = false
 @export var required_offering: String = ""
 
-@export var fruit_target_position: Vector3 = Vector3(0.0, 0.2, 0.0)  
+@export var fruit_target_position: Vector3 = Vector3(0.0, 0.4, 0.0)  
 
 func _ready():
 	fruit_object = $Fruit if has_node("Fruit") else null
