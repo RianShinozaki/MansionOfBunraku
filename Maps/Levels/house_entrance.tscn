@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjcpfvhnsapwc"]
+[gd_scene load_steps=41 format=3 uid="uid://cjcpfvhnsapwc"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwodgaxg0lfbc" path="res://Art Assets/Models/House_entrance.obj" id="1_6x6o2"]
+[ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_dmi03"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_5bquy"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_pajfp"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_rfxee"]
@@ -12,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="10_xr1ea"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="11_4ac6g"]
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="12_plyj7"]
+[ext_resource type="PackedScene" uid="uid://buarhq7t0osim" path="res://Objects/Decoration/chandelier.tscn" id="13_sp5tf"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="13_us18o"]
 [ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="14_ir60f"]
 [ext_resource type="Texture2D" uid="uid://bbnqd6ssch114" path="res://Art Assets/Katseye.png" id="15_dxmi6"]
@@ -24,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="22_hf7f6"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="23_ha2qu"]
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="24_e18u1"]
-[ext_resource type="PackedScene" uid="uid://cgnpoc8lkf3qu" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
+[ext_resource type="PackedScene" uid="uid://b510j3k1byatv" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
 [ext_resource type="Texture2D" uid="uid://cwpgtkcwofy83" path="res://Art Assets/Letters/kouya-letter-one.png" id="26_aj4cu"]
 [ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="26_jlesl"]
 [ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="27_lar5f"]
@@ -69,6 +71,8 @@ shader_parameter/color_bands = 10
 size = Vector3(0.325012, 0.541504, 0.648376)
 
 [node name="HouseEntranceLevel" type="Node3D"]
+script = ExtResource("1_dmi03")
+world_offset = Vector3(0, 0.718, 0)
 
 [node name="HouseEntrance" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7220864, 0)
@@ -170,34 +174,8 @@ stream = ExtResource("11_4ac6g")
 [node name="Objects" type="Node3D" parent="HouseEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.324746, 0.5267205, -0.9389304)
 
-[node name="Chandelier" type="Sprite3D" parent="HouseEntrance/Objects"]
+[node name="Chandelier" parent="HouseEntrance/Objects" instance=ExtResource("13_sp5tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881563, 0.900854, 1.5825508)
-billboard = 2
-shaded = true
-texture_filter = 2
-texture = ExtResource("12_plyj7")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="HouseEntrance/Objects/Chandelier" groups=["Light"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
-light_color = Color(0.89659, 0.65039, 0.598985, 1)
-light_energy = 1.403
-light_size = 0.03
-light_specular = 0.0
-shadow_bias = 0.15
-distance_fade_enabled = true
-distance_fade_begin = 6.0
-distance_fade_shadow = 0.0
-distance_fade_length = 6.0
-omni_range = 8.438
-omni_attenuation = 2.068
-script = ExtResource("13_us18o")
-energy_median = 1.5
-energy_range = 0.25
-energy_delta_range = 0.02
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="HouseEntrance/Objects/Chandelier"]
-stream = ExtResource("14_ir60f")
-autoplay = true
 
 [node name="Chandelier2" type="Sprite3D" parent="HouseEntrance/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6376681, 0.900854, -7.3284736)
@@ -353,3 +331,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 [connection signal="finished_reading" from="HouseEntrance/Objects/YonoPainting/InspectionLetter" to="HouseEntrance/Objects/YonoPainting" method="switch_to_alt_tex"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Objects/KouyaPainting" method="switch_to_alt_tex"]
+[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors" to="HouseEntrance/Objects/ShamisenDoors/PaperDoor" method="unlock"]
+[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors2" to="HouseEntrance/Objects/ShamisenDoors2/PaperDoor" method="unlock"]

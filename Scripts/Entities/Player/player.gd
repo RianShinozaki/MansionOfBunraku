@@ -28,7 +28,7 @@ var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
 
-var holding_shamisen: bool = false
+@export var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
 var shamisen_wait_time: float
 @export var shamisen_wait_memory_time: float # 3.0

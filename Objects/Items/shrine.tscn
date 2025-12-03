@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqt8x2yw5hdxj"]
+[gd_scene load_steps=9 format=3 uid="uid://bqt8x2yw5hdxj"]
 
+[ext_resource type="Script" uid="uid://co4ksbitfn5od" path="res://Scripts/Interactables/shrine.gd" id="1_a88pr"]
 [ext_resource type="ArrayMesh" uid="uid://cryr8jc15kw8w" path="res://Art Assets/Models/shrine.obj" id="1_shrine_mesh"]
+[ext_resource type="Resource" uid="uid://c4j8ibqlesadt" path="res://Dialogue/shrine_submission.tres" id="2_govao"]
 [ext_resource type="Texture2D" uid="uid://b5bug3s8rxvpm" path="res://Art Assets/Models/shrine_0.png" id="2_shrine_texture"]
 [ext_resource type="ArrayMesh" uid="uid://cnilq71pikgh4" path="res://Art Assets/Models/shrineshelf.obj" id="3_poqi3"]
 [ext_resource type="ArrayMesh" uid="uid://dquqvxdn2qm5v" path="res://Art Assets/Models/shrineshelf_small.obj" id="4_vqiuj"]
@@ -13,9 +15,15 @@ texture_filter = 0
 texture_repeat = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpdiw"]
-size = Vector3(7, 5, 2)
+size = Vector3(7, 5.7836914, 3.0986938)
 
-[node name="Shrine" type="StaticBody3D"]
+[node name="Shrine" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 37
+script = ExtResource("1_a88pr")
+environmental_dialogues = ExtResource("2_govao")
+
+[node name="FocusMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0822754)
 
 [node name="Shrine" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07692146, 2.8268466, 0)
@@ -37,9 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2725897, -6.218094, -1.1809
 mesh = ExtResource("4_vqiuj")
 surface_material_override/0 = SubResource("StandardMaterial3D_shrine")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.597895)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.2, 0.22698522)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.186572, 1.8479209)
 shape = SubResource("BoxShape3D_qpdiw")
