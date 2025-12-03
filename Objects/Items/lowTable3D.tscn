@@ -18,7 +18,7 @@ size = Vector3(1, 0.7008667, 1)
 [node name="lowTable3D" type="StaticBody3D" groups=["Interactable"]]
 collision_layer = 5
 script = ExtResource("1_c8uub")
-fruit_target_position = Vector3(0, 0.1, 0)
+fruit_target_position = Vector3(0, 0.25, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.23171972, 0.26979512, 0.14331895)
