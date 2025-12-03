@@ -9,7 +9,7 @@ enum {YONO, YOROI}
 @export var can_jumpscare_command: bool
 
 func _ready() -> void:
-	bunraku.deactivate()
+	bunraku.deactivate(false)
 	visible = false
 	
 func activate_bunraku():
@@ -17,7 +17,7 @@ func activate_bunraku():
 	visible = true
 
 func deactivate_bunraku():
-	bunraku.deactivate()
+	bunraku.deactivate(true)
 	visible = false
 	
 func _process(delta: float) -> void:
