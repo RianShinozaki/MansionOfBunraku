@@ -19,6 +19,12 @@ func _ready():
 	if has_fruit and fruit_texture and fruit_type:
 		$Fruit/Sprite3D.texture = fruit_texture
 		fruit_object.set_fruit(fruit_type)
+		fruit_object.remove_from_group("Item")
+		for child in fruit_object.get_children():
+			if child is CollisionShape3D:
+				child.disabled = true
+		fruit_object.freeze = true
+		fruit_object.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	
 func can_interact() -> bool:
 	return true
@@ -33,19 +39,21 @@ func on_interact():
 		fruit_type = fruit.get_fruit()
 		
 		#teleport to target coordinates 
-		fruit.position = fruit_target_position
 		for child in fruit.get_children():
 			if child is CollisionShape3D:
-				child.disabled = false
+				child.disabled = true
+				
+		fruit.freeze = true
+		fruit.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
+		fruit.position = fruit_target_position
+		
 		fruit.held = false
 		
 		print("placed ", fruit_type)
-		
-		fruit.freeze = true
-		fruit.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
-		
+
 		has_fruit = true
 		fruit_object = fruit
+		fruit_object.remove_from_group("Item")
 		
 		if has_node("PlacementSound"):
 			$PlacementSound.play()
@@ -62,7 +70,9 @@ func on_interact():
 		
 		# let player pick  up
 		if fruit_object.can_pickup():
+			fruit_object.add_to_group("Item")
 			Player.instance.pick_up_object(fruit_object)
+				
 		
 		fruit_object = null
 		

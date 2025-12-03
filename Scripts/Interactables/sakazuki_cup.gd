@@ -237,7 +237,7 @@ func stop_target_range_flash():
 	if target3:
 		target3.modulate = Color(0.3, 0.7, 1.0, 0.8)
 
-func evaluate_pour(pour_duration: float) -> Dictionary:
+func evaluate_pour(_pour_duration: float) -> Dictionary:
 	"""
 	Evaluate if the pour was successful
 	Returns: { success: bool, perfect: bool, overflow: bool }

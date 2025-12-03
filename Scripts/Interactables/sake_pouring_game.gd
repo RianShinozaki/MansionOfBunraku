@@ -432,6 +432,8 @@ func complete_ritual():
 	
 	if InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
 		InspectionManager.exit_inspect()
+	
+	remove_from_group("Interactable")
 
 func _unhandled_input(event):
 	"""Handle mouse input for dragging and spacebar for pouring"""
