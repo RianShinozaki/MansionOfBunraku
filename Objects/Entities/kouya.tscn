@@ -36,10 +36,10 @@ look_anger_range = 0.5
 look_anger_curve = SubResource("Curve_uwb3h")
 look_anger_factor = 0.1
 no_look_max_time = 4.0
-anger_headshake_factor = 0.1
-anger_bodyshake_factor = 1.0
-anger_decrease_delta = 0.15
-anger_decrease_max = 0.15
+anger_headshake_factor = 0.15
+anger_bodyshake_factor = 1.4
+anger_decrease_delta = 0.05
+anger_decrease_max = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
