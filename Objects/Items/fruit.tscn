@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pple001"]
 
 [ext_resource type="Script" uid="uid://ccy0w6r2mle5b" path="res://Scripts/Items/fruit.gd" id="1_meucj"]
-[ext_resource type="Texture2D" uid="uid://c1bx1u8xgqvw6" path="res://Art Assets/apple.png" id="2_mbpin"]
+[ext_resource type="Texture2D" uid="uid://c1bx1u8xgqvw6" path="res://Art Assets/Fruits/apple.png" id="2_mbpin"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apple"]
 size = Vector3(0.2, 0.2, 0.2)
