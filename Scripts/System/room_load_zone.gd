@@ -8,6 +8,8 @@ func _ready() -> void:
 	body_exited.connect(on_body_exited)
 
 func _process(_delta: float) -> void:
+	if GameManager.instance.debug_load_all: entered = true
+	
 	if entered and not is_instance_valid(room_object):
 		if ResourceLoader.load_threaded_get_status(room_path) == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE:
 			print("Beginning load of " + room_path)

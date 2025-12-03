@@ -8,7 +8,7 @@ starts = {
 "kouya_painting": &"0_2",
 "kouya_painting_ceremony": &"0_4",
 "yono_painting": &"0_1",
-"yono_painting_yono_painting_ceremony": &"0_3"
+"yono_painting_ceremony": &"0_3"
 }
 nodes = {
 &"0_1": {
@@ -23,8 +23,8 @@ nodes = {
 },
 &"0_3": {
 "link": &"1_7",
-"offset": Vector2(-180, 1360),
-"start_id": "yono_painting_yono_painting_ceremony"
+"offset": Vector2(-220, 1360),
+"start_id": "yono_painting_ceremony"
 },
 &"0_4": {
 "link": &"1_10",
@@ -43,7 +43,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(339.99976, 576),
+"size": Vector2(339.9997, 576),
 "speaker": ""
 },
 &"1_10": {
@@ -57,7 +57,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(340, 400),
+"size": Vector2(340, 399.99988),
 "speaker": ""
 },
 &"1_11": {
@@ -71,13 +71,13 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360.00012, 400),
+"size": Vector2(360.00012, 399.99988),
 "speaker": ""
 },
 &"1_12": {
 "audio_clip": null,
-"dialogue": "",
-"offset": Vector2(1024.3903, 1939.5919),
+"dialogue": "These dreams in mind, he performed his ceremonial duties with gusto. And if any mistakes were made in the process, [color=red] his temper could be a sight to behold.[/color]",
+"offset": Vector2(980, 1840),
 "options": {
 0: {
 "condition": {},
@@ -85,7 +85,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(300, 268),
+"size": Vector2(360, 380),
 "speaker": ""
 },
 &"1_2": {
@@ -114,7 +114,7 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00055, 575.9999),
+"size": Vector2(360.00037, 575.9999),
 "speaker": ""
 },
 &"1_4": {
@@ -129,7 +129,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(380.0002, 576.0005),
+"size": Vector2(380.00024, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -158,7 +158,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.0003, 576.0005),
+"size": Vector2(340.00012, 576.0005),
 "speaker": ""
 },
 &"1_7": {
@@ -192,7 +192,7 @@ He is Kouya, a servant of Yono’s family.",
 &"1_9": {
 "audio_clip": null,
 "dialogue": "With an [color=yellow] inkwell in hand[/color], however, she privately renders her rich internal world onto pages upon pages of letters.",
-"offset": Vector2(960, 1360),
+"offset": Vector2(980, 1380),
 "options": {
 0: {
 "condition": {},
@@ -200,7 +200,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00006, 420.00037),
+"size": Vector2(340, 420.00037),
 "speaker": ""
 }
 }

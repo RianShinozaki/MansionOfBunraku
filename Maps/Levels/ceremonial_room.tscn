@@ -1,7 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://drj1idk7skuj4"]
+[gd_scene load_steps=54 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
-[ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_i6i0y"]
+[ext_resource type="Script" path="res://Scripts/System/room.gd" id="1_i6i0y"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_84ys0"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_lmuaq"]
