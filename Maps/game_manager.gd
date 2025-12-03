@@ -4,6 +4,10 @@ extends Node3D
 
 static var instance: GameManager 
 
+@export_category("Debug")
+@export var debug_load_all: bool
+
+@export_category("Fire")
 @export var cycle_time: float
 @export var meltdown_time: float
 

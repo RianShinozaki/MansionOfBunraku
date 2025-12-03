@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bx1u8xgqvw6" path="res://Art Assets/Fruits/apple.png" id="2_mbpin"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apple"]
-size = Vector3(0.056970216, 0.05288086, 0.053686522)
+size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Fruit" type="RigidBody3D" groups=["Item"]]
 collision_layer = 4
