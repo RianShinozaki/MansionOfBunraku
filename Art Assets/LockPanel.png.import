@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjeguxjh6lgd1"
-path.s3tc="res://.godot/imported/LockPanel.png-52fe52b0c29ae11a5eb8e4392339aace.s3tc.ctex"
+path="res://.godot/imported/LockPanel.png-52fe52b0c29ae11a5eb8e4392339aace.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/LockPanel.png"
-dest_files=["res://.godot/imported/LockPanel.png-52fe52b0c29ae11a5eb8e4392339aace.s3tc.ctex"]
+dest_files=["res://.godot/imported/LockPanel.png-52fe52b0c29ae11a5eb8e4392339aace.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

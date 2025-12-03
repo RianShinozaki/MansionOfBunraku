@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2jyvuwtubqnn"
-path.s3tc="res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.s3tc.ctex"
+path="res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Source/PaperDoor/PaperDoor.png"
-dest_files=["res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.s3tc.ctex"]
+dest_files=["res://.godot/imported/PaperDoor.png-7ea1e0f198aa61ae6d6931c8f80b6d49.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

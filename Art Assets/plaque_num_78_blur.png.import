@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq63ra3g44f76"
-path.s3tc="res://.godot/imported/plaque_num_78_blur.png-888e785e6ef6c83824b653af96505371.s3tc.ctex"
+path="res://.godot/imported/plaque_num_78_blur.png-888e785e6ef6c83824b653af96505371.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/plaque_num_78_blur.png"
-dest_files=["res://.godot/imported/plaque_num_78_blur.png-888e785e6ef6c83824b653af96505371.s3tc.ctex"]
+dest_files=["res://.godot/imported/plaque_num_78_blur.png-888e785e6ef6c83824b653af96505371.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
