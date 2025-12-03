@@ -31,7 +31,6 @@ signal pour_stopped
 signal clicked
 signal drag_started
 signal drag_ended
-signal hovering_cup(cup: SakazukiCup)
 signal spill_detected
 
 @onready var regular_view_sprite: Sprite3D = $RegularViewSprite

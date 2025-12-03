@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c05c82r3k7sit"
-path.s3tc="res://.godot/imported/kitsune_small_h.png-5dace3de9192b73f4036bfef9660f786.s3tc.ctex"
+path="res://.godot/imported/kitsune_small_h.png-5dace3de9192b73f4036bfef9660f786.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/kitsune_small_h.png"
-dest_files=["res://.godot/imported/kitsune_small_h.png-5dace3de9192b73f4036bfef9660f786.s3tc.ctex"]
+dest_files=["res://.godot/imported/kitsune_small_h.png-5dace3de9192b73f4036bfef9660f786.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

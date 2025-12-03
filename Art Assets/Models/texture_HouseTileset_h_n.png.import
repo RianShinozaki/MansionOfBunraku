@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b17npmkhado4g"
-path.s3tc="res://.godot/imported/texture_HouseTileset_h_n.png-c3930f965b533ec03c0e4234a925c985.s3tc.ctex"
+path="res://.godot/imported/texture_HouseTileset_h_n.png-c3930f965b533ec03c0e4234a925c985.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/Models/texture_HouseTileset_h_n.png"
-dest_files=["res://.godot/imported/texture_HouseTileset_h_n.png-c3930f965b533ec03c0e4234a925c985.s3tc.ctex"]
+dest_files=["res://.godot/imported/texture_HouseTileset_h_n.png-c3930f965b533ec03c0e4234a925c985.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

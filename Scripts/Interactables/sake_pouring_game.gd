@@ -317,7 +317,7 @@ func evaluate_pour(duration: float, poured_cup: SakazukiCup):
 		# Fill level was incorrect
 		handle_failure("The fill level is incorrect. Try again.")
 
-func handle_success(perfect: bool):
+func handle_success(_perfect: bool):
 	"""Handle a successful pour"""
 	var cup = cups[current_cup_index]
 	
@@ -366,7 +366,7 @@ func advance_to_next_cup():
 		activate_current_cup()
 		current_state = GameState.WAITING_FOR_POUR
 
-func handle_failure(message: String):
+func handle_failure(_message: String):
 	"""Handle a failed pour"""
 	current_state = GameState.FAILED
 	
@@ -432,6 +432,8 @@ func complete_ritual():
 	
 	if InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
 		InspectionManager.exit_inspect()
+	
+	remove_from_group("Interactable")
 
 func _unhandled_input(event):
 	"""Handle mouse input for dragging and spacebar for pouring"""
