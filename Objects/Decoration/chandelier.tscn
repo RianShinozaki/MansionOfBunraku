@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://buarhq7t0osim"]
+
+[ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="1_32f6t"]
+[ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="2_0nhil"]
+[ext_resource type="AudioStream" uid="uid://bt7rm8buo3fmx" path="res://Audio/candle_flame_crackle.mp3" id="3_v6jw1"]
+
+[node name="Chandelier" type="Sprite3D"]
+billboard = 2
+shaded = true
+texture_filter = 2
+texture = ExtResource("1_32f6t")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." groups=["Light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
+light_color = Color(0.89659, 0.65039, 0.598985, 1)
+light_energy = 1.403
+light_size = 0.03
+light_specular = 0.0
+shadow_bias = 0.15
+distance_fade_enabled = true
+distance_fade_begin = 6.0
+distance_fade_shadow = 0.0
+distance_fade_length = 6.0
+omni_range = 8.438
+omni_attenuation = 2.068
+script = ExtResource("2_0nhil")
+energy_median = 1.5
+energy_range = 0.25
+energy_delta_range = 0.02
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_v6jw1")
+autoplay = true

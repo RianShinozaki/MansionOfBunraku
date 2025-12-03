@@ -1,6 +1,7 @@
 [gd_scene load_steps=53 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
+[ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_i6i0y"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_84ys0"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_lmuaq"]
@@ -89,6 +90,8 @@ shader_parameter/color_bands = 10
 [sub_resource type="QuadMesh" id="QuadMesh_gpbpg"]
 
 [node name="Ceremonial Room" type="Node3D"]
+script = ExtResource("1_i6i0y")
+world_offset = Vector3(10.852584, -0.056598246, -8.1744)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.005680084, -0.06282738, -0.08630371)
@@ -304,8 +307,8 @@ transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 
 
 [node name="Bunraku" type="Node3D" parent="."]
 script = ExtResource("21_tfhdh")
-time_before_initiation = 5.0
-bunraku_switch_time = 5.0
+time_before_initiation = 20.0
+bunraku_switch_time = 20.0
 
 [node name="Yono" type="Node3D" parent="Bunraku" node_paths=PackedStringArray("bunraku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7765708, 0.39425087, -2.60999)

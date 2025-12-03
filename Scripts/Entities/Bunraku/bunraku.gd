@@ -97,9 +97,9 @@ func appearance_update():
 	get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color(0, 0, 0, 0), 0.2)
 	update_lock = false
 
-func deactivate():
+func deactivate(do_update: bool):
 	await get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color.BLACK, 0.05).finished
-	appearance_update()
+	if do_update: appearance_update()
 	active = false
 	visible = false
 	$CollisionShape3D.disabled = true

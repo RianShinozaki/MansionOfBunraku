@@ -1,9 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=29 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
-[ext_resource type="PackedScene" uid="uid://drj1idk7skuj4" path="res://Maps/Levels/ceremonial_room.tscn" id="2_xacle"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
 [ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
+[ext_resource type="PackedScene" uid="uid://cjcpfvhnsapwc" path="res://Maps/Levels/house_entrance.tscn" id="14_ys1ck"]
+[ext_resource type="PackedScene" uid="uid://dy5xkfkbtgqlx" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
+[ext_resource type="Script" uid="uid://dxrgmjawipave" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
+[ext_resource type="Script" uid="uid://ce578e84smgjq" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -26,8 +29,8 @@ glow_bloom = 0.51
 glow_blend_mode = 0
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-fog_light_energy = 1.77
-fog_density = 0.0
+fog_light_energy = 2.0
+fog_density = 0.155
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("33_nv3h5")
@@ -70,6 +73,15 @@ script = ExtResource("47_t5ayh")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
 script = ExtResource("48_rkpjn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ys1ck"]
+size = Vector3(13.986084, 2.8081055, 28.807983)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxyng"]
+size = Vector3(9.366913, 2.8081055, 13.64584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1twq"]
+size = Vector3(16.348564, 2.8081055, 14.05876)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_duur3")
@@ -138,5 +150,46 @@ transform = Transform3D(-0.90630776, -0.39428324, -0.15214132, 0, -0.35999697, 0
 light_color = Color(0.454751, 0.2933656, 0.48266262, 1)
 light_energy = 0.683
 
-[node name="Ceremonial Room" parent="." instance=ExtResource("2_xacle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002041459, -5.9604645e-08, 0.0076642036)
+[node name="HouseEntranceLevel" parent="." instance=ExtResource("14_ys1ck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.718, 0)
+
+[node name="Lobby" parent="." instance=ExtResource("15_ys1ck")]
+
+[node name="LoadingZones" type="Node3D" parent="."]
+
+[node name="EntranceLoadZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("room_object")]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("16_r1twq")
+room_path = "uid://cjcpfvhnsapwc"
+room_object = NodePath("../../HouseEntranceLevel")
+entered = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/EntranceLoadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1207275, 0.90405273, 1.4620972)
+shape = SubResource("BoxShape3D_ys1ck")
+debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
+
+[node name="CeremonialLoadZone" type="Area3D" parent="LoadingZones"]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("16_r1twq")
+room_path = "uid://drj1idk7skuj4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/CeremonialLoadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.970932, 0.90405273, -10.64495)
+shape = SubResource("BoxShape3D_jxyng")
+debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
+
+[node name="LobbyFogZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("environment")]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("16_jxyng")
+active_fog_level = 0.5
+inactive_fog_level = 0.08
+environment = NodePath("../../WorldEnvironment")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/LobbyFogZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.855175, 0.90405273, 0.36848545)
+shape = SubResource("BoxShape3D_r1twq")
+debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
