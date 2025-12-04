@@ -36,3 +36,9 @@ func on_interact():
 		await get_tree().create_tween().tween_property(self, "position", orig_position, 0.25).finished
 		open = false
 		anim_lock = false
+
+func force_open():
+	anim_lock = true
+	$"OpenSFX".play()
+	await get_tree().create_tween().tween_property(self, "position", orig_position + Vector3(dir*1, 0, 0), 0.25).finished
+	open = true

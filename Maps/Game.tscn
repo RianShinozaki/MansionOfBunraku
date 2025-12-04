@@ -19,6 +19,9 @@
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.6710713, 0, 0.057913944, 1)
+ambient_light_energy = 0.0
 tonemap_mode = 3
 tonemap_exposure = 0.68
 ssao_intensity = 5.43
@@ -95,7 +98,7 @@ meltdown_time = 30.0
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 14.481068, 0.3832556, -10.669173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.481068, 0.3832556, -12.953246)
 move_speed = 1.5
 holding_shamisen = true
 

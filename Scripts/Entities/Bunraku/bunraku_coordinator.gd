@@ -51,3 +51,8 @@ func switch_to_yono():
 		yono_manager.deactivate_bunraku()
 		kouya_manager.activate_bunraku()
 		active_bunraku = kouya_manager
+
+func disable():
+	yono_manager.deactivate_bunraku()
+	kouya_manager.deactivate_bunraku()
+	bunraku_counter = -1000000
