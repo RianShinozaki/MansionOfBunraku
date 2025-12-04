@@ -142,7 +142,7 @@ func _focus_camera_and_spin_clock(clock: Node3D, focus_duration: float, clockwis
 	player.active = false
 	
 	# Find the ClockHandPivot
-	var clock_hand_pivot = null
+	clock_hand_pivot = null
 	if clock.get_parent():
 		clock_hand_pivot = clock.get_parent().get_node_or_null("ClockHandPivot")
 	
