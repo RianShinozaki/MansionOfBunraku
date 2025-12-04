@@ -6,9 +6,6 @@ extends StaticBody3D
 @export var inspect_fov: float = 20.0
 @onready var focus_marker: Node3D = $FocusMarker
 
-@export var left_table: FruitTable
-@export var right_table: FruitTable
-
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
 
@@ -17,12 +14,6 @@ func on_interact():
 	if focus_marker and InspectionManager:
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		get_viewport().set_input_as_handled()
-		
-		#dialogue_id = "left_submission" if randf() > 0.5 else "right_submission"
-		if left_table.has_fruit and right_table.has_fruit:
-			dialogue_id = "success" if left_table.fruit_type == "apple" and right_table.fruit_type == "peach" else "failure"
-		else:
-			dialogue_id = "failure"
 
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "":

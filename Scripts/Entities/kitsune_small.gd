@@ -5,12 +5,15 @@ extends Node3D
 
 @export var facing_left = false
 
-@export var dialogue_id: String
+@export var default_dialogue_id: String
+var dialogue_id
 @export var environmental_dialogues: DialogueData
 
 var first_viewing: bool = true
 @export var inspect_fov: float = 20.0
 @onready var focus_marker: Node3D = $FocusMarker
+
+@export var table: FruitTable
 
 func _ready():
 	if facing_left:
@@ -38,6 +41,11 @@ func on_interact():
 		get_viewport().set_input_as_handled()
 		
 		set_dialogue_mode()
+		
+		if table.has_fruit:
+			if !facing_left: dialogue_id = "left_success" if table.fruit_type == "apple" else "left_failure"
+			else: dialogue_id = "right_success" if table.fruit_type == "peach" else "right_failure"
+		else: dialogue_id = default_dialogue_id
 
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "" and first_viewing:
