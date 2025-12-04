@@ -19,4 +19,3 @@ func handle_failed_game() -> void:
 		kouya_object.global_position = global_position
 	else:
 		$"../../Bunraku/Kouya/Kouya".anger_level += 0.91
-	
