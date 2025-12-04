@@ -28,12 +28,13 @@ var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
 
-var holding_shamisen: bool = false
+@export var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
 var shamisen_wait_time: float
 @export var shamisen_wait_memory_time: float # 3.0
 
 signal played_note_signal(note: int)
+signal fade_complete
 
 static var instance: Player
 
@@ -42,6 +43,7 @@ func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	raycast.target_position = Vector3(0, 0, -interaction_range)
 	instance = self
+	fade_from_white()
 	
 	if do_intro:
 		await get_tree().create_timer(1).timeout
@@ -244,3 +246,11 @@ func run_dialogue(dialogue_id: String):
 	await _dialogue_box.dialogue_ended
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	InspectionManager.current_mode = InspectionManager.Mode.PLAY
+
+func fade_to_white():
+	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color.WHITE, 2).finished
+	emit_signal("fade_complete")
+
+func fade_from_white():
+	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), 2).finished
+	emit_signal("fade_complete")

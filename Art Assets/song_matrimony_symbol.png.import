@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mmd47bbphwbu"
-path="res://.godot/imported/banana.png-06184e271c6f98a8bc822be9089f29e6.ctex"
+uid="uid://c4u4u8forifqo"
+path="res://.godot/imported/song_matrimony_symbol.png-9714f2f9d7ec716dd48461b9a77d2026.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Fruits/banana.png"
-dest_files=["res://.godot/imported/banana.png-06184e271c6f98a8bc822be9089f29e6.ctex"]
+source_file="res://Art Assets/song_matrimony_symbol.png"
+dest_files=["res://.godot/imported/song_matrimony_symbol.png-9714f2f9d7ec716dd48461b9a77d2026.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

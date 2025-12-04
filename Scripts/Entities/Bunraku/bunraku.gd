@@ -24,6 +24,7 @@ func _ready() -> void:
 	mat.emission_energy_multiplier = 0
 	
 func _physics_process(_delta: float) -> void:
+	
 	body_sprite.offset = Vector2.ZERO
 	head_sprite.rotation.z = 0
 	if anger_level > 0:
@@ -97,9 +98,9 @@ func appearance_update():
 	get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color(0, 0, 0, 0), 0.2)
 	update_lock = false
 
-func deactivate():
+func deactivate(do_update: bool):
 	await get_tree().create_tween().tween_property($Body/BlackFade, "modulate", Color.BLACK, 0.05).finished
-	appearance_update()
+	if do_update: appearance_update()
 	active = false
 	visible = false
 	$CollisionShape3D.disabled = true
