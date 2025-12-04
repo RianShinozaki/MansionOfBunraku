@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
 [ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
 [ext_resource type="PackedScene" uid="uid://cjcpfvhnsapwc" path="res://Maps/Levels/house_entrance.tscn" id="14_ys1ck"]
-[ext_resource type="PackedScene" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
-[ext_resource type="Script" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
-[ext_resource type="Script" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
+[ext_resource type="PackedScene" uid="uid://dy5xkfkbtgqlx" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
+[ext_resource type="Script" uid="uid://dxrgmjawipave" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
+[ext_resource type="Script" uid="uid://ce578e84smgjq" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -19,6 +19,9 @@
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.6710713, 0, 0.057913944, 1)
+ambient_light_energy = 0.0
 tonemap_mode = 3
 tonemap_exposure = 0.68
 ssao_intensity = 5.43
@@ -95,7 +98,7 @@ meltdown_time = 30.0
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.003473406, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.003473406, 14.481068, 0.3832556, -10.669173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.481068, 0.3832556, -12.953246)
 move_speed = 1.5
 holding_shamisen = true
 

@@ -291,6 +291,22 @@ offset_bottom = 618.0
 texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
 
+[node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]
+offset_left = -39.0
+offset_top = -28.0
+offset_right = 1165.0
+offset_bottom = 658.0
+mouse_filter = 2
+color = Color(1, 0.49636364, 0.4089629, 1)
+
+[node name="WhiteFade" type="ColorRect" parent="CanvasLayer/WhiteFade"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 1206.0
+offset_bottom = 695.0
+mouse_filter = 2
+
 [node name="EatingSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0ad8t")
 
