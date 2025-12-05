@@ -90,7 +90,7 @@ meltdown_time = 30.0
 environment = SubResource("Environment_8puwx")
 
 [node name="Player" parent="." instance=ExtResource("2_vpe23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7512836, 0.33692992, -1.1720266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4391088, 0.6237831, 3.1096516)
 move_speed = 1.5
 
 [node name="InspectCamera" type="Camera3D" parent="."]
@@ -150,4 +150,4 @@ light_color = Color(0.3, 0.35, 0.5, 1)
 light_energy = 0.2
 
 [node name="Maze" parent="." instance=ExtResource("13_34afd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1294556, -1.0429688, -3.3072958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4335482, 0, -0.0072370768)
