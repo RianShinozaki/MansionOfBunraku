@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c5x8wqeboos1"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_completion"]
+
+[resource]
+script = ExtResource("1_completion")
+starts = {
+"sake_completion": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(69, 200),
+"start_id": "sake_completion"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "The sake has been prepared",
+"offset": Vector2(500, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(600, 400),
+"speaker": "Kitsune"
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "The ritual can begin shortly",
+"offset": Vector2(1200, 200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(600, 400),
+"speaker": "Kitsune"
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "My friends might be able to help you prepare the fruit",
+"offset": Vector2(1900, 200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(600, 400),
+"speaker": "Kitsune"
+}
+}
