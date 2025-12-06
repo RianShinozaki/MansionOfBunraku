@@ -29,6 +29,10 @@ enum GameState {
 # Dialogue
 @export var intro_dialogue: DialogueData
 
+# Preload resources for Kitsune appearance
+var KitsuneScene = preload("res://Objects/Entities/kitsune.tscn")
+var SakeCompletionDialogue = preload("res://Dialogue/sake_completion.tres")
+
 var current_state: GameState = GameState.INTRO
 var current_cup_index: int = 0
 var pour_start_time: float = 0.0
@@ -166,27 +170,17 @@ func play_intro_sequence():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 	
-	# Line 1: "heaven" (no flash)
+	# Line 1: "heaven, earth, humanity" (shown once)
 	dialogue_box.start("heaven")
 	await dialogue_box.dialogue_ended
 	await get_tree().create_timer(0.3).timeout
 	
-	# Line 2: "earth" (no flash)
-	dialogue_box.start("earth")
-	await dialogue_box.dialogue_ended
-	await get_tree().create_timer(0.3).timeout
-	
-	# Line 3: "humanity" (no flash)
-	dialogue_box.start("humanity")
-	await dialogue_box.dialogue_ended
-	await get_tree().create_timer(0.3).timeout
-	
-	# Line 4: instructions (no flash)
+	# Line 2: instructions
 	dialogue_box.start("instruction1")
 	await dialogue_box.dialogue_ended
 	await get_tree().create_timer(0.3).timeout
 	
-	# Line 5: final instructions (no flash)
+	# Line 3: final instructions
 	dialogue_box.start("instruction2")
 	await dialogue_box.dialogue_ended
 	
@@ -434,6 +428,37 @@ func complete_ritual():
 		InspectionManager.exit_inspect()
 	
 	remove_from_group("Interactable")
+	
+	# Wait one frame before spawning Kitsune
+	await get_tree().process_frame
+	
+	# Spawn Kitsune at the marker position
+	spawn_kitsune()
+
+func spawn_kitsune():
+	"""Spawn Kitsune at KitsuneMarker position with sake completion dialogue"""
+	var kitsune_marker = $KitsuneMarker
+	if not kitsune_marker:
+		push_warning("KitsuneMarker not found in SakePouringGame scene")
+		return
+	
+	# Instantiate Kitsune
+	var kitsune_instance = KitsuneScene.instantiate()
+	if not kitsune_instance:
+		push_warning("Failed to instantiate Kitsune scene")
+		return
+	
+	# Add to parent scene (not as child of this game object)
+	get_parent().add_child(kitsune_instance)
+	
+	# Position at marker's global position
+	kitsune_instance.global_position = kitsune_marker.global_position
+	
+	# Set the sake completion dialogue
+	kitsune_instance.dialogue_data = SakeCompletionDialogue
+	
+	# Start the sake completion sequence
+	kitsune_instance.start_sake_completion_sequence()
 
 func _unhandled_input(event):
 	"""Handle mouse input for dragging and spacebar for pouring"""
@@ -503,6 +528,7 @@ func reset_game():
 	
 	pitcher.set_clickable(false)
 	pitcher.stop_pour()
+	pitcher.stop_pulse_sequence()  # Stop any ongoing pulse animation and restore original material
 	pitcher.reset_position()  # Reset pitcher to original position
 	
 	# Reset instruction label

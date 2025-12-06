@@ -15,7 +15,7 @@ nodes = {
 },
 &"1_1": {
 "audio_clip": null,
-"dialogue": "The sake has been prepared",
+"dialogue": "You've successfully prepared the sake for the ritual",
 "offset": Vector2(500, 200),
 "options": {
 0: {
@@ -24,12 +24,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(600, 400),
+"size": Vector2(600, 576),
 "speaker": "Kitsune"
 },
 &"1_2": {
 "audio_clip": null,
-"dialogue": "The ritual can begin shortly",
+"dialogue": "Thank you. Here are two of the four notes in the song you are looking for. ",
 "offset": Vector2(1200, 200),
 "options": {
 0: {
@@ -38,13 +38,13 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(600, 400),
+"size": Vector2(600.00006, 576),
 "speaker": "Kitsune"
 },
 &"1_3": {
 "audio_clip": null,
-"dialogue": "My friends might be able to help you prepare the fruit",
-"offset": Vector2(1900, 200),
+"dialogue": "If you don't have the other two notes, you should check with my smaller friends by the shrine. ",
+"offset": Vector2(2044, 483),
 "options": {
 0: {
 "condition": {},
@@ -52,7 +52,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(600, 400),
+"size": Vector2(740, 699.99994),
 "speaker": "Kitsune"
 }
 }

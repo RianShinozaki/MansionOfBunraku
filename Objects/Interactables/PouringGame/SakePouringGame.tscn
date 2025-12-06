@@ -113,3 +113,6 @@ Press Spacebar to Pour"
 label_settings = SubResource("LabelSettings_instruction")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="KitsuneMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466156)
