@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://favmip5alj1i"
-path.s3tc="res://.godot/imported/note-two.png-bd263d56ac35478018be8b55f5e8bdeb.s3tc.ctex"
+uid="uid://be6mtm2vivttj"
+path.s3tc="res://.godot/imported/MetalGate_0.png-396cb6cf6fa05f5ab5fb3994f73335a8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art Assets/note-two.png"
-dest_files=["res://.godot/imported/note-two.png-bd263d56ac35478018be8b55f5e8bdeb.s3tc.ctex"]
+source_file="res://Art Assets/Models/MetalGate_0.png"
+dest_files=["res://.godot/imported/MetalGate_0.png-396cb6cf6fa05f5ab5fb3994f73335a8.s3tc.ctex"]
 
 [params]
 

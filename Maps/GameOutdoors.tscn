@@ -137,4 +137,4 @@ visible = false
 [node name="ImageOverlay" parent="." instance=ExtResource("12_ennvq")]
 
 [node name="MazeLevel" parent="." instance=ExtResource("13_34afd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.942476, 0.0015869141, 1.8477232)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.930252, 0.007446289, 1.6811144)
