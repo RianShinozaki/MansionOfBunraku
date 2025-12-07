@@ -4,6 +4,8 @@ extends StaticBody3D
 ## Interactive music note that can be placed in the maze
 ## Plays once when clicked or walked over, then becomes inactive
 
+signal note_played(note_number: int, node_name: String)
+
 @export_range(1, 3) var note_number: int = 1:
 	set(value):
 		note_number = value
@@ -45,6 +47,7 @@ func _ready():
 		return
 	
 	add_to_group("Interactable")
+	add_to_group("MazeNote")
 	
 	# Load textures and audio resources
 	note_textures = {
@@ -92,6 +95,9 @@ func play_note():
 	has_been_played = true
 	is_on_cooldown = true
 	
+	# Emit signal for note collection manager
+	emit_signal("note_played", note_number, name)
+	
 	# Play the audio
 	if audio_player:
 		audio_player.play()
@@ -99,10 +105,12 @@ func play_note():
 	# Spawn the visual note in front of camera
 	spawn_visual_note()
 	
-	# Visual feedback: dim the sprite to show it's been used
+	# Visual feedback: make the sprite completely disappear
 	if sprite:
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "modulate", Color(0.5, 0.5, 0.5, 0.6), 0.3)
+		tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.3)
+		# Optionally hide the sprite after the fade animation
+		tween.tween_callback(func(): sprite.visible = false)
 	
 	# Brief cooldown to prevent double-triggering
 	await get_tree().create_timer(0.5).timeout

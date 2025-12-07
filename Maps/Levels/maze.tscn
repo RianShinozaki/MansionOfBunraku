@@ -427,11 +427,11 @@ transform = Transform3D(0.70710677, -0.70710677, 0, -3.090862e-08, -3.090862e-08
 
 [node name="MazeNotes" type="Node3D" parent="Objects"]
 
-[node name="MazeNote" parent="Objects/MazeNotes" instance=ExtResource("15_maze_note")]
+[node name="MazeNote1" parent="Objects/MazeNotes" instance=ExtResource("15_maze_note")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.811, 0.5, -4.959)
 collision_layer = 5
 
-[node name="MazeNote1" parent="Objects/MazeNotes" instance=ExtResource("15_maze_note")]
+[node name="MazeNote2" parent="Objects/MazeNotes" instance=ExtResource("15_maze_note")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.072, 0.5, -4.928)
 collision_layer = 5
 note_number = 2
