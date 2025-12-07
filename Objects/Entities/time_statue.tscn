@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0c825m53d50m"]
+
+[ext_resource type="Script" uid="uid://crqcibrl3wm7" path="res://Scripts/Entities/time_statue.gd" id="1_time_statue_script"]
+[ext_resource type="Texture2D" uid="uid://cosv7w75oid1v" path="res://Art Assets/TimeStatue/time_statue.png" id="3_statue_h"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_billboard"]
+[ext_resource type="Resource" path="res://Dialogue/time_statue.tres" id="5_dialogue"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_statue"]
+radius = 0.12
+height = 0.727539
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_statue"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("3_statue_h")
+rim = 0.43
+rim_tint = 0.3
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_statue_h")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_statue_head"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("3_statue_h")
+rim = 0.43
+rim_tint = 0.3
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_statue_h")
+texture_filter = 2
+billboard_keep_scale = true
+
+[node name="TimeStatue" type="AnimatableBody3D"]
+collision_layer = 4
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_time_statue_script")
+dialogue_data = ExtResource("5_dialogue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
+shape = SubResource("CapsuleShape3D_statue")
+
+[node name="Body" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_statue")
+pixel_size = 0.001
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_statue_h")
+hframes = 1
+vframes = 1
+frame = 0
+
+[node name="Head" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = SubResource("StandardMaterial3D_statue_head")
+pixel_size = 0.001
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_statue_h")
+hframes = 1
+vframes = 1
+frame = 0
+
+[node name="Lookat" type="Node" parent="Body"]
+script = ExtResource("4_billboard")
+
+[node name="FocusMarker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)

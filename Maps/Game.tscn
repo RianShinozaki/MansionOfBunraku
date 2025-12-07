@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=31 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="46_1wkvv"]
 [ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="47_t5ayh"]
 [ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="48_rkpjn"]
+[ext_resource type="Script" path="res://Scripts/System/song_of_stillness_listener.gd" id="49_listener"]
 
 [sub_resource type="Environment" id="Environment_8puwx"]
 background_energy_multiplier = 0.0
@@ -93,6 +94,9 @@ script = ExtResource("1_duur3")
 debug_load_all = true
 cycle_time = 300.0
 meltdown_time = 30.0
+
+[node name="SongOfStillnessListener" type="Node" parent="."]
+script = ExtResource("49_listener")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8puwx")
