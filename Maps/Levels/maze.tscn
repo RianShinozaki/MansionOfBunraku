@@ -51,21 +51,32 @@ shape = SubResource("ConcavePolygonShape3D_pb5mi")
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="PaperDoor" parent="Objects" instance=ExtResource("4_m5dp3")]
+[node name="GateArea" type="Node3D" parent="Objects"]
+
+[node name="PaperDoor" parent="Objects/GateArea" instance=ExtResource("4_m5dp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1011066, 0.0068359375, 3.9896307)
 dir = 1
 
-[node name="LanternRed83" parent="Objects" instance=ExtResource("11_tkoyt")]
+[node name="GateLanternRight" parent="Objects/GateArea" instance=ExtResource("11_tkoyt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6421769, 0.7052002, 1.1617999)
 
-[node name="LanternRed84" parent="Objects" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2317028, 0.7052002, 1.1617999)
+[node name="GateLanternLeft" parent="Objects/GateArea" instance=ExtResource("11_tkoyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2595587, 0.7052002, 1.1617999)
 
-[node name="Candle" parent="Objects" instance=ExtResource("5_r4qpv")]
+[node name="Candle" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7718163, 0.3985107, 3.7943268)
 
-[node name="Candle2" parent="Objects" instance=ExtResource("5_r4qpv")]
+[node name="Candle2" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.122, 0.396, 3.79)
+
+[node name="Gate" parent="Objects/GateArea" instance=ExtResource("12_wadbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1013665, 0.036499023, 0.38570285)
+
+[node name="Candle3" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8681352, 0.046215832, 0.59832907)
+
+[node name="Candle4" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559785, 0.046215832, 0.59832907)
 
 [node name="WhiteLanterns" type="Node3D" parent="Objects"]
 
@@ -404,14 +415,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.26
 [node name="LanternRed60" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2647576, 1.046875, -9.292609)
 
-[node name="Gate" parent="Objects" instance=ExtResource("12_wadbe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1013665, 0.036499023, 0.38570285)
+[node name="ExamplePedestal" parent="Objects" instance=ExtResource("13_ibouv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6125352, 0.45711052, -0.9667344)
 
-[node name="pedestal" parent="Objects" instance=ExtResource("13_ibouv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6125352, 0.45711052, 1.2503066)
+[node name="ExampleCandle" parent="Objects" instance=ExtResource("5_r4qpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5244348, 0.45405275, -1.2164598)
 
-[node name="Candle3" parent="Objects" instance=ExtResource("5_r4qpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5700052, 0.45405275, 0.97067404)
-
-[node name="Letter" parent="Objects" instance=ExtResource("14_x0ud3")]
-transform = Transform3D(0.70710677, -0.70710677, 0, -3.090862e-08, -3.090862e-08, -1, 0.70710677, 0.70710677, -4.371139e-08, -2.3885515, 0.46298945, 1.1021132)
+[node name="ExampleLetter" parent="Objects" instance=ExtResource("14_x0ud3")]
+transform = Transform3D(0.70710677, -0.70710677, 0, -3.090862e-08, -3.090862e-08, -1, 0.70710677, 0.70710677, -4.371139e-08, -2.3885515, 0.46298945, -1.1149278)
