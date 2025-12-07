@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cavf0ju1n3h2u"
-path.s3tc="res://.godot/imported/maze_maze_2.png-c89a04c510fc094b8db00545630f874f.s3tc.ctex"
+uid="uid://dvgppfybreehe"
+path.s3tc="res://.godot/imported/lantern_red.png-e6fa63c1fcfc8270859b72acc6563b2a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Source/maze_maze_2.png"
-dest_files=["res://.godot/imported/maze_maze_2.png-c89a04c510fc094b8db00545630f874f.s3tc.ctex"]
+source_file="res://Art Assets/lantern_red.png"
+dest_files=["res://.godot/imported/lantern_red.png-e6fa63c1fcfc8270859b72acc6563b2a.s3tc.ctex"]
 
 [params]
 
