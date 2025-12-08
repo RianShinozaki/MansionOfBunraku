@@ -9,7 +9,6 @@ extends AnimatableBody3D
 @export var song_sequence: Array[int] = [3, 3, 3, 1]  # Song of Stillness
 
 @onready var body_sprite: Sprite3D = $Body
-@onready var head_sprite: Sprite3D = $Body/Head
 @onready var focus_marker: Node3D = $FocusMarker
 
 var NoteScene = preload("res://Objects/Items/music_note.tscn")
@@ -111,9 +110,6 @@ func _ready() -> void:
 	add_to_group("Interactable")
 	print("TimeStatue _ready() called - added to Interactable group")
 	
-	# Start in normal mode
-	set_normal_mode()
-	
 	# Auto-trigger dialogue if enabled
 	if auto_trigger_dialogue:
 		# Lock the player in place until dialogue starts
@@ -123,26 +119,7 @@ func _ready() -> void:
 		await get_tree().create_timer(0.5).timeout
 		_trigger_intro_dialogue()
 
-func _process(_delta: float) -> void:
-	# Switch frames based on current inspection mode
-	if InspectionManager.current_mode == InspectionManager.Mode.DIALOGUE:
-		set_dialogue_mode()
-	else:
-		set_normal_mode()
 
-func set_normal_mode() -> void:
-	"""Display normal appearance (frames 0 and 1)"""
-	if head_sprite:
-		head_sprite.frame = 0
-	if body_sprite:
-		body_sprite.frame = 1
-
-func set_dialogue_mode() -> void:
-	"""Display dialogue appearance (frames 2 and 3)"""
-	if head_sprite:
-		head_sprite.frame = 2
-	if body_sprite:
-		body_sprite.frame = 3
 
 func _trigger_intro_dialogue() -> void:
 	"""Automatically start the intro dialogue"""

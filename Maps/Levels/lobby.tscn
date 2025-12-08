@@ -41,6 +41,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_72oe8")
 
+[node name="HouseHallway4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.077, 0, 9.668)
+material_override = ExtResource("2_coq6y")
+mesh = ExtResource("4_ywxda")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HouseHallway4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_72oe8")
+
 [node name="HouseHallway3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.946177, -4.7683716e-07, 0.7070384)
 material_override = ExtResource("2_coq6y")
@@ -68,6 +79,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.120235, -0.0037938952, -6.
 
 [node name="Candle2" parent="." instance=ExtResource("6_7m0ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.034159, -0.0037938952, -5.852569)
+
+[node name="Candle11" parent="." instance=ExtResource("6_7m0ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.120235, -0.0037938952, 6.4942365)
+
+[node name="Candle12" parent="." instance=ExtResource("6_7m0ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.034159, -0.0037938952, 7.322666)
 
 [node name="Candle3" parent="." instance=ExtResource("6_7m0ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6358685, -0.0037938952, -0.065783024)
