@@ -222,10 +222,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.2307496, -0.10911225, -0.12866068)
 shape = SubResource("BoxShape3D_vpohh")
 
-[node name="Shrine" parent="Objects" node_paths=PackedStringArray("left_table", "right_table") instance=ExtResource("19_74uo1")]
+[node name="Shrine" parent="Objects" instance=ExtResource("19_74uo1")]
 transform = Transform3D(0.12499924, 0, 0.00043633144, 0, 0.125, 0, -0.00043633144, 0, 0.12499924, 2.1846893, 1.8794937, -6.0872345)
-left_table = NodePath("../FruitTableLeft")
-right_table = NodePath("../FruitTableRight")
 
 [node name="SakePouringGame" parent="Objects" instance=ExtResource("18_patpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5047536, 0.96593404, -4.580326)
@@ -272,16 +270,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7645662, 0.69242334, -1.295
 fruit_texture = ExtResource("14_utloy")
 fruit_type = "mandarin"
 
-[node name="KitsuneSmallLeft" parent="Objects" instance=ExtResource("23_shp2h")]
+[node name="KitsuneSmallLeft" parent="Objects" node_paths=PackedStringArray("table") instance=ExtResource("23_shp2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 1.2905266, -5.8941684)
-dialogue_id = "kitsune_left"
+default_dialogue_id = "kitsune_left"
 environmental_dialogues = ExtResource("24_vy35f")
+table = NodePath("../FruitTableLeft")
 
-[node name="KitsuneSmallRight" parent="Objects" instance=ExtResource("23_shp2h")]
+[node name="KitsuneSmallRight" parent="Objects" node_paths=PackedStringArray("table") instance=ExtResource("23_shp2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.024764, 1.2905266, -5.8941684)
 facing_left = true
-dialogue_id = "kitsune_right"
+default_dialogue_id = "kitsune_right"
 environmental_dialogues = ExtResource("24_vy35f")
+table = NodePath("../FruitTableRight")
 
 [node name="Chandelier" type="Sprite3D" parent="Objects"]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4946408, 1.7002242, -2.998343)
@@ -335,12 +335,12 @@ painting_artwork = ExtResource("27_nvkic")
 painting_artwork_alt = ExtResource("28_xpwoj")
 dialogue_id = "kouya_painting_ceremony"
 
+[node name="KouyaNormalPosition" type="Node3D" parent="Objects"]
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 0.9939353, -1.9657795)
+
 [node name="KouyaSakeLocation" type="Node3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5178518, 0.9939353, -4.830327)
 script = ExtResource("23_uqtih")
-
-[node name="KouyaNormalPosition" type="Node3D" parent="Objects"]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 0.9939353, -1.9657795)
 
 [node name="ShrineShamisenListener" type="Area3D" parent="Objects"]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2.5039768, 1.070057, -5.8725057)
@@ -522,7 +522,7 @@ disabled = true
 [node name="Bunraku" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0030608)
 script = ExtResource("21_tfhdh")
-time_before_initiation = 2.0
+time_before_initiation = 15.0
 bunraku_switch_time = 15.0
 
 [node name="Yono" type="Node3D" parent="Bunraku" node_paths=PackedStringArray("bunraku")]
@@ -563,7 +563,7 @@ material_override = SubResource("ShaderMaterial_s0c2o")
 mesh = SubResource("SphereMesh_duur3")
 
 [node name="FireEffects" type="Node3D" parent="." groups=["FireFX"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3304261, -0.16570282, -1.0252341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3304261, -0.16570282, -4.0385094)
 script = ExtResource("9_kjnl1")
 fire_material = SubResource("ShaderMaterial_muv74")
 fire_individual_material = SubResource("ShaderMaterial_s0c2o")
@@ -618,6 +618,12 @@ light_energy = 0.0
 stream = ExtResource("11_2t57r")
 
 [node name="Kitsune" parent="." instance=ExtResource("33_uqtih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2292373, 0.37740698, -1.8335782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2292373, 0.37740698, -6.720663)
 
 [connection signal="pour_failed" from="Objects/SakePouringGame" to="Objects/KouyaSakeLocation" method="handle_failed_game"]
+[connection signal="ritual_completed" from="Objects/SakePouringGame" to="Kitsune" method="trigger_appearance"]
+[connection signal="kouya_active" from="Bunraku" to="Objects/YonoPainting" method="switch_to_main_tex"]
+[connection signal="kouya_active" from="Bunraku" to="Objects/KouyaPainting" method="switch_to_alt_tex"]
+[connection signal="yono_active" from="Bunraku" to="Objects/YonoPainting" method="switch_to_alt_tex"]
+[connection signal="yono_active" from="Bunraku" to="Objects/KouyaPainting" method="switch_to_main_tex"]
+[connection signal="kitsune_talk_over" from="Kitsune" to="Bunraku" method="activate"]

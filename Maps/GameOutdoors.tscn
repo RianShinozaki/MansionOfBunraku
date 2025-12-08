@@ -1,0 +1,116 @@
+[gd_scene load_steps=23 format=3 uid="uid://chpfrxoims4lb"]
+
+[ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_70vpr"]
+[ext_resource type="Environment" uid="uid://d1sqmokgksyq3" path="res://Environment Resources/galaxy.tres" id="2_82a6d"]
+[ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="2_vpe23"]
+[ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="3_82a6d"]
+[ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="4_7mmrf"]
+[ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="5_8e6kw"]
+[ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="6_3aaac"]
+[ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="7_rg6re"]
+[ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="8_uusgg"]
+[ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="9_coqke"]
+[ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="10_exe2y"]
+[ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="11_ncbny"]
+[ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="12_ennvq"]
+[ext_resource type="PackedScene" uid="uid://cywb5rg3dpmnm" path="res://Maps/Levels/maze.tscn" id="13_34afd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
+shader = ExtResource("3_82a6d")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 1, 1, 1)
+shader_parameter/tip_color = Color(0.9843137, 0.35686275, 1, 1)
+shader_parameter/fire_alpha = 0.0
+shader_parameter/fire_speed = Vector2(0, -1)
+shader_parameter/fire_aperture = 0.0
+shader_parameter/emissive_power = 2.5
+shader_parameter/color_bands = 10
+
+[sub_resource type="Gradient" id="Gradient_krhjt"]
+offsets = PackedFloat32Array(0, 0.17291641, 0.7666664)
+colors = PackedColorArray(0, 0, 0, 0, 0.023263674, 0.003527189, 0.0023902461, 1, 0.14760426, 0.022379445, 0.015165726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i0n63"]
+gradient = SubResource("Gradient_krhjt")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spn38"]
+texture = SubResource("GradientTexture2D_i0n63")
+expand_margin_left = 135.0
+expand_margin_top = 41.0
+expand_margin_right = 114.0
+
+[sub_resource type="Theme" id="Theme_uy6wr"]
+Label/font_sizes/font_size = 31
+Label/fonts/font = ExtResource("5_8e6kw")
+Panel/styles/panel = SubResource("StyleBoxTexture_spn38")
+RichTextLabel/font_sizes/normal_font_size = 27
+RichTextLabel/fonts/normal_font = ExtResource("5_8e6kw")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_efst0"]
+script = ExtResource("8_uusgg")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_q6ftn"]
+script = ExtResource("9_coqke")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
+script = ExtResource("10_exe2y")
+
+[node name="GameOutdoors" type="Node3D"]
+script = ExtResource("1_70vpr")
+cycle_time = 300.0
+meltdown_time = 30.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_82a6d")
+
+[node name="Player" parent="." instance=ExtResource("2_vpe23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4391088, 0.6237831, 3.1096516)
+move_speed = 1.5
+
+[node name="InspectCamera" type="Camera3D" parent="."]
+
+[node name="ScreenFire" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="FireWallCanvas" type="ColorRect" parent="ScreenFire" groups=["FireFX"]]
+material = SubResource("ShaderMaterial_3wfnh")
+offset_left = 1411.2902
+offset_top = 875.94995
+offset_right = 3228.7832
+offset_bottom = 1983.0862
+rotation = 3.1415927
+mouse_filter = 2
+script = ExtResource("4_7mmrf")
+fire_material = SubResource("ShaderMaterial_3wfnh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = -171.0
+offset_right = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_uy6wr")
+script = ExtResource("6_3aaac")
+data = ExtResource("7_rg6re")
+start_id = "start"
+hide_portrait = true
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
+metadata/_custom_type_script = "uid://bmd4tue40ixjo"
+
+[node name="TextOverlay" parent="." instance=ExtResource("11_ncbny")]
+visible = false
+
+[node name="ImageOverlay" parent="." instance=ExtResource("12_ennvq")]
+
+[node name="MazeLevel" parent="." instance=ExtResource("13_34afd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.930252, 0.007446289, 1.6811144)

@@ -14,7 +14,8 @@ func _ready():
 		3: [note_three, $string_three]
 	}
 	
-	position = Vector3(0.2 + randf_range(-0.3,0.5), -0.07 + randf_range(-0.3,0.5), -0.3)  
+	# Position centered in front of camera with slight random variation
+	position = Vector3(randf_range(-0.1, 0.1), randf_range(-0.1, 0.1), -0.3)  
 	rotation_degrees = Vector3(0, 0, 35)
 	scale = Vector3(0.25, 0.25, 1)
 

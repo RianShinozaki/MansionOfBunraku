@@ -16,15 +16,22 @@ extends Node3D
 var bunraku_counter: float
 var initiated: bool = false
 var active_bunraku: BunrakuManager = null
+var active: bool = false
+
+signal yono_active
+signal kouya_active
 
 func _ready() -> void:
 	initiated = false
+
+func activate() -> void:
+	active = true
 	
 func _process(delta: float) -> void:
-	if InspectionManager.current_mode == InspectionManager.Mode.PLAY:
+	if active and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		bunraku_counter += delta
 		
-	if !initiated and bunraku_counter > time_before_initiation:
+	if active and !initiated and bunraku_counter > time_before_initiation:
 		initiated = true
 		bunraku_counter = 0
 		switch_bunraku()
@@ -41,16 +48,20 @@ func switch_bunraku() -> void:
 		yono_manager.deactivate_bunraku()
 		kouya_manager.activate_bunraku()
 		active_bunraku = kouya_manager
+		emit_signal("kouya_active")
 	else:
 		kouya_manager.deactivate_bunraku()
 		yono_manager.activate_bunraku()
 		active_bunraku = yono_manager
+		emit_signal("yono_active")
 		
-func switch_to_yono():
+func switch_to_kouya():
 	if active_bunraku != kouya_manager:
 		yono_manager.deactivate_bunraku()
 		kouya_manager.activate_bunraku()
 		active_bunraku = kouya_manager
+		emit_signal("kouya_active")
+	
 
 func disable():
 	yono_manager.deactivate_bunraku()

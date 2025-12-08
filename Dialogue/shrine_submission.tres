@@ -42,7 +42,7 @@ nodes = {
 "text": "Submit Offerings"
 }
 },
-"size": Vector2(559.9995, 706.00024),
+"size": Vector2(559.9995, 706.00037),
 "speaker": "Kitsune Left"
 },
 &"1_2": {
@@ -56,7 +56,7 @@ nodes = {
 "text": "Submit Offerings"
 }
 },
-"size": Vector2(579.9995, 706.001),
+"size": Vector2(579.9995, 706.0027),
 "speaker": "Kitsune Right"
 },
 &"1_3": {
@@ -72,7 +72,7 @@ I shall bear witness to your sacred matrimony.",
 "text": ""
 }
 },
-"size": Vector2(760.00244, 680.00037),
+"size": Vector2(760.0021, 680.0005),
 "speaker": "Kami"
 },
 &"1_4": {
@@ -89,7 +89,7 @@ Perhaps you should come ask again another day...
 "text": ""
 }
 },
-"size": Vector2(760.00244, 680.0016),
+"size": Vector2(760.0021, 680.00446),
 "speaker": "Kami"
 },
 &"5_1": {
