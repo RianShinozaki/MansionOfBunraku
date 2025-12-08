@@ -1,11 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b5ynan2k7qxt3"]
 
-[ext_resource type="Texture2D" uid="uid://c8ujpiy6t0uby" path="res://Art Assets/Models/maze_maze_3.png" id="1_maze"]
+[ext_resource type="Texture2D" uid="uid://cjnm5g4y1ku57" path="res://Art Assets/Models/maze_maze_3.png" id="1_124kf"]
 
 [resource]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 diffuse_mode = 1
-albedo_texture = ExtResource("1_maze")
+albedo_texture = ExtResource("1_124kf")
+emission_energy_multiplier = 0.11
 texture_filter = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v2ncwxkwlnjl"
-path="res://.godot/imported/maze_0.png-b1ff865cfe509a67b9fe25a68ed1ccc9.ctex"
+uid="uid://dftu7cyhqgxby"
+path="res://.godot/imported/courtesan_shadow_side.png-6b9f378be5d94ca6a17e29fa60abf933.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Source/maze/maze_0.png"
-dest_files=["res://.godot/imported/maze_0.png-b1ff865cfe509a67b9fe25a68ed1ccc9.ctex"]
+source_file="res://Art Assets/courtesan_shadow_side.png"
+dest_files=["res://.godot/imported/courtesan_shadow_side.png-6b9f378be5d94ca6a17e29fa60abf933.ctex"]
 
 [params]
 
