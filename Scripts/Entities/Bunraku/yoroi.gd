@@ -16,6 +16,7 @@ var physics_delta: float
 var orig_y: float
 
 func _ready() -> void:
+	target = Player.instance
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	orig_y = global_position.y
 
