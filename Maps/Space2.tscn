@@ -1,0 +1,460 @@
+[gd_scene load_steps=41 format=3 uid="uid://dd308oudmtk7f"]
+
+[ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="1_afk1f"]
+[ext_resource type="Texture2D" uid="uid://cgcubs55mbeqw" path="res://Art Assets/Space/blue_nebulae_1.png" id="2_l6d6f"]
+[ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="3_ukx7r"]
+[ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="4_lflxy"]
+[ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="6_vpgko"]
+[ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="7_g3jex"]
+[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="8_n7dya"]
+[ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="9_n7dya"]
+[ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="11_kq6w2"]
+[ext_resource type="Texture2D" uid="uid://cn36xpth85of6" path="res://Art Assets/Kouya/Kouya_h.png" id="12_1wi37"]
+[ext_resource type="Texture2D" uid="uid://k51nvxg5j1ae" path="res://Art Assets/Kouya/Kouya_h_n.png" id="13_dgtu7"]
+[ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="14_kps86"]
+[ext_resource type="Texture2D" uid="uid://c1q2sit48nbvf" path="res://Art Assets/shamisen.png" id="24_xf55f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11nmh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_afk1f")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(0.2722756, 0.23223504, 0.42779613, 1)
+shader_parameter/tip_color = Color(0.66557926, 0.46169472, 0.38075393, 1)
+shader_parameter/fire_alpha = 0.106000005035
+shader_parameter/fire_speed = Vector2(0, -0.65)
+shader_parameter/fire_aperture = 0.3890000184775
+shader_parameter/emissive_power = 1.80400006194
+shader_parameter/color_bands = 10
+
+[sub_resource type="QuadMesh" id="QuadMesh_qmhcv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0gfdh"]
+panorama = ExtResource("2_l6d6f")
+energy_multiplier = 1.5
+
+[sub_resource type="Sky" id="Sky_5cq55"]
+sky_material = SubResource("PanoramaSkyMaterial_0gfdh")
+
+[sub_resource type="Environment" id="Environment_k2ooc"]
+background_mode = 2
+sky = SubResource("Sky_5cq55")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.35
+tonemap_mode = 3
+ssao_intensity = 5.43
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.29
+glow_bloom = 0.54
+glow_blend_mode = 0
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 1.77
+fog_density = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdi4g"]
+size = Vector3(6.392517, 1, 5.6849365)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1vsbo"]
+load_path = "res://.godot/imported/Yoroi.png-feaa9076c582ea67c630aae1c240de31.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mjw8q"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1jw7l"]
+load_path = "res://.godot/imported/Yoroi-e.png-d9cbe8922b3fdcdbe89d5b1ed02d0d3f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0r3ra"]
+load_path = "res://.godot/imported/Yoroi-h.png-98a80b474e89e062142ae16668ee3515.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q1ly8"]
+load_path = "res://.godot/imported/Yoroi-h_n.png-373d25e62a28d965474051209ad735c3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vn8um"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0cje"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_1vsbo")
+emission_enabled = true
+emission_energy_multiplier = 0.45
+emission_texture = SubResource("CompressedTexture2D_1jw7l")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_q1ly8")
+bent_normal_texture = SubResource("CompressedTexture2D_mjw8q")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_vn8um")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_0r3ra")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2q6m"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_phn2k"]
+load_path = "res://.godot/imported/Yono_cutscene_e.png-27f8349e0bced4a61777096d1031d5d6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi03l"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t712v"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ku6ge"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvyvy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_u2q6m")
+emission_energy_multiplier = 0.07
+emission_texture = SubResource("CompressedTexture2D_phn2k")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_t712v")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_ku6ge")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_xi03l")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n0lt2"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c5y5x"]
+load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q71i1"]
+load_path = "res://.godot/imported/Yono_cutscene_e.png-27f8349e0bced4a61777096d1031d5d6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iii72"]
+load_path = "res://.godot/imported/Yono-h.png-3b0da9064e7dec4808d61ed47487cc18.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uikdk"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_popje"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0q68"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_c5y5x")
+emission_enabled = true
+emission_energy_multiplier = 0.02
+emission_texture = SubResource("CompressedTexture2D_q71i1")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = SubResource("CompressedTexture2D_uikdk")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_popje")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_iii72")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olb4n"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("9_n7dya")
+emission_energy_multiplier = 0.25
+emission_texture = ExtResource("9_n7dya")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("13_dgtu7")
+bent_normal_texture = ExtResource("11_kq6w2")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("14_kps86")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("12_1wi37")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
+
+[node name="Node3D" type="Node3D"]
+
+[node name="FireWall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(71.355, 0, 0, 0, -19.73, -1.509958e-07, 0, 2.9791472e-06, -1, 3.391, 4.095, 25.588)
+material_override = SubResource("ShaderMaterial_11nmh")
+mesh = SubResource("QuadMesh_qmhcv")
+skeleton = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 1.7982149e-08, 0.97861683, -0.2056918, 8.55534e-08, -0.2056918, -0.97861683, 0.462361, -0.30878612, 1.8967203)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k2ooc")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="HouseEntrance" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, -0.7220864, 0)
+mesh = ExtResource("3_ukx7r")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_lflxy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseEntrance"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseEntrance/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6473694, 0, 0.6220093)
+shape = SubResource("BoxShape3D_jdi4g")
+
+[node name="UnderLight" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -4.3711398e-10, -1, 0, 1, -4.3698378e-10, -0.669474, -0.67347664, -0.9389304)
+light_color = Color(0.4447146, 0.27573416, 0.56085294, 1)
+light_energy = 0.094
+
+[node name="UnderLight2" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.61535084, -0.7880339, 0.018599138, 0.735534, 0.58251977, 0.34591967, -0.28343087, -0.19918169, 0.93807966, -0.669474, 1.1072806, -0.9389304)
+light_color = Color(0.5572787, 0.6063106, 1, 1)
+light_energy = 0.343
+
+[node name="UnderLight3" type="OmniLight3D" parent="Environment"]
+transform = Transform3D(0.61535084, -0.7880339, 0.018599195, 0.735534, 0.58251977, 0.34591976, -0.28343087, -0.19918168, 0.9380798, 0.525589, 3.1303515, 7.0952578)
+light_color = Color(0.5572787, 0.6063106, 1, 1)
+light_energy = 0.343
+light_cull_mask = 4293918722
+omni_range = 8.142372
+
+[node name="UnderLight4" type="OmniLight3D" parent="Environment"]
+transform = Transform3D(0.61535084, -0.7880339, 0.018599195, 0.735534, 0.58251977, 0.34591976, -0.28343087, -0.19918168, 0.9380798, 0.525589, 2.1532521, 22.547792)
+light_color = Color(0.7978984, 0.5335013, 0.8388426, 1)
+light_energy = 0.019
+light_cull_mask = 4293918723
+omni_range = 25.806942
+
+[node name="Yoroi" type="Node3D" parent="Environment" groups=["Bunraku"]]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0.74677014, -0.639, 25.476892)
+
+[node name="Body" type="Sprite3D" parent="Environment/Yoroi"]
+transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 0.9999999, 0, 8.742277e-08, 0, -0.9999999, 0, 0.13333333, 0)
+material_override = ExtResource("7_g3jex")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("8_n7dya")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yoroi/Body"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 7.450581e-09, 0.0030204095, 0.00999999)
+material_override = SubResource("StandardMaterial3D_h0cje")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("8_n7dya")
+hframes = 4
+
+[node name="Yono" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.8050115, 0.26536503, -0.8194612, -0.3942114, 1.4372592, 1.3337481, 0.76585394, 1.3652356, -1.2448295, 2.9060574, 0.64176667, 5.18564)
+layers = 3
+material_override = SubResource("StandardMaterial3D_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Yono2" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-0.27414557, -1.3874751, 1.4141278, -1.7155906, 0.8802043, 0.5310269, -0.99075437, -1.1402425, -1.3108217, -1.1718307, -0.56147873, 4.008077)
+layers = 3
+material_override = SubResource("StandardMaterial3D_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Yono3" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.769736, -0.9127598, -0.18682952, -0.9265006, 1.7663901, 0.1465055, 0.09814447, 0.21618721, -1.9858578, -1.1718307, 2.0466294, 9.810865)
+layers = 3
+material_override = SubResource("StandardMaterial3D_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Yono4" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.0567724, 1.5149535, -0.766909, 0.89177454, 1.2638707, 1.2678202, 1.4449813, 0.3279442, -1.3433099, 3.088809, -1.3509638, 9.810865)
+layers = 3
+material_override = SubResource("StandardMaterial3D_kvyvy")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_n0lt2")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Yono4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Kouya" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.7853118, -0.19036984, 0.8811483, 0.6049307, 1.1964036, 1.4841418, -0.6683725, 1.5913447, -1.0103967, -3.018506, 0.13612938, 7.1486278)
+layers = 3
+material_override = SubResource("StandardMaterial3D_olb4n")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_n7dya")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Kouya"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Kouya3" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.4564545, 0.38539863, -1.3153743, 1.3036518, 0.98231375, -1.155661, 0.42336047, -1.6989784, -0.9665602, 6.7786684, 3.3948827, 10.471389)
+layers = 3
+material_override = SubResource("StandardMaterial3D_olb4n")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_n7dya")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Kouya3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Kouya2" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.2606452, -0.53672063, -1.4569511, -1.4293436, -0.33182466, 1.3589967, -0.6064268, 1.8978475, -0.17442286, 5.348243, -0.8735833, 7.1486278)
+layers = 3
+material_override = SubResource("StandardMaterial3D_olb4n")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_n7dya")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Kouya2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Kouya4" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-1.1782234, -1.1289737, 1.156378, -0.3348522, 1.5705531, 1.1921561, -1.5810331, 0.5087055, -1.1142507, -0.55619955, -0.8735833, 7.1486278)
+layers = 3
+material_override = SubResource("StandardMaterial3D_olb4n")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_n7dya")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Kouya4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+layers = 3
+material_override = SubResource("StandardMaterial3D_f0q68")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_vpgko")
+hframes = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.9268726, -1.2547936, 5.4848773e-08, 0, -6.818976e-08, -1.56, 1.2547936, 0.9268726, -4.0514887e-08, 0.4, -0.676, 2.959)
+shaded = true
+texture_filter = 2
+texture = ExtResource("24_xf55f")

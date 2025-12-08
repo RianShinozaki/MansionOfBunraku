@@ -195,9 +195,9 @@ func switch_to_alt_tex():
 			if material:
 				material.albedo_texture = painting_artwork_alt
 				$VisualPivot/ArtworkSprite.material_override = material
-	# Hide the frame if it exists
-	if has_node("VisualPivot/FrameSprite"):
-		$VisualPivot/FrameSprite.visible = false
+	# Hide the frame if it exists -- wait wat why
+	#if has_node("VisualPivot/FrameSprite"):
+		#$VisualPivot/FrameSprite.visible = false
 
 func switch_to_main_tex():
 	if painting_artwork and has_node("VisualPivot/ArtworkSprite"):

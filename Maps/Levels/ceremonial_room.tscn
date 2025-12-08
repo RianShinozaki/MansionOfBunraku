@@ -335,12 +335,12 @@ painting_artwork = ExtResource("27_nvkic")
 painting_artwork_alt = ExtResource("28_xpwoj")
 dialogue_id = "kouya_painting_ceremony"
 
+[node name="KouyaNormalPosition" type="Node3D" parent="Objects"]
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 0.9939353, -1.9657795)
+
 [node name="KouyaSakeLocation" type="Node3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5178518, 0.9939353, -4.830327)
 script = ExtResource("23_uqtih")
-
-[node name="KouyaNormalPosition" type="Node3D" parent="Objects"]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.6854644, 0.9939353, -1.9657795)
 
 [node name="ShrineShamisenListener" type="Area3D" parent="Objects"]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2.5039768, 1.070057, -5.8725057)
