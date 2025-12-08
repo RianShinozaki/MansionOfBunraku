@@ -14,6 +14,11 @@ var first_viewing: bool = true
 @onready var focus_marker: Node3D = $FocusMarker
 
 @export var table: FruitTable
+@export var music_note: int
+var NoteScene = preload("res://Objects/Items/music_note.tscn")
+var note_instance
+var last_note = 0.0
+var correct_offering: bool = false
 
 var appeased: bool = false
 
@@ -21,7 +26,17 @@ func _ready():
 	if facing_left:
 		play_sprite.flip_h = -1
 		dialogue_sprite.flip_h = -1
+	
 	set_play_mode()
+
+func _process(delta: float) -> void:
+	if correct_offering and last_note > 0.7: 
+		last_note = 0.0
+		note_instance = NoteScene.instantiate()
+		add_child(note_instance)
+		note_instance.spawn_note(music_note, false)
+	
+	last_note += delta
 
 func set_play_mode():
 	if play_sprite and dialogue_sprite:
@@ -45,13 +60,14 @@ func on_interact():
 		set_dialogue_mode()
 		
 		if table.has_fruit:
-			if !facing_left: dialogue_id = "left_success" if table.fruit_type == "apple" else "left_failure"
-			else: dialogue_id = "right_success" if table.fruit_type == "peach" else "right_failure"
+			if !facing_left: 
+				dialogue_id = "left_success" if table.fruit_type == "apple" else "left_failure"
+			else: 
+				dialogue_id = "right_success" if table.fruit_type == "peach" else "right_failure"
 		else: dialogue_id = default_dialogue_id
-		
-		if dialogue_id == "left_success" or dialogue_id == "right_success":
-			appeased = true
-			
+
+		correct_offering = true if dialogue_id == "left_success" or dialogue_id == "right_success" else false
+
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "" and first_viewing:
 			first_viewing = false

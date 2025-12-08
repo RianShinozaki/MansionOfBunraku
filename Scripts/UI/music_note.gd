@@ -14,9 +14,7 @@ func _ready():
 		3: [note_three, $string_three]
 	}
 	
-	# Position centered in front of camera with slight random variation
-	position = Vector3(randf_range(-0.1, 0.1), randf_range(-0.1, 0.1), -0.3)  
-	rotation_degrees = Vector3(0, 0, 35)
+	transform.origin = Vector3(randf_range(-0.5,0.5), randf_range(-0.5,0.5), 0.0)  
 	scale = Vector3(0.25, 0.25, 1)
 
 func _process(delta: float) -> void:
@@ -25,6 +23,9 @@ func _process(delta: float) -> void:
 	if time <= 0:
 		queue_free()
 
-func spawn_note(note: int):
+func spawn_note(note: int, play_note: bool):
 	self.texture = notes[note][0]
-	notes[note][1].play()
+	if play_note: notes[note][1].play()
+
+func set_spawn_time(spawn_time: int):
+	time = spawn_time
