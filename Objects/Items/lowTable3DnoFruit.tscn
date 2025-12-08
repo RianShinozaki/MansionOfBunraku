@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7sh0tn0htn6u"]
+
+[ext_resource type="Script" uid="uid://bhg06ikvt4nce" path="res://Scripts/Items/low_table_physics.gd" id="1_physics"]
+[ext_resource type="ArrayMesh" uid="uid://deusmvj331ngy" path="res://Art Assets/Models/lowTable.obj" id="2_3hhrr"]
+[ext_resource type="Texture2D" uid="uid://d4iqu4g34xt60" path="res://Art Assets/Models/lowTable_0.png" id="3_ake3k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lowTable"]
+albedo_texture = ExtResource("3_ake3k")
+metallic = 0.12
+metallic_specular = 0.8
+roughness = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_table"]
+size = Vector3(0.45, 0.08, 0.37)
+
+[node name="lowTable3D" type="RigidBody3D"]
+collision_layer = 5
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, 0)
+script = ExtResource("1_physics")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+mesh = ExtResource("2_3hhrr")
+surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+shape = SubResource("BoxShape3D_table")
