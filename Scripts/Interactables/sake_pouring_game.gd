@@ -29,8 +29,6 @@ enum GameState {
 # Dialogue
 @export var intro_dialogue: DialogueData
 
-@export var debug_insta_finish: bool = false
-
 # Preload resources for Kitsune appearance
 var KitsuneScene = preload("res://Objects/Entities/kitsune.tscn")
 var SakeCompletionDialogue = preload("res://Dialogue/sake_completion.tres")
@@ -142,9 +140,6 @@ func on_interact() -> void:
 		start_game()
 
 func start_game():
-	if debug_insta_finish:
-		complete_ritual()
-		return
 	"""Initialize the ceremonial pouring game"""
 	current_state = GameState.INTRO
 	current_cup_index = 0

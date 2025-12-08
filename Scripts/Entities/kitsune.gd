@@ -106,18 +106,23 @@ func give_music_notes():
 	# Wait a brief moment before spawning notes
 	await get_tree().create_timer(0.3).timeout
 	
-	while(true):
+	# Get reference to player's camera for spawning notes (ensures they're always visible)
+	var player = Player.instance
+	if not player:
+		push_warning("Player instance not found, cannot spawn music notes")
+		return
+	
+	var camera = player.get_node("Camera3D")
+	if not camera:
+		push_warning("Player camera not found, cannot spawn music notes")
+		return
+	
+	# Spawn note-one (1) then note-two (2) as children of camera
+	var note_values = [1, 2]
+	for note_value in note_values:
 		var note_instance = NoteScene.instantiate()
-		add_child(note_instance)
-		note_instance.spawn_note(1, false)
-		note_instance.transform.origin.x -= 0.2
-		# Slight delay between notes
-		await get_tree().create_timer(0.25).timeout
+		camera.add_child(note_instance)
+		note_instance.spawn_note(note_value)
 		
-		note_instance = NoteScene.instantiate()
-		add_child(note_instance)
-		note_instance.spawn_note(2, false)
-		note_instance.transform.origin.x += 0.2
-		note_instance.transform.origin.y += 0.1
 		# Slight delay between notes
 		await get_tree().create_timer(0.25).timeout
