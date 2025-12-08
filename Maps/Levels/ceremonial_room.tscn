@@ -1,7 +1,7 @@
 [gd_scene load_steps=75 format=3 uid="uid://drj1idk7skuj4"]
 
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="1_78kg7"]
-[ext_resource type="Script" path="res://Scripts/System/room.gd" id="1_i6i0y"]
+[ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_i6i0y"]
 [ext_resource type="Material" uid="uid://dqmvyg6xesanm" path="res://Art Assets/Materials/CeremonialRoom.tres" id="2_74uo1"]
 [ext_resource type="Script" uid="uid://fvc31ay06foq" path="res://Scripts/Entities/Bunraku/bunraku_managers.gd" id="3_84ys0"]
 [ext_resource type="PackedScene" uid="uid://cbki4518ca03c" path="res://Objects/Entities/yono.tscn" id="4_lmuaq"]
@@ -45,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="28_xpwoj"]
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="29_pd0vp"]
 [ext_resource type="PackedScene" uid="uid://c8j4m3kn5w2p1" path="res://Objects/Entities/kitsune.tscn" id="33_uqtih"]
-[ext_resource type="Script" path="res://Scripts/Interactables/shrine_shamisen_listener.gd" id="35_awubs"]
+[ext_resource type="Script" uid="uid://cbcikywctscqx" path="res://Scripts/Interactables/shrine_shamisen_listener.gd" id="35_awubs"]
 [ext_resource type="Texture2D" uid="uid://c4u4u8forifqo" path="res://Art Assets/song_matrimony_symbol.png" id="36_awubs"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="36_qxk77"]
 [ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="37_7kfon"]
@@ -55,7 +55,7 @@
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="41_0e4pl"]
 [ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="43_kv4jp"]
 [ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="44_0e4pl"]
-[ext_resource type="Script" path="res://Scripts/Environment/yoroi_scare.gd" id="45_ihef1"]
+[ext_resource type="Script" uid="uid://b6xeekgv2m0ig" path="res://Scripts/Environment/yoroi_scare.gd" id="45_ihef1"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="45_j61dj"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="46_ihef1"]
 [ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio/boss_rattling.mp3" id="47_1xcae"]
@@ -522,7 +522,7 @@ disabled = true
 [node name="Bunraku" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0030608)
 script = ExtResource("21_tfhdh")
-time_before_initiation = 2.0
+time_before_initiation = 15.0
 bunraku_switch_time = 15.0
 
 [node name="Yono" type="Node3D" parent="Bunraku" node_paths=PackedStringArray("bunraku")]
@@ -622,3 +622,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2292373, 0.37740698, -6.720
 
 [connection signal="pour_failed" from="Objects/SakePouringGame" to="Objects/KouyaSakeLocation" method="handle_failed_game"]
 [connection signal="ritual_completed" from="Objects/SakePouringGame" to="Kitsune" method="trigger_appearance"]
+[connection signal="kouya_active" from="Bunraku" to="Objects/YonoPainting" method="switch_to_main_tex"]
+[connection signal="kouya_active" from="Bunraku" to="Objects/KouyaPainting" method="switch_to_alt_tex"]
+[connection signal="yono_active" from="Bunraku" to="Objects/YonoPainting" method="switch_to_alt_tex"]
+[connection signal="yono_active" from="Bunraku" to="Objects/KouyaPainting" method="switch_to_main_tex"]
+[connection signal="kitsune_talk_over" from="Kitsune" to="Bunraku" method="activate"]

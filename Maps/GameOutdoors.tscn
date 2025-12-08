@@ -1,7 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://chpfrxoims4lb"]
+[gd_scene load_steps=23 format=3 uid="uid://chpfrxoims4lb"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_70vpr"]
-[ext_resource type="Texture2D" uid="uid://cgcubs55mbeqw" path="res://Art Assets/Space/blue_nebulae_1.png" id="2_sky"]
+[ext_resource type="Environment" uid="uid://d1sqmokgksyq3" path="res://Environment Resources/galaxy.tres" id="2_82a6d"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="2_vpe23"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="3_82a6d"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="4_7mmrf"]
@@ -14,30 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="11_ncbny"]
 [ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="12_ennvq"]
 [ext_resource type="PackedScene" uid="uid://cywb5rg3dpmnm" path="res://Maps/Levels/maze.tscn" id="13_34afd"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_night"]
-panorama = ExtResource("2_sky")
-energy_multiplier = 1.5
-
-[sub_resource type="Sky" id="Sky_night"]
-sky_material = SubResource("PanoramaSkyMaterial_night")
-
-[sub_resource type="Environment" id="Environment_8puwx"]
-background_mode = 2
-sky = SubResource("Sky_night")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 1.35
-tonemap_mode = 3
-ssao_intensity = 5.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 2.29
-glow_bloom = 0.54
-glow_blend_mode = 0
-fog_light_color = Color(0, 0, 0, 1)
-fog_light_energy = 1.77
-fog_density = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("3_82a6d")
@@ -87,7 +63,7 @@ cycle_time = 300.0
 meltdown_time = 30.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8puwx")
+environment = ExtResource("2_82a6d")
 
 [node name="Player" parent="." instance=ExtResource("2_vpe23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4391088, 0.6237831, 3.1096516)

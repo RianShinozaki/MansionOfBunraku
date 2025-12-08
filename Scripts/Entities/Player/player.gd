@@ -37,6 +37,7 @@ signal played_note_signal(note: int)
 signal fade_complete
 
 static var instance: Player
+static var song_of_stillness_acquired: bool = false
 
 func _ready() -> void:
 	# RAYCAST SETUP 
@@ -254,3 +255,45 @@ func fade_to_white():
 func fade_from_white():
 	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), 2).finished
 	emit_signal("fade_complete")
+
+func apply_black_white_effect(duration: float = 3.0):
+	"""Apply white overlay effect with low opacity"""
+	# Disable player movement during the effect
+	var was_active = active
+	active = false
+	
+	if not has_node("CanvasLayer/BlackWhiteOverlay"):
+		push_warning("Player: BlackWhiteOverlay node not found!")
+		await get_tree().create_timer(duration).timeout
+		active = was_active
+		return
+	
+	var overlay = $CanvasLayer/BlackWhiteOverlay
+	
+	# Reset overlay state completely
+	overlay.material = null  # Remove any shader material
+	overlay.modulate = Color.WHITE  # Reset modulate
+	overlay.color = Color(1, 1, 1, 0.0)  # Start transparent white
+	overlay.visible = true
+	
+	# Wait a frame to ensure state is set
+	await get_tree().process_frame
+	
+	var tween = create_tween()
+	
+	# Fade in white overlay (0.3 seconds) - increase opacity to low value
+	tween.tween_property(overlay, "color:a", 0.3, 0.3)  # Low opacity white (30%)
+	await tween.finished
+	
+	# Hold the effect for the duration
+	await get_tree().create_timer(duration).timeout
+	
+	# Fade out the effect (0.3 seconds)
+	tween = create_tween()
+	tween.tween_property(overlay, "color:a", 0.0, 0.3)
+	await tween.finished
+	
+	# Reset and hide overlay
+	overlay.visible = false
+	overlay.color = Color(1, 1, 1, 0.0)  # Reset to transparent
+	active = was_active

@@ -15,22 +15,26 @@ var dialogue_triggered: bool = false
 
 var NoteScene = preload("res://Objects/Items/music_note.tscn")
 
+signal kitsune_talk_over
+
 func _ready() -> void:
 	# Don't add to interactable group - we auto-trigger instead
 	
 	# Start in normal mode
 	set_normal_mode()
 	
-	# Auto-trigger intro dialogue after a brief delay (to ensure everything is loaded)
-	if not is_sake_completion:
-		# Lock the player in place until dialogue starts
-		if Player.instance:
-			Player.instance.active = false
-		
-		await get_tree().create_timer(0.5).timeout
-		_trigger_intro_dialogue()
 
 func _process(_delta: float) -> void:
+	
+	if(Player.instance.active and Player.instance.global_position.z < -9.058):
+		if not is_sake_completion:
+			# Lock the player in place until dialogue starts
+			if Player.instance:
+				Player.instance.active = false
+			
+			await get_tree().create_timer(0.5).timeout
+			_trigger_intro_dialogue()
+	
 	# Switch frames based on current inspection mode
 	if InspectionManager.current_mode == InspectionManager.Mode.DIALOGUE:
 		set_dialogue_mode()
@@ -70,9 +74,10 @@ func _trigger_intro_dialogue() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 		await _dialogue_box.dialogue_ended
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		InspectionManager.current_mode = InspectionManager.Mode.PLAY
-		
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		Player.instance.active = true
+		emit_signal("kitsune_talk_over")
 		# Disappear immediately after dialogue
 		queue_free()
 
