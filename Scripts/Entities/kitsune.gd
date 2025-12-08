@@ -96,8 +96,10 @@ func start_sake_completion_sequence():
 		# Give player 2 random music notes
 		await give_music_notes()
 		
+		if is_in_group("Interactable"):
+			remove_from_group("Interactable")
 		# Disappear after giving notes
-		queue_free()
+		# queue_free()
 
 func give_music_notes():
 	"""Spawn note-one then note-two as a reward"""

@@ -190,6 +190,7 @@ text = "Song of Freedom"
 label_settings = SubResource("LabelSettings_w48y6")
 
 [node name="SongOfMatrimony" type="Control" parent="CanvasLayer/Music Memory"]
+visible = false
 anchors_preset = 0
 offset_left = 820.0
 offset_top = -24.0
@@ -268,13 +269,13 @@ text = "Song of Matrimony"
 label_settings = SubResource("LabelSettings_w48y6")
 
 [node name="SongOfStillness" type="Control" parent="CanvasLayer/Music Memory"]
+visible = false
 anchors_preset = 0
 offset_left = 410.0
 offset_top = -24.0
 offset_right = 450.0
 offset_bottom = 16.0
 mouse_filter = 2
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
 modulate = Color(1, 1, 1, 0.36862746)
@@ -359,15 +360,14 @@ texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
 
 [node name="BlackWhiteOverlay" type="ColorRect" parent="CanvasLayer"]
-layout_mode = 3
+visible = false
+z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-visible = false
-z_index = 100
 color = Color(1, 1, 1, 0)
 
 [node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]

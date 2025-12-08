@@ -283,7 +283,7 @@ facing_left = true
 default_dialogue_id = "kitsune_right"
 environmental_dialogues = ExtResource("24_vy35f")
 table = NodePath("../FruitTableRight")
-music_note = 2
+music_note = 1
 
 [node name="Chandelier" type="Sprite3D" parent="Objects"]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4946408, 1.7002242, -2.998343)
@@ -596,7 +596,7 @@ material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
 [node name="FireWall2" type="MeshInstance3D" parent="FireEffects"]
-transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.5970474, 0.40000004, -1.1996578)
+transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.59704906, 0.4006006, -1.1998072)
 material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 

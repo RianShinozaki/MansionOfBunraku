@@ -14,7 +14,7 @@ func _ready():
 		3: [note_three, $string_three]
 	}
 	
-	transform.origin = Vector3(randf_range(-0.5,0.5), randf_range(-0.5,0.5), 0.0)  
+	transform.origin = Vector3(randf_range(-0.1,0.1), randf_range(-0.1,0.1), 0.1)  
 	scale = Vector3(0.25, 0.25, 1)
 
 func _process(delta: float) -> void:
