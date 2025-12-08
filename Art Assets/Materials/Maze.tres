@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bpf5n5ekfyr31"]
 
-[ext_resource type="Texture2D" uid="uid://j1u00vnfmyyu" path="res://Art Assets/Models/maze_maze_0.png" id="1_1a54o"]
+[ext_resource type="Texture2D" uid="uid://b23r5p4owtrm5" path="res://Art Assets/Models/maze_0.png" id="1_1a54o"]
 
 [resource]
 transparency = 2
