@@ -28,11 +28,6 @@ func _process(_delta: float) -> void:
 	
 	if(Player.instance.active and Player.instance.global_position.z < -9.058):
 		if not is_sake_completion:
-			# Lock the player in place until dialogue starts
-			if Player.instance:
-				Player.instance.active = false
-			
-			await get_tree().create_timer(0.5).timeout
 			_trigger_intro_dialogue()
 	
 	# Switch frames based on current inspection mode
@@ -73,9 +68,10 @@ func _trigger_intro_dialogue() -> void:
 		_dialogue_box.start("kitsune_intro")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+		
 		await _dialogue_box.dialogue_ended
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		InspectionManager.current_mode = InspectionManager.Mode.PLAY
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		Player.instance.active = true
 		emit_signal("kitsune_talk_over")
 		# Disappear immediately after dialogue

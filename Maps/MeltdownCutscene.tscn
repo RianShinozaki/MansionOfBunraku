@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://lqfrsxke2p01"]
+[gd_scene load_steps=78 format=3 uid="uid://lqfrsxke2p01"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="1_201l7"]
 [ext_resource type="Script" uid="uid://brkonuiro16lu" path="res://Scripts/UI/meltdown_cutscene.gd" id="1_l6s06"]
@@ -9,10 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://5xijd2tnn3tv" path="res://Audio/firewall.mp3" id="6_l6s06"]
 [ext_resource type="AudioStream" uid="uid://cxah1k77inljp" path="res://Audio/Music/music_box.mp3" id="7_efst0"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="7_fyv15"]
-[ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="8_34my2"]
-[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="9_fyv15"]
 [ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="10_34my2"]
+[ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="10_efst0"]
 [ext_resource type="FontFile" uid="uid://dwciwlheb2vpp" path="res://Art Assets/Fonts/Tangerine_Bold.ttf" id="11_fyv15"]
+[ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="11_q6ftn"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_jfgyw"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="12_krhjt"]
 [ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="13_jfgyw"]
@@ -1494,47 +1494,6 @@ heightmap_texture = SubResource("CompressedTexture2D_87s5l")
 texture_filter = 2
 billboard_keep_scale = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l6s06"]
-load_path = "res://.godot/imported/Yoroi.png-feaa9076c582ea67c630aae1c240de31.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwboj"]
-load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u044k"]
-load_path = "res://.godot/imported/Yoroi-e.png-d9cbe8922b3fdcdbe89d5b1ed02d0d3f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e803v"]
-load_path = "res://.godot/imported/Yoroi-h.png-98a80b474e89e062142ae16668ee3515.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qoyox"]
-load_path = "res://.godot/imported/Yoroi-h_n.png-373d25e62a28d965474051209ad735c3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yt5x3"]
-load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktjr1"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_l6s06")
-emission_energy_multiplier = 1.6
-emission_texture = SubResource("CompressedTexture2D_u044k")
-normal_enabled = true
-normal_scale = 0.33
-normal_texture = SubResource("CompressedTexture2D_qoyox")
-bent_normal_texture = SubResource("CompressedTexture2D_xwboj")
-rim = 0.43
-rim_tint = 0.3
-rim_texture = SubResource("CompressedTexture2D_yt5x3")
-heightmap_enabled = true
-heightmap_scale = 1.0
-heightmap_texture = SubResource("CompressedTexture2D_e803v")
-texture_filter = 2
-billboard_keep_scale = true
-stencil_flags = 2
-stencil_outline_thickness = 1.18
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_spn38"]
 load_path = "res://.godot/imported/Yono.png-917c3f97116f06f50478ed6ac03407dc.ctex"
 
@@ -1786,7 +1745,7 @@ modulate = Color(0, 0, 0, 0)
 texture = SubResource("PlaceholderTexture2D_b6gsb")
 
 [node name="Camera2" type="Camera3D" parent="."]
-transform = Transform3D(-0.05233594, 0.121702336, -0.99118483, 0, 0.99254614, 0.12186923, 0.9986295, 0.0063781473, -0.051945783, 0.072, 0.485, 0.15)
+transform = Transform3D(-0.05233594, 0.121702336, -0.9911848, 0, 0.99254614, 0.12186922, 0.9986295, 0.0063781473, -0.05194578, 0.072, 0.485, 0.15)
 
 [node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
 transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)
@@ -1832,24 +1791,24 @@ hframes = 4
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2506263, 0.35031846, 0.07600242)
 visible = false
 layers = 2
-material_override = ExtResource("8_34my2")
+material_override = ExtResource("10_efst0")
 shaded = true
 double_sided = false
 alpha_cut = 2
 texture_filter = 2
-texture = ExtResource("9_fyv15")
+texture = ExtResource("11_q6ftn")
 hframes = 4
 frame = 1
 
 [node name="Head" type="Sprite3D" parent="Yoroi"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 layers = 2
-material_override = SubResource("StandardMaterial3D_ktjr1")
+material_override = ExtResource("10_efst0")
 billboard = 2
 shaded = true
 alpha_cut = 2
 texture_filter = 2
-texture = ExtResource("9_fyv15")
+texture = ExtResource("11_q6ftn")
 hframes = 4
 
 [node name="Yono2" type="Sprite3D" parent="."]
@@ -1878,24 +1837,24 @@ hframes = 4
 [node name="Yoroi2" type="Sprite3D" parent="."]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.05463791, 0.041239828, 12.022207)
 layers = 4
-material_override = ExtResource("8_34my2")
+material_override = ExtResource("10_efst0")
 shaded = true
 double_sided = false
 alpha_cut = 2
 texture_filter = 2
-texture = ExtResource("9_fyv15")
+texture = ExtResource("11_q6ftn")
 hframes = 4
 frame = 1
 
 [node name="Head" type="Sprite3D" parent="Yoroi2"]
 transform = Transform3D(0.93605953, -0.35184166, 0, 0.35184166, 0.93605953, 0, 0, 0, 1, 0, 0, -0.0058698654)
 layers = 4
-material_override = ExtResource("8_34my2")
+material_override = ExtResource("10_efst0")
 billboard = 2
 shaded = true
 alpha_cut = 2
 texture_filter = 2
-texture = ExtResource("9_fyv15")
+texture = ExtResource("11_q6ftn")
 hframes = 4
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
