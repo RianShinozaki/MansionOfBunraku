@@ -14,15 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://cdkrcu7oon8wv" path="res://Objects/Items/pedestal.tscn" id="13_ibouv"]
 [ext_resource type="PackedScene" uid="uid://c3jyphoehlcxh" path="res://Objects/Items/letter.tscn" id="14_x0ud3"]
 [ext_resource type="PackedScene" uid="uid://cnm8vf5qx7xqp" path="res://Objects/Interactables/maze_note.tscn" id="15_maze_note"]
-[ext_resource type="PackedScene" path="res://Objects/Effects/courtesan_shadow_side.tscn" id="16_j1tjy"]
+[ext_resource type="PackedScene" uid="uid://b2n8k5kam4r6x" path="res://Objects/Effects/courtesan_shadow_side.tscn" id="16_j1tjy"]
 [ext_resource type="PackedScene" uid="uid://c0c825m53d50m" path="res://Objects/Entities/time_statue.tscn" id="16_soosd"]
-[ext_resource type="Script" uid="uid://b6toneowrkl4r" path="res://Scripts/Environment/outdoors_environment_swapper.gd" id="17_mf3jw"]
-[ext_resource type="PackedScene" path="res://Objects/Effects/courtesan_shadow_front.tscn" id="17_q4vb2"]
+[ext_resource type="Script" path="res://Scripts/Environment/outdoors_environment_swapper.gd" id="17_mf3jw"]
+[ext_resource type="PackedScene" uid="uid://c8r4j3m7k2s1p" path="res://Objects/Effects/courtesan_shadow_front.tscn" id="17_q4vb2"]
 [ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="18_dba84"]
 [ext_resource type="Environment" uid="uid://htrgry67in5d" path="res://Environment Resources/mansion.tres" id="18_i6wgy"]
 [ext_resource type="Environment" uid="uid://d1sqmokgksyq3" path="res://Environment Resources/galaxy.tres" id="19_fydgi"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="19_trj0u"]
-[ext_resource type="Shader" uid="uid://321nfnll6ach" path="res://Shaders/cubemap.gdshader" id="20_d5h0v"]
+[ext_resource type="Shader" path="res://Shaders/cubemap.gdshader" id="20_d5h0v"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="20_emya4"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="21_dpvsv"]
 [ext_resource type="Texture2D" uid="uid://bwl7a8foagrvo" path="res://Art Assets/blue_nebulae_1.png" id="21_ubrvs"]
@@ -106,10 +106,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6421769, 0.7052002, 1.1617
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2595587, 0.7052002, 1.1617999)
 
 [node name="Candle" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7718163, 0.3985107, 3.7943268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0263557, 0.3985107, 3.7943268)
 
 [node name="Candle2" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.122, 0.396, 3.79)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.876345, 0.396, 3.79)
 
 [node name="Gate" parent="Objects/GateArea" instance=ExtResource("12_wadbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1013665, 0.036499023, 0.38570285)
