@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://kjgabcbsk3xy"]
 
-[ext_resource type="Script" uid="uid://dybfb2tv5yjtb" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="1_x5chm"]
+[ext_resource type="Script" uid="uid://dybfb2tv5yjtb" path="res://Scripts/Entities/Bunraku/kouya.gd" id="1_x5chm"]
 [ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="2_x5chm"]
 [ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="3_i1w2g"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_p5pg0"]

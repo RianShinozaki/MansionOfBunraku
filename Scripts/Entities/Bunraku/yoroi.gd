@@ -1,41 +1,64 @@
-class_name Yoroi
+extends Node3D
 
-extends Bunraku
+@export var move_speed: float
+@export var target: Node3D
+@onready var raycasters: Node3D = $Raycasters
 
-##How closely the player must be looking at Yoroi to curb his anger
-@export var look_anger_range: float
-##How quickly Yoroi's anger ramps up when ignored
-@export var look_anger_curve: Curve
-##Simple flat multiplier on Yoroi's anger
-@export var look_anger_factor: float
-##How long Yoroi can be ignored before he gets angry
-@export var no_look_max_time: float
-@onready var raycast = $RayCast3D
+@onready var f_cast: RayCast3D = $Raycasters/ForwardCast
+@onready var r_cast: RayCast3D = $Raycasters/RightCast
+@onready var l_cast: RayCast3D = $Raycasters/LeftCast
+@onready var nav: NavigationAgent3D = $NavigationAgent3D
 
-var no_look_time: float = 0
-var has_been_fed: bool = false 
-var has_gear := true
+var direction_vector: Vector2 = Vector2(0, 1)
+
+@onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
+var physics_delta: float
+var orig_y: float
 
 func _ready() -> void:
-	super._ready()
-func _physics_process(_delta: float) -> void:
-	super._physics_process(_delta)
+	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	orig_y = global_position.y
+
+func set_movement_target(movement_target: Vector3):
+	navigation_agent.set_target_position(movement_target)
+
+func _physics_process(delta):
+	set_movement_target(target.global_position)
+	# Save the delta for use in _on_velocity_computed.
+	physics_delta = delta
+	# Do not query when the map has never synchronized and is empty.
+	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
+		return
+	if navigation_agent.is_navigation_finished():
+		return
+
+	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
+	var new_velocity: Vector3 = global_position.direction_to(next_path_position) * move_speed
+	if navigation_agent.avoidance_enabled:
+		navigation_agent.set_velocity(new_velocity)
+	else:
+		_on_velocity_computed(new_velocity)
+
+func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	
-	if not active: return
+	global_position = global_position.move_toward(global_position + safe_velocity, physics_delta * move_speed)
 	
-	#Handles Yoroi's anger when not looked at for long enough
-	var _vec_to_player = (Player.instance.global_position - (global_position + Vector3.UP * 0.2))
+func make_turning_decision():
+	var _move_vector: Vector2 = move_speed * direction_vector
 	
-	raycast.target_position = _vec_to_player
-	
-	if not raycast.is_colliding() and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
-		var _player_forward = Player.instance.get_node("Camera3D").global_basis * Vector3.FORWARD
-		var _angle = _player_forward.angle_to(-_vec_to_player)
-		if _angle > look_anger_range:
-			no_look_time += _delta
-			if no_look_time > no_look_max_time:
-				var _samp = look_anger_curve.sample(1-(_angle/360))
-				anger_level += _delta * _samp * look_anger_factor
-				anger_decrease_delta = 0
+	if r_cast.is_colliding() and l_cast.is_colliding():
+		direction_vector = -direction_vector
+	else:
+		var _direction_vector_1: Vector2 = direction_vector.rotated( deg_to_rad( 90 ))
+		var _direction_vector_2: Vector2 = direction_vector.rotated( deg_to_rad(-90))
+		var _vec3_to_target: Vector3 = target.global_position - global_position
+		var _vec2_to_target: Vector2 = Vector2(_vec3_to_target.x, _vec3_to_target.z)
+		var _try_dir_1 = abs(_direction_vector_1.angle_to(_vec2_to_target))
+		var _try_dir_2 = abs(_direction_vector_2.angle_to(_vec2_to_target))
+		if _try_dir_1 < _try_dir_2:
+			direction_vector = _direction_vector_1
 		else:
-			no_look_time = 0
+			direction_vector = _direction_vector_2
+	
+	raycasters.global_rotation.y = -direction_vector.angle()
+	
