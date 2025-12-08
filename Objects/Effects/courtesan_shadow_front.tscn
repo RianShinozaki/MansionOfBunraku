@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8r4j3m7k2s1p"]
+
+[ext_resource type="Texture2D" uid="uid://b72efbyn3w81l" path="res://Art Assets/courtesan_shadow_front.png" id="1_shadow_front"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shadow_front"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.4392157)
+albedo_texture = ExtResource("1_shadow_front")
+texture_filter = 0
+disable_receive_shadows = true
+
+[node name="CourtesanShadowFront" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_shadow_front")
+cast_shadow = 0
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_shadow_front")
