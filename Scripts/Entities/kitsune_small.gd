@@ -15,6 +15,8 @@ var first_viewing: bool = true
 
 @export var table: FruitTable
 
+var appeased: bool = false
+
 func _ready():
 	if facing_left:
 		play_sprite.flip_h = -1
@@ -46,7 +48,10 @@ func on_interact():
 			if !facing_left: dialogue_id = "left_success" if table.fruit_type == "apple" else "left_failure"
 			else: dialogue_id = "right_success" if table.fruit_type == "peach" else "right_failure"
 		else: dialogue_id = default_dialogue_id
-
+		
+		if dialogue_id == "left_success" or dialogue_id == "right_success":
+			appeased = true
+			
 		await get_tree().create_timer(0.1).timeout
 		if dialogue_id != "" and first_viewing:
 			first_viewing = false

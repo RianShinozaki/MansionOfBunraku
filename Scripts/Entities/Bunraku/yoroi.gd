@@ -2,11 +2,7 @@ extends Node3D
 
 @export var move_speed: float
 @export var target: Node3D
-@onready var raycasters: Node3D = $Raycasters
 
-@onready var f_cast: RayCast3D = $Raycasters/ForwardCast
-@onready var r_cast: RayCast3D = $Raycasters/RightCast
-@onready var l_cast: RayCast3D = $Raycasters/LeftCast
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 var direction_vector: Vector2 = Vector2(0, 1)
@@ -43,23 +39,4 @@ func _physics_process(delta):
 func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	
 	global_position = global_position.move_toward(global_position + safe_velocity, physics_delta * move_speed)
-	
-func make_turning_decision():
-	var _move_vector: Vector2 = move_speed * direction_vector
-	
-	if r_cast.is_colliding() and l_cast.is_colliding():
-		direction_vector = -direction_vector
-	else:
-		var _direction_vector_1: Vector2 = direction_vector.rotated( deg_to_rad( 90 ))
-		var _direction_vector_2: Vector2 = direction_vector.rotated( deg_to_rad(-90))
-		var _vec3_to_target: Vector3 = target.global_position - global_position
-		var _vec2_to_target: Vector2 = Vector2(_vec3_to_target.x, _vec3_to_target.z)
-		var _try_dir_1 = abs(_direction_vector_1.angle_to(_vec2_to_target))
-		var _try_dir_2 = abs(_direction_vector_2.angle_to(_vec2_to_target))
-		if _try_dir_1 < _try_dir_2:
-			direction_vector = _direction_vector_1
-		else:
-			direction_vector = _direction_vector_2
-	
-	raycasters.global_rotation.y = -direction_vector.angle()
 	
