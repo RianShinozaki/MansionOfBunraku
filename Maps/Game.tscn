@@ -1,12 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=31 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
+[ext_resource type="Environment" uid="uid://htrgry67in5d" path="res://Environment Resources/mansion.tres" id="3_8rhjv"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
 [ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
-[ext_resource type="PackedScene" uid="uid://cjcpfvhnsapwc" path="res://Maps/Levels/house_entrance.tscn" id="14_ys1ck"]
-[ext_resource type="PackedScene" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
-[ext_resource type="Script" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
-[ext_resource type="Script" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
+[ext_resource type="PackedScene" uid="uid://dy5xkfkbtgqlx" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
+[ext_resource type="Script" uid="uid://dxrgmjawipave" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
+[ext_resource type="Script" uid="uid://ce578e84smgjq" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -16,24 +16,7 @@
 [ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="46_1wkvv"]
 [ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="47_t5ayh"]
 [ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="48_rkpjn"]
-
-[sub_resource type="Environment" id="Environment_8puwx"]
-background_energy_multiplier = 0.0
-ambient_light_source = 2
-ambient_light_color = Color(0.6710713, 0, 0.057913944, 1)
-ambient_light_energy = 0.0
-tonemap_mode = 3
-tonemap_exposure = 0.68
-ssao_intensity = 5.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.2
-glow_bloom = 0.51
-glow_blend_mode = 0
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-fog_light_energy = 2.0
-fog_density = 0.155
+[ext_resource type="Script" uid="uid://bjyp6atcs5gvn" path="res://Scripts/System/song_of_stillness_listener.gd" id="49_listener"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("33_nv3h5")
@@ -77,11 +60,14 @@ script = ExtResource("47_t5ayh")
 [sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
 script = ExtResource("48_rkpjn")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ys1ck"]
-size = Vector3(13.986084, 2.8081055, 28.807983)
+[sub_resource type="BoxShape3D" id="BoxShape3D_72oe8"]
+size = Vector3(13.986084, 2.8081055, 25.563362)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jxyng"]
 size = Vector3(9.366913, 2.8081055, 13.64584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8rhjv"]
+size = Vector3(21.526665, 2.8081055, 24.400503)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1twq"]
 size = Vector3(16.348564, 2.8081055, 14.05876)
@@ -90,15 +76,17 @@ size = Vector3(16.348564, 2.8081055, 14.05876)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_duur3")
-debug_load_all = true
 cycle_time = 300.0
 meltdown_time = 30.0
 
+[node name="SongOfStillnessListener" type="Node" parent="."]
+script = ExtResource("49_listener")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8puwx")
+environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.481068, 0.3832556, -12.953246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.948286, 0.3832556, -2.0981002)
 move_speed = 1.5
 holding_shamisen = true
 
@@ -161,21 +149,16 @@ light_energy = 0.683
 
 [node name="LoadingZones" type="Node3D" parent="."]
 
-[node name="EntranceLoadZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("room_object")]
+[node name="EntranceLoadZone" type="Area3D" parent="LoadingZones"]
 collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("16_r1twq")
 room_path = "uid://cjcpfvhnsapwc"
-room_object = NodePath("HouseEntranceLevel")
-entered = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/EntranceLoadZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1207275, 0.90405273, 1.4620972)
-shape = SubResource("BoxShape3D_ys1ck")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1207275, 0.90405273, -0.16021347)
+shape = SubResource("BoxShape3D_72oe8")
 debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
-
-[node name="HouseEntranceLevel" parent="LoadingZones/EntranceLoadZone" instance=ExtResource("14_ys1ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.718, 0)
 
 [node name="CeremonialLoadZone" type="Area3D" parent="LoadingZones"]
 collision_layer = 0
@@ -186,6 +169,18 @@ room_path = "uid://drj1idk7skuj4"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/CeremonialLoadZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.970932, 0.90405273, -10.64495)
 shape = SubResource("BoxShape3D_jxyng")
+debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
+
+[node name="MazeLoadZone" type="Area3D" parent="LoadingZones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.593224)
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("16_r1twq")
+room_path = "uid://cywb5rg3dpmnm"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/MazeLoadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.104258, 0.90405273, -10.723202)
+shape = SubResource("BoxShape3D_8rhjv")
 debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
 
 [node name="LobbyFogZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("environment")]

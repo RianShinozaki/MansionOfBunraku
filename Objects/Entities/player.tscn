@@ -190,6 +190,7 @@ text = "Song of Freedom"
 label_settings = SubResource("LabelSettings_w48y6")
 
 [node name="SongOfMatrimony" type="Control" parent="CanvasLayer/Music Memory"]
+visible = false
 anchors_preset = 0
 offset_left = 820.0
 offset_top = -24.0
@@ -267,6 +268,73 @@ offset_bottom = 138.0
 text = "Song of Matrimony"
 label_settings = SubResource("LabelSettings_w48y6")
 
+[node name="SongOfStillness" type="Control" parent="CanvasLayer/Music Memory"]
+visible = false
+anchors_preset = 0
+offset_left = 410.0
+offset_top = -24.0
+offset_right = 450.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 142.0
+offset_right = 175.5
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 164.0
+offset_right = 129.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 185.0
+offset_right = 161.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 143.0
+offset_right = 198.0
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Music Memory/SongOfStillness"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 103.0
+offset_right = 300.0
+offset_bottom = 138.0
+text = "Song of Stillness"
+label_settings = SubResource("LabelSettings_w48y6")
+
 [node name="ThinkingBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -290,6 +358,17 @@ offset_right = 742.0
 offset_bottom = 618.0
 texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
+
+[node name="BlackWhiteOverlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]
 offset_left = -39.0

@@ -13,10 +13,9 @@ func handle_failed_game() -> void:
 		kouya_object_orig = kouya_object.global_position
 		
 	moved_kouya = true
-	$"../../Bunraku".switch_to_yono()
+	$"../../Bunraku".switch_to_kouya()
 	$"../../Bunraku/Kouya/Kouya".anger_decrease_delta = 0
 	if kouya_object.global_position != global_position:
 		kouya_object.global_position = global_position
 	else:
 		$"../../Bunraku/Kouya/Kouya".anger_level += 0.91
-	

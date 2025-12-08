@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcubs55mbeqw" path="res://Art Assets/Space/blue_nebulae_1.png" id="2_jdi4g"]
 [ext_resource type="ArrayMesh" uid="uid://cwi66wxkmptds" path="res://Art Assets/Models/House.obj" id="3_jdi4g"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="3_os8w6"]
-[ext_resource type="PackedScene" uid="uid://0ywigdieb0vn" path="res://Objects/Entities/player.tscn" id="4_5a5n5"]
+[ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="4_5a5n5"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="6_5cq55"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_k2ooc"]
 [ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="8_kvyvy"]
