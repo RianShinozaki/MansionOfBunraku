@@ -28,6 +28,10 @@ var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
 
+# Push cooldown tracking to prevent sticky collisions
+var push_cooldowns: Dictionary = {}  # Maps RigidBody3D to cooldown timer
+const PUSH_COOLDOWN_TIME: float = 0.3  # Increased from 0.2 - gives tables time to move away
+
 @export var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
 var shamisen_wait_time: float
@@ -61,9 +65,59 @@ func _deferred_mouse_capture():
 func _physics_process(_delta: float) -> void:
 	if not active: return
 	
-	#Sum up all movement vectors
-	velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
+	# Get desired movement velocity
+	var desired_velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
+	
+	# Check for RigidBody3D collisions BEFORE moving
+	# This prevents the player from continuously pushing into dynamic objects
+	var test_motion_params = PhysicsTestMotionParameters3D.new()
+	test_motion_params.from = global_transform
+	test_motion_params.motion = desired_velocity * _delta
+	var test_motion_result = PhysicsTestMotionResult3D.new()
+	
+	if PhysicsServer3D.body_test_motion(get_rid(), test_motion_params, test_motion_result):
+		# We're about to collide with something
+		var collider = test_motion_result.get_collider()
+		if collider is RigidBody3D:
+			# Block movement in the direction of the RigidBody
+			# Project velocity to slide along the surface instead of pushing into it
+			var collision_normal = test_motion_result.get_collision_normal()
+			desired_velocity = desired_velocity.slide(collision_normal)
+	
+	velocity = desired_velocity
 	move_and_slide()
+	
+	# Push RigidBody3D objects when player collides with them
+	# Apply impulse only on first contact, then let physics handle separation
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody3D:
+			# Check if this object is on cooldown
+			var current_time = Time.get_ticks_msec() / 1000.0
+			if push_cooldowns.has(collider):
+				if current_time < push_cooldowns[collider]:
+					continue  # Skip this object, still on cooldown
+			
+			# Calculate push direction (horizontal only)
+			var push_direction = -collision.get_normal()
+			push_direction.y = 0  # Remove vertical component for horizontal-only pushing
+			push_direction = push_direction.normalized()  # Re-normalize after zeroing Y
+			
+			# Apply impulse on first contact
+			var push_strength = 5.0  # Impulse strength
+			collider.apply_central_impulse(push_direction * push_strength * collider.mass)
+			
+			# Set cooldown for this object
+			push_cooldowns[collider] = current_time + PUSH_COOLDOWN_TIME
+	
+	# Clean up expired cooldowns to prevent dictionary from growing indefinitely
+	var objects_to_remove = []
+	for obj in push_cooldowns.keys():
+		if not is_instance_valid(obj) or Time.get_ticks_msec() / 1000.0 > push_cooldowns[obj]:
+			objects_to_remove.append(obj)
+	for obj in objects_to_remove:
+		push_cooldowns.erase(obj)
 	
 	if get_walk_velocity(_delta) == Vector3.ZERO and toggle_shamisen and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		shamisen_wait_time += _delta
