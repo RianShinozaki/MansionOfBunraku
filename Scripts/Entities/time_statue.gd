@@ -262,7 +262,8 @@ func give_song_of_stillness():
 		
 		# Make visible now that position is correct
 		note_instance.visible = true
-		note_instance.spawn_note(note_value)
+		# Show note visuals with playing audio)
+		note_instance.spawn_note(note_value, true)
 		note_index += 1
 		
 		# Half second delay between notes
