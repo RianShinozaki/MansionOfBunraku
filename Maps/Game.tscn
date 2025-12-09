@@ -86,7 +86,7 @@ script = ExtResource("49_listener")
 environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.948286, 0.3832556, -2.0981002)
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -2.4796119, 0.3832556, 0.99972725)
 move_speed = 1.5
 holding_shamisen = true
 
