@@ -109,10 +109,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6421769, 0.7052002, 1.1617
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2595587, 0.7052002, 1.1617999)
 
 [node name="Candle" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7718163, 0.3985107, 3.7943268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0263557, 0.3985107, 3.7943268)
 
 [node name="Candle2" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.122, 0.396, 3.79)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.876345, 0.396, 3.79)
 
 [node name="Gate" parent="Objects/GateArea" instance=ExtResource("12_wadbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1013665, 0.036499023, 0.38570285)

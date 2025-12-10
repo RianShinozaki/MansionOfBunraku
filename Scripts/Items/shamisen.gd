@@ -21,6 +21,7 @@ func append_note(note):
 	var note_instance = NoteScene.instantiate()
 	add_child(note_instance)
 	note_instance.spawn_note(note, true)
+	note_instance.transform.origin += Vector3(0, 0, -0.3)
 	note_instance.rotation_degrees = Vector3(0, 0, 35)
 	
 	if note_sequence.size() > 4:
