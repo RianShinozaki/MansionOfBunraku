@@ -7,9 +7,9 @@ extends RigidBody3D
 @export var lock_xz_rotation: bool = false  # Lock X and Z rotation (for tables on their side)
 @export var interactable: bool = true  # Can the table be tipped by interaction?
 @export var tip_duration: float = 0.8  # Duration of the tipping animation
+@export var tip_y_offset: float = 0.3  # How much to raise the table's Y position when tipping (tune this value)
 
 # Interaction state
-var is_tipped: bool = false
 var is_animating: bool = false
 var original_position: Vector3
 
@@ -70,6 +70,23 @@ func _ready():
 
 
 # Interactable functions
+func is_flipped() -> bool:
+	"""Calculate if the table is flipped based on its rotation.
+	Returns true if x or z rotation is at approximately 90 degrees (±90 degrees)"""
+	# Normalize rotations to the range -PI to PI
+	var x_rot = fmod(rotation.x + PI, TAU) - PI
+	var z_rot = fmod(rotation.z + PI, TAU) - PI
+	
+	# Check if either x or z rotation is close to 90 degrees (PI/2) or -90 degrees (-PI/2)
+	var ninety_deg = PI / 2.0
+	var tolerance = deg_to_rad(30)  # 30 degree tolerance
+	
+	var x_is_90 = abs(abs(x_rot) - ninety_deg) < tolerance
+	var z_is_90 = abs(abs(z_rot) - ninety_deg) < tolerance
+	
+	return x_is_90 or z_is_90
+
+
 func can_interact() -> bool:
 	"""Check if the table can be interacted with"""
 	print("can interact check")
@@ -97,7 +114,7 @@ func on_interact():
 	is_animating = true
 	
 	# Freeze physics during animation
-	freeze = true
+	#freeze = true
 	
 	# Get the camera's forward direction (where player is looking)
 	var camera = player.get_node("Camera3D")
@@ -117,7 +134,7 @@ func on_interact():
 	var start_rotation = rotation
 	var target_rotation = start_rotation
 	
-	if not is_tipped:
+	if not is_flipped():
 		# STEP 1: Y-rotation to face camera FIRST
 
 		# Use RotationCenter marker to determine true rotation point
@@ -180,7 +197,19 @@ func on_interact():
 		var locked_y_rotation = rotation.y
 		print("LOW TABLE: Locked Y rotation at: ", rad_to_deg(locked_y_rotation), " degrees")
 		
-		# Animate the flip
+		# Store starting and target positions for the tween
+		var start_pos = global_position
+		var target_y = start_pos.y + tip_y_offset
+		
+		# Calculate horizontal shift toward player in world space
+		# Use the to_player vector (already in world space) and scale by tip_y_offset
+		var horizontal_offset = to_player * tip_y_offset
+		var target_x = start_pos.x + horizontal_offset.x
+		var target_z = start_pos.z + horizontal_offset.z
+		
+		print("LOW TABLE: Animating position from ", start_pos, " to ", Vector3(target_x, target_y, target_z))
+		
+		# Animate the flip (rotation and position)
 		var flip_tween = create_tween()
 		flip_tween.set_ease(Tween.EASE_IN_OUT)
 		flip_tween.set_trans(Tween.TRANS_CUBIC)
@@ -195,45 +224,21 @@ func on_interact():
 			rotation.y = locked_y_rotation  # Keep Y constant!
 			rotation.z = current_z
 			
-			# NO position adjustment yet - testing rotation only
+			# Animate position: Y always changes, and either X or Z shifts toward player
+			global_position.x = lerp(start_pos.x, target_x, progress)
+			global_position.y = lerp(start_pos.y, target_y, progress)
+			global_position.z = lerp(start_pos.z, target_z, progress)
 		, 0.0, 1.0, tip_duration)
 		
 		await flip_tween.finished
 		
 		# Lock rotation on X and Z after tipping
-		lock_xz_rotation = true
-		axis_lock_angular_x = true
-		axis_lock_angular_z = true
-		
-		is_tipped = true
-	else:
-		# Restore using physics
-		# Unlock rotation constraints
-		axis_lock_angular_x = false
-		axis_lock_angular_z = false
-		lock_xz_rotation = false
-		
-		# Re-enable physics immediately
-		freeze = false
-		
-		# Apply a small impulse to start the fall
-		# Direction depends on which way it's rotated
-		var impulse_direction = Vector3.ZERO
-		if abs(rotation.x) > 0.1:
-			impulse_direction = Vector3(-sign(rotation.x), 0, 0)
-		elif abs(rotation.z) > 0.1:
-			impulse_direction = Vector3(0, 0, -sign(rotation.z))
-		
-		apply_torque_impulse(impulse_direction * 5.0)
-		
-		# Wait a moment for physics to settle, then mark as not tipped
-		await get_tree().create_timer(1.0).timeout
-		is_tipped = false
-		is_animating = false
-		return  # Early return since we already unfroze
+		#lock_xz_rotation = true
+		#axis_lock_angular_x = true
+		#axis_lock_angular_z = true
 	
 	# Re-enable physics
-	freeze = false
+	#freeze = false
 	is_animating = false
 
 
