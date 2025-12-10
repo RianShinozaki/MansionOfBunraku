@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cbqobktqh0xna"]
+[gd_scene load_steps=49 format=3 uid="uid://cbqobktqh0xna"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_owein"]
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="2_3v8r1"]
@@ -81,9 +81,6 @@ shader_parameter/color_bands = 10
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qfl1"]
 albedo_texture = SubResource("CompressedTexture2D_ayjef")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_trigger"]
-size = Vector3(3.5, 2.5, 0.25)
-
 [node name="Ceremonial Room" type="Node3D"]
 script = ExtResource("1_owein")
 world_offset = Vector3(10.852584, -0.056598246, -8.1744)
@@ -146,83 +143,65 @@ transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 3.4727283, 
 [node name="lowTable3D" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, -3.4149522e-08, -0.78125, 0, 0.78125, -3.4149522e-08, 2.8780212, 1.9126546, -2.3594542)
 mass = 1.0
-freeze = true
-lock_xz_rotation = true
 
 [node name="lowTable3D2" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.9212189, 1.9604547, -1.3721396)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D3" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(-3.4149522e-08, -0.78125, 0, 0.78125, -3.4149522e-08, 0, 0, 0, 0.78125, 2.937317, 1.4982564, -4.261898)
 mass = 1.0
-freeze = true
-lock_xz_rotation = true
 
 [node name="lowTable3D4" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(-3.4149522e-08, -0.78125, 0, 0.78125, -3.4149522e-08, 0, 0, 0, 0.78125, 2.911499, 1.1007111, -1.3789744)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D5" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.1617975, 2.0356786, -1.3372221)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D6" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, -3.4149522e-08, 0.78125, 0, -0.78125, -3.4149522e-08, 1.9386292, 1.4240248, -2.2189474)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D7" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.9009275, 1.1980094, -3.49959)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D8" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.0657043, 1.2491744, -3.9145331)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D9" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(-3.4149522e-08, 0.78125, 0, -0.78125, -3.4149522e-08, 0, 0, 0, 0.78125, 1.8739777, 1.4985006, -4.689961)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D10" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4632263, 1.4982564, -4.8058434)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D11" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.5069513, 1.7310212, -4.21155)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D12" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.0256958, 1.4985006, -1.3682308)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D13" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.964508, 1.4983785, -2.8116162)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D14" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.0392303, 1.4982564, -3.825838)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D15" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.0533142, 1.4982564, -4.7766523)
 mass = 1.0
-freeze = true
 
 [node name="lowTable3D16" parent="Objects/GuestTables" instance=ExtResource("10_bwqu8")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 3.4087958, 0.91633916, -3.6387696)
-freeze = true
 
 [node name="KitsuneSmallLeft" parent="Objects" instance=ExtResource("22_sxes0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 1.2905266, -5.8941684)
@@ -467,20 +446,3 @@ light_energy = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
 stream = ExtResource("60_gj8ve")
-
-[node name="ShrineCup" parent="." instance=ExtResource("7_gxegh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5891676, 0.2504376, -4.878448)
-
-[node name="ShrineSake" parent="." instance=ExtResource("8_yghvx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5078545, 0.29543757, -4.9850254)
-
-[node name="TablePhysicsTrigger" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.9, 0.5)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TablePhysicsTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2615042, 0, -0.9045387)
-shape = SubResource("BoxShape3D_trigger")
-
-[connection signal="body_entered" from="TablePhysicsTrigger" to="." method="_on_player_entered_room"]

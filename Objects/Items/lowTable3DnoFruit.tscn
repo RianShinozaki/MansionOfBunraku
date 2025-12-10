@@ -18,45 +18,51 @@ size = Vector3(0.505, 1.05, 0.505)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3hhrr"]
 size = Vector3(3.51, 0.27, 3.51)
 
-[node name="lowTable3D" type="RigidBody3D"]
+[node name="lowTable3D" type="RigidBody3D" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26641846, -2.0297852, 0.13844463)
+collision_layer = 5
 collision_mask = 2147483649
 mass = 3.0
-center_of_mass_mode = 1
 script = ExtResource("1_physics")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.048295796, 0.16333866, 0)
 mesh = ExtResource("2_3hhrr")
 surface_material_override/0 = SubResource("StandardMaterial3D_lowTable")
 
 [node name="legCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.03244157, -0.18446673, 0.056790207)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.08073735, -0.020799637, 0.05644989)
 shape = SubResource("BoxShape3D_7fany")
 
 [node name="legCollision2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.42237347, -0.18446673, 0.056790207)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.47066927, -0.020799637, 0.05644989)
 shape = SubResource("BoxShape3D_7fany")
 
 [node name="legCollision3" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.42237347, -0.18446673, -0.33333376)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.47066927, -0.020799637, -0.33323658)
 shape = SubResource("BoxShape3D_7fany")
 
 [node name="legCollision4" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.032698423, -0.18446673, -0.33333376)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.08099422, -0.020799637, -0.33323658)
 shape = SubResource("BoxShape3D_7fany")
 
 [node name="tabletopCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.22746575, -0.10628581, -0.13801035)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.27576154, 0.057501912, -0.13884859)
 shape = SubResource("BoxShape3D_3hhrr")
 
 [node name="TableCollisionSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10975337, 0.1833694, 0)
 stream = ExtResource("4_7fany")
 attenuation_model = 1
 volume_db = -5.0
 max_distance = 15.0
 
 [node name="FloorCollisionSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10975337, 0.1833694, 0)
 stream = ExtResource("4_7fany")
 attenuation_model = 1
 volume_db = -5.0
 max_distance = 15.0
+
+[node name="RotationCenter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266, 0, 0)
