@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
 [ext_resource type="Resource" uid="uid://cgwy6tl0kuskc" path="res://Dialogue/player_dialogues.tres" id="2_yq6kl"]
 [ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
-[ext_resource type="Script" uid="uid://wmiltdg35tjl" path="res://Scripts/Entities/Player/player_cam.gd" id="5_es883"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/player_cam.gd" id="5_es883"]
 [ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
 [ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
 [ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="6_i5lno"]
