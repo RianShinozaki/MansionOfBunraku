@@ -24,6 +24,7 @@ func _ready():
 	
 	# Start with no effect
 	shader_material.set_shader_parameter("progress", 0.0)
+	shader_material.set_shader_parameter("vortex_opacity", 1.0)  # Full opacity by default
 
 func _process(delta: float):
 	# Continue rotating clock hand during vortex, gradually slowing down
@@ -205,14 +206,14 @@ func trigger_transition(
 	target_scene: String,
 	duration: float = 5.5,
 	clockwise_rotation: bool = true,
-	vortex_col: Color = Color(0.1, 0.05, 0.15, 1.0),
-	center_col: Color = Color(0.3, 0.3, 0.35, 1.0),
+	vortex_col: Color = Color(0.2, 0.3, 0.7, 1.0),
+	center_col: Color = Color(0.95, 1.0, 1.0, 1.0),
 	max_progress: float = 0.85,
 	clock_object: Node3D = null,
 	camera_focus_duration: float = 1.5,
-	inner_col: Color = Color(0.25, 0.2, 0.3, 1.0),
-	mid_col: Color = Color(0.2, 0.1, 0.25, 1.0),
-	edge_col: Color = Color(0.05, 0.0, 0.1, 1.0)
+	inner_col: Color = Color(0.4, 0.8, 1.0, 1.0),
+	mid_col: Color = Color(0.7, 0.3, 0.9, 1.0),
+	edge_col: Color = Color(0.05, 0.05, 0.3, 1.0)
 ) -> void:
 	# Set all 5 color shader parameters
 	shader_material.set_shader_parameter("clockwise", clockwise_rotation)
@@ -251,36 +252,59 @@ func trigger_transition(
 		# Give the scene one frame to load
 		await get_tree().process_frame
 	
-	# Phase 2: Swirl in (reveal new scene)
-	var tween_in = create_tween()
-	tween_in.set_ease(Tween.EASE_OUT)
-	tween_in.set_trans(Tween.TRANS_CUBIC)
+	# Phase 2: Two-stage swirl in (Option 2 - Fade Through Vortex Colors)
+	# Stage 1: Fade out vortex colors while keeping distortion high
+	# This makes the scene visible but still heavily distorted
+	var fade_duration = phase_duration * 0.4  # First 40% of phase
+	var unswirl_duration = phase_duration * 0.6  # Last 60% of phase
 	
-	tween_in.tween_method(
+	var tween_fade = create_tween()
+	tween_fade.set_ease(Tween.EASE_OUT)
+	tween_fade.set_trans(Tween.TRANS_CUBIC)
+	
+	# Fade vortex colors from full opacity to transparent
+	tween_fade.tween_method(
+		func(value: float):
+			shader_material.set_shader_parameter("vortex_opacity", value),
+		1.0,
+		0.0,
+		fade_duration
+	)
+	
+	await tween_fade.finished
+	
+	# Stage 2: Reduce distortion while vortex colors are already faded
+	# This reveals the new scene gradually without the abrupt color change
+	var tween_unswirl = create_tween()
+	tween_unswirl.set_ease(Tween.EASE_OUT)
+	tween_unswirl.set_trans(Tween.TRANS_CUBIC)
+	
+	tween_unswirl.tween_method(
 		func(value: float):
 			shader_material.set_shader_parameter("progress", value)
 			current_progress = value,
 		max_progress,
 		0.0,
-		phase_duration
+		unswirl_duration
 	)
 	
-	# Wait for swirl in to complete
-	await tween_in.finished
+	# Wait for unswirl to complete
+	await tween_unswirl.finished
 	
 	# Clean up
 	queue_free()
 
 ## Plays the vortex effect without transitioning scenes
 ## Useful for visual feedback or other effects
+## Now includes smooth fade-through effect on return (Option 2 implementation)
 func play_effect_only(
 	duration: float = 2.5,
 	clockwise_rotation: bool = true,
-	center_col: Color = Color(0.3, 0.3, 0.35, 1.0),
-	inner_col: Color = Color(0.25, 0.2, 0.3, 1.0),
-	mid_col: Color = Color(0.2, 0.1, 0.25, 1.0),
-	vortex_col: Color = Color(0.1, 0.05, 0.15, 1.0),
-	edge_col: Color = Color(0.05, 0.0, 0.1, 1.0),
+	center_col: Color = Color(0.95, 1.0, 1.0, 1.0),
+	inner_col: Color = Color(0.4, 0.8, 1.0, 1.0),
+	mid_col: Color = Color(0.7, 0.3, 0.9, 1.0),
+	vortex_col: Color = Color(0.2, 0.3, 0.7, 1.0),
+	edge_col: Color = Color(0.05, 0.05, 0.3, 1.0),
 	reverse: bool = false
 ) -> void:
 	# Set all 5 color shader parameters
@@ -291,36 +315,100 @@ func play_effect_only(
 	shader_material.set_shader_parameter("vortex_color", vortex_col)
 	shader_material.set_shader_parameter("edge_color", edge_col)
 	
-	# Animate the vortex effect
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	
 	if reverse:
-		# Reverse: from full vortex back to normal
+		# Reverse ONLY: from full vortex back to normal with fade-through effect
 		shader_material.set_shader_parameter("progress", 1.0)
 		current_progress = 1.0
-		tween.tween_method(
+		
+		# Calculate phase durations
+		var fade_duration = duration * 0.4  # First 40%: fade colors
+		var unswirl_duration = duration * 0.6  # Last 60%: reduce distortion
+		
+		# Stage 1: Fade out vortex colors while keeping distortion high
+		var tween_fade = create_tween()
+		tween_fade.set_ease(Tween.EASE_OUT)
+		tween_fade.set_trans(Tween.TRANS_CUBIC)
+		
+		tween_fade.tween_method(
+			func(value: float):
+				shader_material.set_shader_parameter("vortex_opacity", value),
+			1.0,
+			0.0,
+			fade_duration
+		)
+		
+		await tween_fade.finished
+		
+		# Stage 2: Reduce distortion while colors are faded
+		var tween_unswirl = create_tween()
+		tween_unswirl.set_ease(Tween.EASE_OUT)
+		tween_unswirl.set_trans(Tween.TRANS_CUBIC)
+		
+		tween_unswirl.tween_method(
 			func(value: float):
 				shader_material.set_shader_parameter("progress", value)
 				current_progress = value,
 			1.0,
 			0.0,
-			duration
+			unswirl_duration
 		)
+		
+		await tween_unswirl.finished
 	else:
-		# Forward: from normal to full vortex
-		tween.tween_method(
+		# Forward: Complete cycle - swirl in, then swirl out with fade effect
+		# This is used by time travel clock for visual feedback without scene change
+		var phase_duration = duration / 2.0
+		
+		# Phase 1: Swirl IN (normal to full vortex)
+		var tween_in = create_tween()
+		tween_in.set_ease(Tween.EASE_IN_OUT)
+		tween_in.set_trans(Tween.TRANS_CUBIC)
+		
+		tween_in.tween_method(
 			func(value: float):
 				shader_material.set_shader_parameter("progress", value)
 				current_progress = value,
 			0.0,
 			1.0,
-			duration
+			phase_duration
 		)
-	
-	# Wait for animation to complete
-	await tween.finished
+		
+		await tween_in.finished
+		
+		# Phase 2: Swirl OUT with fade-through effect
+		var fade_duration = phase_duration * 0.4  # First 40%: fade colors
+		var unswirl_duration = phase_duration * 0.6  # Last 60%: reduce distortion
+		
+		# Stage 1: Fade out vortex colors while keeping distortion high
+		var tween_fade = create_tween()
+		tween_fade.set_ease(Tween.EASE_OUT)
+		tween_fade.set_trans(Tween.TRANS_CUBIC)
+		
+		tween_fade.tween_method(
+			func(value: float):
+				shader_material.set_shader_parameter("vortex_opacity", value),
+			1.0,
+			0.0,
+			fade_duration
+		)
+		
+		await tween_fade.finished
+		
+		# Stage 2: Reduce distortion while colors are faded
+		var tween_unswirl = create_tween()
+		tween_unswirl.set_ease(Tween.EASE_OUT)
+		tween_unswirl.set_trans(Tween.TRANS_CUBIC)
+		
+		tween_unswirl.tween_method(
+			func(value: float):
+				shader_material.set_shader_parameter("progress", value)
+				current_progress = value,
+			1.0,
+			0.0,
+			unswirl_duration
+		)
+		
+		await tween_unswirl.finished
 	
 	# Clean up
 	queue_free()

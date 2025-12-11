@@ -4,27 +4,12 @@ extends StaticBody3D
 
 @export_group("Time Vortex Settings")
 @export var time_travel_target: String = "res://Maps/TimeTravelScene.tscn"
-@export var vortex_duration: float = 2.5
+@export var vortex_duration: float = 4.0
 @export var vortex_clockwise: bool = true
 @export var vortex_color: Color = Color(0.1, 0.05, 0.15, 1.0)  # Void/Shadow: Very Dark Purple
 @export var vortex_center_color: Color = Color(0.3, 0.3, 0.35, 1.0)  # Void/Shadow: Dark Gray
 
 var anim_lock: bool = false
-
-func _ready():
-	# Add to Interactable group
-	add_to_group("Interactable")
-
-func can_interact() -> bool:
-	# Can only interact when in normal play mode
-	return InspectionManager.current_mode == InspectionManager.Mode.PLAY and not anim_lock
-
-func on_interact():
-	if anim_lock:
-		return
-	
-	# Trigger the time vortex effect
-	trigger_time_vortex()
 
 func trigger_time_vortex():
 	if anim_lock:

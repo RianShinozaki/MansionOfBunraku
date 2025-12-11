@@ -7,14 +7,15 @@ shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
 uniform float progress : hint_range(0.0, 1.0) = 0.0;
+uniform float vortex_opacity : hint_range(0.0, 1.0) = 1.0;  // NEW: Controls vortex color visibility independently
 uniform bool clockwise = true;
 uniform float distortion_strength : hint_range(0.0, 20.0) = 8.0;
 uniform float rotation_speed : hint_range(0.0, 5.0) = 0.5;
-uniform vec4 center_color : source_color = vec4(0.3, 0.3, 0.3, 1.0);
-uniform vec4 inner_color : source_color = vec4(0.25, 0.2, 0.3, 1.0);
-uniform vec4 mid_color : source_color = vec4(0.2, 0.1, 0.25, 1.0);
-uniform vec4 vortex_color : source_color = vec4(0.1, 0.05, 0.15, 1.0);
-uniform vec4 edge_color : source_color = vec4 (0.05, 0.0, 0.1, 1.0);
+uniform vec4 center_color : source_color = vec4(0.95, 1.0, 1.0, 1.0);
+uniform vec4 inner_color : source_color = vec4(0.4, 0.8, 1.0, 1.0);
+uniform vec4 mid_color : source_color = vec4(0.7, 0.3, 0.9, 1.0);
+uniform vec4 vortex_color : source_color = vec4(0.2, 0.3, 0.7, 1.0);
+uniform vec4 edge_color : source_color = vec4 (0.05, 0.05, 0.3, 1.0);
 uniform float center_size : hint_range(0.0, 1.0) = 0.3;
 uniform float center_gradient_power : hint_range(1.0, 5.0) = 3.0;
 uniform float color_shift_speed : hint_range(0.0, 5.0) = 0.6;
@@ -438,7 +439,8 @@ void fragment() {
 	}
 	
 	// Apply edge mask to dissolve for softer screen edges
-	float masked_dissolve = dissolve * edge_mask;
+	// Also apply vortex_opacity to allow independent control of vortex color visibility
+	float masked_dissolve = dissolve * edge_mask * vortex_opacity;
 	vec4 final_color = mix(scene_color, vortex, masked_dissolve);
 	
 	// === LAYER VISUAL EFFECTS ===
