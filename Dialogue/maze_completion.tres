@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bvk8m3p9n5w7q"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_maze"]
+
+[resource]
+script = ExtResource("1_maze")
+starts = {
+"maze_completion": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(69, 531),
+"start_id": "maze_completion"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "You've found what you were looking for here.",
+"offset": Vector2(500, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(759.99963, 680),
+"speaker": "Kitsune"
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "Time is running out.",
+"offset": Vector2(1380, 0),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(659.99896, 640),
+"speaker": "Kitsune"
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "This song will show you where it all started.",
+"offset": Vector2(2220, 0),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(619.99963, 640),
+"speaker": "Kitsune"
+}
+}
