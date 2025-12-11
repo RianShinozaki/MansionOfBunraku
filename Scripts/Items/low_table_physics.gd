@@ -8,6 +8,7 @@ extends RigidBody3D
 @export var interactable: bool = true  # Can the table be tipped by interaction?
 @export var tip_duration: float = 0.8  # Duration of the tipping animation
 @export var tip_y_offset: float = 0.3  # How much to raise the table's Y position when tipping (tune this value)
+@export var freeze_table: bool=false
 
 # Interaction state
 var is_animating: bool = false

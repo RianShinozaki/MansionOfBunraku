@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://br81bedcjyh1i" path="res://Scripts/Environment/Clock/clock_hand.gd" id="11_ilwj6"]
 [ext_resource type="Texture2D" uid="uid://c8d2lmbb75t6l" path="res://Art Assets/ClockHand.png" id="12_cqa15"]
 [ext_resource type="AudioStream" uid="uid://dq1tq1c84rmti" path="res://Audio/clock_tick_loop.wav" id="13_gjlk0"]
-[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/Models/song_of_time_travel.png" id="14_song_symbol"]
+[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/song_of_time_travel.png" id="14_song_symbol"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lntlw"]
 albedo_texture = ExtResource("2_7555i")

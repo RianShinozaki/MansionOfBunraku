@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c4u4u8forifqo" path="res://Art Assets/song_matrimony_symbol.png" id="11_67lg5"]
 [ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
 [ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
-[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/Models/song_of_time_travel.png" id="13_timetravel"]
+[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/song_of_time_travel.png" id="13_timetravel"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15

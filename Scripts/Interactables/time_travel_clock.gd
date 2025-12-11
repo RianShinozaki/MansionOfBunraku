@@ -17,6 +17,11 @@ func trigger_time_vortex():
 	
 	anim_lock = true
 	
+	# Mark that clock has been activated at least once
+	if not GameManager.instance.clock_activated_once:
+		GameManager.instance.clock_activated_once = true
+		print("Clock activated for the first time - fog barriers appearing")
+	
 	# Toggle time state
 	GameManager.instance.is_past_time = !GameManager.instance.is_past_time
 	print("Time travel! Now in: " + ("PAST" if GameManager.instance.is_past_time else "PRESENT"))

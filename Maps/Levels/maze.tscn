@@ -681,6 +681,18 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.16
 [node name="CourtesanShadowFront29" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.364172, 0.2918799, -2.276732)
 
+[node name="CourtesanShadowFront36" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.746502, 0.3043213, -13.072691)
+
+[node name="CourtesanShadowSide28" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.183172, 0.34887695, -13.069151)
+
+[node name="CourtesanShadowSide29" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.4474, 0.3223877, -13.974913)
+
+[node name="CourtesanShadowFront37" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.447222, 0.35253906, -15.242541)
+
 [node name="Yoroi" type="Node3D" parent="Objects" groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -1.812, 0.3536098, -10.847789)
 script = ExtResource("18_dba84")
