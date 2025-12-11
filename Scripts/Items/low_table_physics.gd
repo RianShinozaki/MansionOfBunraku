@@ -30,26 +30,33 @@ func _ready():
 	# Store original position
 	original_position = global_position
 	
-	# Set physics properties
-	mass = 3.0  # Realistic table weight in kg?? ehhh.
-	linear_damp = 0.4  # Reduced from 1.5 - allows tables to slide away from collisions without getting stuck
-	angular_damp = 1.8  # Rotational resistance - prevents endless spinning. See above. Note to self: Fun future scene set on ice?
+	# Handle freeze_table setting - makes table completely static (for decorative purposes)
+	if freeze_table:
+		# Freeze the rigidbody - no physics simulation
+		freeze = true
+		# Optionally disable collision sounds when frozen
+		collision_sound_enabled = false
+	else:
+		# Set physics properties only if not frozen
+		mass = 3.0  # Realistic table weight in kg?? ehhh.
+		linear_damp = 0.4  # Reduced from 1.5 - allows tables to slide away from collisions without getting stuck
+		angular_damp = 1.8  # Rotational resistance - prevents endless spinning. See above. Note to self: Fun future scene set on ice?
+		
+		gravity_scale = 2.5  
+		# can_sleep = true  # Allow physics to sleep when stationary (default)
+		
+		# Let Godot calculate center of mass from collision shapes
+		# We'll use the RotationCenter marker node to compensate for rotation offset
+		
+		# Create and apply physics material for better collision behavior
+		var physics_material = PhysicsMaterial.new()
+		physics_material.bounce = 0.15  # Slight bounce helps objects separate on collision
+		physics_material.friction = 0.7  # Moderate friction prevents ice-skating while allowing movement
+		physics_material_override = physics_material
 	
-	gravity_scale = 2.5  
-	# can_sleep = true  # Allow physics to sleep when stationary (default)
-	
-	# Let Godot calculate center of mass from collision shapes
-	# We'll use the RotationCenter marker node to compensate for rotation offset
-	
-	# Add to interactable group if enabled
-	if interactable:
+	# Add to interactable group if enabled (even frozen tables can be interactable in theory, but not recommended)
+	if interactable and not freeze_table:
 		add_to_group("Interactable")
-	
-	# Create and apply physics material for better collision behavior
-	var physics_material = PhysicsMaterial.new()
-	physics_material.bounce = 0.15  # Slight bounce helps objects separate on collision
-	physics_material.friction = 0.7  # Moderate friction prevents ice-skating while allowing movement
-	physics_material_override = physics_material
 	
 	# Rotation locking configuration
 	if lock_xz_rotation:
