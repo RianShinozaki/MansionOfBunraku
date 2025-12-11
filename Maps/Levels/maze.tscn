@@ -117,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0263557, 0.3985107, 3.7943
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.876345, 0.396, 3.79)
 
 [node name="Gate" parent="Objects/GateArea" instance=ExtResource("12_wadbe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1013665, 0.036499023, 0.38570285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2280476, 0.036499023, 0.38762808)
 
 [node name="Candle3" parent="Objects/GateArea" instance=ExtResource("5_r4qpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8681352, 0.046215832, 0.59832907)
@@ -128,339 +128,339 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559785, 0.046215832, 0.59
 [node name="WhiteLanterns" type="Node3D" parent="Objects"]
 
 [node name="LanternWhite" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.389184, 1.042, -1.348605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4967022, 1.042, -1.348605)
 
 [node name="LanternWhite2" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.628, 1.042, -1.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5204818, 1.042, -1.349)
 
 [node name="LanternWhite3" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4054904, 1.043, -1.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2979722, 1.043, -1.349)
 
 [node name="LanternWhite4" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12494837, 1.042, -1.339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017430171, 1.042, -1.339)
 
 [node name="LanternWhite5" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1595676, 1.0424805, -1.348219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2670858, 1.0424805, -1.348219)
 
 [node name="LanternWhite15" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.698885, 1.0678179, -0.12969482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.806403, 1.0678179, -0.12969482)
 
 [node name="LanternWhite16" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6817007, 1.0678179, -0.13008976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.789219, 1.0678179, -0.13008976)
 
 [node name="LanternWhite17" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9042106, 1.0688179, -0.13008976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.011728, 1.0688179, -0.13008976)
 
 [node name="LanternWhite18" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.184752, 1.0678179, -0.12008977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.292271, 1.0678179, -0.12008977)
 
 [node name="LanternWhite19" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.469269, 1.0682983, -0.12930882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.576787, 1.0682983, -0.12930882)
 
 [node name="LanternWhite25" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.698885, 1.0678179, -2.1679084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.806403, 1.0678179, -2.1679084)
 
 [node name="LanternWhite26" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6817007, 1.0678179, -2.1683035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.789219, 1.0678179, -2.1683035)
 
 [node name="LanternWhite27" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9042106, 1.0688179, -2.1683035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.011728, 1.0688179, -2.1683035)
 
 [node name="LanternWhite28" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.184752, 1.0678179, -2.1583035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.292271, 1.0678179, -2.1583035)
 
 [node name="LanternWhite29" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.469269, 1.0682983, -2.1675227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.576787, 1.0682983, -2.1675227)
 
 [node name="LanternWhite20" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.698885, 1.0678179, -1.6501616)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.806403, 1.0678179, -1.6501616)
 
 [node name="LanternWhite21" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6817007, 1.0678179, -1.6505566)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.789219, 1.0678179, -1.6505566)
 
 [node name="LanternWhite22" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.9042106, 1.0688179, -1.6505566)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.011728, 1.0688179, -1.6505566)
 
 [node name="LanternWhite23" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.184752, 1.0678179, -1.6405566)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.292271, 1.0678179, -1.6405566)
 
 [node name="LanternWhite24" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.469269, 1.0682983, -1.6497756)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.576787, 1.0682983, -1.6497756)
 
 [node name="LanternWhite30" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.698885, 1.0678179, -3.6906676)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.806403, 1.0678179, -3.6906676)
 
 [node name="LanternWhite31" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6817007, 1.0678179, -3.6910625)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.789219, 1.0678179, -3.6910625)
 
 [node name="LanternWhite32" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.9042106, 1.0688179, -3.6910625)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.011728, 1.0688179, -3.6910625)
 
 [node name="LanternWhite33" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.184752, 1.0678179, -3.6810625)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.292271, 1.0678179, -3.6810625)
 
 [node name="LanternWhite34" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.469269, 1.0682983, -3.6902814)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.576787, 1.0682983, -3.6902814)
 
 [node name="LanternWhite6" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.3873296, 1.0424805, -2.872932)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4948478, 1.0424805, -2.872932)
 
 [node name="LanternWhite7" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.1650412, 1.042, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.2725594, 1.042, -2.873)
 
 [node name="LanternWhite8" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.1148067, 1.042, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0072885007, 1.042, -2.873)
 
 [node name="LanternWhite9" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.401, 1.043, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2934818, 1.043, -2.873)
 
 [node name="LanternWhite10" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.6275878, 1.042, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5200696, 1.042, -2.873)
 
 [node name="LanternWhite11" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.0061455, 1.042, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.8986273, 1.042, -2.873)
 
 [node name="LanternWhite12" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.45657, 1.043, -2.873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.349052, 1.043, -2.873)
 
 [node name="LanternWhite13" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.459531, 1.043, -1.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3520126, 1.043, -1.349)
 
 [node name="LanternWhite14" parent="Objects/WhiteLanterns" instance=ExtResource("10_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0022593, 1.043, -1.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.894741, 1.043, -1.349)
 
 [node name="RedLanterns" type="Node3D" parent="Objects"]
 
 [node name="LanternRed" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.943669, 0.87097955, -4.2426004)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.81406, 0.87097955, -4.2426004)
 
 [node name="LanternRed2" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.926389, 1.0643389, -7.446473)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.7967806, 1.0643389, -7.446473)
 
 [node name="LanternRed3" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.9267187, 1.068, -8.68)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.79711, 1.068, -8.68)
 
 [node name="LanternRed11" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.3855014, 1.0421832, -7.446473)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.2558928, 1.0421832, -7.446473)
 
 [node name="LanternRed12" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.385831, 1.0458442, -8.68)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.2562222, 1.0458442, -8.68)
 
 [node name="LanternRed16" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.325116, 1.0458442, -9.8260765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1955075, 1.0458442, -9.8260765)
 
 [node name="LanternRed4" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.9267187, 1.068, -9.96)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.79711, 1.068, -9.96)
 
 [node name="LanternRed13" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.926389, 1.0643389, -7.446473)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.7967806, 1.0643389, -7.446473)
 
 [node name="LanternRed14" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.9267187, 1.068, -8.68)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.79711, 1.068, -8.68)
 
 [node name="LanternRed15" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.9267187, 1.068, -9.96)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.79711, 1.068, -9.96)
 
 [node name="LanternRed5" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.923423, 1.068, -11.182)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.793814, 1.068, -11.182)
 
 [node name="LanternRed6" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.81, 1.042, -11.3551655)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.6803913, 1.042, -11.3551655)
 
 [node name="LanternRed7" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6923223, 1.0338213, -13.139145)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5627136, 1.0338213, -13.139145)
 
 [node name="LanternRed8" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6923223, 1.029793, -15.431512)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5627136, 1.029793, -15.431512)
 
 [node name="LanternRed9" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.1688914, 1.0382159, -13.134949)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.039283, 1.0382159, -13.134949)
 
 [node name="LanternRed10" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.159259, 0.98731256, -15.427316)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.02965, 0.98731256, -15.427316)
 
 [node name="LanternRed17" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3177814, 1.0440674, -5.7820215)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.44739, 1.0440674, -5.7820215)
 
 [node name="LanternRed20" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3177814, 1.0440674, -5.7820215)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.44739, 1.0440674, -5.7820215)
 
 [node name="LanternRed19" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3177814, 1.0440674, -7.6546564)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.44739, 1.0440674, -7.6546564)
 
 [node name="LanternRed18" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3177814, 1.0440674, -9.469647)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.44739, 1.0440674, -9.469647)
 
 [node name="LanternRed26" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.810408, 1.046875, -5.5887265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6807995, 1.046875, -5.5887265)
 
 [node name="LanternRed29" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26364756, 1.046875, -5.5887265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13403893, 1.046875, -5.5887265)
 
 [node name="LanternRed38" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.977777, 1.046875, -5.5887265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1073856, 1.046875, -5.5887265)
 
 [node name="LanternRed30" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5311036, 1.046875, -5.5887265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.401495, 1.046875, -5.5887265)
 
 [node name="LanternRed34" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0436006, 1.046875, -5.5887265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.913992, 1.046875, -5.5887265)
 
 [node name="LanternRed27" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6974826, 1.0214844, -4.8477902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.827091, 1.0214844, -4.8477902)
 
 [node name="LanternRed48" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.244244, 1.0214844, -4.8477902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.373853, 1.0214844, -4.8477902)
 
 [node name="LanternRed49" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.485668, 1.0214844, -4.8477902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615277, 1.0214844, -4.8477902)
 
 [node name="LanternRed50" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.976787, 1.0214844, -4.8477902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.106396, 1.0214844, -4.8477902)
 
 [node name="LanternRed52" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4642897, 1.0214844, -4.8477902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5938983, 1.0214844, -4.8477902)
 
 [node name="LanternRed28" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6974826, 1.0214844, -6.3725095)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.827091, 1.0214844, -6.3725095)
 
 [node name="LanternRed51" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.976787, 1.0214844, -6.3725095)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.106396, 1.0214844, -6.3725095)
 
 [node name="LanternRed33" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-0.9995044, 0.03148054, -8.737945e-08, 0.03148054, 0.9995044, 2.752116e-09, 8.742278e-08, 0, -1, -9.309681, 1.0214844, -7.650372)
+transform = Transform3D(-0.9995044, 0.03148054, -8.737945e-08, 0.03148054, 0.9995044, 2.752116e-09, 8.742278e-08, 0, -1, -9.43929, 1.0214844, -7.650372)
 
 [node name="LanternRed55" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.368982e-08, 1.3730079e-09, 1, 0.03141076, 0.99950653, 0, -0.99950653, 0.03141076, -4.371139e-08, -9.132707, 1.0214844, -6.902434)
+transform = Transform3D(-4.368982e-08, 1.3730079e-09, 1, 0.03141076, 0.99950653, 0, -0.99950653, 0.03141076, -4.371139e-08, -9.262315, 1.0214844, -6.902434)
 
 [node name="LanternRed56" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.3689816e-08, 1.3730078e-09, -1, 0.031410757, 0.9995065, 0, 0.9995065, -0.031410757, -4.371139e-08, -10.656345, 1.0214844, -6.240337)
+transform = Transform3D(-4.3689816e-08, 1.3730078e-09, -1, 0.031410757, 0.9995065, 0, 0.9995065, -0.031410757, -4.371139e-08, -10.785954, 1.0214844, -6.240337)
 
 [node name="LanternRed54" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.484798, 1.0214844, -7.650372)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.614408, 1.0214844, -7.650372)
 
 [node name="LanternRed53" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.4642897, 1.0214844, -6.3725095)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.5938983, 1.0214844, -6.3725095)
 
 [node name="LanternRed61" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.517709, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6473174, 1.0214844, -14.77036)
 
 [node name="LanternRed62" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.7970133, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.926622, 1.0214844, -14.77036)
 
 [node name="LanternRed64" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.077406, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.207015, 1.0214844, -14.77036)
 
 [node name="LanternRed72" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7856607, 1.0214844, -13.247451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9152694, 1.0214844, -13.247451)
 
 [node name="LanternRed73" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.066053, 1.0214844, -13.247451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1956625, 1.0214844, -13.247451)
 
 [node name="LanternRed74" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.052682, 1.0214844, -12.224225)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.1822906, 1.0214844, -12.224225)
 
 [node name="LanternRed75" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.294549, 1.0214844, -12.224225)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.424157, 1.0214844, -12.224225)
 
 [node name="LanternRed76" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.514615, 1.0214844, -12.224225)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.644223, 1.0214844, -12.224225)
 
 [node name="LanternRed77" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.052682, 1.0214844, -9.42027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1822906, 1.0214844, -9.42027)
 
 [node name="LanternRed78" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.294549, 1.0214844, -9.42027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.424157, 1.0214844, -9.42027)
 
 [node name="LanternRed79" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.514615, 1.0214844, -9.42027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.644223, 1.0214844, -9.42027)
 
 [node name="LanternRed65" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.35671, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.48632, 1.0214844, -14.77036)
 
 [node name="LanternRed66" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.580626, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.710235, 1.0214844, -14.77036)
 
 [node name="LanternRed67" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.753671, 1.0214844, -13.362891)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.883279, 1.0214844, -13.362891)
 
 [node name="LanternRed68" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.753671, 1.0214844, -12.082479)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.883279, 1.0214844, -12.082479)
 
 [node name="LanternRed69" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.753671, 1.0214844, -10.858429)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.883279, 1.0214844, -10.858429)
 
 [node name="LanternRed80" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.11176, 1.0214844, -13.382265)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.241369, 1.0214844, -13.382265)
 
 [node name="LanternRed81" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.11176, 1.0214844, -12.099188)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.241369, 1.0214844, -12.099188)
 
 [node name="LanternRed82" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.11176, 1.0214844, -10.860665)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.241369, 1.0214844, -10.860665)
 
 [node name="LanternRed70" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.232729, 1.0214844, -12.0969515)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.362338, 1.0214844, -12.0969515)
 
 [node name="LanternRed71" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.232729, 1.0214844, -10.858429)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.362338, 1.0214844, -10.858429)
 
 [node name="LanternRed63" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.284516, 1.0214844, -14.77036)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.4141245, 1.0214844, -14.77036)
 
 [node name="LanternRed31" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.97854, 1.046875, -7.1135507)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.1081486, 1.046875, -7.1135507)
 
 [node name="LanternRed32" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.26364756, 1.046875, -7.1135507)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.13403893, 1.046875, -7.1135507)
 
 [node name="LanternRed35" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5311036, 1.046875, -7.1135507)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.401495, 1.046875, -7.1135507)
 
 [node name="LanternRed36" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.810408, 1.046875, -7.1135507)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.6807995, 1.046875, -7.1135507)
 
 [node name="LanternRed37" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.0436006, 1.046875, -7.1135507)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.913992, 1.046875, -7.1135507)
 
 [node name="LanternRed39" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.3464808, 1.046875, -14.739775)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4760895, 1.046875, -14.739775)
 
 [node name="LanternRed40" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.16316271, 1.046875, -14.739775)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.033554077, 1.046875, -14.739775)
 
 [node name="LanternRed41" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.6756597, 1.046875, -14.739775)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.546051, 1.046875, -14.739775)
 
 [node name="LanternRed42" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3464808, 1.046875, -11.930958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4760895, 1.046875, -11.930958)
 
 [node name="LanternRed43" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123203754, 1.046875, -11.930958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0064048767, 1.046875, -11.930958)
 
 [node name="LanternRed45" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5043621, 1.046875, -11.931935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3747535, 1.046875, -11.931935)
 
 [node name="LanternRed46" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27882695, 1.0422363, -13.205816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14921832, 1.0422363, -13.205816)
 
 [node name="LanternRed47" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3580325, 1.0422363, -13.206794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2284238, 1.0422363, -13.206794)
 
 [node name="LanternRed44" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6756597, 1.046875, -11.930958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.546051, 1.046875, -11.930958)
 
 [node name="LanternRed57" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.788877, 1.046875, -10.469092)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6592684, 1.046875, -10.469092)
 
 [node name="LanternRed58" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.788877, 1.046875, -9.292609)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6592684, 1.046875, -9.292609)
 
 [node name="LanternRed59" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2647576, 1.046875, -10.469092)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.135149, 1.046875, -10.469092)
 
 [node name="LanternRed60" parent="Objects/RedLanterns" instance=ExtResource("11_tkoyt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2647576, 1.046875, -9.292609)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.135149, 1.046875, -9.292609)
 
 [node name="ExamplePedestal" parent="Objects" instance=ExtResource("13_ibouv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6125352, 0.45711052, -0.9667344)
@@ -532,7 +532,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744004, 0.3148291, -13.3095
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.418341, 0.38101318, -12.371401)
 
 [node name="CourtesanShadowFront10" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7826512, 0.36902833, -14.618185)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7826512, 0.32215333, -14.618185)
 
 [node name="CourtesanShadowFront11" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.733621, 0.31336427, -13.333918)
@@ -583,7 +583,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.065973, 0.30396485, -9.535
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.949579, 0.31617188, -13.358168)
 
 [node name="CourtesanShadowSide13" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.114416, 0.39413574, -13.351214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.114416, 0.38668945, -13.351214)
 
 [node name="CourtesanShadowFront22" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.686916, 0.28260255, -10.282492)
@@ -621,8 +621,65 @@ transform = Transform3D(1, 0, 0, 0, 0.9959678, -0.08971132, 0, 0.08971132, 0.995
 [node name="CourtesanShadowFront2" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0190299, 0.3564551, -5.6806474)
 
+[node name="CourtesanShadowFront27" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.7235236, 0.38830566, -1.0533586)
+
 [node name="CourtesanShadowFront3" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6190395, 0.32177734, -9.529692)
+
+[node name="CourtesanShadowFront28" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.504797, 0.30334473, -0.22988749)
+
+[node name="CourtesanShadowSide18" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.207373, 0.35946777, -2.2722764)
+
+[node name="CourtesanShadowSide19" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.124716, 0.33728027, -0.23736429)
+
+[node name="CourtesanShadowSide20" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.1208982, 0.33642578, -10.581907)
+
+[node name="CourtesanShadowFront30" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.124189, 0.29956055, -10.030973)
+
+[node name="CourtesanShadowSide21" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.6399775, 0.33850098, -11.114471)
+
+[node name="CourtesanShadowSide22" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.692468, 0.3265381, -11.239454)
+
+[node name="CourtesanShadowSide23" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.466723, 0.33874512, -11.541456)
+
+[node name="CourtesanShadowFront31" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.473738, 0.29101563, -12.81143)
+
+[node name="CourtesanShadowSide24" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5867383, 0.3223877, -12.048704)
+
+[node name="CourtesanShadowFront32" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85365844, 0.28771973, -12.0432415)
+
+[node name="CourtesanShadowFront33" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3195703, 0.29712892, -12.048521)
+
+[node name="CourtesanShadowFront34" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.234152, 0.28601074, -12.046019)
+
+[node name="CourtesanShadowSide25" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6119635, 0.37033203, -14.318911)
+
+[node name="CourtesanShadowSide26" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.161109, 0.34191895, -14.746946)
+
+[node name="CourtesanShadowSide27" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.163416, 0.33725098, -13.463194)
+
+[node name="CourtesanShadowFront35" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.1647587, 0.31751466, -14.104979)
+
+[node name="CourtesanShadowFront29" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.364172, 0.2918799, -2.276732)
 
 [node name="Yoroi" type="Node3D" parent="Objects" groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -1.812, 0.3536098, -10.847789)
