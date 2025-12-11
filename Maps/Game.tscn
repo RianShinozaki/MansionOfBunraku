@@ -165,6 +165,8 @@ collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("16_r1twq")
 room_path = "uid://drj1idk7skuj4"
+room_path_present = "uid://drj1idk7skuj4"
+room_path_past = "uid://cbqobktqh0xna"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/CeremonialLoadZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.970932, 0.90405273, -10.64495)

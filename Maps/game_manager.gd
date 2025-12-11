@@ -15,6 +15,9 @@ var timer: float
 
 var meltdown_begun: bool
 
+# Time Travel State
+var is_past_time: bool = false
+
 func _enter_tree():
 	instance = self
 
@@ -28,4 +31,3 @@ func _process(delta: float) -> void:
 	if timer >= cycle_time + meltdown_time:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().change_scene_to_file("res://Maps/MeltdownCutscene.tscn")
-	

@@ -32,21 +32,34 @@ func trigger_time_vortex():
 	
 	anim_lock = true
 	
-	# Create and add the time vortex effect
+	# Toggle time state
+	GameManager.instance.is_past_time = !GameManager.instance.is_past_time
+	print("Time travel! Now in: " + ("PAST" if GameManager.instance.is_past_time else "PRESENT"))
+	
+	# Find the ceremonial load zone and trigger room reload
+	var ceremonial_zone = get_tree().root.get_node_or_null("Game/LoadingZones/CeremonialLoadZone")
+	if ceremonial_zone:
+		ceremonial_zone.reload_room()
+	else:
+		push_warning("CeremonialLoadZone not found!")
+	
+	# Create and add the time vortex effect for visual feedback (no scene change)
 	var vortex_scene = preload("res://Objects/Effects/TimeVortex.tscn")
 	var vortex = vortex_scene.instantiate()
 	get_tree().root.add_child(vortex)
 	
-	# Trigger the transition with configured parameters, passing clock reference
-	vortex.trigger_transition(
-		time_travel_target,
+	# Use play_effect_only instead of trigger_transition since we're not changing scenes
+	vortex.play_effect_only(
 		vortex_duration,
 		vortex_clockwise,
-		vortex_color,
-		vortex_center_color,
-		0.85,  # max_progress
-		self,  # clock_object - pass this clock as the focus target
-		3.0    # camera_focus_duration - 2x longer for more dramatic buildup
+		vortex_center_color,  # center_color
+		Color(0.25, 0.2, 0.3, 1.0),  # inner_color
+		Color(0.2, 0.1, 0.25, 1.0),  # mid_color
+		vortex_color,  # vortex_color
+		Color(0.05, 0.0, 0.1, 1.0),  # edge_color
+		false  # reverse
 	)
 	
-	# Note: No need to reset anim_lock since the scene will change
+	# Wait for effect to finish, then unlock
+	await vortex.tree_exited
+	anim_lock = false

@@ -98,17 +98,13 @@ func can_interact() -> bool:
 
 func on_interact():
 	"""Handle interaction - tip the table onto its side"""
-	print("on interact function")
 	if is_animating or not can_interact():
-		print("is animating")
 		return
 	
 	# Get player position to determine rotation direction
 	var player = Player.instance
 	if not player:
-		print("LOW TABLE: Player not found!")
 		return
-	print("LOW TABLE: Player found, proceeding with animation")
 
 	
 	is_animating = true
@@ -173,7 +169,6 @@ func on_interact():
 		
 		if abs(new_local_to_player.x) > abs(new_local_to_player.z):
 			# Player on left/right - flip on Z axis
-			print("LOW TABLE: Flipping on Z axis (player on left/right)")
 			if new_local_to_player.x > 0:
 				target_z_rotation = deg_to_rad(-90)  # FLIPPED
 				bottom_edge_offset = Vector3(table_half_width, table_leg_bottom, 0)
@@ -182,7 +177,6 @@ func on_interact():
 				bottom_edge_offset = Vector3(-table_half_width, table_leg_bottom, 0)
 		else:
 			# Player on front/back - flip on X axis
-			print("LOW TABLE: Flipping on X axis (player on front/back)")
 			if new_local_to_player.z > 0:
 				target_x_rotation = deg_to_rad(90)  # FLIPPED
 				bottom_edge_offset = Vector3(0, table_leg_bottom, table_half_width)
@@ -190,12 +184,8 @@ func on_interact():
 				target_x_rotation = deg_to_rad(-90)  # FLIPPED
 				bottom_edge_offset = Vector3(0, table_leg_bottom, -table_half_width)
 		
-		print("LOW TABLE: Target X rotation: ", rad_to_deg(target_x_rotation), " degrees")
-		print("LOW TABLE: Target Z rotation: ", rad_to_deg(target_z_rotation), " degrees")
-		
 		# Store the Y rotation value to keep it constant during flip
 		var locked_y_rotation = rotation.y
-		print("LOW TABLE: Locked Y rotation at: ", rad_to_deg(locked_y_rotation), " degrees")
 		
 		# Store starting and target positions for the tween
 		var start_pos = global_position
@@ -207,7 +197,6 @@ func on_interact():
 		var target_x = start_pos.x + horizontal_offset.x
 		var target_z = start_pos.z + horizontal_offset.z
 		
-		print("LOW TABLE: Animating position from ", start_pos, " to ", Vector3(target_x, target_y, target_z))
 		
 		# Animate the flip (rotation and position)
 		var flip_tween = create_tween()
