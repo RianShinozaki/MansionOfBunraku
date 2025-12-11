@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5h8k3n7y2qmw"]
+
+[ext_resource type="Script" uid="uid://bljx4wp08e6iu" path="res://Scripts/UI/song_display.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/Models/song_of_time_travel.png" id="2_background"]
+
+[node name="SongDisplay" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 84.0
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Note1" type="TextureRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.422
+anchor_right = 0.305
+anchor_bottom = 0.578
+offset_left = -35.888
+offset_top = 4.0880013
+offset_right = -23.984001
+offset_bottom = 16.120003
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Note2" type="TextureRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.336
+anchor_top = 0.422
+anchor_right = 0.492
+anchor_bottom = 0.578
+offset_left = -17.936
+offset_top = -3.9119987
+offset_right = -5.904003
+offset_bottom = 8.120003
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Note3" type="TextureRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.422
+anchor_right = 0.68
+anchor_bottom = 0.578
+offset_left = 5.9119873
+offset_top = -3.9119987
+offset_right = 17.815987
+offset_bottom = 8.120003
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Note4" type="TextureRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.711
+anchor_top = 0.422
+anchor_right = 0.867
+anchor_bottom = 0.578
+offset_left = 20.98399
+offset_top = 4.0880013
+offset_right = 33.01599
+offset_bottom = 16.120003
+expand_mode = 1
+stretch_mode = 5

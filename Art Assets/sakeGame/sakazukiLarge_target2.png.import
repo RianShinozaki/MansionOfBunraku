@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bof55at721mqo"
-path.s3tc="res://.godot/imported/sakazukiLarge_target2.png-2bc8561422a2c75e2af57874dfeb2a6b.s3tc.ctex"
+path="res://.godot/imported/sakazukiLarge_target2.png-2bc8561422a2c75e2af57874dfeb2a6b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/sakeGame/sakazukiLarge_target2.png"
-dest_files=["res://.godot/imported/sakazukiLarge_target2.png-2bc8561422a2c75e2af57874dfeb2a6b.s3tc.ctex"]
+dest_files=["res://.godot/imported/sakazukiLarge_target2.png-2bc8561422a2c75e2af57874dfeb2a6b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

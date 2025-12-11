@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://doonovqvble05"
-path.s3tc="res://.godot/imported/maze_maze_3.png-60897b9328ab14bd0f97c6106dac9da4.s3tc.ctex"
+path="res://.godot/imported/maze_maze_3.png-60897b9328ab14bd0f97c6106dac9da4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/Models/maze_maze_3.png"
-dest_files=["res://.godot/imported/maze_maze_3.png-60897b9328ab14bd0f97c6106dac9da4.s3tc.ctex"]
+dest_files=["res://.godot/imported/maze_maze_3.png-60897b9328ab14bd0f97c6106dac9da4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

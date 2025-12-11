@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b72efbyn3w81l"
-path.s3tc="res://.godot/imported/courtesan_shadow_front.png-27f00d6851b431569b0c37237b840d4a.s3tc.ctex"
+path="res://.godot/imported/courtesan_shadow_front.png-27f00d6851b431569b0c37237b840d4a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/courtesan_shadow_front.png"
-dest_files=["res://.godot/imported/courtesan_shadow_front.png-27f00d6851b431569b0c37237b840d4a.s3tc.ctex"]
+dest_files=["res://.godot/imported/courtesan_shadow_front.png-27f00d6851b431569b0c37237b840d4a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
