@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnhfo45j8xg2k"]
+
+[ext_resource type="Script" uid="uid://do51fped1jcpn" path="res://Scripts/Effects/hallway_fog_barrier.gd" id="1_vq8km"]
+[ext_resource type="Shader" uid="uid://gr0h1tfhrj66" path="res://Shaders/DarkFog.gdshader" id="2_darkfog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(2.5, 3, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(0.5, 3, 2.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+render_priority = 0
+shader = ExtResource("2_darkfog")
+shader_parameter/fog_color = Color(0, 0, 0, 0)
+shader_parameter/edge_softness = 0.45
+shader_parameter/core_opacity = 1.0
+shader_parameter/noise_strength = 0.08
+shader_parameter/noise_scale = 3.0
+shader_parameter/noise_speed = 0.3
+shader_parameter/enable_color_particles = true
+shader_parameter/particle_count = 200.0
+shader_parameter/particle_size = 0.004
+shader_parameter/particle_brightness = 2.0
+shader_parameter/particle_speed = 0.1
+shader_parameter/particle_twinkle_amount = 0.3
+shader_parameter/particle_twinkle_speed = 2.0
+shader_parameter/particle_color_mix = 0.5
+
+[node name="HallwayFogBarrier" type="StaticBody3D"]
+script = ExtResource("1_vq8km")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("BoxMesh_1")
+surface_material_override/0 = SubResource("ShaderMaterial_1")

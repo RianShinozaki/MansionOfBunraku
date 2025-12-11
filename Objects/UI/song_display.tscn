@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://be7qc154nrbwm" path="res://Art Assets/note-three.png" id="4_note3"]
 [ext_resource type="Texture2D" uid="uid://bqy5i0t7b28js" path="res://Art Assets/note-one.png" id="5_note1"]
 [ext_resource type="Texture2D" uid="uid://favmip5alj1i" path="res://Art Assets/note-two.png" id="6_note2"]
-[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/Models/song_of_time_travel.png" id="7_timetravel"]
+[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/song_of_time_travel.png" id="7_timetravel"]
 [ext_resource type="FontFile" uid="uid://dijk2scifae5p" path="res://Art Assets/Fonts/OptimusPrincepsSemiBold.ttf" id="8_font"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w48y6"]

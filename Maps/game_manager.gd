@@ -17,6 +17,8 @@ var meltdown_begun: bool
 
 # Time Travel State
 var is_past_time: bool = false
+var clock_activated_once: bool = false
+var entered_ceremonial_past: bool = false
 
 func _enter_tree():
 	instance = self

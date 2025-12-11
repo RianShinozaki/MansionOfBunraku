@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crhq1ihxaqjld"
-path="res://.godot/imported/song_of_time_travel.png-05f9f6d920087f7188468982fe213c8d.ctex"
+uid="uid://bg7xbuvbqeamr"
+path="res://.godot/imported/song_of_time_travel.png-7350ead80cbe77a4d8f7a95f3ccfe428.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Models/song_of_time_travel.png"
-dest_files=["res://.godot/imported/song_of_time_travel.png-05f9f6d920087f7188468982fe213c8d.ctex"]
+source_file="res://Art Assets/song_of_time_travel.png"
+dest_files=["res://.godot/imported/song_of_time_travel.png-7350ead80cbe77a4d8f7a95f3ccfe428.ctex"]
 
 [params]
 
