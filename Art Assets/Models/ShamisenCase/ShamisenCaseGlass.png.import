@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd3its2htqf0f"
-path.s3tc="res://.godot/imported/ShamisenCaseGlass.png-5fd0937bdb7b2aaf708372fa2aea71e4.s3tc.ctex"
+path="res://.godot/imported/ShamisenCaseGlass.png-5fd0937bdb7b2aaf708372fa2aea71e4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/Models/ShamisenCase/ShamisenCaseGlass.png"
-dest_files=["res://.godot/imported/ShamisenCaseGlass.png-5fd0937bdb7b2aaf708372fa2aea71e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/ShamisenCaseGlass.png-5fd0937bdb7b2aaf708372fa2aea71e4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
