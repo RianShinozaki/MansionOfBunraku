@@ -77,7 +77,7 @@ light_color = Color(0.75, 0.75, 0.8, 1)
 light_energy = 0.05
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.093496, 0.072509766, 0.48040915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142084, 0.08728027, 0.48059225)
 navigation_mesh = SubResource("NavigationMesh_dba84")
 
 [node name="Maze" type="MeshInstance3D" parent="NavigationRegion3D"]
@@ -495,17 +495,134 @@ collision_layer = 5
 
 [node name="Silhouettes" type="Node3D" parent="Objects"]
 
+[node name="CourtesanShadowFront4" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.9430726, 0.2823584, -2.2126396)
+
+[node name="CourtesanShadowSide2" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(0.9996374, 0, 0.026927175, 0, 1, 0, -0.026927175, 0, 0.9996374, 4.3483, 0.37057617, -1.4655428)
+
+[node name="CourtesanShadowFront5" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6501873, 0.31971192, -1.463378)
+
+[node name="CourtesanShadowSide3" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43652606, 0.29953125, -5.7029157)
+
+[node name="CourtesanShadowFront6" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84179235, 0.32117677, -5.6931868)
+
+[node name="CourtesanShadowSide4" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.10013, 0.29965332, -6.1667805)
+
+[node name="CourtesanShadowFront7" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.4871216, 0.32984376, -9.001457)
+
+[node name="CourtesanShadowFront8" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.8889837, 0.6056006, -8.299835)
+
+[node name="CourtesanShadowSide5" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.272414, 0.3572705, -14.689512)
+
+[node name="CourtesanShadowSide6" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.2737384, 0.30160645, -13.620697)
+
+[node name="CourtesanShadowFront9" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744004, 0.3148291, -13.309576)
+
+[node name="CourtesanShadowSide7" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.418341, 0.38101318, -12.371401)
+
+[node name="CourtesanShadowFront10" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7826512, 0.36902833, -14.618185)
+
+[node name="CourtesanShadowFront11" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.733621, 0.31336427, -13.333918)
+
+[node name="CourtesanShadowFront12" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.496623, 0.3160498, -13.356789)
+
+[node name="CourtesanShadowSide8" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.7909617, 0.44259766, -12.170159)
+
+[node name="CourtesanShadowFront13" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.645733, 0.34913087, -12.312475)
+
+[node name="CourtesanShadowFront14" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.763623, 0.30066895, -12.796837)
+
+[node name="CourtesanShadowFront15" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(0.9997398, 0, 0.022809476, 0, 1, 0, -0.022809476, 0, 0.9997398, -8.813148, 0.29053712, -4.96514)
+
+[node name="CourtesanShadowFront16" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3092175, 0.29505372, -4.9660163)
+
+[node name="CourtesanShadowSide9" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.260612, 0.34835938, -4.9681873)
+
+[node name="CourtesanShadowSide10" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9238863, 0.39206055, -4.9635878)
+
+[node name="CourtesanShadowFront17" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5373, 0.38758302, -4.968645)
+
+[node name="CourtesanShadowFront18" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.722397, 0.36609864, -6.253945)
+
+[node name="CourtesanShadowFront19" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.3867846, 0.39722657, -6.255081)
+
+[node name="CourtesanShadowSide11" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.349781, 0.43881348, -7.176959)
+
+[node name="CourtesanShadowSide12" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.239802, 0.3863232, -9.548157)
+
+[node name="CourtesanShadowFront20" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.065973, 0.30396485, -9.535889)
+
+[node name="CourtesanShadowFront21" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.949579, 0.31617188, -13.358168)
+
+[node name="CourtesanShadowSide13" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.114416, 0.39413574, -13.351214)
+
+[node name="CourtesanShadowFront22" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.686916, 0.28260255, -10.282492)
+
+[node name="CourtesanShadowSide14" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.163817, 0.3527539, -10.794365)
+
+[node name="CourtesanShadowFront23" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8801827, 0.28260255, -10.805277)
+
+[node name="CourtesanShadowFront24" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.760914, 0.2823584, -11.261843)
+
+[node name="CourtesanShadowFront25" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.761097, 0.28260255, -13.871305)
+
+[node name="CourtesanShadowSide15" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.773231, 0.32260254, -12.471882)
+
+[node name="CourtesanShadowSide16" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.892261, 0.32284668, -14.653931)
+
+[node name="CourtesanShadowSide17" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.3475986, 0.30746582, -13.922966)
+
+[node name="CourtesanShadowFront26" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.352652, 0.29627442, -11.57893)
+
 [node name="CourtesanShadowSide" parent="Objects/Silhouettes" instance=ExtResource("16_j1tjy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.423414, 0.2992871, -7.914297)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5579355, 0.3457959, -7.914297)
 
 [node name="CourtesanShadowFront" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
-transform = Transform3D(1, 0, 0, 0, 0.9959678, -0.08971132, 0, 0.08971132, 0.9959678, -2.784826, 0.33251953, -5.692076)
+transform = Transform3D(1, 0, 0, 0, 0.9959678, -0.08971132, 0, 0.08971132, 0.9959678, -2.9020288, 0.33251953, -5.692076)
 
 [node name="CourtesanShadowFront2" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1590598, 0.3564551, -5.6806474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0190299, 0.3564551, -5.6806474)
 
 [node name="CourtesanShadowFront3" parent="Objects/Silhouettes" instance=ExtResource("17_q4vb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6190395, 0.38208008, -9.511015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6190395, 0.32177734, -9.529692)
 
 [node name="Yoroi" type="Node3D" parent="Objects" groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -1.812, 0.3536098, -10.847789)

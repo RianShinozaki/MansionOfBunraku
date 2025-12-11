@@ -42,6 +42,12 @@ signal fade_complete
 
 static var instance: Player
 static var song_of_stillness_acquired: bool = false
+static var song_of_time_travel_acquired: bool = false
+
+# Song Sequences - centralized definitions
+const SONG_OF_TIME_TRAVEL: Array[int] = [1, 2, 2, 1]
+const SONG_OF_MATRIMONY: Array[int] = [1, 1, 2, 1]
+const SONG_OF_STILLNESS: Array[int] = [3, 3, 3, 1]
 
 func _ready() -> void:
 	# RAYCAST SETUP 
@@ -49,6 +55,21 @@ func _ready() -> void:
 	raycast.target_position = Vector3(0, 0, -interaction_range)
 	instance = self
 	fade_from_white()
+	
+	# Restore song visibility if previously acquired
+	if song_of_time_travel_acquired:
+		var time_travel_ui = get_node_or_null("CanvasLayer/Music Memory/SongOfTimeTravel")
+		if time_travel_ui:
+			time_travel_ui.visible = true
+			time_travel_ui.modulate.a = 1.0
+			print("Player: Restored SongOfTimeTravel UI visibility")
+	
+	if song_of_stillness_acquired:
+		var stillness_ui = get_node_or_null("CanvasLayer/Music Memory/SongOfStillness")
+		if stillness_ui:
+			stillness_ui.visible = true
+			stillness_ui.modulate.a = 1.0
+			print("Player: Restored SongOfStillness UI visibility")
 	
 	if do_intro:
 		await get_tree().create_timer(1).timeout
