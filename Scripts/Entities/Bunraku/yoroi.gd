@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	#Handles Yono's anger increasing when you're close to her or staring at her
 	var _vec_to_player = (Player.instance.global_position - (global_position + Vector3.UP * 0.2))
 	var _dist_to_player = _vec_to_player.length()
-	
+	mat.emission_energy_multiplier = 1.5
 	raycast.target_position = _vec_to_player
 	
 	if not raycast.is_colliding() and InspectionManager.current_mode == InspectionManager.Mode.PLAY:

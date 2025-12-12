@@ -38,6 +38,7 @@ func get_random_target(_delay: float = 0):
 	#_target_options.append(Player.instance)
 	
 	if time_since_targeted_player > 25:
+		await get_tree().create_timer(0.1).timeout
 		target = Player.instance
 		navigating = true
 		return
@@ -71,7 +72,7 @@ func _physics_process(delta):
 		print("unstucking yoroi")
 		navigating = true
 		
-	if not navigating: return
+	if not navigating or not InspectionManager.current_mode == InspectionManager.Mode.PLAY: return
 	
 	time_since_targeted_player += delta
 	

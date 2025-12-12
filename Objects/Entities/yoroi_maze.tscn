@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcowbtnr1gxij"]
+[gd_scene load_steps=16 format=3 uid="uid://bcowbtnr1gxij"]
 
 [ext_resource type="Script" uid="uid://c8w23m4504s2r" path="res://Scripts/Entities/Bunraku/yoroi_manager.gd" id="1_h1hvy"]
 [ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="2_kauv0"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio/boss_rattling.mp3" id="6_7e6c1"]
 [ext_resource type="AudioStream" uid="uid://dotcf3aqdlpwu" path="res://Audio/boss_breathing_female.wav" id="7_c7ojw"]
 [ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="8_36rgc"]
+[ext_resource type="AudioStream" uid="uid://ct1h865q6fk24" path="res://Audio/yoroi_eerie.mp3" id="9_358w6"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="9_gfsvw"]
 [ext_resource type="AudioStream" uid="uid://cuakpq8ek5b3m" path="res://Audio/dirt_footstep.wav" id="10_kauv0"]
 
@@ -95,6 +96,13 @@ stream = ExtResource("8_36rgc")
 volume_db = -80.0
 pitch_scale = 1.83
 autoplay = true
+
+[node name="Feedback2" type="AudioStreamPlayer3D" parent="Yoroi"]
+stream = ExtResource("9_358w6")
+unit_size = 24.18
+pitch_scale = 1.83
+autoplay = true
+max_distance = 2.5
 
 [node name="RayCast3D" type="RayCast3D" parent="Yoroi" groups=["Bunraku"]]
 target_position = Vector3(0, 0, 1)
