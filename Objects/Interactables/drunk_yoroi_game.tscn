@@ -1,36 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://pd85y607mcc7"]
+[gd_scene load_steps=6 format=3 uid="uid://pd85y607mcc7"]
 
 [ext_resource type="Script" uid="uid://b7uf8o0cqnvup" path="res://Scripts/Interactables/drunk_yoroi_game.gd" id="1_script"]
-[ext_resource type="Script" uid="uid://8qlwni10k5ld" path="res://Scripts/Interactables/shrine_sake_pitcher.gd" id="2_sake_script"]
-[ext_resource type="Texture2D" uid="uid://dx5mi7ai7jct2" path="res://Art Assets/shrine_sake.png" id="3_sake_texture"]
-[ext_resource type="Script" uid="uid://cnk3noktu14de" path="res://Scripts/Interactables/shrine_cup_game.gd" id="4_cup_script"]
-[ext_resource type="Texture2D" uid="uid://bvxvevino3oua" path="res://Art Assets/shrine_cup.png" id="5_cup_texture"]
+[ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
+[ext_resource type="PackedScene" uid="uid://dxuadpye5rqa" path="res://Objects/Interactables/PouringGame/SakazukiCup_Medium.tscn" id="3_cup"]
+[ext_resource type="Texture2D" uid="uid://d1lvy7n2akmfx" path="res://Art Assets/sakeGame/sakazuki_medium_filled.png" id="4_filled_sprite"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_game"]
 size = Vector3(0.6, 0.4, 0.3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sake"]
-size = Vector3(0.15, 0.2, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liquid"]
-shading_mode = 0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pour"]
-emission_shape = 1
-emission_sphere_radius = 0.001
-direction = Vector3(0, -1, 0)
-spread = 2.0
-initial_velocity_min = 0.6
-initial_velocity_max = 0.9
-gravity = Vector3(0, -2, 0)
-scale_min = 0.06
-scale_max = 0.08
-
-[sub_resource type="SphereMesh" id="SphereMesh_particles"]
-radius = 0.015
-height = 0.03
-radial_segments = 8
-rings = 6
 
 [node name="DrunkYoroiGame" type="StaticBody3D"]
 collision_layer = 37
@@ -43,44 +19,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("BoxShape3D_game")
 
 [node name="FocusMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.2, 0.6)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.11949921, 0.24730225, 0.6350342)
 
-[node name="ShrineCup" type="Node3D" parent="."]
-script = ExtResource("4_cup_script")
+[node name="SakazukiCup" parent="." instance=ExtResource("3_cup")]
+filled_sprite_texture = ExtResource("4_filled_sprite")
 
-[node name="RegularViewSprite" type="Sprite3D" parent="ShrineCup"]
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("5_cup_texture")
-
-[node name="ShrineSake" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16438699, 0.06142208, 0.0007185638)
-script = ExtResource("2_sake_script")
-
-[node name="RegularViewSprite" type="Sprite3D" parent="ShrineSake"]
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("3_sake_texture")
-
-[node name="CollisionArea" type="Area3D" parent="ShrineSake"]
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShrineSake/CollisionArea"]
-shape = SubResource("BoxShape3D_sake")
-
-[node name="PourPoint" type="Node3D" parent="ShrineSake"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016548157, 0.08269495, 0)
-
-[node name="PourStream" type="GPUParticles3D" parent="ShrineSake/PourPoint"]
-material_override = SubResource("StandardMaterial3D_liquid")
-cast_shadow = 0
-emitting = false
-amount = 300
-lifetime = 0.04
-visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
-draw_order = 1
-process_material = SubResource("ParticleProcessMaterial_pour")
-draw_pass_1 = SubResource("SphereMesh_particles")
+[node name="ChoshiPitcher" parent="." instance=ExtResource("2_pitcher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302, 0.179, 0)
