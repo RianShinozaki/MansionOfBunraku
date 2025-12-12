@@ -27,6 +27,10 @@ var air_velocity: float
 var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
+var statue: bool = false
+var statue_hp: int = 0
+var statue_shaking: bool = false
+var push_direction: bool = false
 
 # Push cooldown tracking to prevent sticky collisions
 var push_cooldowns: Dictionary = {}  # Maps RigidBody3D to cooldown timer
@@ -84,6 +88,22 @@ func _deferred_mouse_capture():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _physics_process(_delta: float) -> void:
+	if statue:
+		if statue_hp <= 0: un_statuefy()
+		else:
+			var _input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
+			if not statue_shaking:
+				if _input_dir.length() > 0.5 and not push_direction:
+					$Camera3D.shaking = true
+					statue_shaking = true
+					await get_tree().create_timer(0.1).timeout
+					$Camera3D.shaking = false
+					statue_shaking = false
+					statue_hp -= 1
+					push_direction = true
+				elif _input_dir.length() <= 0.5:
+					push_direction = false
+		
 	if not active: return
 	
 	# Get desired movement velocity
@@ -144,7 +164,6 @@ func _physics_process(_delta: float) -> void:
 		shamisen_wait_time += _delta
 	else:
 		shamisen_wait_time = 0
-	
 	
 	# displays thinking bar to load music pattern memories
 	$"CanvasLayer/ThinkingBar/TextureProgressBar".value = shamisen_wait_time
@@ -324,51 +343,49 @@ func run_dialogue(dialogue_id: String):
 	InspectionManager.current_mode = InspectionManager.Mode.PLAY
 
 func fade_to_white():
+	$CanvasLayer/WhiteFade.modulate = Color(1, 1, 1, 0)
 	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color.WHITE, 2).finished
 	emit_signal("fade_complete")
 
-func fade_from_white():
-	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), 2).finished
+func fade_from_white(_duration: float = 2, _init_alpha: float = 1):
+	$CanvasLayer/WhiteFade.modulate = Color(1, 1, 1, _init_alpha)
+	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), _duration).finished
 	emit_signal("fade_complete")
 
-func apply_black_white_effect(duration: float = 3.0):
+func set_gray_scale(_value: float):
+	var overlay = $CanvasLayer/BlackWhiteOverlay
+	overlay.material.set_shader_parameter("grey_level", _value)
+	
+func apply_black_white_effect():
 	"""Apply white overlay effect with low opacity"""
 	# Disable player movement during the effect
-	var was_active = active
 	active = false
-	
+	statue = true
+	statue_hp = 3
 	if not has_node("CanvasLayer/BlackWhiteOverlay"):
 		push_warning("Player: BlackWhiteOverlay node not found!")
-		await get_tree().create_timer(duration).timeout
-		active = was_active
 		return
 	
 	var overlay = $CanvasLayer/BlackWhiteOverlay
 	
 	# Reset overlay state completely
-	overlay.material = null  # Remove any shader material
 	overlay.modulate = Color.WHITE  # Reset modulate
-	overlay.color = Color(1, 1, 1, 0.0)  # Start transparent white
+	overlay.color = Color(1, 1, 1, 1)  # Start transparent white
 	overlay.visible = true
+	set_gray_scale(1.0)
 	
 	# Wait a frame to ensure state is set
 	await get_tree().process_frame
 	
-	var tween = create_tween()
+	fade_from_white(0.5, 0.5)
 	
-	# Fade in white overlay (0.3 seconds) - increase opacity to low value
-	tween.tween_property(overlay, "color:a", 0.3, 0.3)  # Low opacity white (30%)
-	await tween.finished
-	
-	# Hold the effect for the duration
-	await get_tree().create_timer(duration).timeout
-	
+func un_statuefy():
+	var overlay = $CanvasLayer/BlackWhiteOverlay
+	active = true
+	statue = false
 	# Fade out the effect (0.3 seconds)
-	tween = create_tween()
-	tween.tween_property(overlay, "color:a", 0.0, 0.3)
-	await tween.finished
+	await get_tree().create_tween().tween_method(set_gray_scale, 1.0, 0, 0.4).finished
 	
 	# Reset and hide overlay
 	overlay.visible = false
-	overlay.color = Color(1, 1, 1, 0.0)  # Reset to transparent
-	active = was_active
+	

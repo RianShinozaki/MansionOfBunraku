@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cywb5rg3dpmnm"]
+[gd_scene load_steps=34 format=3 uid="uid://cywb5rg3dpmnm"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_room"]
 [ext_resource type="ArrayMesh" uid="uid://cxfqmpgt53jxq" path="res://Art Assets/Models/maze.obj" id="2_maze"]
@@ -61,6 +61,9 @@ shader_parameter/room_texture = ExtResource("21_ubrvs")
 
 [sub_resource type="QuadMesh" id="QuadMesh_q4vb2"]
 size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dba84"]
+size = Vector3(22.908264, 5.569214, 17.835938)
 
 [node name="MazeLevel" type="Node3D"]
 script = ExtResource("1_room")
@@ -813,6 +816,15 @@ script = ExtResource("22_manager")
 [node name="SongDisplay" parent="." instance=ExtResource("23_song_display")]
 offset = Vector2(32, 0)
 transform = Transform2D(1, 0, 0, 1, 32, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0985413, 2.284607, -8.417969)
+shape = SubResource("BoxShape3D_dba84")
+debug_color = Color(0.99196154, 0, 0.26477483, 0.41960785)
 
 [connection signal="closed" from="Objects/GateArea/PaperDoor" to="OutdoorsEnvironmentSwapper" method="set_environment_conditional"]
 [connection signal="opened" from="Objects/GateArea/PaperDoor" to="OutdoorsEnvironmentSwapper" method="force_outside_environment"]

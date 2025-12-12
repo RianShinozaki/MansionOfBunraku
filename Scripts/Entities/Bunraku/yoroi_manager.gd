@@ -13,7 +13,8 @@ var direction_vector: Vector2 = Vector2(0, 1)
 
 var physics_delta: float
 var orig_y: float
-var navigating: bool = true
+var navigating: bool = false
+var active: bool = false
 var body_update_timer: float = 0
 var jumpscaring: bool = false
 
@@ -23,12 +24,14 @@ func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	orig_y = global_position.y
 	get_random_target()
-	$Yoroi.activate()
+	$Yoroi.deactivate(false)
+	$"../../Area3D".body_entered.connect(on_body_entered)
+	$"../../Area3D".body_exited.connect(on_body_exited)
 	
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
-const VALID_NODE_DISTANCE = 7
+const VALID_NODE_DISTANCE = 5
 func get_random_target(_delay: float = 0):
 	var _target_options: Array[Node3D]
 	_target_options.append(Player.instance)
@@ -45,7 +48,7 @@ func get_random_target(_delay: float = 0):
 		navigating = true
 	
 func _physics_process(delta):
-	if not navigating: return
+	if not navigating or not active: return
 	
 	body_update_timer += delta
 	if body_update_timer >= body_update_delay:
@@ -103,3 +106,14 @@ func jumpscare():
 	$Yoroi.top_level = false
 	$Yoroi.global_transform.origin = global_transform.origin + body_offset
 	super.jumpscare()
+
+func on_body_entered(_node: Node3D):
+	print("player entered")
+	navigating = true
+	active = true
+	$Yoroi.activate()
+	
+func on_body_exited(_node: Node3D):
+	navigating = false
+	active = false
+	$Yoroi.deactivate(false)
