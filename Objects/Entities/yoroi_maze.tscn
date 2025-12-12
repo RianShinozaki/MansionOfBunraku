@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcowbtnr1gxij"]
+[gd_scene load_steps=15 format=3 uid="uid://bcowbtnr1gxij"]
 
 [ext_resource type="Script" uid="uid://c8w23m4504s2r" path="res://Scripts/Entities/Bunraku/yoroi_manager.gd" id="1_h1hvy"]
 [ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="2_kauv0"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dotcf3aqdlpwu" path="res://Audio/boss_breathing_female.wav" id="7_c7ojw"]
 [ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="8_36rgc"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="9_gfsvw"]
+[ext_resource type="AudioStream" uid="uid://cuakpq8ek5b3m" path="res://Audio/dirt_footstep.wav" id="10_kauv0"]
 
 [sub_resource type="Curve" id="Curve_8u50u"]
 _data = [Vector2(0, 0.03191495), 0.0, 1.6003035, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -110,3 +111,8 @@ radius = 0.6
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_gfsvw")
+
+[node name="DirtFootstep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_kauv0")
+pitch_scale = 0.73
+max_distance = 6.0
