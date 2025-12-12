@@ -34,6 +34,7 @@ func _ready():
 	if freeze_table:
 		# Freeze the rigidbody - no physics simulation
 		freeze = true
+		freeze_mode = FREEZE_MODE_STATIC  # Ensure it stays frozen
 		# Optionally disable collision sounds when frozen
 		collision_sound_enabled = false
 	else:
@@ -97,6 +98,10 @@ func is_flipped() -> bool:
 
 func can_interact() -> bool:
 	"""Check if the table can be interacted with"""
+	# Frozen tables cannot be interacted with
+	if freeze_table:
+		return false
+	
 	print("can interact check")
 	if is_animating:
 		print("is animating")
@@ -238,6 +243,13 @@ func on_interact():
 	#freeze = false
 	is_animating = false
 
+
+func _physics_process(_delta):
+	# Safeguard: Re-apply freeze if it's supposed to be frozen
+	# This prevents the table from unfreezing if something wakes it up
+	if freeze_table and not freeze:
+		freeze = true
+		freeze_mode = FREEZE_MODE_STATIC
 
 func _on_body_entered(body: Node):
 	"""Handle collisions and play appropriate sound effects"""

@@ -24,7 +24,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(759.99963, 680),
+"size": Vector2(759.9995, 680),
 "speaker": "Kitsune"
 },
 &"1_2": {
@@ -38,12 +38,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(659.999, 640),
+"size": Vector2(659.99896, 640),
 "speaker": "Kitsune"
 },
 &"1_3": {
 "audio_clip": null,
-"dialogue": "You've already seen how that works out… Ah, fate can be cruel.",
+"dialogue": "You've already seen how that works out… Ah... fate can be cruel.",
 "offset": Vector2(2220, 0),
 "options": {
 0: {
@@ -52,7 +52,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(619.99927, 640),
+"size": Vector2(619.9995, 640),
 "speaker": "Kitsune"
 },
 &"1_4": {
@@ -66,7 +66,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(819.99976, 640),
+"size": Vector2(819.9995, 640),
 "speaker": "Kitsune"
 }
 }
