@@ -4,7 +4,7 @@ enum GameState {
 	HIDDEN,           # Sake hidden, in play mode
 	WAITING_FOR_POUR, # In inspect mode, waiting for player to pour
 	POURING,          # Actively pouring
-	WARNING,          # Near full, warning flashes triggered
+	COMPLETE,         # Successfully filled
 	OVERFLOW          # Overflowed, game ends
 }
 
@@ -13,11 +13,10 @@ enum GameState {
 
 var current_state: GameState = GameState.HIDDEN
 var pour_start_time: float = 0.0
-var warning_triggered: bool = false
 var previous_mode: int = -1
 
-@onready var sake_pitcher: ShrineSakePitcher = $ShrineSake
-@onready var cup: ShrineCupGame = $ShrineCup
+@onready var sake_pitcher: ChoshiPitcher = $ChoshiPitcher
+@onready var cup: SakazukiCup = $SakazukiCup
 @onready var focus_marker: Marker3D = $FocusMarker if has_node("FocusMarker") else null
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D if has_node("CollisionShape3D") else null
 
@@ -28,6 +27,17 @@ func _ready():
 	collision_mask = 0
 	
 	add_to_group("Interactable")
+	
+	# Set cup to only show the top target (Target3) for single fill level
+	if cup:
+		# Set the target fill level to 100%
+		cup.target_fill_level = 1.0
+		cup.pours_completed = 2  # This will show Target3
+		# Hide Target1 and Target2 permanently
+		if cup.has_node("Target1"):
+			cup.get_node("Target1").queue_free()
+		if cup.has_node("Target2"):
+			cup.get_node("Target2").queue_free()
 
 func _process(delta):
 	# Check for mode transitions
@@ -39,10 +49,10 @@ func _process(delta):
 		var now_in_play = (current_mode == InspectionManager.Mode.PLAY)
 		
 		if was_in_inspect_or_dialogue and now_in_play:
-			# Exited inspect mode - re-enable collision
+			# Exited inspect mode - re-enable collision and reset pitcher only
 			if collision_shape:
 				collision_shape.disabled = false
-			reset_sake_position()
+			reset_pitcher_only()  # Don't empty cup - preserve fill level
 			current_state = GameState.HIDDEN
 	
 	previous_mode = current_mode
@@ -52,20 +62,23 @@ func _process(delta):
 		var pour_duration = (Time.get_ticks_msec() / 1000.0) - pour_start_time
 		var fill_rate = delta / max_pour_time
 		
-		cup.add_fill(fill_rate)
+		# Check if at target before adding more liquid
+		var was_at_target = cup.current_fill_level >= 0.98
 		
-		# Check for warning threshold
-		if cup.should_flash_warning() and not warning_triggered:
-			warning_triggered = true
-			current_state = GameState.WARNING
-			cup.flash_warning()
-			await cup.get_tree().create_timer(0.9).timeout  # Duration of 3 flashes
-			if current_state == GameState.WARNING:  # Check if still warning (not stopped)
-				current_state = GameState.POURING
+		# Use add_liquid instead of add_fill
+		cup.add_liquid(fill_rate)
 		
-		# Check for overflow
-		if cup.get_fill_level() >= 1.0:
-			handle_overflow()
+		# Check for completion - exactly at 100% with small tolerance
+		if cup.current_fill_level >= 0.98:
+			# If we just reached 98%, this is success
+			if not was_at_target:
+				# First time reaching target - success!
+				stop_pouring()
+				handle_complete()
+			else:
+				# Continued pouring after reaching target - overflow!
+				# Player held spacebar too long
+				handle_overflow()
 
 func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
@@ -83,14 +96,18 @@ func on_interact() -> void:
 
 func start_game():
 	current_state = GameState.WAITING_FOR_POUR
-	warning_triggered = false
 	
-	# Sake becomes visible in inspect mode
+	# Sake becomes visible and clickable in inspect mode
 	if sake_pitcher:
 		sake_pitcher.set_clickable(true)
+	
+	# Activate cup to show Target3
+	if cup:
+		cup.is_active = true
+		cup.update_target_visibility()
 
 func start_pouring():
-	if current_state != GameState.WAITING_FOR_POUR and current_state != GameState.WARNING:
+	if current_state != GameState.WAITING_FOR_POUR:
 		return
 	
 	current_state = GameState.POURING
@@ -101,14 +118,16 @@ func start_pouring():
 	
 	# Check if pouring outside cup - if so, trigger failure after brief moment
 	if sake_pitcher and cup:
-		if not sake_pitcher.check_cup_hover(cup):
+		# Use check_cup_hover with array for compatibility with ChoshiPitcher
+		var cup_under_pitcher = sake_pitcher.check_cup_hover([cup])
+		if not cup_under_pitcher:
 			# Wait a brief moment then trigger spill
 			await get_tree().create_timer(0.3).timeout
 			if current_state == GameState.POURING:  # Still pouring
 				handle_spill()
 
 func stop_pouring():
-	if current_state != GameState.POURING and current_state != GameState.WARNING:
+	if current_state != GameState.POURING:
 		return
 	
 	current_state = GameState.WAITING_FOR_POUR
@@ -116,17 +135,52 @@ func stop_pouring():
 	if sake_pitcher:
 		sake_pitcher.stop_pour()
 
+func handle_complete():
+	"""Successfully filled the cup to 100%"""
+	current_state = GameState.COMPLETE
+	
+	if sake_pitcher:
+		sake_pitcher.stop_pour()
+	
+	# Success animation
+	if cup:
+		cup.show_success_animation()
+	
+	# Exit inspect mode
+	await get_tree().create_timer(1.0).timeout
+	if InspectionManager.current_mode == InspectionManager.Mode.INSPECT:
+		InspectionManager.exit_inspect()
+	
+	# Re-enable collision when exiting
+	if collision_shape:
+		collision_shape.disabled = false
+	
+	# Reset pitcher only - keep cup filled for bunraku to check
+	reset_pitcher_only()
+	current_state = GameState.HIDDEN
+
 func handle_overflow():
+	"""Handle overflow - too much sake poured"""
+	# Immediately change state to prevent more liquid from being added
 	current_state = GameState.OVERFLOW
 	
 	if sake_pitcher:
 		sake_pitcher.stop_pour()
 	
-	# Cup shake and empty
+	# Empty cup immediately to stop visual overflow, then do failure animation
 	if cup:
-		cup.shake_spill()
-		await cup.get_tree().create_timer(0.8).timeout  # Wait for shake animation
+		# Set to exactly 0 before animation
+		cup.current_fill_level = 0.0
+		cup.update_liquid_visual()
+		
+		cup.show_failure_animation()
+		await cup.get_tree().create_timer(0.8).timeout
+		
+		# Ensure everything is reset properly
 		cup.empty_cup()
+		cup.pours_completed = 2
+		cup.update_target_visibility()
+		cup.update_liquid_visual()
 	
 	# Exit inspect mode
 	await get_tree().create_timer(0.3).timeout
@@ -137,13 +191,12 @@ func handle_overflow():
 	if collision_shape:
 		collision_shape.disabled = false
 	
-	# Reset state
-	reset_sake_position()
+	# Reset pitcher only
+	reset_pitcher_only()
 	current_state = GameState.HIDDEN
-	warning_triggered = false
 
 func handle_spill():
-	"""Handle pouring outside the cup - same result as overflow"""
+	"""Handle pouring outside the cup - spill failure"""
 	current_state = GameState.OVERFLOW
 	
 	if sake_pitcher:
@@ -151,9 +204,14 @@ func handle_spill():
 	
 	# Cup shake and empty
 	if cup:
-		cup.shake_spill()
-		await cup.get_tree().create_timer(0.8).timeout  # Wait for shake animation
+		cup.show_failure_animation()
+		await cup.get_tree().create_timer(0.8).timeout
 		cup.empty_cup()
+		# After emptying, restore pours_completed to 2 for Target3 visibility
+		cup.pours_completed = 2
+		cup.update_target_visibility()
+		# Explicitly update shader to ensure visual is at 0
+		cup.update_liquid_visual()
 	
 	# Exit inspect mode
 	await get_tree().create_timer(0.3).timeout
@@ -164,16 +222,33 @@ func handle_spill():
 	if collision_shape:
 		collision_shape.disabled = false
 	
-	# Reset state
-	reset_sake_position()
+	# Reset pitcher only
+	reset_pitcher_only()
 	current_state = GameState.HIDDEN
-	warning_triggered = false
 
-func reset_sake_position():
+func reset_pitcher_only():
+	"""Reset pitcher position without emptying cup - preserves fill level"""
 	if sake_pitcher:
 		sake_pitcher.reset_position()
 		sake_pitcher.stop_pour()
 		sake_pitcher.set_clickable(false)
+	
+	if cup:
+		cup.is_active = false
+		cup.pours_completed = 2  # Keep it set to show Target3
+		cup.update_target_visibility()
+
+## Public API for bunraku entities
+func get_fill_level() -> float:
+	"""Returns the current fill level (0.0 to 1.0) for bunraku entities to check"""
+	if cup:
+		return cup.current_fill_level
+	return 0.0
+
+func empty_cup() -> void:
+	"""Empties the cup - callable by bunraku entities"""
+	if cup:
+		cup.empty_cup()
 
 func _unhandled_input(event):
 	if InspectionManager.current_mode != InspectionManager.Mode.INSPECT:
@@ -198,18 +273,18 @@ func _unhandled_input(event):
 			var hit = InspectionManager.raycast_from_mouse(get_viewport().get_mouse_position())
 			if hit and hit.collider and sake_pitcher:
 				# Check if the hit collider is part of the sake pitcher
-				# The collider could be the Area3D itself or have the sake pitcher as an ancestor
 				var node = hit.collider
 				var found_sake = false
 				
 				# Walk up the tree to see if we hit the sake pitcher
 				while node != null:
-					if node == sake_pitcher:
+					if node == sake_pitcher or node.get_parent() == sake_pitcher:
 						found_sake = true
 						break
 					node = node.get_parent()
 				
 				if found_sake and not sake_pitcher.is_being_dragged:
+					sake_pitcher.set_target_cup(cup)
 					sake_pitcher.start_drag(get_viewport().get_mouse_position())
 					get_viewport().set_input_as_handled()
 		else:
