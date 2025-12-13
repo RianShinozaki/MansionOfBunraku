@@ -36,6 +36,7 @@ script = ExtResource("2_flicker")
 energy_median = 0.5
 energy_range = 0.1
 energy_delta_range = 0.003
+disable_distance = true
 
 [node name="bracket" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22340393, -0.102516174)

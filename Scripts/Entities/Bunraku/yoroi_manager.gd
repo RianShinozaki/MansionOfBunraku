@@ -141,3 +141,5 @@ func on_body_exited(_node: Node3D):
 	navigating = false
 	active = false
 	$Yoroi.deactivate(false)
+	position = Vector3(0, 0, -15.075)
+	time_since_targeted_player = 0

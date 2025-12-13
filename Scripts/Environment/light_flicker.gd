@@ -4,7 +4,7 @@ extends OmniLight3D
 @export var energy_range: float
 @export var energy_change: float = 0.0
 @export var energy_delta_range: float
-
+@export var disable_distance: bool = false
 const MAX_DISTANCE = 3
 
 func _ready() -> void:
@@ -19,4 +19,4 @@ func _process(_delta: float) -> void:
 		energy_change = 0
 	light_energy = clampf(light_energy, energy_median - energy_range, energy_median + energy_range)
 	var _distance_to_player = global_position.distance_to(Player.instance.global_position)
-	visible = _distance_to_player < MAX_DISTANCE
+	visible = not disable_distance or _distance_to_player < MAX_DISTANCE
