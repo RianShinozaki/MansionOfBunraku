@@ -27,6 +27,14 @@ var air_velocity: float
 var held_object: Node3D = null
 var walk_sample_pos: float = 0
 var active: bool = true
+var statue: bool = false
+var statue_hp: int = 0
+var statue_shaking: bool = false
+var push_direction: bool = false
+
+# Push cooldown tracking to prevent sticky collisions
+var push_cooldowns: Dictionary = {}  # Maps RigidBody3D to cooldown timer
+const PUSH_COOLDOWN_TIME: float = 0.3  # Increased from 0.2 - gives tables time to move away
 
 @export var holding_shamisen: bool = false
 var toggle_shamisen: bool = false
@@ -38,6 +46,12 @@ signal fade_complete
 
 static var instance: Player
 static var song_of_stillness_acquired: bool = false
+static var song_of_time_travel_acquired: bool = false
+
+# Song Sequences - centralized definitions
+const SONG_OF_TIME_TRAVEL: Array[int] = [1, 2, 2, 1]
+const SONG_OF_MATRIMONY: Array[int] = [1, 1, 2, 1]
+const SONG_OF_STILLNESS: Array[int] = [3, 3, 3, 1]
 
 func _ready() -> void:
 	# RAYCAST SETUP 
@@ -45,6 +59,21 @@ func _ready() -> void:
 	raycast.target_position = Vector3(0, 0, -interaction_range)
 	instance = self
 	fade_from_white()
+	
+	# Restore song visibility if previously acquired
+	if song_of_time_travel_acquired:
+		var time_travel_ui = get_node_or_null("CanvasLayer/Music Memory/SongOfTimeTravel")
+		if time_travel_ui:
+			time_travel_ui.visible = true
+			time_travel_ui.modulate.a = 1.0
+			print("Player: Restored SongOfTimeTravel UI visibility")
+	
+	if song_of_stillness_acquired:
+		var stillness_ui = get_node_or_null("CanvasLayer/Music Memory/SongOfStillness")
+		if stillness_ui:
+			stillness_ui.visible = true
+			stillness_ui.modulate.a = 1.0
+			print("Player: Restored SongOfStillness UI visibility")
 	
 	if do_intro:
 		await get_tree().create_timer(1).timeout
@@ -59,17 +88,82 @@ func _deferred_mouse_capture():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _physics_process(_delta: float) -> void:
+	if statue:
+		if statue_hp <= 0: un_statuefy()
+		else:
+			var _input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
+			if not statue_shaking:
+				if _input_dir.length() > 0.5 and not push_direction:
+					$Camera3D.shaking = true
+					statue_shaking = true
+					await get_tree().create_timer(0.1).timeout
+					$Camera3D.shaking = false
+					statue_shaking = false
+					statue_hp -= 1
+					push_direction = true
+				elif _input_dir.length() <= 0.5:
+					push_direction = false
+		
 	if not active: return
 	
-	#Sum up all movement vectors
-	velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
+	# Get desired movement velocity
+	var desired_velocity = get_walk_velocity(_delta) + Vector3.UP * get_air_velocity(_delta)
+	
+	# Check for RigidBody3D collisions BEFORE moving
+	# This prevents the player from continuously pushing into dynamic objects
+	var test_motion_params = PhysicsTestMotionParameters3D.new()
+	test_motion_params.from = global_transform
+	test_motion_params.motion = desired_velocity * _delta
+	var test_motion_result = PhysicsTestMotionResult3D.new()
+	
+	if PhysicsServer3D.body_test_motion(get_rid(), test_motion_params, test_motion_result):
+		# We're about to collide with something
+		var collider = test_motion_result.get_collider()
+		if collider is RigidBody3D:
+			# Block movement in the direction of the RigidBody
+			# Project velocity to slide along the surface instead of pushing into it
+			var collision_normal = test_motion_result.get_collision_normal()
+			desired_velocity = desired_velocity.slide(collision_normal)
+	
+	velocity = desired_velocity
 	move_and_slide()
+	
+	# Push RigidBody3D objects when player collides with them
+	# Apply impulse only on first contact, then let physics handle separation
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody3D:
+			# Check if this object is on cooldown
+			var current_time = Time.get_ticks_msec() / 1000.0
+			if push_cooldowns.has(collider):
+				if current_time < push_cooldowns[collider]:
+					continue  # Skip this object, still on cooldown
+			
+			# Calculate push direction (horizontal only)
+			var push_direction = -collision.get_normal()
+			push_direction.y = 0  # Remove vertical component for horizontal-only pushing
+			push_direction = push_direction.normalized()  # Re-normalize after zeroing Y
+			
+			# Apply impulse on first contact
+			var push_strength = 5.0  # Impulse strength
+			collider.apply_central_impulse(push_direction * push_strength * collider.mass)
+			
+			# Set cooldown for this object
+			push_cooldowns[collider] = current_time + PUSH_COOLDOWN_TIME
+	
+	# Clean up expired cooldowns to prevent dictionary from growing indefinitely
+	var objects_to_remove = []
+	for obj in push_cooldowns.keys():
+		if not is_instance_valid(obj) or Time.get_ticks_msec() / 1000.0 > push_cooldowns[obj]:
+			objects_to_remove.append(obj)
+	for obj in objects_to_remove:
+		push_cooldowns.erase(obj)
 	
 	if get_walk_velocity(_delta) == Vector3.ZERO and toggle_shamisen and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
 		shamisen_wait_time += _delta
 	else:
 		shamisen_wait_time = 0
-	
 	
 	# displays thinking bar to load music pattern memories
 	$"CanvasLayer/ThinkingBar/TextureProgressBar".value = shamisen_wait_time
@@ -187,7 +281,7 @@ func pick_up_object(object: Node3D):
 
 func interact_object(object: Node3D):
 	#Check if the object can be interacted with, and then interact
-	if object.can_interact() and not toggle_shamisen:
+	if object.can_interact():
 		object.on_interact()
 	
 func drop_held_object():
@@ -249,51 +343,49 @@ func run_dialogue(dialogue_id: String):
 	InspectionManager.current_mode = InspectionManager.Mode.PLAY
 
 func fade_to_white():
+	$CanvasLayer/WhiteFade.modulate = Color(1, 1, 1, 0)
 	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color.WHITE, 2).finished
 	emit_signal("fade_complete")
 
-func fade_from_white():
-	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), 2).finished
+func fade_from_white(_duration: float = 2, _init_alpha: float = 1):
+	$CanvasLayer/WhiteFade.modulate = Color(1, 1, 1, _init_alpha)
+	await create_tween().tween_property($CanvasLayer/WhiteFade, "modulate", Color(1, 1, 1, 0), _duration).finished
 	emit_signal("fade_complete")
 
-func apply_black_white_effect(duration: float = 3.0):
+func set_gray_scale(_value: float):
+	var overlay = $CanvasLayer/BlackWhiteOverlay
+	overlay.material.set_shader_parameter("grey_level", _value)
+	
+func apply_black_white_effect():
 	"""Apply white overlay effect with low opacity"""
 	# Disable player movement during the effect
-	var was_active = active
 	active = false
-	
+	statue = true
+	statue_hp = 3
 	if not has_node("CanvasLayer/BlackWhiteOverlay"):
 		push_warning("Player: BlackWhiteOverlay node not found!")
-		await get_tree().create_timer(duration).timeout
-		active = was_active
 		return
 	
 	var overlay = $CanvasLayer/BlackWhiteOverlay
 	
 	# Reset overlay state completely
-	overlay.material = null  # Remove any shader material
 	overlay.modulate = Color.WHITE  # Reset modulate
-	overlay.color = Color(1, 1, 1, 0.0)  # Start transparent white
+	overlay.color = Color(1, 1, 1, 1)  # Start transparent white
 	overlay.visible = true
+	set_gray_scale(1.0)
 	
 	# Wait a frame to ensure state is set
 	await get_tree().process_frame
 	
-	var tween = create_tween()
+	fade_from_white(0.5, 0.5)
 	
-	# Fade in white overlay (0.3 seconds) - increase opacity to low value
-	tween.tween_property(overlay, "color:a", 0.3, 0.3)  # Low opacity white (30%)
-	await tween.finished
-	
-	# Hold the effect for the duration
-	await get_tree().create_timer(duration).timeout
-	
+func un_statuefy():
+	var overlay = $CanvasLayer/BlackWhiteOverlay
+	active = true
+	statue = false
 	# Fade out the effect (0.3 seconds)
-	tween = create_tween()
-	tween.tween_property(overlay, "color:a", 0.0, 0.3)
-	await tween.finished
+	await get_tree().create_tween().tween_method(set_gray_scale, 1.0, 0, 0.4).finished
 	
 	# Reset and hide overlay
 	overlay.visible = false
-	overlay.color = Color(1, 1, 1, 0.0)  # Reset to transparent
-	active = was_active
+	

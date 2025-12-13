@@ -175,6 +175,8 @@ func on_interact():
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 			print("TimeStatue: Waiting for dialogue to end...")
+			
+			remove_from_group("Interactable")
 			await _dialogue_box.dialogue_ended
 			print("TimeStatue: Dialogue ended!")
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -262,7 +264,8 @@ func give_song_of_stillness():
 		
 		# Make visible now that position is correct
 		note_instance.visible = true
-		note_instance.spawn_note(note_value)
+		# Show note visuals with playing audio)
+		note_instance.spawn_note(note_value, true)
 		note_index += 1
 		
 		# Half second delay between notes

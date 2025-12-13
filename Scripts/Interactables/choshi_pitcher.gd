@@ -326,10 +326,11 @@ func check_inspection_mode():
 
 func _update_visibility_for_mode(is_inspect_mode: bool):
 	"""Toggle visibility between regular and inspection sprites"""
+	# In play mode: hidden, in inspect mode: visible (high-res)
 	if regular_view_sprite:
-		regular_view_sprite.visible = not is_inspect_mode
+		regular_view_sprite.visible = false  # Never show low-res sprite
 	if model:
-		model.visible = is_inspect_mode
+		model.visible = is_inspect_mode  # Only show high-res in inspect mode
 
 func pulse_emission(pulses_remaining: int):
 	"""Pulse the emission on and off"""

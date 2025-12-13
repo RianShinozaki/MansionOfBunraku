@@ -1,65 +1,37 @@
-extends Node3D
+class_name Yoroi
 
-@export var move_speed: float
-@export var target: Node3D
-@onready var raycasters: Node3D = $Raycasters
+extends Bunraku
 
-@onready var f_cast: RayCast3D = $Raycasters/ForwardCast
-@onready var r_cast: RayCast3D = $Raycasters/RightCast
-@onready var l_cast: RayCast3D = $Raycasters/LeftCast
-@onready var nav: NavigationAgent3D = $NavigationAgent3D
+##How close is too close?
+@export var too_close_distance: float
+##How quickly Yono's anger ramps up when getting closer
+@export var too_close_curve: Curve
+##Simple flat multiplier on anger
+@export var too_close_factor: float
 
-var direction_vector: Vector2 = Vector2(0, 1)
+@onready var raycast = $RayCast3D
 
-@onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
-var physics_delta: float
-var orig_y: float
+var has_cat : bool = false
 
 func _ready() -> void:
-	target = Player.instance
-	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	orig_y = global_position.y
-
-func set_movement_target(movement_target: Vector3):
-	navigation_agent.set_target_position(movement_target)
-
-func _physics_process(delta):
-	set_movement_target(target.global_position)
-	# Save the delta for use in _on_velocity_computed.
-	physics_delta = delta
-	# Do not query when the map has never synchronized and is empty.
-	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
-		return
-	if navigation_agent.is_navigation_finished():
-		return
-
-	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-	var new_velocity: Vector3 = global_position.direction_to(next_path_position) * move_speed
-	if navigation_agent.avoidance_enabled:
-		navigation_agent.set_velocity(new_velocity)
-	else:
-		_on_velocity_computed(new_velocity)
-
-func _on_velocity_computed(safe_velocity: Vector3) -> void:
+	super._ready()
 	
-	global_position = global_position.move_toward(global_position + safe_velocity, physics_delta * move_speed)
+func _physics_process(_delta: float) -> void:
+	super._physics_process(_delta)
 	
-func make_turning_decision():
-	var _move_vector: Vector2 = move_speed * direction_vector
+	if not active: return
+	if Player.instance.statue: return
+	#Handles Yono's anger increasing when you're close to her or staring at her
+	var _vec_to_player = (Player.instance.global_position - (global_position + Vector3.UP * 0.2))
+	var _dist_to_player = _vec_to_player.length()
+	mat.emission_energy_multiplier = 1.5
+	raycast.target_position = _vec_to_player
 	
-	if r_cast.is_colliding() and l_cast.is_colliding():
-		direction_vector = -direction_vector
-	else:
-		var _direction_vector_1: Vector2 = direction_vector.rotated( deg_to_rad( 90 ))
-		var _direction_vector_2: Vector2 = direction_vector.rotated( deg_to_rad(-90))
-		var _vec3_to_target: Vector3 = target.global_position - global_position
-		var _vec2_to_target: Vector2 = Vector2(_vec3_to_target.x, _vec3_to_target.z)
-		var _try_dir_1 = abs(_direction_vector_1.angle_to(_vec2_to_target))
-		var _try_dir_2 = abs(_direction_vector_2.angle_to(_vec2_to_target))
-		if _try_dir_1 < _try_dir_2:
-			direction_vector = _direction_vector_1
-		else:
-			direction_vector = _direction_vector_2
-	
-	raycasters.global_rotation.y = -direction_vector.angle()
+	if not raycast.is_colliding() and InspectionManager.current_mode == InspectionManager.Mode.PLAY:
+		if _dist_to_player < too_close_distance:
+			$"..".target = Player.instance
+			var _samp = too_close_curve.sample(1-(_dist_to_player/too_close_distance))
+			anger_level += _delta * _samp * too_close_factor
+			anger_decrease_delta = 0
+		
 	

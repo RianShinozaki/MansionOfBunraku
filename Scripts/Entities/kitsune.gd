@@ -10,6 +10,7 @@ extends AnimatableBody3D
 var has_interacted: bool = false
 var is_fading: bool = false
 var is_sake_completion: bool = false
+var is_maze_completion: bool = false
 var note_parent: Node3D = null  # Parent node for spawning music notes
 var dialogue_triggered: bool = false
 
@@ -27,7 +28,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	
 	if(Player.instance.active and Player.instance.global_position.z < -9.058):
-		if not is_sake_completion:
+		if not is_sake_completion and not is_maze_completion:
 			_trigger_intro_dialogue()
 	
 	# Switch frames based on current inspection mode
@@ -96,7 +97,56 @@ func start_sake_completion_sequence():
 		# Give player 2 random music notes
 		await give_music_notes()
 		
+		if is_in_group("Interactable"):
+			remove_from_group("Interactable")
 		# Disappear after giving notes
+		# queue_free()
+
+func start_maze_completion_sequence():
+	"""Called when all maze notes are collected"""
+	is_maze_completion = true
+	dialogue_triggered = true
+	has_interacted = true
+	
+	# Ensure sprites are visible and set to normal mode
+	# Use get_node since @onready variables might not be ready yet
+	visible = true
+	var body = get_node_or_null("Body")
+	if body:
+		body.visible = true
+		body.frame = 1
+		print("Kitsune body sprite visible: ", body.visible, " frame: ", body.frame)
+		
+		var head = body.get_node_or_null("Head")
+		if head:
+			head.visible = true
+			head.frame = 0
+			print("Kitsune head sprite visible: ", head.visible, " frame: ", head.frame)
+	else:
+		print("ERROR: Could not find Body node!")
+	
+	print("Kitsune node visible: ", visible)
+	print("Kitsune global position: ", global_position)
+	
+	# Wait just one frame to ensure kitsune is fully integrated before starting dialogue
+	await get_tree().process_frame
+	
+	# Start dialogue immediately
+	if dialogue_data:
+		var _dialogue_box: DialogueBox = DialogueBox.instance
+		_dialogue_box.data = dialogue_data
+		_dialogue_box.start("maze_completion")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+		
+		await _dialogue_box.dialogue_ended
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		InspectionManager.current_mode = InspectionManager.Mode.PLAY
+		
+		if Player.instance:
+			Player.instance.active = true
+		
+		# Disappear after dialogue
 		queue_free()
 
 func give_music_notes():
@@ -104,23 +154,18 @@ func give_music_notes():
 	# Wait a brief moment before spawning notes
 	await get_tree().create_timer(0.3).timeout
 	
-	# Get reference to player's camera for spawning notes (ensures they're always visible)
-	var player = Player.instance
-	if not player:
-		push_warning("Player instance not found, cannot spawn music notes")
-		return
-	
-	var camera = player.get_node("Camera3D")
-	if not camera:
-		push_warning("Player camera not found, cannot spawn music notes")
-		return
-	
-	# Spawn note-one (1) then note-two (2) as children of camera
-	var note_values = [1, 2]
-	for note_value in note_values:
+	while(true):
 		var note_instance = NoteScene.instantiate()
-		camera.add_child(note_instance)
-		note_instance.spawn_note(note_value)
+		add_child(note_instance)
+		note_instance.spawn_note(1, false)
+		note_instance.transform.origin.x -= 0.2
+		# Slight delay between notes
+		await get_tree().create_timer(0.25).timeout
 		
+		note_instance = NoteScene.instantiate()
+		add_child(note_instance)
+		note_instance.spawn_note(2, false)
+		note_instance.transform.origin.x += 0.2
+		note_instance.transform.origin.y += 0.1
 		# Slight delay between notes
 		await get_tree().create_timer(0.25).timeout

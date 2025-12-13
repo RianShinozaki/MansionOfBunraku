@@ -65,17 +65,14 @@ func _physics_process(_delta: float) -> void:
 	if anger_level <= 0.33  and $Body/Head.frame != 0:
 		appearance_update()
 		await appearance_update_end
-		$Body/NegativeLight.energy_median = 0
 		$Body/Head.frame = 0
 	if anger_level > 0.33 and anger_level <= 0.66 and $Body/Head.frame != 2:
 		appearance_update()
 		await appearance_update_end
-		$Body/NegativeLight.energy_median = 4
 		$Body/Head.frame = 2
 	if anger_level > 0.66 and $Body/Head.frame != 3:
 		appearance_update()
 		await appearance_update_end
-		$Body/NegativeLight.energy_median = 12
 		$Body/Head.frame = 3
 
 func appearance_update():

@@ -86,7 +86,7 @@ script = ExtResource("49_listener")
 environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.481068, 0.3832556, 15.10607)
+transform = Transform3D(-1.0000001, 0, 4.3711392e-08, 0, 1, 0, -4.3711392e-08, 0, -1.0000001, 13.953829, 0.3832556, 5.588791)
 move_speed = 1.5
 holding_shamisen = true
 
@@ -134,6 +134,7 @@ visible = false
 [node name="ImageOverlay" parent="." instance=ExtResource("14_1shu2")]
 
 [node name="WorldLighting" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.112821, 0, 0.6883359)
 
 [node name="UnderLight" type="DirectionalLight3D" parent="WorldLighting"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.669474, 4.138894, -0.9389304)
@@ -165,6 +166,8 @@ collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("16_r1twq")
 room_path = "uid://drj1idk7skuj4"
+room_path_present = "uid://drj1idk7skuj4"
+room_path_past = "uid://cbqobktqh0xna"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/CeremonialLoadZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.970932, 0.90405273, -10.64495)
