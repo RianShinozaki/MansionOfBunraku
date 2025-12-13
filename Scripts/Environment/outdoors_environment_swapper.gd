@@ -5,7 +5,7 @@ extends Node
 @export var inside_environment: Environment
 @export var outside_environment: Environment
 @export var environment_node: WorldEnvironment
-@onready var door_reference: Node3D = $"../Objects/GateArea/PaperDoor"
+@onready var door_reference: Node3D = $"../Objects/GateArea/PaperDoors/PaperDoor"
 
 func _ready() -> void:
 	environment_node = GameManager.instance.get_node("WorldEnvironment")

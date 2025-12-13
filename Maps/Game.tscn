@@ -86,7 +86,7 @@ script = ExtResource("49_listener")
 environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 14.625673, 0.3832556, 10.915845)
+transform = Transform3D(-1.0000001, 0, 4.3711392e-08, 0, 1, 0, -4.3711392e-08, 0, -1.0000001, 13.953829, 0.3832556, 5.588791)
 move_speed = 1.5
 holding_shamisen = true
 
@@ -134,6 +134,7 @@ visible = false
 [node name="ImageOverlay" parent="." instance=ExtResource("14_1shu2")]
 
 [node name="WorldLighting" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.112821, 0, 0.6883359)
 
 [node name="UnderLight" type="DirectionalLight3D" parent="WorldLighting"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.669474, 4.138894, -0.9389304)

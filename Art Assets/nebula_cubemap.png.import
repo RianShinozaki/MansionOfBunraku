@@ -1,0 +1,27 @@
+[remap]
+
+importer="cubemap_texture"
+type="CompressedCubemap"
+uid="uid://bwl7a8foagrvo"
+path="res://.godot/imported/nebula_cubemap.png-27f99133b5c8695416151e4eecf35cd8.ccube"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Art Assets/nebula_cubemap.png"
+dest_files=["res://.godot/imported/nebula_cubemap.png-27f99133b5c8695416151e4eecf35cd8.ccube"]
+
+[params]
+
+compress/mode=1
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/arrangement=1
