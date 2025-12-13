@@ -281,7 +281,7 @@ func pick_up_object(object: Node3D):
 
 func interact_object(object: Node3D):
 	#Check if the object can be interacted with, and then interact
-	if object.can_interact() and not toggle_shamisen:
+	if object.can_interact():
 		object.on_interact()
 	
 func drop_held_object():
