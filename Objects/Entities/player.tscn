@@ -47,6 +47,8 @@ shader_parameter/grey_level = 0.0
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2147483650
+platform_on_leave = 2
+platform_floor_layers = 4278190080
 script = ExtResource("1_y0qk3")
 move_speed = 2.0
 mouse_sensitivity = 0.005

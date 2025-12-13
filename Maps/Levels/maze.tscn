@@ -25,8 +25,8 @@
 [ext_resource type="Environment" uid="uid://htrgry67in5d" path="res://Environment Resources/mansion.tres" id="18_i6wgy"]
 [ext_resource type="PackedScene" uid="uid://bcowbtnr1gxij" path="res://Objects/Entities/yoroi_maze.tscn" id="19_dba84"]
 [ext_resource type="Environment" uid="uid://d1sqmokgksyq3" path="res://Environment Resources/galaxy.tres" id="19_fydgi"]
-[ext_resource type="Script" path="res://Scripts/System/maze_note_collection_manager.gd" id="22_manager"]
-[ext_resource type="PackedScene" path="res://Objects/UI/song_display.tscn" id="23_song_display"]
+[ext_resource type="Script" uid="uid://dvq1gwx77o6dt" path="res://Scripts/System/maze_note_collection_manager.gd" id="22_manager"]
+[ext_resource type="PackedScene" uid="uid://c5h8k3n7y2qmw" path="res://Objects/UI/song_display.tscn" id="23_song_display"]
 [ext_resource type="Shader" uid="uid://dicbppn8j1omv" path="res://Shaders/skybox_panel.gdshader" id="24_trj0u"]
 [ext_resource type="AudioStream" uid="uid://cxw4air1dxmqd" path="res://Audio/wind_howl_ambient_1.wav" id="28_trj0u"]
 [ext_resource type="AudioStream" uid="uid://cqvd1p3kd3o25" path="res://Audio/maze_music.wav" id="29_emya4"]
@@ -746,6 +746,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.44
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.447222, 0.35253906, -15.242541)
 
 [node name="YoroiManager" parent="Objects" instance=ExtResource("19_dba84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.074572)
 can_jumpscare_command = true
 
 [node name="YoroiTargetNodes" type="Node3D" parent="Objects"]
