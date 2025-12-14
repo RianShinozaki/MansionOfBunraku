@@ -1,4 +1,4 @@
-extends BunrakuManager
+extends BunrakuManagerCBody
 
 @export var body_offset: Vector3
 @export var time_between_turns: float
@@ -30,6 +30,8 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	
+	
+	
 	if not active: return
 	$Yoroi.position = Vector3(0,0,0)
 	
@@ -54,6 +56,7 @@ func _physics_process(_delta):
 			if _sake_games_filled.is_empty():
 				position.z = randf_range(-1.4, -6.4)
 				position.x = randf_range(1, 5)	
+				$YoroiBackside/Body.frame = 0
 			else:
 				_sake_games_filled.shuffle()
 				var _the_game: DrunkYoroiGame = _sake_games_filled[0]
@@ -63,7 +66,13 @@ func _physics_process(_delta):
 				drunkness += _the_game.get_node("SakazukiCup").current_fill_level
 				$Slurp.play()
 				_the_game.get_node("SakazukiCup").empty_cup()
-				Player.instance.set_drunken_level(drunkness/20)
+				Player.instance.set_drunken_level_tweened(drunkness/20)
+				$YoroiBackside/Body.frame = 1
+				_the_game.visible = false
+				_the_game.remove_from_group("Interactable")
+				if _the_game.current_state != DrunkYoroiGame.GameState.HIDDEN:
+					print("force exit inspect")
+					InspectionManager.exit_inspect()
 		else:
 			looking_forward = true
 			$Yoroi.visible = true
@@ -71,7 +80,19 @@ func _physics_process(_delta):
 			$YoroiBackside.visible = false
 			$"../../Objects/Chandelier/OmniLight3D".light_color = evil_light_color
 			$Yoroi/Feedback2.play()
-			
+			for game in sake_games:
+				game.visible = true
+				game.add_to_group("Interactable")
+	
+	#Drunken shuffling
+	velocity.z += randf_range(-drunkness * 0.01, drunkness * 0.01)
+	velocity.x += randf_range(-drunkness * 0.01, drunkness * 0.01)
+	
+	velocity.z = clamp(velocity.z, -drunkness*0.4, drunkness*0.4)
+	velocity.x = clamp(velocity.x, -drunkness*0.4, drunkness*0.4)
+	
+	move_and_slide()
+					
 func light_flicker():
 	var _distance_to_player = global_position.distance_to(Player.instance.global_position)
 	var _do_light_flicker: bool = false
