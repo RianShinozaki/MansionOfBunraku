@@ -75,11 +75,13 @@ func _ready():
 		collision_area.collision_mask = 0
 		#collision_area.set_collision_layer_value(6, true)
 	
-	# Initialize liquid surface material to empty
+	# Ensure each cup instance has its own liquid material and initialize to empty
 	if liquid_surface and liquid_surface.material_override:
-		var material = liquid_surface.material_override
-		if material:
-			material.set_shader_parameter("fill_level", 0.0)
+		var base_material := liquid_surface.material_override
+		var instance_material := base_material.duplicate()
+		liquid_surface.material_override = instance_material
+		if instance_material:
+			instance_material.set_shader_parameter("fill_level", 0.0)
 	
 	# Set initial target fill levels - will update per pour
 	update_target_fill_level()
