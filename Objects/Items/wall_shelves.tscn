@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://i85ahe0lbyqf"]
+
+[ext_resource type="ArrayMesh" uid="uid://qp8sc6vp40ff" path="res://Art Assets/Models/wall_shelves.obj" id="1_mesh"]
+[ext_resource type="Texture2D" uid="uid://d1y7baa7gmev" path="res://Art Assets/Models/wall_shelves_0.png" id="2_texture"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall_shelves"]
+albedo_texture = ExtResource("2_texture")
+texture_filter = 2
+disable_receive_shadows = true
+
+[node name="WallShelves" type="MeshInstance3D"]
+transform = Transform3D(-0.3157981, 0, 0.94882643, 0, 1, 0, -0.94882643, 0, -0.3157981, 0, 0, 0)
+mesh = ExtResource("1_mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall_shelves")

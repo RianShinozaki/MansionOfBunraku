@@ -228,6 +228,27 @@ func reset_pitcher_only():
 		cup.pours_completed = 2  # Keep it set to show Target3
 		cup.update_target_visibility()
 
+func on_exit_inspect() -> void:
+	"""Called by InspectionManager whenever we leave inspect mode for this game"""
+	# Ensure pitcher is not pouring or being dragged
+	if sake_pitcher:
+		sake_pitcher.stop_pour()
+		if sake_pitcher.is_being_dragged:
+			sake_pitcher.end_drag()
+		# Do not leave it clickable in PLAY mode
+		sake_pitcher.set_clickable(false)
+	
+	# Re-enable collision so this instance can be interacted with again
+	if collision_shape:
+		collision_shape.disabled = false
+	
+	# Normalize state: if we left mid-pour, return to hidden idle state without
+	# changing the cup's fill level (so it stays persistent)
+	if current_state == GameState.POURING:
+		current_state = GameState.WAITING_FOR_POUR
+	if current_state == GameState.WAITING_FOR_POUR:
+		current_state = GameState.HIDDEN
+
 ## Public API for bunraku entities
 func get_fill_level() -> float:
 	"""Returns the current fill level (0.0 to 1.0) for bunraku entities to check"""
