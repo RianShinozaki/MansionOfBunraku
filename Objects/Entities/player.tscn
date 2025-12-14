@@ -1,11 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://6hmil0dhqlfe"]
+[gd_scene load_steps=27 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
 [ext_resource type="Texture2D" uid="uid://byn1r2shm4jdg" path="res://Art Assets/UIPointerCross.png" id="2_3y5cq"]
 [ext_resource type="Resource" uid="uid://cgwy6tl0kuskc" path="res://Dialogue/player_dialogues.tres" id="2_yq6kl"]
 [ext_resource type="AudioStream" uid="uid://cxtq3i3kmf4ab" path="res://Audio/Eating.mp3" id="4_0ad8t"]
-[ext_resource type="Script" path="res://Scripts/Entities/Player/player_cam.gd" id="5_es883"]
+[ext_resource type="Script" uid="uid://wmiltdg35tjl" path="res://Scripts/Entities/Player/player_cam.gd" id="5_es883"]
 [ext_resource type="AudioStream" uid="uid://cc36ulkqkcn4d" path="res://Audio/footstep_floor_creak_quiet.mp3" id="5_x20fu"]
 [ext_resource type="AudioStream" uid="uid://cxbieecwvtbxo" path="res://Audio/string-one.mp3" id="6_hdqis"]
 [ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="6_i5lno"]
@@ -19,11 +19,21 @@
 [ext_resource type="Texture2D" uid="uid://c4u4u8forifqo" path="res://Art Assets/song_matrimony_symbol.png" id="11_67lg5"]
 [ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
 [ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
-[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/song_of_time_travel.png" id="13_timetravel"]
+[ext_resource type="Texture2D" uid="uid://bg7xbuvbqeamr" path="res://Art Assets/song_of_time_travel.png" id="13_timetravel"]
+[ext_resource type="Shader" uid="uid://yx32in46n2fo" path="res://Shaders/greyscale.gdshader" id="16_tyao8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15
 height = 0.87738
+
+[sub_resource type="Gradient" id="Gradient_tyao8"]
+offsets = PackedFloat32Array(0.45289856, 0.98913044, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ftmhe"]
+gradient = SubResource("Gradient_tyao8")
+fill = 1
+fill_from = Vector2(0.48290598, 0.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w48y6"]
 font = ExtResource("7_v1plu")
@@ -31,8 +41,14 @@ font_size = 31
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftmhe"]
+shader = ExtResource("16_tyao8")
+shader_parameter/grey_level = 0.0
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2147483650
+platform_on_leave = 2
+platform_floor_layers = 4278190080
 script = ExtResource("1_y0qk3")
 move_speed = 2.0
 mouse_sensitivity = 0.005
@@ -65,6 +81,15 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WhiteFade2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_ftmhe")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -440,15 +465,14 @@ texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
 
 [node name="BlackWhiteOverlay" type="ColorRect" parent="CanvasLayer"]
-visible = false
 z_index = 100
+material = SubResource("ShaderMaterial_ftmhe")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0)
 
 [node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]
 offset_left = -39.0

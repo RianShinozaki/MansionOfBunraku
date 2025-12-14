@@ -175,6 +175,8 @@ func on_interact():
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 			print("TimeStatue: Waiting for dialogue to end...")
+			
+			remove_from_group("Interactable")
 			await _dialogue_box.dialogue_ended
 			print("TimeStatue: Dialogue ended!")
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

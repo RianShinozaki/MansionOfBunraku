@@ -16,7 +16,7 @@ var timer: float
 var meltdown_begun: bool
 
 # Time Travel State
-var is_past_time: bool = false
+@export var is_past_time: bool = false
 var clock_activated_once: bool = false
 var entered_ceremonial_past: bool = false
 

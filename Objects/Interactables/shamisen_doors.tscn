@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://552qhmqu8bae"]
 
-[ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Scripts/Interactables/shamisen_lock.gd" id="1_arwcq"]
+[ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Objects/Items/shamisen_lock.gd" id="1_arwcq"]
 [ext_resource type="AudioStream" uid="uid://c0o7eml7ijkds" path="res://Audio/fridge_open.mp3" id="4_2nhnd"]
 [ext_resource type="Material" uid="uid://c256u6nlg68eb" path="res://Art Assets/Materials/doors.tres" id="4_cm0ms"]
 [ext_resource type="AudioStream" uid="uid://bept4o82vr8bw" path="res://Audio/fridge_close.mp3" id="5_8rdnd"]
