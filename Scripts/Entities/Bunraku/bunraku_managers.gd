@@ -28,6 +28,8 @@ func _process(_delta: float) -> void:
 func jumpscare():
 	
 	InspectionManager.exit_inspect()
+	await get_tree().process_frame
+	
 	visible = true
 	bunraku.visible = true
 	bunraku.anger_level = 1

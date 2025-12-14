@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbqobktqh0xna"]
+[gd_scene load_steps=45 format=3 uid="uid://cbqobktqh0xna"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_owein"]
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="2_3v8r1"]
@@ -20,7 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="29_23oy3"]
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="30_7u3bv"]
 [ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="31_d1fwf"]
+[ext_resource type="Texture2D" uid="uid://d1voiba8rgysk" path="res://Art Assets/Yoroi/YoroiBack.png" id="31_fxafp"]
+[ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="31_ngbfk"]
 [ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="32_lfyx2"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="32_umbox"]
+[ext_resource type="Texture2D" uid="uid://coqb3oc4cyciy" path="res://Art Assets/Yoroi/Yoroi-e.png" id="32_v4u0g"]
+[ext_resource type="Texture2D" uid="uid://iaqw4gdwm20" path="res://Art Assets/Yoroi/Yoroi-h.png" id="33_2fioi"]
+[ext_resource type="Texture2D" uid="uid://vbesusa3as1e" path="res://Art Assets/Yoroi/Yoroi-h_n.png" id="34_qsaev"]
+[ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="35_ayjef"]
 [ext_resource type="PackedScene" uid="uid://b6cl4ho1idcov" path="res://Objects/Entities/yoroi_ceremony_past.tscn" id="38_2fioi"]
 [ext_resource type="PackedScene" uid="uid://pd85y607mcc7" path="res://Objects/Interactables/drunk_yoroi_game.tscn" id="41_1qfl1"]
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="44_kp3hq"]
@@ -66,6 +73,29 @@ albedo_texture = SubResource("CompressedTexture2D_ayjef")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_detector"]
 size = Vector3(8, 4, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6go15"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("31_fxafp")
+emission_enabled = true
+emission_energy_multiplier = 1.6
+emission_texture = ExtResource("32_v4u0g")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = ExtResource("34_qsaev")
+bent_normal_texture = ExtResource("31_ngbfk")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("35_ayjef")
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("33_2fioi")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
 
 [node name="Ceremonial Room" type="Node3D"]
 script = ExtResource("1_owein")
@@ -236,21 +266,6 @@ dialogue_id = "kouya_painting_ceremony"
 
 [node name="Candles" type="Node3D" parent="Objects"]
 
-[node name="Candle" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.7831901, 0.71765316, -5.7347765)
-
-[node name="Candle2" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 3.2198968, 0.71765316, -5.7347765)
-
-[node name="Candle3" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.781558, 0.71765316, -4.313478)
-
-[node name="Candle4" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.987349, 0.71765316, -1.4396904)
-
-[node name="Candle5" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631, 0.71765316, -1.3685364)
-
 [node name="Candle6" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631, 0.71765316, -4.715435)
 
@@ -350,3 +365,25 @@ shape = SubResource("BoxShape3D_detector")
 
 [node name="YoroiManager" parent="Bunraku" instance=ExtResource("38_2fioi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1931777, 0.37297058, -4.5984097)
+
+[node name="Yoroi" parent="Bunraku/YoroiManager" index="0"]
+too_close_distance = 8.0
+
+[node name="YoroiBackside" type="Node3D" parent="Bunraku/YoroiManager" groups=["Bunraku"]]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+visible = false
+
+[node name="Body" type="Sprite3D" parent="Bunraku/YoroiManager/YoroiBackside"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039215714, 0)
+material_override = SubResource("StandardMaterial3D_6go15")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("31_fxafp")
+hframes = 2
+
+[node name="Node" type="Node" parent="Bunraku/YoroiManager/YoroiBackside/Body"]
+script = ExtResource("32_umbox")
+
+[editable path="Bunraku/YoroiManager"]

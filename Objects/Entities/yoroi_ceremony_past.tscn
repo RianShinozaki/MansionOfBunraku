@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b6cl4ho1idcov"]
 
 [ext_resource type="Script" uid="uid://cmt70ef4yku6g" path="res://Scripts/Entities/Bunraku/yoroi_manager_ceremony.gd" id="1_4b0hm"]
-[ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="2_214qy"]
+[ext_resource type="Script" uid="uid://4v3irnfc5n3e" path="res://Scripts/Entities/Bunraku/yoroi_ceremony.gd" id="2_4b0hm"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="3_n2jq8"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="4_roimk"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="5_iylqf"]
@@ -32,14 +32,15 @@ radius = 0.1
 
 [node name="YoroiManager" type="Node3D" node_paths=PackedStringArray("bunraku")]
 script = ExtResource("1_4b0hm")
-move_speed = 2.0
-body_update_delay = 2.0
 body_offset = Vector3(0, 0.15, 0)
+time_between_turns = 8.0
+normal_light_color = Color(0.8980392, 0.6509804, 0.6, 1)
+evil_light_color = Color(1, 0, 0, 1)
 bunraku = NodePath("Yoroi")
 
 [node name="Yoroi" type="AnimatableBody3D" parent="." groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
-script = ExtResource("2_214qy")
+script = ExtResource("2_4b0hm")
 too_close_distance = 4.0
 too_close_curve = SubResource("Curve_8u50u")
 too_close_factor = 0.5

@@ -9,7 +9,7 @@ enum CupSize { SMALL, MEDIUM, LARGE }
 @export var overflow_threshold: float = 0.7  # Too full = failure
 @export var filled_sprite_texture: Texture2D = null  # Sprite to show when filled >= 0.3
 
-var current_fill_level: float = 0.0
+@export var current_fill_level: float = 0.0
 var pours_completed: int = 0
 var is_active: bool = false
 var is_complete: bool = false
