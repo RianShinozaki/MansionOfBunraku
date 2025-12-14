@@ -88,15 +88,21 @@ func set_target_cup(cup: SakazukiCup):
 
 func start_pour():
 	"""Begin pouring"""
+	print("DEBUG ChoshiPitcher: start_pour called, is_clickable = ", is_clickable)
 	if not is_clickable:
+		print("DEBUG ChoshiPitcher: not clickable, returning")
 		return
 	
 	is_pouring = true
+	print("DEBUG ChoshiPitcher: is_pouring set to true")
 	
 	# Start pour visual effect
 	if pour_stream:
 		pour_stream.emitting = true
 		pour_stream.restart()
+		print("DEBUG ChoshiPitcher: pour_stream started")
+	else:
+		print("DEBUG ChoshiPitcher: pour_stream is null!")
 	
 	# Start pour sound
 	if pour_sound:
@@ -326,10 +332,11 @@ func check_inspection_mode():
 
 func _update_visibility_for_mode(is_inspect_mode: bool):
 	"""Toggle visibility between regular and inspection sprites"""
+	# In play mode: hidden, in inspect mode: visible (high-res)
 	if regular_view_sprite:
-		regular_view_sprite.visible = not is_inspect_mode
+		regular_view_sprite.visible = false  # Never show low-res sprite
 	if model:
-		model.visible = is_inspect_mode
+		model.visible = is_inspect_mode  # Only show high-res in inspect mode
 
 func pulse_emission(pulses_remaining: int):
 	"""Pulse the emission on and off"""

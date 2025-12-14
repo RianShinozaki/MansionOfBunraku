@@ -29,7 +29,7 @@ nodes = {
 },
 &"1_2": {
 "audio_clip": null,
-"dialogue": "As you approach, you feel a sense of calm wash over you.",
+"dialogue": "[color=\"yellow\"] So still as to be nearly invisible. [/color]",
 "offset": Vector2(1380, 0),
 "options": {
 0: {
@@ -38,7 +38,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(659.99896, 640),
+"size": Vector2(659.9992, 640),
 "speaker": ""
 },
 &"1_3": {

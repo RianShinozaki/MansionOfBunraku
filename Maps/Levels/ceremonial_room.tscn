@@ -78,8 +78,8 @@ size = Vector3(1, 0.28500366, 1)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_awubs"]
 load_path = "res://.godot/imported/persimmon.png-392eb843fc17af04e088373a08f4be98.ctex"
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5th4s"]
-radius = 1.5
+[sub_resource type="SphereShape3D" id="SphereShape3D_ihef1"]
+radius = 2.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lntlw"]
 radius = 0.12
@@ -349,13 +349,13 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2.50
 collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("35_awubs")
-song_sequence = Array[int]([1, 1, 2, 1])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/ShrineShamisenListener"]
-shape = SubResource("SphereShape3D_5th4s")
+shape = SubResource("SphereShape3D_ihef1")
 
 [node name="Symbol" type="Sprite3D" parent="Objects/ShrineShamisenListener"]
-transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 0, 0, 0)
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -0.26378632, 0.4634207, 0)
+modulate = Color(1, 1, 1, 0.9490196)
 texture_filter = 2
 texture = ExtResource("36_awubs")
 

@@ -20,23 +20,23 @@ size = Vector3(0.04, 0.04, 0.04)
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059249878, 0.07679092)
 billboard = 2
-texture_filter = 1
+texture_filter = 2
 texture = ExtResource("1_yfefj")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." groups=["Light"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.055786133, 0)
 light_color = Color(0.9647059, 0.5254902, 0.45490196, 1)
-light_energy = 1.0
 light_size = 0.05
 distance_fade_enabled = true
 distance_fade_begin = 2.0
 distance_fade_shadow = 0.0
-distance_fade_length = 3.0
-omni_range = 4.0
+distance_fade_length = 1.0
+omni_range = 1.532
 script = ExtResource("2_f7m0v")
 energy_median = 0.5
 energy_range = 0.1
 energy_delta_range = 0.003
+disable_distance = true
 
 [node name="bracket" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22340393, -0.102516174)

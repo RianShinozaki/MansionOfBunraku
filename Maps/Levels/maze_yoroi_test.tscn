@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cnm8vf5qx7xqp" path="res://Objects/Interactables/maze_note.tscn" id="15_ako31"]
 [ext_resource type="PackedScene" uid="uid://c0c825m53d50m" path="res://Objects/Entities/time_statue.tscn" id="16_nv4te"]
 [ext_resource type="Shader" uid="uid://321nfnll6ach" path="res://Shaders/cubemap.gdshader" id="20_kvn58"]
-[ext_resource type="Texture2D" uid="uid://bwl7a8foagrvo" path="res://Art Assets/blue_nebulae_1.png" id="21_wo8rj"]
+[ext_resource type="Texture2D" uid="uid://bwl7a8foagrvo" path="res://Art Assets/nebula_cubemap.png" id="21_wo8rj"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="22_7xfu8"]
 [ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="22_16qo6"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="23_7xfu8"]

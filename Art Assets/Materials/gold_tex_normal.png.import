@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://slulknlvfuw"
-path.s3tc="res://.godot/imported/gold_tex_normal.png-1a8370818f11f36687e3a1f112db95c0.s3tc.ctex"
+path="res://.godot/imported/gold_tex_normal.png-1a8370818f11f36687e3a1f112db95c0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/Materials/gold_tex_normal.png"
-dest_files=["res://.godot/imported/gold_tex_normal.png-1a8370818f11f36687e3a1f112db95c0.s3tc.ctex"]
+dest_files=["res://.godot/imported/gold_tex_normal.png-1a8370818f11f36687e3a1f112db95c0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

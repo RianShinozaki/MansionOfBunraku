@@ -25,9 +25,6 @@ func _connect_to_player() -> void:
 		_connect_to_player()
 
 func _on_note_played(note: int) -> void:
-	# Only listen for the song if it has been acquired from the statue
-	if not Player.song_of_stillness_acquired:
-		return
 	
 	note_sequence.append(note)
 	if note_sequence.size() > 4:
@@ -37,5 +34,4 @@ func _on_note_played(note: int) -> void:
 	if note_sequence == song_sequence:
 		# Trigger the black/white effect on the player
 		if Player.instance:
-			Player.instance.apply_black_white_effect(3.0)
-
+			Player.instance.apply_black_white_effect()

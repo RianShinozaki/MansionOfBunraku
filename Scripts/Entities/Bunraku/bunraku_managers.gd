@@ -28,6 +28,8 @@ func _process(_delta: float) -> void:
 func jumpscare():
 	
 	InspectionManager.exit_inspect()
+	await get_tree().process_frame
+	
 	visible = true
 	bunraku.visible = true
 	bunraku.anger_level = 1
@@ -56,9 +58,9 @@ func jumpscare():
 	get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 0.2).finished
 	await get_tree().create_timer(0.2).timeout
 	
-	_to = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.06
+	_to = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.1
 	@warning_ignore("standalone_expression")
-	get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 2).finished
+	get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 1.5).finished
 	await get_tree().create_timer(2).timeout
 	
 	print("WHAT")

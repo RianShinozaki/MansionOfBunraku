@@ -1,6 +1,10 @@
 extends Area3D
 
-@export var song_sequence: Array[int]
+# Using centralized song sequence from Player class
+var song_sequence: Array[int]:
+	get:
+		return Player.SONG_OF_MATRIMONY
+
 var note_sequence: Array[int]
 var player_entered: bool
 var locked: bool = true

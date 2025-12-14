@@ -47,6 +47,13 @@ FireFX=""
 Shamisen=""
 Bunraku=""
 
+[importer_defaults]
+
+texture={
+"compress/mode": 0,
+"detect_3d/compress_to": 0
+}
+
 [input]
 
 ui_cancel={

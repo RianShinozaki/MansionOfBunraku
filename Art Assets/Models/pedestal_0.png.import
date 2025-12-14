@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kixmk8nymr43"
-path.s3tc="res://.godot/imported/pedestal_0.png-ef79ddc27e49b3ff90c9a2ad4ac01036.s3tc.ctex"
+path="res://.godot/imported/pedestal_0.png-ef79ddc27e49b3ff90c9a2ad4ac01036.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/Models/pedestal_0.png"
-dest_files=["res://.godot/imported/pedestal_0.png-ef79ddc27e49b3ff90c9a2ad4ac01036.s3tc.ctex"]
+dest_files=["res://.godot/imported/pedestal_0.png-ef79ddc27e49b3ff90c9a2ad4ac01036.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

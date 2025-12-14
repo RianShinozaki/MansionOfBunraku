@@ -1,0 +1,337 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5h8k3n7y2qmw"]
+
+[ext_resource type="Script" uid="uid://bljx4wp08e6iu" path="res://Scripts/UI/song_display.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="2_freedom"]
+[ext_resource type="Texture2D" uid="uid://c4u4u8forifqo" path="res://Art Assets/song_matrimony_symbol.png" id="3_matrimony"]
+[ext_resource type="Texture2D" uid="uid://be7qc154nrbwm" path="res://Art Assets/note-three.png" id="4_note3"]
+[ext_resource type="Texture2D" uid="uid://bqy5i0t7b28js" path="res://Art Assets/note-one.png" id="5_note1"]
+[ext_resource type="Texture2D" uid="uid://favmip5alj1i" path="res://Art Assets/note-two.png" id="6_note2"]
+[ext_resource type="Texture2D" uid="uid://crhq1ihxaqjld" path="res://Art Assets/song_of_time_travel.png" id="7_timetravel"]
+[ext_resource type="FontFile" uid="uid://dijk2scifae5p" path="res://Art Assets/Fonts/OptimusPrincepsSemiBold.ttf" id="8_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w48y6"]
+font = ExtResource("8_font")
+font_size = 31
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SongDisplay" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SongOfFreedom" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -24.0
+offset_right = 43.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/SongOfFreedom"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 162.0
+offset_right = 175.5
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("2_freedom")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/SongOfFreedom"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 142.0
+offset_right = 129.0
+offset_bottom = 157.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("4_note3")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/SongOfFreedom"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 164.0
+offset_right = 161.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("6_note2")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control/SongOfFreedom"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 143.0
+offset_right = 198.0
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("4_note3")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Control/SongOfFreedom"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 185.0
+offset_right = 225.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Control/SongOfFreedom"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 103.0
+offset_right = 300.0
+offset_bottom = 138.0
+text = "Song of Freedom"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="SongOfMatrimony" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_left = 820.0
+offset_top = -24.0
+offset_right = 860.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/SongOfMatrimony"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 142.0
+offset_right = 234.5
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("3_matrimony")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("6_note2")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Control/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 185.0
+offset_right = 236.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="Control/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 185.0
+offset_right = 108.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="Control/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 185.0
+offset_right = 149.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Control/SongOfMatrimony"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 103.0
+offset_right = 328.0
+offset_bottom = 138.0
+text = "Song of Matrimony"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="SongOfStillness" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_left = 410.0
+offset_top = -24.0
+offset_right = 450.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/SongOfStillness"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 142.0
+offset_right = 175.5
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("4_note3")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/SongOfStillness"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 164.0
+offset_right = 129.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("4_note3")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/SongOfStillness"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 185.0
+offset_right = 161.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("4_note3")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control/SongOfStillness"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 143.0
+offset_right = 198.0
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Control/SongOfStillness"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 103.0
+offset_right = 300.0
+offset_bottom = 138.0
+text = "Song of Stillness"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="SongOfTimeTravel" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -24.0
+offset_right = 43.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/SongOfTimeTravel"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 162.0
+offset_right = 226.5
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_timetravel")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/SongOfTimeTravel"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 142.0
+offset_right = 129.0
+offset_bottom = 157.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/SongOfTimeTravel"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 164.0
+offset_right = 161.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("6_note2")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control/SongOfTimeTravel"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 143.0
+offset_right = 198.0
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("6_note2")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Control/SongOfTimeTravel"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 185.0
+offset_right = 225.0
+offset_bottom = 200.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("5_note1")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Control/SongOfTimeTravel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 103.0
+offset_right = 328.0
+offset_bottom = 138.0
+text = "Song of Time Travel"
+label_settings = SubResource("LabelSettings_w48y6")

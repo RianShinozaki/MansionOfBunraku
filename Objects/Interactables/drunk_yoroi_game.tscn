@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://pd85y607mcc7"]
+
+[ext_resource type="Script" uid="uid://b7uf8o0cqnvup" path="res://Scripts/Interactables/drunk_yoroi_game.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://cy5j8xh4vnd3p" path="res://Objects/Interactables/PouringGame/ChoshiPitcher.tscn" id="2_pitcher"]
+[ext_resource type="PackedScene" uid="uid://dxuadpye5rqa" path="res://Objects/Interactables/PouringGame/SakazukiCup_Medium.tscn" id="3_cup"]
+[ext_resource type="Texture2D" uid="uid://d1lvy7n2akmfx" path="res://Art Assets/sakeGame/sakazuki_medium_filled.png" id="4_filled_sprite"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_game"]
+size = Vector3(0.6, 0.4, 0.3)
+
+[node name="DrunkYoroiGame" type="StaticBody3D"]
+collision_layer = 37
+collision_mask = 0
+script = ExtResource("1_script")
+max_pour_time = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_game")
+
+[node name="FocusMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.11949921, 0.24730225, 0.6350342)
+
+[node name="SakazukiCup" parent="." instance=ExtResource("3_cup")]
+filled_sprite_texture = ExtResource("4_filled_sprite")
+
+[node name="ChoshiPitcher" parent="." instance=ExtResource("2_pitcher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302, 0.179, 0)

@@ -7,8 +7,9 @@ enum CupSize { SMALL, MEDIUM, LARGE }
 @export var target_fill_level: float = 0.4  # Target fill for perfect pour
 @export var fill_tolerance: float = 0.1  # Acceptable variance
 @export var overflow_threshold: float = 0.7  # Too full = failure
+@export var filled_sprite_texture: Texture2D = null  # Sprite to show when filled >= 0.3
 
-var current_fill_level: float = 0.0
+@export var current_fill_level: float = 0.0
 var pours_completed: int = 0
 var is_active: bool = false
 var is_complete: bool = false
@@ -36,6 +37,9 @@ func _ready():
 	# Get InspectionManager
 	inspection_manager = get_node_or_null("/root/InspectionManager")
 	
+	# Store original sprite texture for switching
+	if regular_view_sprite and regular_view_sprite.texture:
+		set_meta("original_sprite", regular_view_sprite.texture)
 	
 	if liquid_surface:
 		# LiquidSurface is a CHILD of the cup, so it moves with the cup automatically
@@ -396,6 +400,19 @@ func _update_visibility_for_mode(is_inspect_mode: bool):
 	"""Toggle visibility between regular and inspection sprites"""
 	if regular_view_sprite:
 		regular_view_sprite.visible = not is_inspect_mode
+		
+		# Update PLAY mode sprite based on fill level
+		if not is_inspect_mode and filled_sprite_texture:
+			if current_fill_level >= 0.3:
+				regular_view_sprite.texture = filled_sprite_texture
+			else:
+				# Restore original empty sprite - need to get it from the scene
+				# The original texture should be set in the scene, so we store it
+				if not has_meta("original_sprite"):
+					set_meta("original_sprite", regular_view_sprite.texture)
+				else:
+					regular_view_sprite.texture = get_meta("original_sprite")
+	
 	if cup_model:
 		cup_model.visible = is_inspect_mode
 	

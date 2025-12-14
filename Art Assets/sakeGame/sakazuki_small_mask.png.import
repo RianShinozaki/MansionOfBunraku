@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di8jkt0trehbw"
-path.s3tc="res://.godot/imported/sakazuki_small_mask.png-e4909e09386c6d06dfae332df6d88898.s3tc.ctex"
+path="res://.godot/imported/sakazuki_small_mask.png-e4909e09386c6d06dfae332df6d88898.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art Assets/sakeGame/sakazuki_small_mask.png"
-dest_files=["res://.godot/imported/sakazuki_small_mask.png-e4909e09386c6d06dfae332df6d88898.s3tc.ctex"]
+dest_files=["res://.godot/imported/sakazuki_small_mask.png-e4909e09386c6d06dfae332df6d88898.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -133,5 +133,5 @@ func spawn_visual_note():
 	# Add as child of camera so it appears in front of player
 	camera.add_child(visual_note)
 	
-	# Tell it which note to display
-	visual_note.spawn_note(note_number)
+	# Tell it which note to display; with audio
+	visual_note.spawn_note(note_number, true)

@@ -1,0 +1,126 @@
+[gd_scene load_steps=16 format=3 uid="uid://bcowbtnr1gxij"]
+
+[ext_resource type="Script" uid="uid://c8w23m4504s2r" path="res://Scripts/Entities/Bunraku/yoroi_manager.gd" id="1_h1hvy"]
+[ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="2_kauv0"]
+[ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="3_358w6"]
+[ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="4_bohhe"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="5_8jjjl"]
+[ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio/boss_rattling.mp3" id="6_7e6c1"]
+[ext_resource type="AudioStream" uid="uid://dotcf3aqdlpwu" path="res://Audio/boss_breathing_female.wav" id="7_c7ojw"]
+[ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="8_36rgc"]
+[ext_resource type="AudioStream" uid="uid://ct1h865q6fk24" path="res://Audio/yoroi_eerie.mp3" id="9_358w6"]
+[ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="9_gfsvw"]
+[ext_resource type="AudioStream" uid="uid://cuakpq8ek5b3m" path="res://Audio/dirt_footstep.wav" id="10_kauv0"]
+
+[sub_resource type="Curve" id="Curve_8u50u"]
+_data = [Vector2(0, 0.03191495), 0.0, 1.6003035, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_35v1j"]
+offsets = PackedFloat32Array(0.3190883, 0.49287748, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.5890411, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpvsv"]
+gradient = SubResource("Gradient_35v1j")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yds3c"]
+radius = 0.1
+
+[node name="YoroiManager" type="Node3D" node_paths=PackedStringArray("bunraku")]
+script = ExtResource("1_h1hvy")
+move_speed = 2.0
+body_update_delay = 2.0
+body_offset = Vector3(0, 0.15, 0)
+bunraku = NodePath("Yoroi")
+
+[node name="Yoroi" type="AnimatableBody3D" parent="." groups=["Bunraku"]]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+top_level = true
+script = ExtResource("2_kauv0")
+too_close_distance = 4.0
+too_close_curve = SubResource("Curve_8u50u")
+too_close_factor = 0.5
+anger_headshake_factor = 0.15
+anger_bodyshake_factor = 1.4
+anger_decrease_delta = 0.05
+anger_decrease_max = 0.1
+
+[node name="Body" type="Sprite3D" parent="Yoroi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039215714, 0)
+material_override = ExtResource("3_358w6")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("4_bohhe")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Yoroi/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = ExtResource("3_358w6")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("4_bohhe")
+hframes = 4
+frame = 2
+
+[node name="Node" type="Node" parent="Yoroi/Body"]
+script = ExtResource("5_8jjjl")
+
+[node name="BlackFade" type="Sprite3D" parent="Yoroi/Body"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.039215714, 0.04398632)
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("GradientTexture2D_dpvsv")
+
+[node name="Rattle" type="AudioStreamPlayer3D" parent="Yoroi"]
+stream = ExtResource("6_7e6c1")
+volume_db = -30.32
+autoplay = true
+
+[node name="Breathe" type="AudioStreamPlayer3D" parent="Yoroi"]
+stream = ExtResource("7_c7ojw")
+volume_db = -80.0
+pitch_scale = 1.83
+autoplay = true
+
+[node name="Feedback" type="AudioStreamPlayer3D" parent="Yoroi"]
+stream = ExtResource("8_36rgc")
+volume_db = -80.0
+pitch_scale = 1.83
+autoplay = true
+
+[node name="Feedback2" type="AudioStreamPlayer3D" parent="Yoroi"]
+stream = ExtResource("9_358w6")
+unit_size = 24.18
+pitch_scale = 1.83
+autoplay = true
+max_distance = 2.5
+
+[node name="RayCast3D" type="RayCast3D" parent="Yoroi" groups=["Bunraku"]]
+target_position = Vector3(0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yoroi"]
+shape = SubResource("CapsuleShape3D_yds3c")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.3
+target_desired_distance = 0.8
+path_postprocessing = 1
+simplify_epsilon = 0.2
+radius = 0.6
+
+[node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_gfsvw")
+
+[node name="DirtFootstep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_kauv0")
+pitch_scale = 0.73
+max_distance = 6.0
