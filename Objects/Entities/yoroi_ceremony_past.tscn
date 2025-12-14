@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6cl4ho1idcov"]
+[gd_scene load_steps=16 format=3 uid="uid://b6cl4ho1idcov"]
 
 [ext_resource type="Script" uid="uid://cmt70ef4yku6g" path="res://Scripts/Entities/Bunraku/yoroi_manager_ceremony.gd" id="1_4b0hm"]
 [ext_resource type="Script" uid="uid://4v3irnfc5n3e" path="res://Scripts/Entities/Bunraku/yoroi_ceremony.gd" id="2_4b0hm"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="8_whusu"]
 [ext_resource type="AudioStream" uid="uid://ct1h865q6fk24" path="res://Audio/yoroi_eerie.mp3" id="9_mcx5o"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="10_7mxx8"]
+[ext_resource type="AudioStream" uid="uid://csfmta6fyuoje" path="res://Audio/slurp.wav" id="11_fwtu0"]
 
 [sub_resource type="Curve" id="Curve_8u50u"]
 _data = [Vector2(0, 0.03191495), 0.0, 1.6003035, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -100,8 +101,6 @@ autoplay = true
 stream = ExtResource("9_mcx5o")
 unit_size = 24.18
 pitch_scale = 1.83
-autoplay = true
-max_distance = 2.5
 
 [node name="RayCast3D" type="RayCast3D" parent="Yoroi" groups=["Bunraku"]]
 target_position = Vector3(0, 0, 1)
@@ -111,3 +110,8 @@ shape = SubResource("CapsuleShape3D_yds3c")
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_7mxx8")
+
+[node name="Slurp" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_fwtu0")
+volume_db = 2.909
+pitch_scale = 1.15
