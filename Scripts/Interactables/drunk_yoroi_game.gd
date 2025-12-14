@@ -13,7 +13,7 @@ enum GameState {
 
 var current_state: GameState = GameState.HIDDEN
 var pour_start_time: float = 0.0
-var previous_mode: int = -1
+var instance_id_str: String = ""
 
 @onready var sake_pitcher: ChoshiPitcher = $ChoshiPitcher
 @onready var cup: SakazukiCup = $SakazukiCup
@@ -21,6 +21,8 @@ var previous_mode: int = -1
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D if has_node("CollisionShape3D") else null
 
 func _ready():
+	instance_id_str = str(get_instance_id())
+	
 	# Set collision layers for both play mode (5) and inspection (6)
 	# Layers 1 and 3 for play mode interaction, layer 6 for inspection raycasting
 	collision_layer = 5 | (1 << 5)  # Layers 1, 3, and 6 = 37
@@ -40,23 +42,6 @@ func _ready():
 			cup.get_node("Target2").queue_free()
 
 func _process(delta):
-	# Check for mode transitions
-	var current_mode = InspectionManager.current_mode
-	
-	# Detect transition from INSPECT/DIALOGUE to PLAY
-	if previous_mode != -1:
-		var was_in_inspect_or_dialogue = (previous_mode == InspectionManager.Mode.INSPECT or previous_mode == InspectionManager.Mode.DIALOGUE)
-		var now_in_play = (current_mode == InspectionManager.Mode.PLAY)
-		
-		if was_in_inspect_or_dialogue and now_in_play:
-			# Exited inspect mode - re-enable collision and reset pitcher only
-			if collision_shape:
-				collision_shape.disabled = false
-			reset_pitcher_only()  # Don't empty cup - preserve fill level
-			current_state = GameState.HIDDEN
-	
-	previous_mode = current_mode
-	
 	# Handle pouring logic
 	if current_state == GameState.POURING:
 		var pour_duration = (Time.get_ticks_msec() / 1000.0) - pour_start_time
@@ -84,6 +69,7 @@ func can_interact() -> bool:
 	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
 
 func on_interact() -> void:
+
 	if focus_marker and InspectionManager:
 		InspectionManager.enter_inspect(self, focus_marker, inspect_fov)
 		# Disable game collision so sake pitcher can be clicked
@@ -95,11 +81,13 @@ func on_interact() -> void:
 		start_game()
 
 func start_game():
+
 	current_state = GameState.WAITING_FOR_POUR
 	
 	# Sake becomes visible and clickable in inspect mode
 	if sake_pitcher:
 		sake_pitcher.set_clickable(true)
+		sake_pitcher.set_target_cup(cup)
 	
 	# Activate cup to show Target3
 	if cup:
@@ -255,6 +243,10 @@ func _unhandled_input(event):
 		return
 	
 	if not is_inside_tree():
+		return
+	
+	# Only process input if THIS instance is the one being inspected
+	if InspectionManager.current_inspect_target != self:
 		return
 	
 	# Handle SPACE key for pouring
