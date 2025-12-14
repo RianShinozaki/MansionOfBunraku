@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6cl4ho1idcov"]
+[gd_scene load_steps=23 format=3 uid="uid://b6cl4ho1idcov"]
 
 [ext_resource type="Script" uid="uid://cmt70ef4yku6g" path="res://Scripts/Entities/Bunraku/yoroi_manager_ceremony.gd" id="1_4b0hm"]
-[ext_resource type="Script" uid="uid://dyf83miyod2q0" path="res://Scripts/Entities/Bunraku/yoroi.gd" id="2_214qy"]
+[ext_resource type="Script" uid="uid://4v3irnfc5n3e" path="res://Scripts/Entities/Bunraku/yoroi_ceremony.gd" id="2_4b0hm"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="3_n2jq8"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="4_roimk"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="5_iylqf"]
@@ -10,6 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="8_whusu"]
 [ext_resource type="AudioStream" uid="uid://ct1h865q6fk24" path="res://Audio/yoroi_eerie.mp3" id="9_mcx5o"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="10_7mxx8"]
+[ext_resource type="AudioStream" uid="uid://csfmta6fyuoje" path="res://Audio/slurp.wav" id="11_fwtu0"]
+[ext_resource type="Texture2D" uid="uid://d1voiba8rgysk" path="res://Art Assets/Yoroi/YoroiBack.png" id="12_wqjgf"]
+[ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="13_whusu"]
+[ext_resource type="Texture2D" uid="uid://coqb3oc4cyciy" path="res://Art Assets/Yoroi/Yoroi-e.png" id="14_mcx5o"]
+[ext_resource type="Texture2D" uid="uid://iaqw4gdwm20" path="res://Art Assets/Yoroi/Yoroi-h.png" id="15_7mxx8"]
+[ext_resource type="Texture2D" uid="uid://vbesusa3as1e" path="res://Art Assets/Yoroi/Yoroi-h_n.png" id="16_3n4wo"]
+[ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="17_xu3qk"]
 
 [sub_resource type="Curve" id="Curve_8u50u"]
 _data = [Vector2(0, 0.03191495), 0.0, 1.6003035, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -29,17 +36,43 @@ fill_to = Vector2(1, 0.5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yds3c"]
 radius = 0.1
+height = 1.15
 
-[node name="YoroiManager" type="Node3D" node_paths=PackedStringArray("bunraku")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avdyd"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("12_wqjgf")
+emission_energy_multiplier = 1.6
+emission_texture = ExtResource("14_mcx5o")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = ExtResource("16_3n4wo")
+bent_normal_texture = ExtResource("13_whusu")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("17_xu3qk")
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("15_7mxx8")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
+
+[node name="YoroiManager" type="CharacterBody3D" node_paths=PackedStringArray("bunraku")]
 script = ExtResource("1_4b0hm")
-move_speed = 2.0
-body_update_delay = 2.0
 body_offset = Vector3(0, 0.15, 0)
+time_between_turns = 8.0
+normal_light_color = Color(0.8980392, 0.6509804, 0.6, 1)
+evil_light_color = Color(1, 0, 0, 1)
 bunraku = NodePath("Yoroi")
 
 [node name="Yoroi" type="AnimatableBody3D" parent="." groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
-script = ExtResource("2_214qy")
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_4b0hm")
 too_close_distance = 4.0
 too_close_curve = SubResource("Curve_8u50u")
 too_close_factor = 0.5
@@ -99,10 +132,9 @@ autoplay = true
 stream = ExtResource("9_mcx5o")
 unit_size = 24.18
 pitch_scale = 1.83
-autoplay = true
-max_distance = 2.5
 
 [node name="RayCast3D" type="RayCast3D" parent="Yoroi" groups=["Bunraku"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24509804, 0)
 target_position = Vector3(0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yoroi"]
@@ -110,3 +142,29 @@ shape = SubResource("CapsuleShape3D_yds3c")
 
 [node name="JumpscareSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_7mxx8")
+
+[node name="Slurp" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_fwtu0")
+volume_db = 2.909
+pitch_scale = 1.15
+
+[node name="YoroiBackside" type="Node3D" parent="." groups=["Bunraku"]]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+visible = false
+
+[node name="Body" type="Sprite3D" parent="YoroiBackside"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039215714, 0)
+material_override = SubResource("StandardMaterial3D_avdyd")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("12_wqjgf")
+hframes = 2
+
+[node name="Node" type="Node" parent="YoroiBackside/Body"]
+script = ExtResource("5_iylqf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("CapsuleShape3D_yds3c")

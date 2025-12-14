@@ -236,21 +236,6 @@ dialogue_id = "kouya_painting_ceremony"
 
 [node name="Candles" type="Node3D" parent="Objects"]
 
-[node name="Candle" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.7831901, 0.71765316, -5.7347765)
-
-[node name="Candle2" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 3.2198968, 0.71765316, -5.7347765)
-
-[node name="Candle3" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.781558, 0.71765316, -4.313478)
-
-[node name="Candle4" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.987349, 0.71765316, -1.4396904)
-
-[node name="Candle5" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631, 0.71765316, -1.3685364)
-
 [node name="Candle6" parent="Objects/Candles" instance=ExtResource("44_kp3hq")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.19602631, 0.71765316, -4.715435)
 
@@ -348,5 +333,11 @@ shape = SubResource("BoxShape3D_detector")
 
 [node name="Bunraku" type="Node3D" parent="."]
 
-[node name="YoroiManager" parent="Bunraku" instance=ExtResource("38_2fioi")]
+[node name="YoroiManager" parent="Bunraku" node_paths=PackedStringArray("sake_games") instance=ExtResource("38_2fioi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1931777, 0.37297058, -4.5984097)
+sake_games = [NodePath("../../Objects/SakeGames/lowTable3D/DrunkYoroiGame"), NodePath("../../Objects/SakeGames/lowTable3D2/DrunkYoroiGame"), NodePath("../../Objects/SakeGames/lowTable3D3/DrunkYoroiGame")]
+
+[node name="Yoroi" parent="Bunraku/YoroiManager" index="0"]
+too_close_distance = 8.0
+
+[editable path="Bunraku/YoroiManager"]

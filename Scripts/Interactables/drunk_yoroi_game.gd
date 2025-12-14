@@ -1,3 +1,5 @@
+class_name DrunkYoroiGame
+
 extends StaticBody3D
 
 enum GameState {
