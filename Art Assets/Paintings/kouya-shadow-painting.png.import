@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or26adls8bpc"
-path="res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"
+uid="uid://i7m2tip4nigr"
+path="res://.godot/imported/kouya-shadow-painting.png-7bec885d09f2bb7109e42f5d8b262f31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Paintings/yoroi-shadow-painting.png"
-dest_files=["res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"]
+source_file="res://Art Assets/Paintings/kouya-shadow-painting.png"
+dest_files=["res://.godot/imported/kouya-shadow-painting.png-7bec885d09f2bb7109e42f5d8b262f31.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
