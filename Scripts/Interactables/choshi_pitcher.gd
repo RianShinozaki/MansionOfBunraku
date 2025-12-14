@@ -88,15 +88,21 @@ func set_target_cup(cup: SakazukiCup):
 
 func start_pour():
 	"""Begin pouring"""
+	print("DEBUG ChoshiPitcher: start_pour called, is_clickable = ", is_clickable)
 	if not is_clickable:
+		print("DEBUG ChoshiPitcher: not clickable, returning")
 		return
 	
 	is_pouring = true
+	print("DEBUG ChoshiPitcher: is_pouring set to true")
 	
 	# Start pour visual effect
 	if pour_stream:
 		pour_stream.emitting = true
 		pour_stream.restart()
+		print("DEBUG ChoshiPitcher: pour_stream started")
+	else:
+		print("DEBUG ChoshiPitcher: pour_stream is null!")
 	
 	# Start pour sound
 	if pour_sound:
