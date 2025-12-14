@@ -1,7 +1,7 @@
 ###Handles the logic behind switching the Bunraku as well as initiating jumpscares
-class_name BunrakuManager
+class_name BunrakuManagerCBody
 
-extends Node3D
+extends CharacterBody3D
 
 enum {YONO, YOROI}
 
@@ -52,7 +52,6 @@ func jumpscare():
 	Player.instance.get_node("Camera3D").start_shaking()
 	get_tree().create_tween().tween_property(Player.instance.get_node("Camera3D"), "fov", 120, 1.4)
 	
-	print("HELLO")
 	var _to = Player.instance.global_position + Player.instance.global_basis * Vector3.FORWARD * 0.2
 	@warning_ignore("standalone_expression")
 	get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 0.2).finished
@@ -63,7 +62,6 @@ func jumpscare():
 	get_tree().create_tween().tween_property(self, "global_position", Vector3(_to.x, 0.35, _to.z) , 1.5).finished
 	await get_tree().create_timer(2).timeout
 	
-	print("WHAT")
 	get_tree().change_scene_to_file("res://Maps/MeltdownCutscene.tscn")
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
