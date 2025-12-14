@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
 [ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
 [ext_resource type="Texture2D" uid="uid://bg7xbuvbqeamr" path="res://Art Assets/song_of_time_travel.png" id="13_timetravel"]
-[ext_resource type="Shader" uid="uid://yx32in46n2fo" path="res://Shaders/greyscale.gdshader" id="16_tyao8"]
+[ext_resource type="Shader" uid="uid://dkjlo2rm1yrf6" path="res://Shaders/drunk.gdshader" id="16_tyao8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
 radius = 0.15
@@ -43,7 +43,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftmhe"]
 shader = ExtResource("16_tyao8")
-shader_parameter/grey_level = 0.0
+shader_parameter/wiggleMult = 0.0
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2147483650
@@ -465,6 +465,16 @@ texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
 
 [node name="BlackWhiteOverlay" type="ColorRect" parent="CanvasLayer"]
+z_index = 100
+material = SubResource("ShaderMaterial_ftmhe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DrunkenOverlay" type="ColorRect" parent="CanvasLayer"]
 z_index = 100
 material = SubResource("ShaderMaterial_ftmhe")
 anchors_preset = 15

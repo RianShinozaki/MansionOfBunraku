@@ -63,6 +63,7 @@ func _physics_process(_delta):
 				drunkness += _the_game.get_node("SakazukiCup").current_fill_level
 				$Slurp.play()
 				_the_game.get_node("SakazukiCup").empty_cup()
+				Player.instance.set_drunken_level(drunkness/20)
 		else:
 			looking_forward = true
 			$Yoroi.visible = true

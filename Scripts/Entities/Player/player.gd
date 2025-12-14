@@ -389,3 +389,5 @@ func un_statuefy():
 	# Reset and hide overlay
 	overlay.visible = false
 	
+func set_drunken_level(_value: float):
+	$CanvasLayer/DrunkenOverlay.material.set_shader_parameter("wiggleMult", _value)
