@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_3qpu1"]
 [ext_resource type="ArrayMesh" uid="uid://k8ckexa8pluu" path="res://Art Assets/Models/treasury.obj" id="2_8jmj0"]
 [ext_resource type="PackedScene" uid="uid://no2gwjexud86" path="res://Objects/Items/short_shelves.tscn" id="3_0dhip"]
-[ext_resource type="Material" path="res://Art Assets/Materials/Treasury_0.tres" id="3_treasury0"]
-[ext_resource type="Material" path="res://Art Assets/Materials/Treasury_HouseTileset.tres" id="4_treasurytileset"]
+[ext_resource type="Material" uid="uid://cnx3g8k2qvxho" path="res://Art Assets/Materials/Treasury_0.tres" id="3_treasury0"]
+[ext_resource type="Material" uid="uid://b6xt0vjfknp2p" path="res://Art Assets/Materials/Treasury_HouseTileset.tres" id="4_treasurytileset"]
 [ext_resource type="PackedScene" uid="uid://i85ahe0lbyqf" path="res://Objects/Items/wall_shelves.tscn" id="8_6l1la"]
 [ext_resource type="Texture2D" uid="uid://cce2h2tfik75p" path="res://Art Assets/Chandelier.png" id="24_mf6ve"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="25_h5sml"]
@@ -64,7 +64,7 @@ shape = SubResource("ConcavePolygonShape3D_a2fpj")
 transform = Transform3D(1.28, 0, 0, 0, 1.28, 0, 0, 0, 1.28, 0.005680084, -0.8687103, -0.08630371)
 
 [node name="Chandelier" type="Sprite3D" parent="Objects"]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4946408, 1.7002242, -2.998343)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4946408, 1.7002242, -1.3658432)
 billboard = 2
 shaded = true
 texture_filter = 2
@@ -89,6 +89,35 @@ energy_range = 0.25
 energy_delta_range = 0.02
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Objects/Chandelier"]
+stream = ExtResource("26_jm4pl")
+autoplay = true
+
+[node name="Chandelier2" type="Sprite3D" parent="Objects"]
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.4946408, 1.7002242, -3.9381409)
+billboard = 2
+shaded = true
+texture_filter = 2
+texture = ExtResource("24_mf6ve")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objects/Chandelier2" groups=["Light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.345754, 0)
+light_color = Color(0.89659, 0.65039, 0.598985, 1)
+light_energy = 1.403
+light_size = 0.03
+light_specular = 0.0
+shadow_bias = 0.15
+distance_fade_enabled = true
+distance_fade_begin = 6.0
+distance_fade_shadow = 0.0
+distance_fade_length = 6.0
+omni_range = 8.438
+omni_attenuation = 2.068
+script = ExtResource("25_h5sml")
+energy_median = 1.5
+energy_range = 0.25
+energy_delta_range = 0.02
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Objects/Chandelier2"]
 stream = ExtResource("26_jm4pl")
 autoplay = true
 
