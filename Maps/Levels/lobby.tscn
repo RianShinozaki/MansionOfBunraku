@@ -71,6 +71,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8rhjv")
 
+[node name="HouseHallway5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.30405, -4.7683716e-07, 0.7070384)
+material_override = ExtResource("2_coq6y")
+mesh = ExtResource("4_ywxda")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HouseHallway5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8rhjv")
+
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Chandelier" parent="Objects" instance=ExtResource("5_coq6y")]
