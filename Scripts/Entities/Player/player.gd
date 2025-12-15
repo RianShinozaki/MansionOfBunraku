@@ -355,7 +355,7 @@ func fade_from_white(_duration: float = 2, _init_alpha: float = 1):
 	emit_signal("fade_complete")
 
 func set_gray_scale(_value: float):
-	var overlay = $CanvasLayer/BlackWhiteOverlay
+	var overlay = $CanvasLayer/DrunkenOverlay
 	overlay.material.set_shader_parameter("grey_level", _value)
 	
 func apply_black_white_effect():
@@ -364,11 +364,8 @@ func apply_black_white_effect():
 	active = false
 	statue = true
 	statue_hp = 3
-	if not has_node("CanvasLayer/BlackWhiteOverlay"):
-		push_warning("Player: BlackWhiteOverlay node not found!")
-		return
 	
-	var overlay = $CanvasLayer/BlackWhiteOverlay
+	var overlay = $CanvasLayer/DrunkenOverlay
 	
 	# Reset overlay state completely
 	overlay.modulate = Color.WHITE  # Reset modulate
@@ -382,14 +379,12 @@ func apply_black_white_effect():
 	fade_from_white(0.5, 0.5)
 	
 func un_statuefy():
-	var overlay = $CanvasLayer/BlackWhiteOverlay
+	var overlay = $CanvasLayer/DrunkenOverlay
 	active = true
 	statue = false
 	# Fade out the effect (0.3 seconds)
 	await get_tree().create_tween().tween_method(set_gray_scale, 1.0, 0, 0.4).finished
 	
-	# Reset and hide overlay
-	overlay.visible = false
 
 var current_drunken_level: float = 0
 func set_drunken_level(_value: float):
