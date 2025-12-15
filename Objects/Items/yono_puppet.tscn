@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://drmoiiog6aaje"]
+
+[ext_resource type="Texture2D" uid="uid://p8l3p3cjspl2" path="res://Art Assets/Paintings/MiniYono_puppet.png" id="1_k1edy"]
+[ext_resource type="Script" path="res://Scripts/Items/yono_puppet.gd" id="2_yono"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j88yf"]
+size = Vector3(0.33947754, 0.35324097, 0.35498047)
+
+[node name="YonoPuppet" type="RigidBody3D" groups=["Item"]]
+collision_layer = 4
+collision_mask = 5
+freeze_mode = 1
+script = ExtResource("2_yono")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 2
+texture = ExtResource("1_k1edy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010559082, 0.024978638, -0.004638672)
+shape = SubResource("BoxShape3D_j88yf")
