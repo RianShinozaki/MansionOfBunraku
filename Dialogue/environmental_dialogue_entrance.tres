@@ -10,6 +10,7 @@ starts = {
 "yono_painting": &"0_1",
 "yono_painting_ceremony": &"0_3",
 "yono_past": &"0_5",
+"yoroi_maze": &"0_7",
 "yoroi_past": &"0_6"
 }
 nodes = {
@@ -43,6 +44,11 @@ nodes = {
 "offset": Vector2(-197.90271, 2946.479),
 "start_id": "yoroi_past"
 },
+&"0_7": {
+"link": &"1_19",
+"offset": Vector2(-36.947876, 3353.5552),
+"start_id": "yoroi_maze"
+},
 &"1_1": {
 "audio_clip": null,
 "dialogue": "The woman you see in front of you is familiar. 
@@ -69,7 +75,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(340.00012, 399.99976),
+"size": Vector2(340.00018, 399.9994),
 "speaker": ""
 },
 &"1_11": {
@@ -83,7 +89,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(359.9995, 399.99976),
+"size": Vector2(359.9994, 399.9994),
 "speaker": ""
 },
 &"1_12": {
@@ -97,7 +103,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360, 379.99976),
+"size": Vector2(360, 379.9994),
 "speaker": ""
 },
 &"1_13": {
@@ -111,7 +117,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360.00012, 440),
+"size": Vector2(360.00018, 439.99988),
 "speaker": ""
 },
 &"1_14": {
@@ -125,7 +131,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(339.99988, 460),
+"size": Vector2(339.99988, 459.99988),
 "speaker": ""
 },
 &"1_15": {
@@ -139,7 +145,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360.00006, 460),
+"size": Vector2(359.99982, 459.99988),
 "speaker": ""
 },
 &"1_16": {
@@ -153,7 +159,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(400.00006, 380),
+"size": Vector2(400.00006, 379.99982),
 "speaker": ""
 },
 &"1_17": {
@@ -167,7 +173,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(320, 380),
+"size": Vector2(320, 379.99982),
 "speaker": ""
 },
 &"1_18": {
@@ -181,7 +187,21 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(419.99988, 400),
+"size": Vector2(419.99957, 399.99982),
+"speaker": ""
+},
+&"1_19": {
+"audio_clip": null,
+"dialogue": "The man you see in front of you is familiar. You don't recall why, but the sight of his face fills you with dread.",
+"offset": Vector2(200, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(459.99988, 460.00037),
 "speaker": ""
 },
 &"1_2": {
@@ -196,7 +216,35 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(300.00003, 575.99976),
+"size": Vector2(300.00018, 575.99976),
+"speaker": ""
+},
+&"1_20": {
+"audio_clip": null,
+"dialogue": "[color=\"red\"]He's here, now, and he's looking for you. [/color]",
+"offset": Vector2(680, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(360.00012, 440),
+"speaker": ""
+},
+&"1_21": {
+"audio_clip": null,
+"dialogue": "[color=\"red\"]You should run.[/color]",
+"offset": Vector2(1060, 3360),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.00006, 268),
 "speaker": ""
 },
 &"1_3": {
@@ -210,12 +258,12 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00043, 575.99976),
+"size": Vector2(360.00037, 575.99976),
 "speaker": ""
 },
 &"1_4": {
 "audio_clip": null,
-"dialogue": "The man you see in front of you is someone you know you’ve seen before and know, though you can’t recall how. 
+"dialogue": "The man you see in front of you is someone you’ve seen before and know, though you can’t recall how. 
 He is Kouya, a servant of Yono’s family.",
 "offset": Vector2(180, 660),
 "options": {
@@ -225,7 +273,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(379.99963, 576.0005),
+"size": Vector2(379.99957, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -239,7 +287,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(300.00003, 576.0005),
+"size": Vector2(300.00018, 576.0005),
 "speaker": ""
 },
 &"1_6": {
@@ -254,7 +302,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00043, 576.0005),
+"size": Vector2(340.00037, 576.0005),
 "speaker": ""
 },
 &"1_7": {
@@ -268,7 +316,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00012, 420.00024),
+"size": Vector2(340.00018, 420),
 "speaker": ""
 },
 &"1_8": {
@@ -282,7 +330,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(359.99976, 420.00024),
+"size": Vector2(359.99963, 420),
 "speaker": ""
 },
 &"1_9": {
@@ -296,7 +344,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00024, 420.00024),
+"size": Vector2(340.00024, 420),
 "speaker": ""
 }
 }
