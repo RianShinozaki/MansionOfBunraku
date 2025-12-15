@@ -25,6 +25,7 @@ func append_note(note):
 		emit_signal("unlock")
 		$"../../Bunraku".disable()
 		$Symbol.visible = false
+		Player.song_of_matrimony_acquired = true
 		Player.instance.active = false
 		Player.instance.fade_to_white()
 		await Player.instance.fade_complete
