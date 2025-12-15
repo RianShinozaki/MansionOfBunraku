@@ -217,7 +217,7 @@ dir = 1
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, 0.010104828)
 
 [node name="YonoPainting" parent="Objects" instance=ExtResource("28_5jbmd")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.54260266, 1.3975422, -5.9793105)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.54260266, 1.3975422, -5.9640408)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("29_23oy3")

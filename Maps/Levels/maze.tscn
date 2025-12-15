@@ -184,7 +184,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8681352, 0.046215832, 0.59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559785, 0.046215832, 1.170334)
 
 [node name="KouyaPainting" parent="Objects/GateArea" instance=ExtResource("15_yds3c")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, -2.0461354, 0.717963, -1.4357147)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, -1.696, 0.718, -1.436)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("17_bg4w7")
