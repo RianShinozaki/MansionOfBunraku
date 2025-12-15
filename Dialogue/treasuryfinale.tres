@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c66e7caksj1ms"]
+
+[ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_rp3kg"]
+
+[resource]
+script = ExtResource("1_rp3kg")
+starts = {
+"yoroi": &"0_1"
+}
+nodes = {
+&"0_1": {
+"link": &"1_1",
+"offset": Vector2(-96, 197),
+"start_id": "yoroi"
+},
+&"1_1": {
+"audio_clip": null,
+"dialogue": "It was all supposed to be mine... ",
+"offset": Vector2(140, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": Vector2(359.99994, 340),
+"speaker": "???"
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "but it's all being taken from me...",
+"offset": Vector2(580, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": Vector2(340, 380),
+"speaker": "???"
+},
+&"1_3": {
+"audio_clip": null,
+"dialogue": "And now, you seek to escape by stealing your own dowry?!",
+"offset": Vector2(1480, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(360, 360),
+"speaker": "???"
+},
+&"1_4": {
+"audio_clip": null,
+"dialogue": "You seek to escape your fate of being with me?!",
+"offset": Vector2(1880, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(340.00012, 360),
+"speaker": "???"
+},
+&"1_5": {
+"audio_clip": null,
+"dialogue": "WE CAN ALL BURN DOWN TOGETHER!",
+"offset": Vector2(2640, 180),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(340, 360),
+"speaker": "Yoroi"
+},
+&"1_6": {
+"audio_clip": null,
+"dialogue": "My bride... my status... the power I'd gain...",
+"offset": Vector2(1000, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(360, 340),
+"speaker": "???"
+},
+&"1_7": {
+"audio_clip": null,
+"dialogue": "FINE, THEN. LET THE FLAMES MAKE YOU FREE.",
+"offset": Vector2(2260, 180),
+"options": {
+0: {
+"condition": {},
+"link": &"1_5",
+"text": ""
+}
+},
+"size": Vector2(320, 380),
+"speaker": ""
+}
+}

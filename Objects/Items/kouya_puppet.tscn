@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://mgmkin1gcwfv"]
+[gd_scene load_steps=4 format=3 uid="uid://b43m0ejxlxewx"]
 
 [ext_resource type="Texture2D" uid="uid://cfvsn2c1ioyxh" path="res://Art Assets/Paintings/MiniKouya_puppet.png" id="1_43fk6"]
 [ext_resource type="Script" path="res://Scripts/Items/kouya_puppet.gd" id="2_kouya"]
@@ -13,6 +13,7 @@ freeze_mode = 1
 script = ExtResource("2_kouya")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 2
 texture = ExtResource("1_43fk6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

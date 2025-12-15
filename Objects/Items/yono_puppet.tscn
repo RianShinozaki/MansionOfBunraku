@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7oo3aeh1ki8g"]
+[gd_scene load_steps=4 format=3 uid="uid://drmoiiog6aaje"]
 
 [ext_resource type="Texture2D" uid="uid://p8l3p3cjspl2" path="res://Art Assets/Paintings/MiniYono_puppet.png" id="1_k1edy"]
 [ext_resource type="Script" path="res://Scripts/Items/yono_puppet.gd" id="2_yono"]
@@ -13,6 +13,7 @@ freeze_mode = 1
 script = ExtResource("2_yono")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 2
 texture = ExtResource("1_k1edy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

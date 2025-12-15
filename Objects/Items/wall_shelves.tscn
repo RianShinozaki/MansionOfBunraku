@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://i85ahe0lbyqf"]
+[gd_scene load_steps=7 format=3 uid="uid://fxplkfd77v3d"]
 
 [ext_resource type="ArrayMesh" uid="uid://qp8sc6vp40ff" path="res://Art Assets/Models/wall_shelves.obj" id="1_mesh"]
 [ext_resource type="Texture2D" uid="uid://d1y7baa7gmev" path="res://Art Assets/Models/wall_shelves_0.png" id="2_texture"]
@@ -8,8 +8,14 @@ albedo_texture = ExtResource("2_texture")
 texture_filter = 2
 disable_receive_shadows = true
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_spn87"]
-points = PackedVector3Array(1.96, 1.7600001, -1.3709068e-05, 1.2798904, 0.7798904, 0.00999999, 1.96, -0.16, -1.3709068e-05, 1.96, 1.7600001, -0.32, -0.04, 1.7600001, -1.3709068e-05, 0.35996085, 0.7798904, 0.00999999, 1.96, -0.16, -0.32, -0.04, -0.16, -1.3709068e-05, -0.04, 1.7600001, -0.32, -0.04, -0.16, -0.32)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gego8"]
+size = Vector3(1.9992523, 0.18347168, 0.3242798)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_if00e"]
+size = Vector3(1.9992523, 1.7450867, 0.080596924)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spn87"]
+size = Vector3(1.1883392, 0.18347168, 0.3242798)
 
 [node name="WallShelves" type="MeshInstance3D"]
 mesh = ExtResource("1_mesh")
@@ -17,5 +23,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wall_shelves")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_spn87")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95919037, -0.07293701, -0.16104126)
+shape = SubResource("BoxShape3D_gego8")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95919037, 0.7078705, -0.2828827)
+shape = SubResource("BoxShape3D_if00e")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.9474283, 0, -0.3199682, 0, 1, 0, 0.3199682, 0, 0.9474283, 1.4152774, 0.070982516, -0.2679548)
+shape = SubResource("BoxShape3D_spn87")
