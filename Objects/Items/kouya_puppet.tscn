@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://mgmkin1gcwfv"]
+
+[ext_resource type="Texture2D" uid="uid://cfvsn2c1ioyxh" path="res://Art Assets/Paintings/MiniKouya_puppet.png" id="1_43fk6"]
+[ext_resource type="Script" path="res://Scripts/Items/kouya_puppet.gd" id="2_kouya"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suwfv"]
+size = Vector3(0.21374512, 0.3166504, 0.4258423)
+
+[node name="KouyaPuppet" type="RigidBody3D" groups=["Item"]]
+collision_layer = 4
+collision_mask = 5
+freeze_mode = 1
+script = ExtResource("2_kouya")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_43fk6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014221191, -0.027954102, -0.01651001)
+shape = SubResource("BoxShape3D_suwfv")
