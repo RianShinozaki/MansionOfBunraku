@@ -1,15 +1,13 @@
-[gd_scene load_steps=56 format=3 uid="uid://cefjxjyxnyhd3"]
+[gd_scene load_steps=74 format=3 uid="uid://cefjxjyxnyhd3"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_i88uo"]
 [ext_resource type="Texture2D" uid="uid://cj1rwxfai6apc" path="res://Art Assets/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_32c4f"]
 [ext_resource type="ArrayMesh" uid="uid://cwfs4v6kdqfcl" path="res://Art Assets/Models/TreasuryBurnt.obj" id="3_80n00"]
 [ext_resource type="Texture2D" uid="uid://0xusvj02bhsh" path="res://Art Assets/Models/texture_HouseTileset_Burnt.png" id="4_32c4f"]
 [ext_resource type="Texture2D" uid="uid://b2elln4vognbf" path="res://Art Assets/Models/texture_0.png" id="4_80n00"]
-[ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="5_mqnkd"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="6_migy3"]
 [ext_resource type="Texture2D" uid="uid://dg0sd3d6fdc86" path="res://Art Assets/smoke_08.png" id="7_148nc"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_viskq"]
-[ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="8_3t1sb"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="8_i88uo"]
 [ext_resource type="Texture2D" uid="uid://5e31wv6vd8f0" path="res://Source/treasury/vault-door.png" id="9_2s820"]
 [ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="9_7i2ke"]
@@ -28,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="16_ppk0n"]
 [ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="17_ppk0n"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="18_v2uhp"]
+[ext_resource type="FontFile" uid="uid://dijk2scifae5p" path="res://Art Assets/Fonts/OptimusPrincepsSemiBold.ttf" id="26_okmgd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0gfdh"]
 panorama = ExtResource("2_32c4f")
@@ -168,7 +167,7 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0.87982833, 1, 1, 1, 
 radius = 0.165
 height = 0.78
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rbg2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okmgd"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -188,6 +187,111 @@ heightmap_scale = 1.0
 heightmap_texture = ExtResource("14_f51g2")
 texture_filter = 2
 billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s8gq"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("6_migy3")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = ExtResource("13_8w4eo")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = ExtResource("15_j73o5")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("16_ppk0n")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_f51g2")
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7i2ke"]
+load_path = "res://.godot/imported/Kouya.png-e0556b76120a7245591c797a754cb50c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okmgd"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6s8gq"]
+load_path = "res://.godot/imported/Kouya_e.png-bc566f6d5bcbaa8742f885ddbfb91c5e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fkgmt"]
+load_path = "res://.godot/imported/Kouya_h.png-434a33e5b4838d78f7ff1b06d4e2c39b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cylbw"]
+load_path = "res://.godot/imported/Kouya_h_n.png-161c37c5e6c43ab4436374785d96fb47.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8w4eo"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f51g2"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_7i2ke")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = SubResource("CompressedTexture2D_6s8gq")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = SubResource("CompressedTexture2D_cylbw")
+bent_normal_texture = SubResource("CompressedTexture2D_okmgd")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_8w4eo")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_fkgmt")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j73o5"]
+load_path = "res://.godot/imported/Kouya.png-e0556b76120a7245591c797a754cb50c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppk0n"]
+load_path = "res://.godot/imported/Yono-h_n.png-fd5cecb1c80b5994b7ee8b09d44bc2bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2uhp"]
+load_path = "res://.godot/imported/Kouya_e.png-bc566f6d5bcbaa8742f885ddbfb91c5e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5rbg2"]
+load_path = "res://.godot/imported/Kouya_h.png-434a33e5b4838d78f7ff1b06d4e2c39b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y3s53"]
+load_path = "res://.godot/imported/Kouya_h_n.png-161c37c5e6c43ab4436374785d96fb47.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qnxo4"]
+load_path = "res://.godot/imported/Yono-r.png-0a5090d2965b16321309ec6b2d2db1e2.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayv77"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_j73o5")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = SubResource("CompressedTexture2D_v2uhp")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = SubResource("CompressedTexture2D_y3s53")
+bent_normal_texture = SubResource("CompressedTexture2D_ppk0n")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = SubResource("CompressedTexture2D_qnxo4")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_5rbg2")
+texture_filter = 2
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 1.18
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("10_okmgd")
@@ -231,6 +335,349 @@ script = ExtResource("16_j73o5")
 [sub_resource type="RichTextEffect" id="RichTextEffect_5e1o8"]
 script = ExtResource("17_ppk0n")
 
+[sub_resource type="LabelSettings" id="LabelSettings_6s8gq"]
+font = ExtResource("26_okmgd")
+font_size = 56
+
+[sub_resource type="Animation" id="Animation_okmgd"]
+resource_name = "ending"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.639358, 5.0666666, 7.233333, 10.766666, 14.5, 16.966665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.6817809, -0.14469008, -2.5201464), Vector3(0.6817809, -0.14469008, -2.5201464), Vector3(0.682, -0.145, -0.955), Vector3(0.682, -0.145, -0.9549999), Vector3(0.682, -0.145, 1.11), Vector3(0.682, -0.145, 1.1100001), Vector3(0.682, -0.145, 2.54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 14.5, 17, 19.733334, 22.833332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0), Vector3(0, 3.1415925, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 3.1415927, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/PaperDoor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.7666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_open"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Bunraku:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 14.733334, 21.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.74651194, -0.36385432, -2.3560343), Vector3(0.747, -0.364, 0.424), Vector3(0.747, -0.364, 4.219)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Environment/Bunraku/Yono:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 21.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.7978337, 0, -0.7942307), Vector3(-0.798, 0, -0.289)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/Bunraku/Kouya:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 21.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.7973585, 0, 0.7452836), Vector3(-0.797, 0, 0.075)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Bunraku/Yono/Body/Head:material_override:albedo_color")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 21.733334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Environment/Bunraku/Yono/Body:material_override:albedo_color")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 21.659786),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Environment/Bunraku/Kouya/Body:material_override:albedo_color")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 21.559786),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Environment/Bunraku/Kouya/Body/Head:material_override:albedo_color")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 21.059788),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Environment/UnderLight2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 5.066948),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/WhiteFade:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.8333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Label:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 25.029984),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/Label:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(25.029984, 26.872292),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6s8gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6817809, -0.14469008, -2.5201464)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Bunraku:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.74651194, -0.36385432, -2.3560343)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Bunraku/Yono:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.7978337, 0, -0.7942307)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Environment/Bunraku/Kouya:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.7973585, 0, 0.7452836)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/Bunraku/Yono/Body/Head:material_override:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/Bunraku/Yono/Body:material_override:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Environment/Bunraku/Kouya/Body:material_override:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Environment/Bunraku/Kouya/Body/Head:material_override:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Environment/UnderLight2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/WhiteFade:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Label:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Label:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6s8gq"]
+_data = {
+&"RESET": SubResource("Animation_6s8gq"),
+&"ending": SubResource("Animation_okmgd")
+}
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_i88uo")
 cycle_time = 300.0
@@ -264,12 +711,9 @@ light_energy = 0.094
 
 [node name="UnderLight2" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.6153509, -0.7880339, 0.018599197, 0.72747654, 0.5768326, 0.3715402, -0.3035149, -0.2150971, 0.92823064, -0.669474, 1.1072806, -0.9389304)
-light_color = Color(0.7907436, 0.61002094, 0.3827436, 1)
-light_energy = 4.221
-
-[node name="Player" parent="Environment" instance=ExtResource("5_mqnkd")]
-transform = Transform3D(-1, 0, -3.1786513e-08, 0, 1, 0, 3.1786513e-08, 0, -1, 0.5132642, -0.38461888, -2.4863129)
-move_speed = 1.5
+visible = false
+light_color = Color(0.7751164, 0.44772774, 0.36385527, 1)
+light_energy = 2.735
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7975901, -0.5528415, 1.1948941)
@@ -347,11 +791,12 @@ visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Environment/PaperDoor"]
 transform = Transform3D(0.585, 0, 0, 0, 0.6, 0, 0, 0, 0.61999995, 0.6126931, 0.7566063, -0.00963169)
+shaded = true
 texture_filter = 2
 texture = ExtResource("9_2s820")
 
 [node name="Bunraku" type="Node3D" parent="Environment"]
-transform = Transform3D(-3.256496e-08, 0, 0.74500006, 0, 0.74500006, 0, -0.74500006, 0, -3.256496e-08, 0.74651194, -0.4617295, -1.86479)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.74651194, -0.36385432, -2.3560343)
 
 [node name="Yono" type="AnimatableBody3D" parent="Environment/Bunraku" groups=["Interactable"]]
 transform = Transform3D(-4.3711385e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711385e-08, -0.7978337, 0, -0.7942307)
@@ -366,7 +811,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040527314, 0)
 shape = SubResource("CapsuleShape3D_v2uhp")
 
 [node name="Body" type="Sprite3D" parent="Environment/Bunraku/Yono"]
-material_override = SubResource("StandardMaterial3D_5rbg2")
+material_override = SubResource("StandardMaterial3D_okmgd")
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -377,7 +822,7 @@ frame = 1
 
 [node name="Head" type="Sprite3D" parent="Environment/Bunraku/Yono/Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-material_override = SubResource("StandardMaterial3D_5rbg2")
+material_override = SubResource("StandardMaterial3D_6s8gq")
 billboard = 2
 shaded = true
 alpha_cut = 2
@@ -401,7 +846,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
 shape = SubResource("CapsuleShape3D_v2uhp")
 
 [node name="Body" type="Sprite3D" parent="Environment/Bunraku/Kouya"]
-material_override = ExtResource("8_3t1sb")
+material_override = SubResource("StandardMaterial3D_f51g2")
 shaded = true
 double_sided = false
 alpha_cut = 2
@@ -412,7 +857,7 @@ frame = 1
 
 [node name="Head" type="Sprite3D" parent="Environment/Bunraku/Kouya/Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-material_override = ExtResource("8_3t1sb")
+material_override = SubResource("StandardMaterial3D_ayv77")
 billboard = 2
 shaded = true
 alpha_cut = 2
@@ -422,8 +867,6 @@ hframes = 4
 
 [node name="Lookat" type="Node" parent="Environment/Bunraku/Kouya/Body"]
 script = ExtResource("7_viskq")
-
-[node name="InspectCamera" type="Camera3D" parent="."]
 
 [node name="ScreenFire" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -461,6 +904,42 @@ hide_portrait = true
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), SubResource("RichTextEffect_q6ftn"), SubResource("RichTextEffect_5e1o8")])
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
+[node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -39.0
+offset_top = -28.0
+offset_right = 1165.0
+offset_bottom = 658.0
+mouse_filter = 2
+color = Color(1, 0.49636364, 0.4089629, 1)
+
+[node name="WhiteFade" type="ColorRect" parent="CanvasLayer/WhiteFade"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 1206.0
+offset_bottom = 695.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_right = 1151.0
+offset_bottom = 1000.0
+text = "The end"
+label_settings = SubResource("LabelSettings_6s8gq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextOverlay" parent="." instance=ExtResource("18_v2uhp")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6s8gq")
+}
+autoplay = "ending"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.6817809, -0.14469008, -2.5201464)
 
 [editable path="Environment/PaperDoor"]

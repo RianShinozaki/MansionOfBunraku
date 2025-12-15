@@ -29,4 +29,5 @@ func on_body_entered(_body: Node3D):
 func on_vault_entered(_body: Node3D):
 	Player.instance.fade_to_white()
 	await Player.instance.fade_complete
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file("res://Maps/Ending.tscn")
