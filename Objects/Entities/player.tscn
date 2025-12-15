@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://6hmil0dhqlfe"]
+[gd_scene load_steps=28 format=3 uid="uid://6hmil0dhqlfe"]
 
 [ext_resource type="Script" uid="uid://bkpln80cxq5j1" path="res://Scripts/Entities/Player/player.gd" id="1_y0qk3"]
 [ext_resource type="Texture2D" uid="uid://d310rwalofv1g" path="res://Art Assets/UIPointerCircle.png" id="2_2i4gt"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://crpw2b361pvxn" path="res://Art Assets/Loading Bar/progress-bar-bg.png" id="11_m2h7m"]
 [ext_resource type="Texture2D" uid="uid://cfmkwrwqdupxp" path="res://Art Assets/Loading Bar/progress-bar.png" id="12_67lg5"]
 [ext_resource type="Texture2D" uid="uid://bg7xbuvbqeamr" path="res://Art Assets/song_of_time_travel.png" id="13_timetravel"]
+[ext_resource type="Texture2D" uid="uid://dicun54gjf2dv" path="res://Art Assets/song_fate_symbol.png" id="14_ftmhe"]
 [ext_resource type="Shader" uid="uid://dkjlo2rm1yrf6" path="res://Shaders/drunk.gdshader" id="16_tyao8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8edix"]
@@ -304,12 +305,11 @@ offset_bottom = 16.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
-modulate = Color(1, 1, 1, 0.36862746)
 layout_mode = 0
 offset_left = 79.0
-offset_top = 142.0
+offset_top = 146.0
 offset_right = 175.5
-offset_bottom = 158.0
+offset_bottom = 162.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_8tll8")
@@ -318,10 +318,10 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 164.0
-offset_right = 129.0
-offset_bottom = 179.0
+offset_left = 126.0
+offset_top = 147.0
+offset_right = 142.0
+offset_bottom = 162.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_8tll8")
@@ -330,10 +330,10 @@ stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
 layout_mode = 0
-offset_left = 145.0
-offset_top = 185.0
-offset_right = 161.0
-offset_bottom = 200.0
+offset_left = 169.0
+offset_top = 147.0
+offset_right = 185.0
+offset_bottom = 162.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_8tll8")
@@ -342,10 +342,10 @@ stretch_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfStillness"]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 143.0
-offset_right = 198.0
-offset_bottom = 158.0
+offset_left = 206.0
+offset_top = 169.0
+offset_right = 222.0
+offset_bottom = 184.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_w48y6")
@@ -385,10 +385,10 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfTimeTravel"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 142.0
-offset_right = 129.0
-offset_bottom = 157.0
+offset_left = 99.0
+offset_top = 190.0
+offset_right = 115.0
+offset_bottom = 205.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_w48y6")
@@ -397,9 +397,9 @@ stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfTimeTravel"]
 layout_mode = 0
-offset_left = 145.0
+offset_left = 133.0
 offset_top = 164.0
-offset_right = 161.0
+offset_right = 149.0
 offset_bottom = 179.0
 scale = Vector2(2, 2)
 mouse_filter = 2
@@ -410,9 +410,9 @@ stretch_mode = 2
 [node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfTimeTravel"]
 layout_mode = 0
 offset_left = 182.0
-offset_top = 143.0
+offset_top = 164.0
 offset_right = 198.0
-offset_bottom = 158.0
+offset_bottom = 179.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("8_ka5ud")
@@ -422,9 +422,9 @@ stretch_mode = 2
 [node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfTimeTravel"]
 layout_mode = 0
 offset_left = 209.0
-offset_top = 185.0
+offset_top = 192.0
 offset_right = 225.0
-offset_bottom = 200.0
+offset_bottom = 207.0
 scale = Vector2(2, 2)
 mouse_filter = 2
 texture = ExtResource("7_w48y6")
@@ -438,6 +438,85 @@ offset_top = 103.0
 offset_right = 328.0
 offset_bottom = 138.0
 text = "Song of Time Travel"
+label_settings = SubResource("LabelSettings_w48y6")
+
+[node name="SongOfFate" type="Control" parent="CanvasLayer/Music Memory"]
+visible = false
+anchors_preset = 0
+offset_left = 820.0
+offset_top = 140.0
+offset_right = 860.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFate"]
+modulate = Color(1, 1, 1, 0.36862746)
+layout_mode = 0
+offset_left = 137.0
+offset_top = 142.0
+offset_right = 233.5
+offset_bottom = 158.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("14_ftmhe")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFate"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 190.0
+offset_right = 129.0
+offset_bottom = 205.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFate"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 164.0
+offset_right = 161.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("8_ka5ud")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFate"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 191.0
+offset_right = 198.0
+offset_bottom = 206.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_w48y6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Music Memory/SongOfFate"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 144.0
+offset_right = 225.0
+offset_bottom = 159.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("7_8tll8")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Music Memory/SongOfFate"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 103.0
+offset_right = 398.0
+offset_bottom = 138.0
+text = "Song of Fate"
 label_settings = SubResource("LabelSettings_w48y6")
 
 [node name="ThinkingBar" type="Control" parent="CanvasLayer"]
@@ -465,6 +544,7 @@ texture_under = ExtResource("11_m2h7m")
 texture_progress = ExtResource("12_67lg5")
 
 [node name="BlackWhiteOverlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_ftmhe")
 anchors_preset = 15
@@ -475,6 +555,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DrunkenOverlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_ftmhe")
 anchors_preset = 15
@@ -485,6 +566,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="WhiteFade" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_left = -39.0
 offset_top = -28.0
 offset_right = 1165.0
