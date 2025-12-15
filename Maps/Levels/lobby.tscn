@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dy5xkfkbtgqlx"]
+[gd_scene load_steps=17 format=3 uid="uid://dy5xkfkbtgqlx"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_7rmod"]
 [ext_resource type="Material" uid="uid://bywe2h5ftf5v5" path="res://Art Assets/Materials/House.tres" id="2_coq6y"]
 [ext_resource type="ArrayMesh" uid="uid://cbvitukvdmq21" path="res://Art Assets/Models/House_Lobby.obj" id="3_7m0ia"]
+[ext_resource type="Material" uid="uid://cbs0ki44qvarv" path="res://Art Assets/Materials/fire_overlay.tres" id="3_cxdk1"]
 [ext_resource type="ArrayMesh" uid="uid://csntonc04wxs0" path="res://Art Assets/Models/House_Hallway.obj" id="4_ywxda"]
 [ext_resource type="PackedScene" uid="uid://buarhq7t0osim" path="res://Objects/Decoration/chandelier.tscn" id="5_coq6y"]
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="6_7m0ia"]
@@ -30,6 +31,7 @@ script = ExtResource("1_7rmod")
 [node name="HouseHallway" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.181126, -4.7683716e-07, 0.7070384)
 material_override = ExtResource("2_coq6y")
+material_overlay = ExtResource("3_cxdk1")
 mesh = ExtResource("3_7m0ia")
 skeleton = NodePath("../..")
 
@@ -41,6 +43,7 @@ shape = SubResource("ConcavePolygonShape3D_baccv")
 [node name="HouseHallway2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.076868, -4.7683716e-07, -3.1322114)
 material_override = ExtResource("2_coq6y")
+material_overlay = ExtResource("3_cxdk1")
 mesh = ExtResource("4_ywxda")
 skeleton = NodePath("../..")
 
@@ -52,6 +55,7 @@ shape = SubResource("ConcavePolygonShape3D_72oe8")
 [node name="HouseHallway4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.077, 0, 9.668)
 material_override = ExtResource("2_coq6y")
+material_overlay = ExtResource("3_cxdk1")
 mesh = ExtResource("4_ywxda")
 skeleton = NodePath("../..")
 
@@ -63,6 +67,7 @@ shape = SubResource("ConcavePolygonShape3D_72oe8")
 [node name="HouseHallway3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.946177, -4.7683716e-07, 0.7070384)
 material_override = ExtResource("2_coq6y")
+material_overlay = ExtResource("3_cxdk1")
 mesh = ExtResource("4_ywxda")
 skeleton = NodePath("../..")
 

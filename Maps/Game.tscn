@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=34 format=3 uid="uid://8juywf5mne8w"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="Environment" uid="uid://htrgry67in5d" path="res://Environment Resources/mansion.tres" id="3_8rhjv"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dy5xkfkbtgqlx" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
 [ext_resource type="Script" uid="uid://dxrgmjawipave" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
 [ext_resource type="Script" uid="uid://ce578e84smgjq" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
+[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="18_8rhjv"]
+[ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="18_72oe8"]
+[ext_resource type="Material" uid="uid://cbs0ki44qvarv" path="res://Art Assets/Materials/fire_overlay.tres" id="19_baccv"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="33_nv3h5"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="34_ronf6"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="38_textoverlay"]
@@ -76,7 +79,7 @@ size = Vector3(16.348564, 2.8081055, 14.05876)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_duur3")
-cycle_time = 300.0
+cycle_time = 240.0
 meltdown_time = 30.0
 is_past_time = true
 
@@ -204,3 +207,21 @@ debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor"]
 shape = SubResource("WorldBoundaryShape3D_r1twq")
+
+[node name="FireEffects" type="Node3D" parent="." groups=["FireFX"]]
+script = ExtResource("18_72oe8")
+fire_geometry_material = ExtResource("19_baccv")
+
+[node name="Firelight2" type="SpotLight3D" parent="FireEffects"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.4, -0.90000004, 1.3000001)
+light_color = Color(0.92706263, 0.3577854, 0, 1)
+light_energy = 0.0
+spot_angle = 90.99
+
+[node name="Firelight1" type="DirectionalLight3D" parent="FireEffects"]
+transform = Transform3D(-1, -3.821371e-15, -8.742278e-08, -8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, -0.4, 3.1, 1.3000001)
+light_color = Color(0.94477975, 0.5544401, 0, 1)
+light_energy = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FireEffects"]
+stream = ExtResource("18_8rhjv")
