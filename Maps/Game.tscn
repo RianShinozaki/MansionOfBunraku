@@ -81,7 +81,6 @@ size = Vector3(16.348564, 2.8081055, 14.05876)
 script = ExtResource("1_duur3")
 cycle_time = 240.0
 meltdown_time = 30.0
-is_past_time = true
 
 [node name="SongOfStillnessListener" type="Node" parent="."]
 script = ExtResource("49_listener")

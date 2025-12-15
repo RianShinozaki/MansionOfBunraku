@@ -155,6 +155,12 @@ painting_artwork_alt = ExtResource("4_pd0vp")
 switch_texture_on_click = true
 spawn_apple_on_click = true
 
+[node name="ApplePainting_Fake" parent="Objects" instance=ExtResource("15_bqk1a")]
+transform = Transform3D(-0.00047127798, -0.0030019623, 0.9999954, -1.387779e-17, 0.9999955, 0.003001963, -0.9999996, 1.4147586e-06, -0.00047127574, 0.10537654, 1.5118175, -2.5644493)
+painting_artwork = ExtResource("4_pd0vp")
+painting_artwork_alt = ExtResource("4_pd0vp")
+switch_texture_on_click = true
+
 [node name="ShrineBowl1" parent="Objects" instance=ExtResource("16_rou6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2526422, 1.363244, -5.7799306)
 
@@ -307,7 +313,7 @@ dir = 1
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, 0.010104828)
 
 [node name="YonoPainting" parent="Objects" instance=ExtResource("24_luy6v")]
-transform = Transform3D(-3.4149522e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.4149522e-08, 0.035545513, 1.376065, -1.4962835)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.54260266, 1.3975422, -5.9793105)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("25_pd0vp")
@@ -315,7 +321,7 @@ painting_artwork_alt = ExtResource("26_tfhdh")
 dialogue_id = "yono_painting_ceremony"
 
 [node name="KouyaPainting" parent="Objects" instance=ExtResource("24_luy6v")]
-transform = Transform3D(-3.414952e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.414952e-08, 0.05019572, 1.376122, -4.4835725)
+transform = Transform3D(0.78125, 0, -2.7755576e-15, 0, 0.78125, 0, 2.7755576e-15, 0, 0.78125, 4.5123444, 1.376122, -5.971022)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("27_nvkic")
