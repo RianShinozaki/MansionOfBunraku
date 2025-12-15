@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://tk7nyllfewuj" path="res://Scripts/Items/shamisen.gd" id="1_x51mr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x51mr"]
+size = Vector3(0.3656006, 1, 0.10479736)
 
 [node name="Shamisen" type="RigidBody3D" groups=["Item", "Shamisen"]]
 collision_layer = 4
@@ -11,6 +12,7 @@ collision_mask = 5
 script = ExtResource("1_x51mr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04864502, 0, -0.014190674)
 shape = SubResource("BoxShape3D_x51mr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

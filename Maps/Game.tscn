@@ -84,7 +84,6 @@ size = Vector3(16.348564, 2.8081055, 14.05876)
 script = ExtResource("1_duur3")
 cycle_time = 300.0
 meltdown_time = 30.0
-is_past_time = true
 
 [node name="SongOfStillnessListener" type="Node" parent="."]
 script = ExtResource("49_listener")
@@ -93,9 +92,9 @@ script = ExtResource("49_listener")
 environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(0.99998677, 0, -0.0051659867, 0, 1, 0, 0.0051659867, 0, 0.99998677, 24.984, 0.383, 1.275)
+transform = Transform3D(-0.005166031, 0, -0.99998677, 0, 1, 0, 0.99998677, 0, -0.005166031, -1.3147209, 0.383, 1.275)
 move_speed = 1.5
-holding_shamisen = true
+do_intro = true
 
 [node name="InspectCamera" type="Camera3D" parent="."]
 
