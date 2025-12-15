@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbqobktqh0xna"]
+[gd_scene load_steps=36 format=3 uid="uid://cbqobktqh0xna"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_owein"]
 [ext_resource type="ArrayMesh" uid="uid://cx5lqu1ou1787" path="res://Art Assets/Models/CeremonyRoom.obj" id="2_3v8r1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnnkggbkq1d8" path="res://Objects/Items/shrine_sake.tscn" id="8_yghvx"]
 [ext_resource type="PackedScene" uid="uid://b7sh0tn0htn6u" path="res://Objects/Items/lowTable3DnoFruit.tscn" id="10_bwqu8"]
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="12_pr7wi"]
+[ext_resource type="Texture2D" uid="uid://or26adls8bpc" path="res://Art Assets/Paintings/yoroi-shadow-painting.png" id="22_fxafp"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="22_sxes0"]
 [ext_resource type="Resource" uid="uid://bat7fmvfu8fmt" path="res://Dialogue/kitsune_hints.tres" id="23_kshki"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="24_bxfh6"]
@@ -23,9 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="28_5jbmd"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="29_23oy3"]
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="30_7u3bv"]
-[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="31_d1fwf"]
 [ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="31_ngbfk"]
-[ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="32_lfyx2"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="32_umbox"]
 [ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="35_ayjef"]
 [ext_resource type="PackedScene" uid="uid://b6cl4ho1idcov" path="res://Objects/Entities/yoroi_ceremony_past.tscn" id="38_2fioi"]
@@ -228,8 +227,8 @@ dialogue_id = "yono_painting_ceremony"
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.5123444, 1.376122, -5.971022)
 painting_frame_texture = null
 painting_frame_heightmap = null
-painting_artwork = ExtResource("31_d1fwf")
-painting_artwork_alt = ExtResource("32_lfyx2")
+painting_artwork = ExtResource("22_fxafp")
+painting_artwork_alt = ExtResource("22_fxafp")
 dialogue_id = "kouya_painting_ceremony"
 
 [node name="Candles" type="Node3D" parent="Objects"]
