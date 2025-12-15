@@ -71,6 +71,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8rhjv")
 
+[node name="HouseHallway6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.946177, -4.7683716e-07, 0.7070384)
+material_override = ExtResource("2_coq6y")
+mesh = ExtResource("4_ywxda")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HouseHallway6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseHallway6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8rhjv")
+
 [node name="HouseHallway5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.30405, -4.7683716e-07, 0.7070384)
 material_override = ExtResource("2_coq6y")
@@ -93,6 +104,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.029906, 1.454416, -1.89996
 [node name="Chandelier3" parent="Objects" instance=ExtResource("5_coq6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.029906, 1.454416, 3.3320494)
 
+[node name="Chandelier4" parent="Objects" instance=ExtResource("5_coq6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.29091, 1.454416, 0.47123575)
+
 [node name="Candle" parent="Objects" instance=ExtResource("6_7m0ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.120235, -0.0037938952, -6.680999)
 
@@ -110,6 +124,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6358685, -0.0037938952, -0.
 
 [node name="Candle4" parent="Objects" instance=ExtResource("6_7m0ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3774056, -0.0037938952, 1.5262151)
+
+[node name="Candle15" parent="Objects" instance=ExtResource("6_7m0ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.034712, -0.0037938952, -0.065783024)
+
+[node name="Candle16" parent="Objects" instance=ExtResource("6_7m0ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.776249, -0.0037938952, 1.5262151)
 
 [node name="Candle5" parent="Objects" instance=ExtResource("6_7m0ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.037579, -0.0037938952, 4.0026565)
