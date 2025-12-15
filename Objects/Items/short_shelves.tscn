@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://no2gwjexud86"]
+
+[ext_resource type="ArrayMesh" uid="uid://bq8befjpbx1ww" path="res://Art Assets/Models/short_shelves.obj" id="1_iefll"]
+[ext_resource type="Texture2D" uid="uid://demfik0w8txmt" path="res://Art Assets/Models/short_shelves_0.png" id="2_texture"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_short_shelves"]
+albedo_texture = ExtResource("2_texture")
+texture_filter = 2
+disable_receive_shadows = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iefll"]
+points = PackedVector3Array(1.28, 0.40000004, 0, 1.28, -0.7200783, 0, 1.28, 0.40000004, -0.32, 0, 0.40000004, 0, 1.2499294, -0.84, -0.020015687, 1.28, -0.7200783, -0.32, 0, -0.7200783, 0, 0, 0.40000004, -0.32, 1.2499294, -0.84, -0.30001566, 0.01992169, -0.84, -0.020015687, 0, -0.7200783, -0.32, 0.01992169, -0.84, -0.30001566)
+
+[node name="ShortShelves" type="MeshInstance3D"]
+mesh = ExtResource("1_iefll")
+surface_material_override/0 = SubResource("StandardMaterial3D_short_shelves")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_iefll")

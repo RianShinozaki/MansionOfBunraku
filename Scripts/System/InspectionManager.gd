@@ -88,6 +88,10 @@ func exit_inspect(target_position: Vector3 = Vector3.INF):
 	if current_mode != Mode.INSPECT:
 		return
 	
+	# Notify the current inspect target (if it cares) that we are exiting
+	if current_inspect_target and current_inspect_target.has_method("on_exit_inspect"):
+		current_inspect_target.on_exit_inspect()
+	
 	# Re-enable player
 	player.active = true
 	

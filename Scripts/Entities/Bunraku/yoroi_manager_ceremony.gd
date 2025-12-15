@@ -1,4 +1,4 @@
-extends BunrakuManager
+extends BunrakuManagerCBody
 
 @export var body_offset: Vector3
 @export var time_between_turns: float
@@ -7,6 +7,9 @@ extends BunrakuManager
 @export var normal_light_color: Color
 @export var evil_light_color: Color
 
+@export var sake_games: Array[DrunkYoroiGame] 
+@export var drunkness: float
+@export var max_drunkenness: float
 var turn_time_counter: float
 var physics_delta: float
 var orig_y: float
@@ -28,6 +31,8 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	
+	
+	
 	if not active: return
 	$Yoroi.position = Vector3(0,0,0)
 	
@@ -42,15 +47,67 @@ func _physics_process(_delta):
 			$Yoroi.active = false
 			$YoroiBackside.visible = true
 			$"../../Objects/Chandelier/OmniLight3D".light_color = normal_light_color
+			$Yoroi/Feedback2.stop()
 			
+			var _sake_games_filled: Array[DrunkYoroiGame]
+			for game in sake_games:
+				if game.get_node("SakazukiCup").current_fill_level > 0:
+					_sake_games_filled.append(game)
+			
+			if _sake_games_filled.is_empty():
+				position.z = randf_range(-1.4, -6.4)
+				position.x = randf_range(1, 5)	
+				$YoroiBackside/Body.frame = 0
+			else:
+				_sake_games_filled.shuffle()
+				var _the_game: DrunkYoroiGame = _sake_games_filled[0]
+				global_position.z = _the_game.global_position.z
+				global_position.x = _the_game.global_position.x
+				position = position.move_toward( Vector3(3.193, 0.373, -4.598), 0.6 )
+				drunkness += _the_game.get_node("SakazukiCup").current_fill_level
+				$Slurp.play()
+				_the_game.get_node("SakazukiCup").empty_cup()
+				Player.instance.set_drunken_level_tweened(drunkness/20)
+				$YoroiBackside/Body.frame = 1
+				_the_game.visible = false
+				_the_game.remove_from_group("Interactable")
+				if _the_game.current_state != DrunkYoroiGame.GameState.HIDDEN:
+					print("force exit inspect")
+					InspectionManager.exit_inspect()
 		else:
-			looking_forward = true
-			$Yoroi.visible = true
-			$Yoroi.active = true
-			$YoroiBackside.visible = false
-			$"../../Objects/Chandelier/OmniLight3D".light_color = evil_light_color
-			
+			if drunkness < max_drunkenness:
+				looking_forward = true
+				$Yoroi.visible = true
+				$Yoroi.active = true
+				$YoroiBackside.visible = false
+				$"../../Objects/Chandelier/OmniLight3D".light_color = evil_light_color
+				$Yoroi/Feedback2.play()
+				for game in sake_games:
+					game.visible = true
+					game.add_to_group("Interactable")
+			else:
+				active = false
+				$YoroiBackside.visible = false
+				for game in sake_games:
+					game.visible = true
+					game.add_to_group("Interactable")
+				$YoroiFloored.visible = true
+				Player.instance.set_drunken_level_tweened(0)
+				Player.instance.get_node("Camera3D").shaking = true
+				$Collapse.play()
+				await get_tree().create_timer(0.2).timeout
+				Player.instance.get_node("Camera3D").shaking = false
+				
 	
+	#Drunken shuffling
+	velocity.z += randf_range(-drunkness * 0.01, drunkness * 0.01)
+	velocity.x += randf_range(-drunkness * 0.01, drunkness * 0.01)
+	
+	velocity.z = clamp(velocity.z, -drunkness*0.4, drunkness*0.4)
+	velocity.x = clamp(velocity.x, -drunkness*0.4, drunkness*0.4)
+	
+	move_and_slide()
+					
 func light_flicker():
 	var _distance_to_player = global_position.distance_to(Player.instance.global_position)
 	var _do_light_flicker: bool = false
