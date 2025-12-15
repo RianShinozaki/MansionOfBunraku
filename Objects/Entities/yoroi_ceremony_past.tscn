@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6cl4ho1idcov"]
+[gd_scene load_steps=24 format=3 uid="uid://b6cl4ho1idcov"]
 
 [ext_resource type="Script" uid="uid://cmt70ef4yku6g" path="res://Scripts/Entities/Bunraku/yoroi_manager_ceremony.gd" id="1_4b0hm"]
 [ext_resource type="Script" uid="uid://4v3irnfc5n3e" path="res://Scripts/Entities/Bunraku/yoroi_ceremony.gd" id="2_4b0hm"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ct1h865q6fk24" path="res://Audio/yoroi_eerie.mp3" id="9_mcx5o"]
 [ext_resource type="AudioStream" uid="uid://b4litghd6k21y" path="res://Audio/jumpscare.mp3" id="10_7mxx8"]
 [ext_resource type="AudioStream" uid="uid://csfmta6fyuoje" path="res://Audio/slurp.wav" id="11_fwtu0"]
+[ext_resource type="AudioStream" uid="uid://c4mdjiddwusc6" path="res://Audio/collapse.wav" id="12_whusu"]
 [ext_resource type="Texture2D" uid="uid://d1voiba8rgysk" path="res://Art Assets/Yoroi/YoroiBack.png" id="12_wqjgf"]
 [ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="13_whusu"]
 [ext_resource type="Texture2D" uid="uid://coqb3oc4cyciy" path="res://Art Assets/Yoroi/Yoroi-e.png" id="14_mcx5o"]
@@ -66,6 +67,7 @@ body_offset = Vector3(0, 0.15, 0)
 time_between_turns = 8.0
 normal_light_color = Color(0.8980392, 0.6509804, 0.6, 1)
 evil_light_color = Color(1, 0, 0, 1)
+max_drunkenness = 0.1
 bunraku = NodePath("Yoroi")
 
 [node name="Yoroi" type="AnimatableBody3D" parent="." groups=["Bunraku"]]
@@ -148,6 +150,11 @@ stream = ExtResource("11_fwtu0")
 volume_db = 2.909
 pitch_scale = 1.15
 
+[node name="Collapse" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_whusu")
+volume_db = 2.909
+pitch_scale = 1.15
+
 [node name="YoroiBackside" type="Node3D" parent="." groups=["Bunraku"]]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
 visible = false
@@ -164,6 +171,20 @@ hframes = 2
 
 [node name="Node" type="Node" parent="YoroiBackside/Body"]
 script = ExtResource("5_iylqf")
+
+[node name="YoroiFloored" type="Node3D" parent="." groups=["Bunraku"]]
+transform = Transform3D(-0.8833459, -7.722455e-08, 0.51, 8.917123e-08, -1.02, 0, 0.51, 4.4585615e-08, 0.8833459, 0, -0.55, 0)
+visible = false
+
+[node name="Body" type="Sprite3D" parent="YoroiFloored"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.25490192, 0)
+material_override = SubResource("StandardMaterial3D_avdyd")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("12_wqjgf")
+hframes = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

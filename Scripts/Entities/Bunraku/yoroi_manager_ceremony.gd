@@ -9,6 +9,7 @@ extends BunrakuManagerCBody
 
 @export var sake_games: Array[DrunkYoroiGame] 
 @export var drunkness: float
+@export var max_drunkenness: float
 var turn_time_counter: float
 var physics_delta: float
 var orig_y: float
@@ -74,15 +75,29 @@ func _physics_process(_delta):
 					print("force exit inspect")
 					InspectionManager.exit_inspect()
 		else:
-			looking_forward = true
-			$Yoroi.visible = true
-			$Yoroi.active = true
-			$YoroiBackside.visible = false
-			$"../../Objects/Chandelier/OmniLight3D".light_color = evil_light_color
-			$Yoroi/Feedback2.play()
-			for game in sake_games:
-				game.visible = true
-				game.add_to_group("Interactable")
+			if drunkness < max_drunkenness:
+				looking_forward = true
+				$Yoroi.visible = true
+				$Yoroi.active = true
+				$YoroiBackside.visible = false
+				$"../../Objects/Chandelier/OmniLight3D".light_color = evil_light_color
+				$Yoroi/Feedback2.play()
+				for game in sake_games:
+					game.visible = true
+					game.add_to_group("Interactable")
+			else:
+				active = false
+				$YoroiBackside.visible = false
+				for game in sake_games:
+					game.visible = true
+					game.add_to_group("Interactable")
+				$YoroiFloored.visible = true
+				Player.instance.set_drunken_level_tweened(0)
+				Player.instance.get_node("Camera3D").shaking = true
+				$Collapse.play()
+				await get_tree().create_timer(0.2).timeout
+				Player.instance.get_node("Camera3D").shaking = false
+				
 	
 	#Drunken shuffling
 	velocity.z += randf_range(-drunkness * 0.01, drunkness * 0.01)

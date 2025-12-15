@@ -305,7 +305,7 @@ material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
 [node name="FireWall3" type="MeshInstance3D" parent="FireEffects"]
-transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.59999985, 0.40000004, 4.4)
+transform = Transform3D(-6.761999, -1.6085797e-07, 0, 5.9115274e-07, -1.8400007, 0, -3.2684965e-14, -1.2705494e-21, 0.9999998, -0.60207033, 0.398398, 4.4012537)
 material_override = SubResource("ShaderMaterial_muv74")
 mesh = SubResource("QuadMesh_gpbpg")
 
