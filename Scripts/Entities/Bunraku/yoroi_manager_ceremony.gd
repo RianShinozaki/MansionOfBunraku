@@ -99,6 +99,7 @@ func _physics_process(_delta):
 				$YoroiFloored.visible = true
 				Player.instance.set_drunken_level_tweened(0)
 				Player.instance.get_node("Camera3D").shaking = true
+				$"../../Objects/KouyaPainting".switch_to_alt_tex()
 				$Collapse.play()
 				await get_tree().create_timer(0.2).timeout
 				Player.instance.get_node("Camera3D").shaking = false
