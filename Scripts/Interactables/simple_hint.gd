@@ -1,23 +1,17 @@
 extends Node3D
-@export var dialogue_data: DialogueData
 
-func _ready() -> void:
-	$DoorOpenTrigger.body_entered.connect(on_body_entered)
-	
-func on_body_entered(_body: Node3D):
+@export var dialogue_data: DialogueData
+@export var dialogue_id: String
+
+func can_interact() -> bool:
+	return InspectionManager.current_mode == InspectionManager.Mode.PLAY
+
+func on_interact():
 	var _dialogue_box: DialogueBox = DialogueBox.instance
 	_dialogue_box.data = dialogue_data
-	_dialogue_box.start("yoroi")
+	_dialogue_box.start(dialogue_id)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
 	await _dialogue_box.dialogue_ended
-	
-	Player.instance.fade_from_white()
-	visible = true
-	$AudioStreamPlayer.play()
-	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	InspectionManager.current_mode = InspectionManager.Mode.PLAY
-	
-	$DoorOpenTrigger/CollisionShape3D.disabled = true
-	$StaticBody3D2/CollisionShape3D.disabled = false
