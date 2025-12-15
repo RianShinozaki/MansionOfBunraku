@@ -89,7 +89,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(359.9994, 399.9994),
+"size": Vector2(359.99936, 399.9994),
 "speaker": ""
 },
 &"1_12": {
@@ -103,7 +103,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360, 379.9994),
+"size": Vector2(360.00003, 379.9994),
 "speaker": ""
 },
 &"1_13": {
@@ -131,7 +131,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(339.99988, 459.99988),
+"size": Vector2(339.99985, 459.99988),
 "speaker": ""
 },
 &"1_15": {
@@ -145,7 +145,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(359.99982, 459.99988),
+"size": Vector2(359.9998, 459.99988),
 "speaker": ""
 },
 &"1_16": {
@@ -173,7 +173,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(320, 379.99982),
+"size": Vector2(319.99997, 379.99982),
 "speaker": ""
 },
 &"1_18": {
@@ -187,7 +187,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(419.99957, 399.99982),
+"size": Vector2(419.99954, 399.99982),
 "speaker": ""
 },
 &"1_19": {
@@ -197,11 +197,11 @@ You realize you know her, though you don’t remember how. ",
 "options": {
 0: {
 "condition": {},
-"link": &"1_20",
+"link": &"1_22",
 "text": ""
 }
 },
-"size": Vector2(459.99988, 460.00037),
+"size": Vector2(459.99985, 460.00037),
 "speaker": ""
 },
 &"1_2": {
@@ -216,13 +216,13 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(300.00018, 575.99976),
+"size": Vector2(300.00015, 575.99976),
 "speaker": ""
 },
 &"1_20": {
 "audio_clip": null,
 "dialogue": "[color=\"red\"]He's here, now, and he's looking for you. [/color]",
-"offset": Vector2(680, 3320),
+"offset": Vector2(1000, 3320),
 "options": {
 0: {
 "condition": {},
@@ -230,13 +230,13 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00012, 440),
+"size": Vector2(360.00015, 440),
 "speaker": ""
 },
 &"1_21": {
 "audio_clip": null,
 "dialogue": "[color=\"red\"]You should run.[/color]",
-"offset": Vector2(1060, 3360),
+"offset": Vector2(1380, 3360),
 "options": {
 0: {
 "condition": {},
@@ -244,7 +244,21 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(300.00006, 268),
+"size": Vector2(300.00012, 268),
+"speaker": ""
+},
+&"1_22": {
+"audio_clip": null,
+"dialogue": "His name is Yoroi. Son of a wealthy merchant family. Yono's promised husband.",
+"offset": Vector2(680, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300.00003, 460),
 "speaker": ""
 },
 &"1_3": {
@@ -258,7 +272,7 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00037, 575.99976),
+"size": Vector2(360.0004, 575.99976),
 "speaker": ""
 },
 &"1_4": {
@@ -273,7 +287,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(379.99957, 576.0005),
+"size": Vector2(379.99954, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -287,7 +301,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(300.00018, 576.0005),
+"size": Vector2(300.00015, 576.0005),
 "speaker": ""
 },
 &"1_6": {
@@ -302,7 +316,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00037, 576.0005),
+"size": Vector2(340.0004, 576.0005),
 "speaker": ""
 },
 &"1_7": {
@@ -330,7 +344,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(359.99963, 420),
+"size": Vector2(359.9996, 420),
 "speaker": ""
 },
 &"1_9": {
@@ -344,7 +358,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00024, 420),
+"size": Vector2(340.00027, 420),
 "speaker": ""
 }
 }

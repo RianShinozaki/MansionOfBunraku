@@ -13,6 +13,9 @@ func _ready() -> void:
 func force_outside_environment():
 	environment_node.environment = outside_environment
 
+func force_inside_environment():
+	environment_node.environment = inside_environment
+	
 func set_environment_conditional():
 	if Player.instance.global_position.z > door_reference.global_position.z:
 		environment_node.environment = outside_environment

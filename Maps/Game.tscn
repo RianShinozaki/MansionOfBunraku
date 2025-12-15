@@ -72,8 +72,8 @@ size = Vector3(18, 2.808, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8rhjv"]
 size = Vector3(21.526665, 2.8081055, 24.400503)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_treasury"]
-size = Vector3(15, 2.8081055, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_baccv"]
+size = Vector3(16.814941, 2.8081055, 12.943237)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1twq"]
 size = Vector3(16.348564, 2.8081055, 14.05876)
@@ -200,8 +200,8 @@ script = ExtResource("16_r1twq")
 room_path = "res://Maps/Levels/treasury.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/TreasuryLoadZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.044529, 0.90405273, 0.44811034)
-shape = SubResource("BoxShape3D_treasury")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.137058, 0.90405273, 1.2048852)
+shape = SubResource("BoxShape3D_baccv")
 debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
 
 [node name="LobbyFogZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("environment")]

@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="15_yds3c"]
 [ext_resource type="PackedScene" path="res://Objects/Effects/courtesan_shadow_side.tscn" id="16_j1tjy"]
 [ext_resource type="PackedScene" uid="uid://c0c825m53d50m" path="res://Objects/Entities/time_statue.tscn" id="16_soosd"]
-[ext_resource type="Texture2D" uid="uid://or26adls8bpc" path="res://Art Assets/Paintings/yoroi-shadow-painting.png" id="16_tps88"]
 [ext_resource type="Texture2D" uid="uid://c60nrybvrlsvl" path="res://Art Assets/Paintings/yoroi-painting.png" id="17_bg4w7"]
 [ext_resource type="Script" uid="uid://b6toneowrkl4r" path="res://Scripts/Environment/outdoors_environment_swapper.gd" id="17_mf3jw"]
 [ext_resource type="PackedScene" path="res://Objects/Effects/courtesan_shadow_front.tscn" id="17_q4vb2"]
@@ -71,6 +70,9 @@ flip_faces = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dba84"]
 size = Vector3(22.908264, 5.569214, 17.835938)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yds3c"]
+size = Vector3(5.058, 5.569, 1.436)
 
 [node name="MazeLevel" type="Node3D"]
 script = ExtResource("1_room")
@@ -182,10 +184,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8681352, 0.046215832, 0.59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559785, 0.046215832, 1.170334)
 
 [node name="KouyaPainting" parent="Objects/GateArea" instance=ExtResource("15_yds3c")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, -2.0461354, 0.62767744, -1.4357147)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, -2.0461354, 0.717963, -1.4357147)
 painting_frame_texture = null
 painting_frame_heightmap = null
-painting_artwork = ExtResource("16_tps88")
+painting_artwork = ExtResource("17_bg4w7")
 painting_artwork_alt = ExtResource("17_bg4w7")
 dialogue_id = "yoroi_maze"
 
@@ -906,6 +908,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0985413, 2.284607, -8.4179
 shape = SubResource("BoxShape3D_dba84")
 debug_color = Color(0.99196154, 0, 0.26477483, 0.41960785)
 
+[node name="ExitEnvironmentZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.555138, 0, 5.4271865)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitEnvironmentZone"]
+shape = SubResource("BoxShape3D_yds3c")
+debug_color = Color(0.99196154, 0, 0.26477483, 0.41960785)
+
 [node name="Wind" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6648164, 0, -8.075573)
 stream = ExtResource("28_trj0u")
@@ -933,3 +944,4 @@ panning_strength = 0.0
 [connection signal="body_entered" from="Objects/GateArea/PaperDoors/Area3D" to="Objects/GateArea/PaperDoors" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Objects/GateArea/PaperDoors/Area3D" to="Objects/GateArea/PaperDoors" method="_on_area_3d_body_exited"]
 [connection signal="all_notes_collected" from="MazeNoteCollectionManager" to="SongDisplay" method="show_song_display"]
+[connection signal="body_entered" from="ExitEnvironmentZone" to="OutdoorsEnvironmentSwapper" method="force_inside_environment" unbinds=1]
