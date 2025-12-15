@@ -10,6 +10,11 @@ extends BunrakuManagerCBody
 @export var sake_games: Array[DrunkYoroiGame] 
 @export var drunkness: float
 @export var max_drunkenness: float
+
+@export var dialogue_data: DialogueData
+var NoteScene = preload("res://Objects/Items/music_note.tscn")
+
+var song_sequence: Array[int]
 var turn_time_counter: float
 var physics_delta: float
 var orig_y: float
@@ -21,7 +26,7 @@ signal movement_ready
 func _ready() -> void:
 	orig_y = global_position.y
 	active = true
-	
+	song_sequence = Player.SONG_OF_FATE
 	looking_forward = false
 	$Yoroi.visible = false
 	$Yoroi.active = false
@@ -98,7 +103,25 @@ func _physics_process(_delta):
 				await get_tree().create_timer(0.2).timeout
 				Player.instance.get_node("Camera3D").shaking = false
 				
-	
+				await get_tree().create_timer(4).timeout
+				$Yoroi.appearance_update()
+				$"../../Objects/Yono".visible = true
+				$"../../Objects/Yono/CollisionShape3D".disabled = false
+				$"../../Objects/YonoPainting".switch_to_alt_tex()
+				
+				await get_tree().create_timer(4).timeout
+				var _dialogue_box: DialogueBox = DialogueBox.instance
+				_dialogue_box.data = dialogue_data
+				_dialogue_box.start("thankyou")
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				InspectionManager.current_mode = InspectionManager.Mode.DIALOGUE
+				await _dialogue_box.dialogue_ended
+				
+				give_song_of_fate()
+				
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				InspectionManager.current_mode = InspectionManager.Mode.PLAY
+				
 	#Drunken shuffling
 	velocity.z += randf_range(-drunkness * 0.01, drunkness * 0.01)
 	velocity.x += randf_range(-drunkness * 0.01, drunkness * 0.01)
@@ -136,3 +159,52 @@ func jumpscare():
 	$Yoroi.top_level = false
 	$Yoroi.global_transform.origin = global_transform.origin + body_offset
 	super.jumpscare()
+
+func give_song_of_fate():
+	
+	# Get reference to player's camera for spawning notes
+	var player = Player.instance
+	if not player:
+		push_warning("Player instance not found, cannot spawn music notes")
+		return
+	
+	var camera = player.get_node("Camera3D")
+	if not camera:
+		push_warning("Player camera not found, cannot spawn music notes")
+		return
+	
+	# Spawn all notes in the song sequence [3, 3, 3, 1]
+	var note_index = 0
+	for note_value in song_sequence:
+		var note_instance = NoteScene.instantiate()
+		
+		# Hide note initially to prevent flash at wrong position
+		note_instance.visible = false
+		
+		camera.add_child(note_instance)
+		
+		# Wait for _ready() to complete
+		await get_tree().process_frame
+		
+		# Now set the correct position, scale, and rotation (overriding values from _ready())
+		note_instance.position = Vector3((note_index - 1.5) * 0.15, 0, -0.3)
+		note_instance.scale = Vector3(0.1, 0.1, 1)  # Smaller scale
+		note_instance.rotation_degrees = Vector3(0, 0, 0)  # Make notes straight, not rotated
+		
+		# Make visible now that position is correct
+		note_instance.visible = true
+		# Show note visuals with playing audio)
+		note_instance.spawn_note(note_value, true)
+		note_index += 1
+		
+		# Half second delay between notes
+		await get_tree().create_timer(0.5).timeout
+	
+	# Add song to Music Memory UI
+	var song_ui = player.get_node_or_null("CanvasLayer/Music Memory/SongOfFate")
+	if song_ui:
+		song_ui.visible = true
+		song_ui.modulate.a = 1.0  # Set to fully visible immediately
+		
+	# Mark the song as acquired so it can be played
+	Player.song_of_fate_acquired = true

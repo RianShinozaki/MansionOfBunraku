@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://cywb5rg3dpmnm"]
+[gd_scene load_steps=40 format=3 uid="uid://cywb5rg3dpmnm"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_room"]
 [ext_resource type="ArrayMesh" uid="uid://cxfqmpgt53jxq" path="res://Art Assets/Models/maze.obj" id="2_maze"]
+[ext_resource type="Material" uid="uid://cbs0ki44qvarv" path="res://Art Assets/Materials/fire_overlay.tres" id="3_8u50u"]
 [ext_resource type="Material" uid="uid://bpf5n5ekfyr31" path="res://Art Assets/Materials/Maze.tres" id="3_material"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="4_m5dp3"]
 [ext_resource type="Material" uid="uid://c8qxm4j3r5pq1" path="res://Art Assets/Materials/Maze_1.tres" id="4_material_1"]
@@ -92,6 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142084, 0.08728027, 0.480
 navigation_mesh = SubResource("NavigationMesh_dba84")
 
 [node name="Maze" type="MeshInstance3D" parent="NavigationRegion3D"]
+material_overlay = ExtResource("3_8u50u")
 mesh = ExtResource("2_maze")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("3_material")

@@ -1,6 +1,7 @@
 shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 uniform float wiggleMult:hint_range(0.0, 0.1, 0.0001)=0.005;
+uniform float grey_level;
 
 void fragment( ){
 //	set up
@@ -17,4 +18,7 @@ void fragment( ){
 
 
     COLOR = vec4(color,1.0);
+
+	vec3 greyscale = vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b);
+	COLOR.rgb = mix(COLOR.rgb, greyscale, grey_level);
 }

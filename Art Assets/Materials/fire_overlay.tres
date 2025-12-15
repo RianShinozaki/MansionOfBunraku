@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbs0ki44qvarv"]
+
+[ext_resource type="Shader" uid="uid://dp5xl05onrytk" path="res://Shaders/FireWall_Flipped.gdshader" id="1_nou0k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nou0k")
+shader_parameter/use_texture_noise = false
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 0.0
+shader_parameter/fire_speed = Vector2(0, 1)
+shader_parameter/fire_aperture = 0.4850000230375
+shader_parameter/emissive_power = 4.9210002099975
+shader_parameter/color_bands = 10

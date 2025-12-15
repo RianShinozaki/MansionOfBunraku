@@ -65,7 +65,7 @@ void fragment() {
 	float height = 1.0 - UV.y;
 
 	// Calculate fire intensity - flames are strong at bottom, fade at top
-	float noise = height * (((height + fire_aperture) * fire_noise - fire_aperture) * 75.0);
+	float noise = -height * (((height + fire_aperture) * fire_noise - fire_aperture) * 75.0);
 
 	// Separate alpha (smooth) from color temperature (bandable)
 	float alpha_value = clamp(noise, 0.0, 1.0);
