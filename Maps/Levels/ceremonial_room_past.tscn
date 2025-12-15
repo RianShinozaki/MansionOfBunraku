@@ -170,12 +170,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0533142, 1.4982564, -4.7766
 mass = 1.0
 
 [node name="KitsuneSmallLeft" parent="Objects" instance=ExtResource("22_sxes0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 1.2905266, -5.8941684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 0.20770933, -5.8941684)
 default_dialogue_id = "kitsune_left"
 environmental_dialogues = ExtResource("23_kshki")
 
 [node name="KitsuneSmallRight" parent="Objects" instance=ExtResource("22_sxes0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.024764, 1.2905266, -5.8941684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.024764, 0.20770933, -5.8941684)
 facing_left = true
 default_dialogue_id = "kitsune_right"
 environmental_dialogues = ExtResource("23_kshki")

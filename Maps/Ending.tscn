@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cefjxjyxnyhd3"]
+[gd_scene load_steps=75 format=3 uid="uid://cefjxjyxnyhd3"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_i88uo"]
 [ext_resource type="Texture2D" uid="uid://cj1rwxfai6apc" path="res://Art Assets/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_32c4f"]
@@ -339,9 +339,13 @@ script = ExtResource("17_ppk0n")
 font = ExtResource("26_okmgd")
 font_size = 56
 
+[sub_resource type="LabelSettings" id="LabelSettings_okmgd"]
+font = ExtResource("26_okmgd")
+font_size = 44
+
 [sub_resource type="Animation" id="Animation_okmgd"]
 resource_name = "ending"
-length = 30.0
+length = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -495,7 +499,7 @@ tracks/12/path = NodePath("CanvasLayer/Label:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 25.029984),
+"times": PackedFloat32Array(0, 54.466667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -507,10 +511,58 @@ tracks/13/path = NodePath("CanvasLayer/Label:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(25.029984, 26.872292),
+"times": PackedFloat32Array(54.466667, 56.308975),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/Credits:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 24.856707),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/Credits:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(24.856707, 26.819078, 32.86825, 34.830624),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/Credits2:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(35.75877, 37.067017, 41.2098, 43.166668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/Credits3:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(43.390213, 45.366665, 49.933334, 51.459625),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6s8gq"]
@@ -666,6 +718,54 @@ tracks/12/path = NodePath("CanvasLayer/Label:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/Credits:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/Credits:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/Credits2:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/Credits3:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -928,6 +1028,42 @@ offset_right = 1151.0
 offset_bottom = 1000.0
 text = "The end"
 label_settings = SubResource("LabelSettings_6s8gq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_right = 1151.0
+offset_bottom = 1000.0
+text = "Created by:
+Kai Shinozaki-Conefrey           Maria Edwards
+
+Si Yue Jiang                         Morgan Waddington"
+label_settings = SubResource("LabelSettings_okmgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits2" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1151.0
+offset_bottom = 1000.0
+text = "Thanks to
+
+Professor Julian Togelius
+Zehua, Asher, Sania, yuehan
+And all our classmates"
+label_settings = SubResource("LabelSettings_okmgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits3" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1151.0
+offset_bottom = 1000.0
+text = "Dedicated to
+Tomatsu Shinozaki ( 1934 - 2025 )"
+label_settings = SubResource("LabelSettings_okmgd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
