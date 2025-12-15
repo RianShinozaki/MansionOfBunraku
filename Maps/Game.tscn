@@ -82,7 +82,7 @@ size = Vector3(16.348564, 2.8081055, 14.05876)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_duur3")
-cycle_time = 300.0
+cycle_time = 240.0
 meltdown_time = 30.0
 
 [node name="SongOfStillnessListener" type="Node" parent="."]
