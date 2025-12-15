@@ -47,11 +47,13 @@ signal fade_complete
 static var instance: Player
 static var song_of_stillness_acquired: bool = false
 static var song_of_time_travel_acquired: bool = false
+static var song_of_fate_acquired: bool = false
 
 # Song Sequences - centralized definitions
 const SONG_OF_TIME_TRAVEL: Array[int] = [1, 2, 2, 1]
 const SONG_OF_MATRIMONY: Array[int] = [1, 1, 2, 1]
 const SONG_OF_STILLNESS: Array[int] = [3, 3, 3, 1]
+const SONG_OF_FATE: Array[int] = [1, 2, 1, 3]
 
 func _ready() -> void:
 	# RAYCAST SETUP 
