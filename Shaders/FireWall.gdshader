@@ -18,7 +18,7 @@ uniform int color_bands : hint_range(2, 20) = 10;
 
 // Procedural noise functions (fallback when no texture is assigned)
 // Texture might be more efficient for large surfaces
-float random(vec2 pos) { 
+float random(vec2 pos) {
 	return fract(sin(dot(pos, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
@@ -52,7 +52,7 @@ void fragment() {
 	// Scale UV to maintain proper aspect ratio (compress horizontally)
 	vec2 adjusted_uv = vec2(UV.x * 5.0, UV.y);
 	vec2 shifted_uv = adjusted_uv + TIME * fire_speed;
-	
+
 	// Use texture noise if available, otherwise use procedural
 	float fire_noise;
 	if (use_texture_noise) {
@@ -60,26 +60,26 @@ void fragment() {
 	} else {
 		fire_noise = procedural_noise(shifted_uv);
 	}
-	
+
 	// Invert UV.y so flames are strong at bottom, fade at top
 	float height = 1.0 - UV.y;
-	
+
 	// Calculate fire intensity - flames are strong at bottom, fade at top
 	float noise = height * (((height + fire_aperture) * fire_noise - fire_aperture) * 75.0);
-	
+
 	// Separate alpha (smooth) from color temperature (bandable)
 	float alpha_value = clamp(noise, 0.0, 1.0);
-	
+
 	// Color temperature with optional banding
 	float color_temp = noise * 0.05;
 	color_temp = clamp(color_temp, 0.0, 1.0);
-	
+
 	// Apply color banding if requested
 	if (color_bands > 1) {
 		float band_size = 1.0 / float(color_bands);
 		color_temp = floor(color_temp / band_size) * band_size + band_size * 0.5;
 	}
-	
+
 	// Mix colors based on temperature
 	vec4 fire_color = mix(tip_color, root_color, color_temp);
 
