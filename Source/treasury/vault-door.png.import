@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or26adls8bpc"
-path="res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"
+uid="uid://5e31wv6vd8f0"
+path="res://.godot/imported/vault-door.png-167ed8a9b0a1aa3e7534bbf0cce6cac5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Paintings/yoroi-shadow-painting.png"
-dest_files=["res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"]
+source_file="res://Source/treasury/vault-door.png"
+dest_files=["res://.godot/imported/vault-door.png-167ed8a9b0a1aa3e7534bbf0cce6cac5.ctex"]
 
 [params]
 

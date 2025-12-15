@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or26adls8bpc"
-path="res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"
+uid="uid://xkew5t7vy56k"
+path="res://.godot/imported/yoroi-letter-two.png-523c741ebe127fc9d3bd05ce4c628dbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Paintings/yoroi-shadow-painting.png"
-dest_files=["res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"]
+source_file="res://Art Assets/Letters/yoroi-letter-two.png"
+dest_files=["res://.godot/imported/yoroi-letter-two.png-523c741ebe127fc9d3bd05ce4c628dbc.ctex"]
 
 [params]
 

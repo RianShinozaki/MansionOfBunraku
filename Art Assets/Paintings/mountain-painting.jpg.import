@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or26adls8bpc"
-path="res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"
+uid="uid://vkk3jbuc5hxd"
+path="res://.godot/imported/mountain-painting.jpg-af4f570856c9bf59ffa037155c58e85a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/Paintings/yoroi-shadow-painting.png"
-dest_files=["res://.godot/imported/yoroi-shadow-painting.png-b4f7f4d987e5fbbf98fbfb40c315dcf7.ctex"]
+source_file="res://Art Assets/Paintings/mountain-painting.jpg"
+dest_files=["res://.godot/imported/mountain-painting.jpg-af4f570856c9bf59ffa037155c58e85a.ctex"]
 
 [params]
 
