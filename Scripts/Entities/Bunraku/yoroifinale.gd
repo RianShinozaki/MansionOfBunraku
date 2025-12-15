@@ -3,6 +3,7 @@ extends Node3D
 
 func _ready() -> void:
 	$DoorOpenTrigger.body_entered.connect(on_body_entered)
+	$VaultEnterTrigger.body_entered.connect(on_vault_entered)
 	
 func on_body_entered(_body: Node3D):
 	var _dialogue_box: DialogueBox = DialogueBox.instance
@@ -21,3 +22,11 @@ func on_body_entered(_body: Node3D):
 	
 	$DoorOpenTrigger/CollisionShape3D.disabled = true
 	$StaticBody3D2/CollisionShape3D.disabled = false
+	
+	$"../FreedomDoors".visible = true
+	$"../FreedomDoors/Area3D/CollisionShape3D".disabled = false
+
+func on_vault_entered(_body: Node3D):
+	Player.instance.fade_to_white()
+	await Player.instance.fade_complete
+	get_tree().change_scene_to_file("res://Maps/Ending.tscn")

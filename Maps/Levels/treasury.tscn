@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cx86ni0gam306"]
+[gd_scene load_steps=45 format=3 uid="uid://cx86ni0gam306"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_3qpu1"]
 [ext_resource type="ArrayMesh" uid="uid://k8ckexa8pluu" path="res://Art Assets/Models/treasury.obj" id="2_8jmj0"]
@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="27_afqqq"]
 [ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Objects/Items/shamisen_lock.gd" id="30_yprhc"]
 [ext_resource type="Texture2D" uid="uid://dicun54gjf2dv" path="res://Art Assets/song_fate_symbol.png" id="31_lenif"]
+[ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="32_lenif"]
+[ext_resource type="Texture2D" uid="uid://5e31wv6vd8f0" path="res://Source/treasury/vault-door.png" id="32_ujo66"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="59_746sb"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="60_lxe0f"]
 
@@ -118,15 +120,6 @@ skeleton = NodePath("../..")
 [node name="ShortShelves" parent="Objects" instance=ExtResource("3_0dhip")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 3.889679, 1.09689, -1.7546461)
 skeleton = NodePath("../..")
-
-[node name="VaultDoors" type="Node3D" parent="Objects"]
-
-[node name="Doors3" parent="Objects/VaultDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.5262399, 0.7194338, -2.6877203)
-dir = 1
-
-[node name="Doors4" parent="Objects/VaultDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, -2.680377)
 
 [node name="Candle" parent="Objects" instance=ExtResource("12_0dhip")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.4603766, 0.65114033, -2.494695)
@@ -222,6 +215,15 @@ collision_layer = 0
 collision_mask = 2147483648
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Yoroi/DoorOpenTrigger"]
+transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -0.1886859, 0, 1.998458)
+shape = SubResource("BoxShape3D_ap6cx")
+
+[node name="VaultEnterTrigger" type="Area3D" parent="Objects/Yoroi"]
+transform = Transform3D(0.99999976, 0, -7.1054274e-15, 0, 0.99999976, 0, 7.1054274e-15, 0, 0.99999976, 2.3841858e-07, 0, 1.7956244)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Yoroi/VaultEnterTrigger"]
 transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -0.1886859, 0, 1.998458)
 shape = SubResource("BoxShape3D_ap6cx")
 
@@ -378,6 +380,46 @@ collision_mask = 2147483648
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/PaperDoors/Area3D"]
 shape = SubResource("SphereShape3D_ujo66")
 
+[node name="FreedomDoors" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6549377, 0.6599999, -6.631279)
+visible = false
+script = ExtResource("30_yprhc")
+song_sequence = Array[int]([3, 2, 3, 1])
+
+[node name="PaperDoor" parent="Objects/FreedomDoors" instance=ExtResource("27_afqqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8015947, 0.0068359375, 3.92)
+locked = true
+
+[node name="PaperDoor" parent="Objects/FreedomDoors/PaperDoor" index="1"]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Objects/FreedomDoors/PaperDoor"]
+transform = Transform3D(0.585, 0, 0, 0, 0.6, 0, 0, 0, 0.61999995, 0.6126931, 0.7566063, 0)
+texture_filter = 2
+texture = ExtResource("32_ujo66")
+
+[node name="FreedomSymbol" type="Sprite3D" parent="Objects/FreedomDoors"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.1958365, 0.73320216, 3.9499547)
+texture_filter = 2
+texture = ExtResource("32_lenif")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objects/FreedomDoors/FreedomSymbol"]
+light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+distance_fade_enabled = true
+distance_fade_begin = 2.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
+omni_range = 1.0
+
+[node name="Area3D" type="Area3D" parent="Objects/FreedomDoors"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5020177, 0.7213625, 4.1730733)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/FreedomDoors/Area3D"]
+shape = SubResource("SphereShape3D_ujo66")
+disabled = true
+
 [node name="PuppetPainting" parent="." instance=ExtResource("11_8hqjh")]
 transform = Transform3D(1, 0, 0, 0, 0.99999547, 0.0030019633, 0, -0.0030019633, 0.99999547, 3.283, 1.291, -3.505)
 
@@ -393,6 +435,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.04
 [connection signal="unlock" from="Objects/PaperDoors" to="Objects/PaperDoors/PaperDoor2" method="unlock"]
 [connection signal="body_entered" from="Objects/PaperDoors/Area3D" to="Objects/PaperDoors" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Objects/PaperDoors/Area3D" to="Objects/PaperDoors" method="_on_area_3d_body_exited"]
+[connection signal="unlock" from="Objects/FreedomDoors" to="Objects/FreedomDoors/PaperDoor" method="unlock"]
+[connection signal="body_entered" from="Objects/FreedomDoors/Area3D" to="Objects/FreedomDoors" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Objects/FreedomDoors/Area3D" to="Objects/FreedomDoors" method="_on_area_3d_body_exited"]
 
 [editable path="Objects/Candle"]
 [editable path="Objects/Candle2"]
@@ -400,3 +445,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.04
 [editable path="Objects/Candle4"]
 [editable path="Objects/Candle5"]
 [editable path="Objects/Candle6"]
+[editable path="Objects/FreedomDoors/PaperDoor"]

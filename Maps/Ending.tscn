@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cefjxjyxnyhd3"]
+[gd_scene load_steps=56 format=3 uid="uid://cefjxjyxnyhd3"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_i88uo"]
 [ext_resource type="Texture2D" uid="uid://cj1rwxfai6apc" path="res://Art Assets/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_32c4f"]
@@ -6,14 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://0xusvj02bhsh" path="res://Art Assets/Models/texture_HouseTileset_Burnt.png" id="4_32c4f"]
 [ext_resource type="Texture2D" uid="uid://b2elln4vognbf" path="res://Art Assets/Models/texture_0.png" id="4_80n00"]
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="5_mqnkd"]
+[ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="6_migy3"]
 [ext_resource type="Texture2D" uid="uid://dg0sd3d6fdc86" path="res://Art Assets/smoke_08.png" id="7_148nc"]
+[ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="7_viskq"]
+[ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="8_3t1sb"]
+[ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="8_i88uo"]
+[ext_resource type="Texture2D" uid="uid://5e31wv6vd8f0" path="res://Source/treasury/vault-door.png" id="9_2s820"]
+[ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="9_7i2ke"]
+[ext_resource type="Script" uid="uid://cgpt3kfnqymqq" path="res://Scripts/Interactables/simple_hint.gd" id="10_6s8gq"]
 [ext_resource type="Shader" uid="uid://bgnahb38cu724" path="res://Shaders/FireWallCanvas.gdshader" id="10_okmgd"]
 [ext_resource type="Script" uid="uid://c52luv587um8j" path="res://Scripts/UI/fire_wall_canvas.gd" id="11_6s8gq"]
+[ext_resource type="Resource" uid="uid://qg80rfsljcda" path="res://Dialogue/treasuryfinale.tres" id="11_fkgmt"]
 [ext_resource type="FontFile" uid="uid://cajvi4u7rc4x" path="res://Art Assets/Fonts/Carta Marina Regular.otf" id="12_fkgmt"]
+[ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="13_8w4eo"]
 [ext_resource type="Script" uid="uid://bmd4tue40ixjo" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="13_cylbw"]
 [ext_resource type="Resource" uid="uid://bsg46015j8seh" path="res://Dialogue/FirstCycleEnd.tres" id="14_8w4eo"]
+[ext_resource type="Texture2D" uid="uid://dykv45hyfieox" path="res://Art Assets/Yono/Yono-h.png" id="14_f51g2"]
 [ext_resource type="Script" uid="uid://lshb827g5822" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="15_f51g2"]
+[ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="15_j73o5"]
 [ext_resource type="Script" uid="uid://04i73pt834i5" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="16_j73o5"]
+[ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="16_ppk0n"]
 [ext_resource type="Script" uid="uid://dkshshsj3sv3r" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="17_ppk0n"]
 [ext_resource type="PackedScene" uid="uid://bnbhrwdae0ypk" path="res://Objects/UI/TextOverlay.tscn" id="18_v2uhp"]
 
@@ -152,6 +164,31 @@ size = Vector2(4.465, 4.255)
 offsets = PackedFloat32Array(0, 0.08108108, 0.6959459, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0.87982833, 1, 1, 1, 0)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v2uhp"]
+radius = 0.165
+height = 0.78
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rbg2"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("6_migy3")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = ExtResource("13_8w4eo")
+normal_enabled = true
+normal_scale = 0.33
+normal_texture = ExtResource("15_j73o5")
+rim = 0.43
+rim_tint = 0.3
+rim_texture = ExtResource("16_ppk0n")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_f51g2")
+texture_filter = 2
+billboard_keep_scale = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wfnh"]
 shader = ExtResource("10_okmgd")
 shader_parameter/use_texture_noise = false
@@ -231,7 +268,7 @@ light_color = Color(0.7907436, 0.61002094, 0.3827436, 1)
 light_energy = 4.221
 
 [node name="Player" parent="Environment" instance=ExtResource("5_mqnkd")]
-transform = Transform3D(-1, 0, -3.1786513e-08, 0, 1, 0, 3.1786513e-08, 0, -1, 0.5132642, -0.38461888, -1.231161)
+transform = Transform3D(-1, 0, -3.1786513e-08, 0, 1, 0, 3.1786513e-08, 0, -1, 0.5132642, -0.38461888, -2.4863129)
 move_speed = 1.5
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Environment"]
@@ -302,6 +339,90 @@ scale_amount_max = 6.5
 color = Color(0.97722906, 0.624371, 0.4667772, 1)
 color_ramp = SubResource("Gradient_2s820")
 
+[node name="PaperDoor" parent="Environment" instance=ExtResource("8_i88uo")]
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, -0.12683442, -0.6859809, 0.057156205)
+
+[node name="PaperDoor" parent="Environment/PaperDoor" index="1"]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Environment/PaperDoor"]
+transform = Transform3D(0.585, 0, 0, 0, 0.6, 0, 0, 0, 0.61999995, 0.6126931, 0.7566063, -0.00963169)
+texture_filter = 2
+texture = ExtResource("9_2s820")
+
+[node name="Bunraku" type="Node3D" parent="Environment"]
+transform = Transform3D(-3.256496e-08, 0, 0.74500006, 0, 0.74500006, 0, -0.74500006, 0, -3.256496e-08, 0.74651194, -0.4617295, -1.86479)
+
+[node name="Yono" type="AnimatableBody3D" parent="Environment/Bunraku" groups=["Interactable"]]
+transform = Transform3D(-4.3711385e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711385e-08, -0.7978337, 0, -0.7942307)
+collision_layer = 5
+sync_to_physics = false
+script = ExtResource("10_6s8gq")
+dialogue_data = ExtResource("11_fkgmt")
+dialogue_id = "yono"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/Bunraku/Yono"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040527314, 0)
+shape = SubResource("CapsuleShape3D_v2uhp")
+
+[node name="Body" type="Sprite3D" parent="Environment/Bunraku/Yono"]
+material_override = SubResource("StandardMaterial3D_5rbg2")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_migy3")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Bunraku/Yono/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = SubResource("StandardMaterial3D_5rbg2")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("6_migy3")
+hframes = 4
+
+[node name="Lookat" type="Node" parent="Environment/Bunraku/Yono/Body"]
+script = ExtResource("7_viskq")
+
+[node name="Kouya" type="AnimatableBody3D" parent="Environment/Bunraku" groups=["Bunraku", "Interactable"]]
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -0.7973585, 0, 0.7452836)
+collision_layer = 5
+sync_to_physics = false
+script = ExtResource("10_6s8gq")
+dialogue_data = ExtResource("11_fkgmt")
+dialogue_id = "kouya"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bunraku/Kouya"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
+shape = SubResource("CapsuleShape3D_v2uhp")
+
+[node name="Body" type="Sprite3D" parent="Environment/Bunraku/Kouya"]
+material_override = ExtResource("8_3t1sb")
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_7i2ke")
+hframes = 4
+frame = 1
+
+[node name="Head" type="Sprite3D" parent="Environment/Bunraku/Kouya/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = ExtResource("8_3t1sb")
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("9_7i2ke")
+hframes = 4
+
+[node name="Lookat" type="Node" parent="Environment/Bunraku/Kouya/Body"]
+script = ExtResource("7_viskq")
+
 [node name="InspectCamera" type="Camera3D" parent="."]
 
 [node name="ScreenFire" type="CanvasLayer" parent="."]
@@ -341,3 +462,5 @@ custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_efst0"), Sub
 metadata/_custom_type_script = "uid://bmd4tue40ixjo"
 
 [node name="TextOverlay" parent="." instance=ExtResource("18_v2uhp")]
+
+[editable path="Environment/PaperDoor"]
