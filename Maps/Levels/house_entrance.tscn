@@ -269,7 +269,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 [connection signal="finished_reading" from="HouseEntrance/Objects/YonoPainting/InspectionLetter" to="HouseEntrance/Objects/YonoPainting" method="switch_to_alt_tex"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Objects/KouyaPainting" method="switch_to_alt_tex"]
-[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors" to="HouseEntrance/Objects/ShamisenDoors/PaperDoor" method="unlock"]
-[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors2" to="HouseEntrance/Objects/ShamisenDoors2/PaperDoor" method="unlock"]
 
 [editable path="HouseEntrance/Objects/ShamisenDoors2"]

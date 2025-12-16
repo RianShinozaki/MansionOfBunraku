@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6hmil0dhqlfe" path="res://Objects/Entities/player.tscn" id="11_lntlw"]
 [ext_resource type="PackedScene" uid="uid://bvscaldm0kgx2" path="res://Objects/UI/ImageOverlay.tscn" id="14_1shu2"]
 [ext_resource type="PackedScene" uid="uid://dy5xkfkbtgqlx" path="res://Maps/Levels/lobby.tscn" id="15_ys1ck"]
-[ext_resource type="Script" uid="uid://dxrgmjawipave" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
+[ext_resource type="Script" path="res://Scripts/System/fog_zone.gd" id="16_jxyng"]
 [ext_resource type="Script" uid="uid://ce578e84smgjq" path="res://Scripts/System/room_load_zone.gd" id="16_r1twq"]
 [ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="18_8rhjv"]
 [ext_resource type="Script" uid="uid://tp3cov0oo30f" path="res://Scripts/Environment/fire_effects.gd" id="18_72oe8"]
