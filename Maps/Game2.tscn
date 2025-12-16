@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://8juywf5mne8w"]
+[gd_scene load_steps=34 format=3 uid="uid://djblatyge4rjy"]
 
 [ext_resource type="Script" uid="uid://cgolf51087au5" path="res://Maps/game_manager.gd" id="1_duur3"]
 [ext_resource type="Environment" uid="uid://htrgry67in5d" path="res://Environment Resources/mansion.tres" id="3_8rhjv"]
@@ -67,13 +67,10 @@ script = ExtResource("48_rkpjn")
 size = Vector3(13.986084, 2.8081055, 25.563362)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jxyng"]
-size = Vector3(18, 2.808, 10)
+size = Vector3(9.366913, 2.8081055, 13.64584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8rhjv"]
 size = Vector3(21.526665, 2.8081055, 24.400503)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_baccv"]
-size = Vector3(16.814941, 2.8081055, 12.943237)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1twq"]
 size = Vector3(16.348564, 2.8081055, 14.05876)
@@ -92,9 +89,9 @@ script = ExtResource("49_listener")
 environment = ExtResource("3_8rhjv")
 
 [node name="Player" parent="." instance=ExtResource("11_lntlw")]
-transform = Transform3D(-0.005166031, 0, -0.99998677, 0, 1, 0, 0.99998677, 0, -0.005166031, -1.3147209, 0.383, 1.275)
+transform = Transform3D(0.99998677, 0, -0.0051659867, 0, 1, 0, 0.0051659867, 0, 0.99998677, 13.934811, 0.3832556, -6.4728928)
 move_speed = 1.5
-do_intro = true
+holding_shamisen = true
 
 [node name="InspectCamera" type="Camera3D" parent="."]
 
@@ -190,18 +187,6 @@ room_path = "uid://cywb5rg3dpmnm"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/MazeLoadZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.104258, 0.90405273, -10.723202)
 shape = SubResource("BoxShape3D_8rhjv")
-debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
-
-[node name="TreasuryLoadZone" type="Area3D" parent="LoadingZones"]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 2147483648
-script = ExtResource("16_r1twq")
-room_path = "res://Maps/Levels/treasury.tscn"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingZones/TreasuryLoadZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.137058, 0.90405273, 1.2048852)
-shape = SubResource("BoxShape3D_baccv")
 debug_color = Color(0.98810667, 0, 0.31082222, 0.41960785)
 
 [node name="LobbyFogZone" type="Area3D" parent="LoadingZones" node_paths=PackedStringArray("environment")]

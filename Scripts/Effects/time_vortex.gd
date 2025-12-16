@@ -3,6 +3,8 @@ extends CanvasLayer
 ## Time Vortex Effect Controller
 ## Creates a swirling vortex that distorts the screen and transitions to a new scene
 
+signal effect_completed
+
 var shader_material: ShaderMaterial
 var color_rect: ColorRect
 var current_progress: float = 0.0
@@ -10,7 +12,13 @@ var clock_hand_pivot: Node3D = null
 var clock_hand_continuing: bool = false
 var clock_hand_direction: float = 1.0
 
+# Web platform focus management
+var is_web_platform: bool = false
+
 func _ready():
+	# Detect web platform
+	is_web_platform = OS.has_feature("web")
+	
 	# Create a full-screen ColorRect
 	color_rect = ColorRect.new()
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -25,6 +33,111 @@ func _ready():
 	# Start with no effect
 	shader_material.set_shader_parameter("progress", 0.0)
 	shader_material.set_shader_parameter("vortex_opacity", 1.0)  # Full opacity by default
+
+## Force canvas focus and release pointer lock on web platform to prevent freezing
+func _ensure_canvas_focus() -> void:
+	if not is_web_platform:
+		return
+	
+	# Release pointer lock and re-acquire to prevent itch.io freezing
+	JavaScriptBridge.eval("""
+		(function() {
+			try {
+				// Release any pointer lock
+				if (document.pointerLockElement) {
+					document.exitPointerLock();
+				}
+				
+				const canvas = document.getElementById('canvas');
+				if (canvas) {
+					// Ensure canvas is focused
+					canvas.focus();
+					canvas.setAttribute('tabindex', '0');
+					
+					// Small delay before re-requesting pointer lock
+					setTimeout(function() {
+						canvas.requestPointerLock();
+					}, 10);
+					
+					return true;
+				}
+			} catch(e) {
+				console.error('Canvas focus/pointer lock error:', e);
+			}
+			return false;
+		})();
+	""", true)
+	print("TimeVortex: Canvas focus ensured and pointer lock cycled")
+
+## Manual animation with frame yielding to prevent browser freezing
+## Animates a value over time while yielding frames periodically
+func _animate_with_yielding(
+	from_value: float,
+	to_value: float,
+	duration: float,
+	ease_type: Tween.EaseType,
+	trans_type: Tween.TransitionType,
+	update_callback: Callable
+) -> void:
+	var elapsed: float = 0.0
+	var frames_since_yield: int = 0
+	var yield_every_n_frames: int = 3  # Yield every 3 frames for smooth 60fps while staying responsive
+	
+	while elapsed < duration:
+		var delta = get_process_delta_time()
+		elapsed += delta
+		
+		# Calculate progress (0.0 to 1.0)
+		var progress = min(elapsed / duration, 1.0)
+		
+		# Apply easing/transition
+		var eased_progress = _apply_easing(progress, ease_type, trans_type)
+		
+		# Interpolate value
+		var current_value = lerp(from_value, to_value, eased_progress)
+		
+		# Call the update function
+		update_callback.call(current_value)
+		
+		# Yield frame periodically to keep browser responsive
+		frames_since_yield += 1
+		if frames_since_yield >= yield_every_n_frames:
+			await get_tree().process_frame
+			frames_since_yield = 0
+		else:
+			await get_tree().process_frame
+	
+	# Ensure we end at exact target value
+	update_callback.call(to_value)
+
+## Apply easing function (simplified version of Tween easing)
+func _apply_easing(t: float, ease_type: Tween.EaseType, trans_type: Tween.TransitionType) -> float:
+	# Apply transition type first
+	match trans_type:
+		Tween.TRANS_CUBIC:
+			if ease_type == Tween.EASE_IN:
+				t = t * t * t
+			elif ease_type == Tween.EASE_OUT:
+				t = 1.0 - pow(1.0 - t, 3.0)
+			elif ease_type == Tween.EASE_IN_OUT:
+				if t < 0.5:
+					t = 4.0 * t * t * t
+				else:
+					t = 1.0 - pow(-2.0 * t + 2.0, 3.0) / 2.0
+		Tween.TRANS_QUAD:
+			if ease_type == Tween.EASE_IN:
+				t = t * t
+			elif ease_type == Tween.EASE_OUT:
+				t = 1.0 - (1.0 - t) * (1.0 - t)
+			elif ease_type == Tween.EASE_IN_OUT:
+				if t < 0.5:
+					t = 2.0 * t * t
+				else:
+					t = 1.0 - pow(-2.0 * t + 2.0, 2.0) / 2.0
+		_:  # LINEAR or others default to linear
+			pass
+	
+	return t
 
 func _process(delta: float):
 	# Continue rotating clock hand during vortex, gradually slowing down
@@ -307,6 +420,12 @@ func play_effect_only(
 	edge_col: Color = Color(0.05, 0.05, 0.3, 1.0),
 	reverse: bool = false
 ) -> void:
+	# Ensure canvas has focus before starting effect (critical for web)
+	_ensure_canvas_focus()
+	
+	# Give browser a frame to process focus
+	await get_tree().process_frame
+	
 	# Set all 5 color shader parameters
 	shader_material.set_shader_parameter("clockwise", clockwise_rotation)
 	shader_material.set_shader_parameter("center_color", center_col)
@@ -324,91 +443,94 @@ func play_effect_only(
 		var fade_duration = duration * 0.4  # First 40%: fade colors
 		var unswirl_duration = duration * 0.6  # Last 60%: reduce distortion
 		
-		# Stage 1: Fade out vortex colors while keeping distortion high
-		var tween_fade = create_tween()
-		tween_fade.set_ease(Tween.EASE_OUT)
-		tween_fade.set_trans(Tween.TRANS_CUBIC)
-		
-		tween_fade.tween_method(
-			func(value: float):
-				shader_material.set_shader_parameter("vortex_opacity", value),
+		# Stage 1: Fade out vortex colors while keeping distortion high (with frame yielding)
+		await _animate_with_yielding(
 			1.0,
 			0.0,
-			fade_duration
+			fade_duration,
+			Tween.EASE_OUT,
+			Tween.TRANS_CUBIC,
+			func(value: float): shader_material.set_shader_parameter("vortex_opacity", value)
 		)
 		
-		await tween_fade.finished
-		
-		# Stage 2: Reduce distortion while colors are faded
-		var tween_unswirl = create_tween()
-		tween_unswirl.set_ease(Tween.EASE_OUT)
-		tween_unswirl.set_trans(Tween.TRANS_CUBIC)
-		
-		tween_unswirl.tween_method(
+		# Stage 2: Reduce distortion while colors are faded (with frame yielding)
+		await _animate_with_yielding(
+			1.0,
+			0.0,
+			unswirl_duration,
+			Tween.EASE_OUT,
+			Tween.TRANS_CUBIC,
 			func(value: float):
 				shader_material.set_shader_parameter("progress", value)
-				current_progress = value,
-			1.0,
-			0.0,
-			unswirl_duration
+				current_progress = value
 		)
-		
-		await tween_unswirl.finished
 	else:
 		# Forward: Complete cycle - swirl in, then swirl out with fade effect
 		# This is used by time travel clock for visual feedback without scene change
 		var phase_duration = duration / 2.0
 		
-		# Phase 1: Swirl IN (normal to full vortex)
-		var tween_in = create_tween()
-		tween_in.set_ease(Tween.EASE_IN_OUT)
-		tween_in.set_trans(Tween.TRANS_CUBIC)
-		
-		tween_in.tween_method(
-			func(value: float):
-				shader_material.set_shader_parameter("progress", value)
-				current_progress = value,
+		# Phase 1: Swirl IN (normal to full vortex) with frame yielding
+		await _animate_with_yielding(
 			0.0,
 			1.0,
-			phase_duration
+			phase_duration,
+			Tween.EASE_IN_OUT,
+			Tween.TRANS_CUBIC,
+			func(value: float):
+				shader_material.set_shader_parameter("progress", value)
+				current_progress = value
 		)
 		
-		await tween_in.finished
+		# Re-ensure focus at the peak of the effect
+		_ensure_canvas_focus()
 		
 		# Phase 2: Swirl OUT with fade-through effect
 		var fade_duration = phase_duration * 0.4  # First 40%: fade colors
 		var unswirl_duration = phase_duration * 0.6  # Last 60%: reduce distortion
 		
-		# Stage 1: Fade out vortex colors while keeping distortion high
-		var tween_fade = create_tween()
-		tween_fade.set_ease(Tween.EASE_OUT)
-		tween_fade.set_trans(Tween.TRANS_CUBIC)
-		
-		tween_fade.tween_method(
-			func(value: float):
-				shader_material.set_shader_parameter("vortex_opacity", value),
+		# Stage 1: Fade out vortex colors while keeping distortion high (with frame yielding)
+		await _animate_with_yielding(
 			1.0,
 			0.0,
-			fade_duration
+			fade_duration,
+			Tween.EASE_OUT,
+			Tween.TRANS_CUBIC,
+			func(value: float): shader_material.set_shader_parameter("vortex_opacity", value)
 		)
 		
-		await tween_fade.finished
-		
-		# Stage 2: Reduce distortion while colors are faded
-		var tween_unswirl = create_tween()
-		tween_unswirl.set_ease(Tween.EASE_OUT)
-		tween_unswirl.set_trans(Tween.TRANS_CUBIC)
-		
-		tween_unswirl.tween_method(
+		# Stage 2: Reduce distortion while colors are faded (with frame yielding)
+		await _animate_with_yielding(
+			1.0,
+			0.0,
+			unswirl_duration,
+			Tween.EASE_OUT,
+			Tween.TRANS_CUBIC,
 			func(value: float):
 				shader_material.set_shader_parameter("progress", value)
-				current_progress = value,
-			1.0,
-			0.0,
-			unswirl_duration
+				current_progress = value
 		)
-		
-		await tween_unswirl.finished
 	
-	# Clean up
-	queue_free()
+	# Final focus ensure before cleanup
+	_ensure_canvas_focus()
+	
+	# On web, hide instead of destroy to prevent input freeze
+	if is_web_platform:
+		visible = false
+		if color_rect:
+			color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		print("TimeVortex: Hidden on web (not destroyed)")
+		
+		# Signal completion
+		effect_completed.emit()
+		
+		# Schedule deferred cleanup much later to avoid memory leaks
+		get_tree().create_timer(5.0).timeout.connect(
+			func(): 
+				if is_instance_valid(self):
+					queue_free()
+					print("TimeVortex: Deferred cleanup on web")
+		)
+	else:
+		# Desktop: normal cleanup
+		effect_completed.emit()
+		queue_free()

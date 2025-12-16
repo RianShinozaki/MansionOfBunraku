@@ -1745,7 +1745,7 @@ modulate = Color(0, 0, 0, 0)
 texture = SubResource("PlaceholderTexture2D_b6gsb")
 
 [node name="Camera2" type="Camera3D" parent="."]
-transform = Transform3D(-0.05233594, 0.121702336, -0.9911847, 0, 0.99254614, 0.121869214, 0.9986295, 0.0063781473, -0.051945776, 0.072, 0.485, 0.15)
+transform = Transform3D(-0.05233594, 0.121702336, -0.99118465, 0, 0.99254614, 0.121869214, 0.9986295, 0.0063781473, -0.051945772, 0.072, 0.485, 0.15)
 
 [node name="FireWall9" type="MeshInstance3D" parent="Camera2"]
 transform = Transform3D(-5.8799996, 1.6085798e-07, 0, -5.140459e-07, -1.8400007, 0, 0, 0, 0.9999998, 0, 0, -0.95)

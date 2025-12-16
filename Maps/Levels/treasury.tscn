@@ -1,20 +1,21 @@
-[gd_scene load_steps=37 format=3 uid="uid://cx86ni0gam306"]
+[gd_scene load_steps=45 format=3 uid="uid://cx86ni0gam306"]
 
 [ext_resource type="Script" uid="uid://br4pyg120uar3" path="res://Scripts/System/room.gd" id="1_3qpu1"]
 [ext_resource type="ArrayMesh" uid="uid://k8ckexa8pluu" path="res://Art Assets/Models/treasury.obj" id="2_8jmj0"]
-[ext_resource type="PackedScene" uid="uid://scrucf82qn2" path="res://Objects/Items/short_shelves.tscn" id="3_0dhip"]
+[ext_resource type="PackedScene" uid="uid://no2gwjexud86" path="res://Objects/Items/short_shelves.tscn" id="3_0dhip"]
 [ext_resource type="Material" path="res://Art Assets/Materials/Treasury_0.tres" id="3_treasury0"]
 [ext_resource type="Material" path="res://Art Assets/Materials/Treasury_HouseTileset.tres" id="4_treasurytileset"]
-[ext_resource type="PackedScene" uid="uid://dwofn2s3uqu1t" path="res://Objects/Items/yoroi_puppet.tscn" id="5_iy5ts"]
-[ext_resource type="PackedScene" uid="uid://fxplkfd77v3d" path="res://Objects/Items/wall_shelves.tscn" id="8_6l1la"]
+[ext_resource type="PackedScene" path="res://Objects/Items/yoroi_puppet.tscn" id="5_iy5ts"]
+[ext_resource type="PackedScene" uid="uid://i85ahe0lbyqf" path="res://Objects/Items/wall_shelves.tscn" id="8_6l1la"]
 [ext_resource type="Script" uid="uid://cib7rrlpwt11s" path="res://Scripts/Entities/Bunraku/yoroifinale.gd" id="10_i6er2"]
-[ext_resource type="PackedScene" uid="uid://b32ah8guvccyj" path="res://Objects/Interactables/puppet_painting.tscn" id="11_8hqjh"]
+[ext_resource type="PackedScene" path="res://Objects/Interactables/puppet_painting.tscn" id="11_8hqjh"]
 [ext_resource type="Material" uid="uid://crtlh8mqebo8j" path="res://Art Assets/Materials/yoroi.tres" id="11_b5de5"]
+[ext_resource type="Resource" uid="uid://qg80rfsljcda" path="res://Dialogue/treasuryfinale.tres" id="11_k2pm6"]
 [ext_resource type="PackedScene" uid="uid://dgmoxxqv7tf5r" path="res://Objects/Decoration/candle.tscn" id="12_0dhip"]
 [ext_resource type="Texture2D" uid="uid://cwyhguc5xrrkl" path="res://Art Assets/Yoroi/Yoroi.png" id="12_3ao0a"]
-[ext_resource type="PackedScene" uid="uid://drmoiiog6aaje" path="res://Objects/Items/yono_puppet.tscn" id="12_6l1la"]
+[ext_resource type="PackedScene" path="res://Objects/Items/yono_puppet.tscn" id="12_6l1la"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="13_2wrdd"]
-[ext_resource type="PackedScene" uid="uid://b43m0ejxlxewx" path="res://Objects/Items/kouya_puppet.tscn" id="13_iy5ts"]
+[ext_resource type="PackedScene" path="res://Objects/Items/kouya_puppet.tscn" id="13_iy5ts"]
 [ext_resource type="AudioStream" uid="uid://bvwl28b1gugfo" path="res://Audio/boss_rattling.mp3" id="15_begmy"]
 [ext_resource type="AudioStream" uid="uid://cind0otmgupv5" path="res://Audio/boss_breathing_male.wav" id="16_hn6m1"]
 [ext_resource type="AudioStream" uid="uid://cq1l7dfo2jvvq" path="res://Audio/Feedback.mp3" id="17_1lsck"]
@@ -22,13 +23,19 @@
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="19_ap6cx"]
 [ext_resource type="Texture2D" uid="uid://1nwng0r3tgyc" path="res://Art Assets/Yono/Yono-e.png" id="20_i6er2"]
 [ext_resource type="Texture2D" uid="uid://dykv45hyfieox" path="res://Art Assets/Yono/Yono-h.png" id="21_tbdos"]
+[ext_resource type="Script" uid="uid://cgpt3kfnqymqq" path="res://Scripts/Interactables/simple_hint.gd" id="22_4es5h"]
 [ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="22_k2pm6"]
 [ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="23_4es5h"]
 [ext_resource type="Material" uid="uid://cffiet5oas1bg" path="res://Art Assets/Materials/kouya.tres" id="24_j6hdx"]
 [ext_resource type="Script" uid="uid://2vij0disc04a" path="res://Scripts/Environment/light_flicker.gd" id="25_h5sml"]
 [ext_resource type="Texture2D" uid="uid://qeb5imeeyoyp" path="res://Art Assets/Kouya/Kouya.png" id="25_yprhc"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="27_afqqq"]
+[ext_resource type="Script" uid="uid://dw253msxqbcte" path="res://Objects/Items/shamisen_lock.gd" id="30_yprhc"]
+[ext_resource type="Texture2D" uid="uid://dicun54gjf2dv" path="res://Art Assets/song_fate_symbol.png" id="31_lenif"]
+[ext_resource type="Texture2D" uid="uid://bx3fh046eukvt" path="res://Art Assets/song_freedom_symbol.png" id="32_lenif"]
+[ext_resource type="Texture2D" uid="uid://5e31wv6vd8f0" path="res://Source/treasury/vault-door.png" id="32_ujo66"]
 [ext_resource type="Shader" uid="uid://8m473asppgpk" path="res://Shaders/FireWall.gdshader" id="59_746sb"]
+[ext_resource type="AudioStream" uid="uid://ya3m1dn85jo4" path="res://Audio/firewall.wav" id="60_lxe0f"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a2fpj"]
 data = PackedVector3Array(1.28, 1.28, -4.7999997, 1.5999999, 0, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.28, 0, -4.7999997, 1.5999999, 0, -4.7999997, 1.28, 1.28, -4.7999997, 1.28, 1.28, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.28, 1.92, -4.7999997, 1.28, 1.92, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.5999999, 1.92, -4.7999997, 2.24, 1.28, -4.7999997, 2.56, 0, -4.7999997, 2.56, 1.28, -4.7999997, 2.24, 0, -4.7999997, 2.56, 0, -4.7999997, 2.24, 1.28, -4.7999997, 2.24, 1.28, -4.7999997, 2.56, 1.28, -4.7999997, 2.24, 1.92, -4.7999997, 2.24, 1.92, -4.7999997, 2.56, 1.28, -4.7999997, 2.56, 1.92, -4.7999997, 1.92, 1.28, -4.7999997, 2.24, 0, -4.7999997, 2.24, 1.28, -4.7999997, 1.92, 0, -4.7999997, 2.24, 0, -4.7999997, 1.92, 1.28, -4.7999997, 1.92, 1.28, -4.7999997, 2.24, 1.28, -4.7999997, 1.92, 1.92, -4.7999997, 1.92, 1.92, -4.7999997, 2.24, 1.28, -4.7999997, 2.24, 1.92, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.92, 0, -4.7999997, 1.92, 1.28, -4.7999997, 1.5999999, 0, -4.7999997, 1.92, 0, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.5999999, 1.28, -4.7999997, 1.92, 1.28, -4.7999997, 1.5999999, 1.92, -4.7999997, 1.5999999, 1.92, -4.7999997, 1.92, 1.28, -4.7999997, 1.92, 1.92, -4.7999997, -1.28, 1.28, -4.7999997, -0.96, 0, -4.7999997, -0.96, 1.28, -4.7999997, -1.28, 0, -4.7999997, -0.96, 0, -4.7999997, -1.28, 1.28, -4.7999997, -1.28, 1.28, -4.7999997, -0.96, 1.28, -4.7999997, -1.28, 1.92, -4.7999997, -1.28, 1.92, -4.7999997, -0.96, 1.28, -4.7999997, -0.96, 1.92, -4.7999997, -0.32, 1.28, -4.7999997, 0, 0, -4.7999997, 0, 1.28, -4.7999997, -0.32, 0, -4.7999997, 0, 0, -4.7999997, -0.32, 1.28, -4.7999997, -0.32, 1.28, -4.7999997, 0, 1.28, -4.7999997, -0.32, 1.92, -4.7999997, -0.32, 1.92, -4.7999997, 0, 1.28, -4.7999997, 0, 1.92, -4.7999997, -0.64, 1.28, -4.7999997, -0.32, 0, -4.7999997, -0.32, 1.28, -4.7999997, -0.64, 0, -4.7999997, -0.32, 0, -4.7999997, -0.64, 1.28, -4.7999997, -0.64, 1.28, -4.7999997, -0.32, 1.28, -4.7999997, -0.64, 1.92, -4.7999997, -0.64, 1.92, -4.7999997, -0.32, 1.28, -4.7999997, -0.32, 1.92, -4.7999997, -0.96, 1.28, -4.7999997, -0.64, 0, -4.7999997, -0.64, 1.28, -4.7999997, -0.96, 0, -4.7999997, -0.64, 0, -4.7999997, -0.96, 1.28, -4.7999997, -0.96, 1.28, -4.7999997, -0.64, 1.28, -4.7999997, -0.96, 1.92, -4.7999997, -0.96, 1.92, -4.7999997, -0.64, 1.28, -4.7999997, -0.64, 1.92, -4.7999997, 2.56, 1.92, -8.32, 2.56, 0, -8.639999, 2.56, 1.92, -8.639999, 2.56, 0, -8.32, 2.56, 0, -8.639999, 2.56, 1.92, -8.32, 0, 0, -8.32, -1.28, 0, -8, -1.28, 0, -8.32, 0, 0, -8, -1.28, 0, -8, 0, 0, -8.32, 2.56, 0, -7.68, 1.28, 0, -7.3599997, 1.28, 0, -7.68, 2.56, 0, -7.3599997, 1.28, 0, -7.3599997, 2.56, 0, -7.68, 1.28, 0, -6.3999996, 0, 0, -6.08, 0, 0, -6.3999996, 1.28, 0, -6.08, 0, 0, -6.08, 1.28, 0, -6.3999996, 2.56, 0, -8.32, 1.28, 0, -8, 1.28, 0, -8.32, 2.56, 0, -8, 1.28, 0, -8, 2.56, 0, -8.32, 0, 0, -6.72, -1.28, 0, -6.3999996, -1.28, 0, -6.72, 0, 0, -6.3999996, -1.28, 0, -6.3999996, 0, 0, -6.72, 0, 0, -7.04, -1.28, 0, -6.72, -1.28, 0, -7.04, 0, 0, -6.72, -1.28, 0, -6.72, 0, 0, -7.04, 0, 0, -6.08, -1.28, 0, -5.7599998, -1.28, 0, -6.08, 0, 0, -5.7599998, -1.28, 0, -5.7599998, 0, 0, -6.08, 0, 0, -5.44, -1.28, 0, -5.12, -1.28, 0, -5.44, 0, 0, -5.12, -1.28, 0, -5.12, 0, 0, -5.44, 1.28, 0, -5.7599998, 0, 0, -5.44, 0, 0, -5.7599998, 1.28, 0, -5.44, 0, 0, -5.44, 1.28, 0, -5.7599998, 1.28, 0, -6.08, 0, 0, -5.7599998, 0, 0, -6.08, 1.28, 0, -5.7599998, 0, 0, -5.7599998, 1.28, 0, -6.08, 1.28, 1.92, -5.44, 0, 1.92, -5.7599998, 0, 1.92, -5.44, 1.28, 1.92, -5.7599998, 0, 1.92, -5.7599998, 1.28, 1.92, -5.44, 0, 0, -5.7599998, -1.28, 0, -5.44, -1.28, 0, -5.7599998, 0, 0, -5.44, -1.28, 0, -5.44, 0, 0, -5.7599998, 0, 0, -5.12, -1.28, 0, -4.7999997, -1.28, 0, -5.12, 0, 0, -4.7999997, -1.28, 0, -4.7999997, 0, 0, -5.12, 0, 0, -8.639999, -1.28, 0, -8.32, -1.28, 0, -8.639999, 0, 0, -8.32, -1.28, 0, -8.32, 0, 0, -8.639999, 2.56, 1.92, -7.04, 2.56, 0, -7.3599997, 2.56, 1.92, -7.3599997, 2.56, 0, -7.04, 2.56, 0, -7.3599997, 2.56, 1.92, -7.04, 0, 1.92, -7.3599997, -1.28, 1.92, -7.68, -1.28, 1.92, -7.3599997, 0, 1.92, -7.68, -1.28, 1.92, -7.68, 0, 1.92, -7.3599997, 1.28, 1.92, -7.68, 0, 1.92, -8, 0, 1.92, -7.68, 1.28, 1.92, -8, 0, 1.92, -8, 1.28, 1.92, -7.68, 1.28, 1.92, -6.72, 0, 1.92, -7.04, 0, 1.92, -6.72, 1.28, 1.92, -7.04, 0, 1.92, -7.04, 1.28, 1.92, -6.72, 1.28, 1.92, -7.04, 0, 1.92, -7.3599997, 0, 1.92, -7.04, 1.28, 1.92, -7.3599997, 0, 1.92, -7.3599997, 1.28, 1.92, -7.04, 1.28, 1.92, -7.3599997, 0, 1.92, -7.68, 0, 1.92, -7.3599997, 1.28, 1.92, -7.68, 0, 1.92, -7.68, 1.28, 1.92, -7.3599997, 1.28, 0, -7.68, 0, 0, -7.3599997, 0, 0, -7.68, 1.28, 0, -7.3599997, 0, 0, -7.3599997, 1.28, 0, -7.68, 2.56, 1.92, -8.32, 1.28, 1.92, -8.639999, 1.28, 1.92, -8.32, 2.56, 1.92, -8.639999, 1.28, 1.92, -8.639999, 2.56, 1.92, -8.32, 1.28, 0, -6.72, 0, 0, -6.3999996, 0, 0, -6.72, 1.28, 0, -6.3999996, 0, 0, -6.3999996, 1.28, 0, -6.72, 1.28, 0, -7.04, 0, 0, -6.72, 0, 0, -7.04, 1.28, 0, -6.72, 0, 0, -6.72, 1.28, 0, -7.04, 2.56, 0, -8.639999, 1.28, 0, -8.32, 1.28, 0, -8.639999, 2.56, 0, -8.32, 1.28, 0, -8.32, 2.56, 0, -8.639999, 0, 1.92, -4.7999997, 0.32, 1.28, -4.7999997, 0.32, 1.92, -4.7999997, 0, 1.28, -4.7999997, 0.32, 1.28, -4.7999997, 0, 1.92, -4.7999997, 0.32, 1.92, -4.7999997, 0.64, 1.28, -4.7999997, 0.64, 1.92, -4.7999997, 0.32, 1.28, -4.7999997, 0.64, 1.28, -4.7999997, 0.32, 1.92, -4.7999997, 2.56, 0, -8, 1.28, 0, -7.68, 1.28, 0, -8, 2.56, 0, -7.68, 1.28, 0, -7.68, 2.56, 0, -8, 2.56, 1.92, -7.3599997, 1.28, 1.92, -7.68, 1.28, 1.92, -7.3599997, 2.56, 1.92, -7.68, 1.28, 1.92, -7.68, 2.56, 1.92, -7.3599997, 2.56, 1.92, -7.04, 1.28, 1.92, -7.3599997, 1.28, 1.92, -7.04, 2.56, 1.92, -7.3599997, 1.28, 1.92, -7.3599997, 2.56, 1.92, -7.04, 2.56, 1.92, -6.3999996, 1.28, 1.92, -6.72, 1.28, 1.92, -6.3999996, 2.56, 1.92, -6.72, 1.28, 1.92, -6.72, 2.56, 1.92, -6.3999996, 0, 0, -7.68, -1.28, 0, -7.3599997, -1.28, 0, -7.68, 0, 0, -7.3599997, -1.28, 0, -7.3599997, 0, 0, -7.68, 1.28, 0, -8.32, 0, 0, -8, 0, 0, -8.32, 1.28, 0, -8, 0, 0, -8, 1.28, 0, -8.32, 2.56, 1.92, -7.3599997, 2.56, 0, -7.68, 2.56, 1.92, -7.68, 2.56, 0, -7.3599997, 2.56, 0, -7.68, 2.56, 1.92, -7.3599997, 2.56, 1.92, -8, 2.56, 0, -8.32, 2.56, 1.92, -8.32, 2.56, 0, -8, 2.56, 0, -8.32, 2.56, 1.92, -8, 2.56, 1.92, -6.72, 2.56, 0, -7.04, 2.56, 1.92, -7.04, 2.56, 0, -6.72, 2.56, 0, -7.04, 2.56, 1.92, -6.72, 0, 0, -7.3599997, -1.28, 0, -7.04, -1.28, 0, -7.3599997, 0, 0, -7.04, -1.28, 0, -7.04, 0, 0, -7.3599997, 0, 0, -6.3999996, -1.28, 0, -6.08, -1.28, 0, -6.3999996, 0, 0, -6.08, -1.28, 0, -6.08, 0, 0, -6.3999996, 1.28, 0, -5.44, 0, 0, -5.12, 0, 0, -5.44, 1.28, 0, -5.12, 0, 0, -5.12, 1.28, 0, -5.44, 1.28, 1.92, -6.3999996, 0, 1.92, -6.72, 0, 1.92, -6.3999996, 1.28, 1.92, -6.72, 0, 1.92, -6.72, 1.28, 1.92, -6.3999996, 1.28, 1.92, -6.08, 0, 1.92, -6.3999996, 0, 1.92, -6.08, 1.28, 1.92, -6.3999996, 0, 1.92, -6.3999996, 1.28, 1.92, -6.08, 2.56, 1.92, -6.08, 2.56, 0, -6.3999996, 2.56, 1.92, -6.3999996, 2.56, 0, -6.08, 2.56, 0, -6.3999996, 2.56, 1.92, -6.08, 0, 0, -8, -1.28, 0, -7.68, -1.28, 0, -8, 0, 0, -7.68, -1.28, 0, -7.68, 0, 0, -8, 2.56, 1.92, -4.7999997, 2.56, 0, -5.12, 2.56, 1.92, -5.12, 2.56, 0, -4.7999997, 2.56, 0, -5.12, 2.56, 1.92, -4.7999997, 1.28, 1.92, -8, 0, 1.92, -8.32, 0, 1.92, -8, 1.28, 1.92, -8.32, 0, 1.92, -8.32, 1.28, 1.92, -8, 1.28, 0, -5.12, 0, 0, -4.7999997, 0, 0, -5.12, 1.28, 0, -4.7999997, 0, 0, -4.7999997, 1.28, 0, -5.12, 2.56, 0, -5.12, 1.28, 0, -4.7999997, 1.28, 0, -5.12, 2.56, 0, -4.7999997, 1.28, 0, -4.7999997, 2.56, 0, -5.12, 2.56, 0, -5.44, 1.28, 0, -5.12, 1.28, 0, -5.44, 2.56, 0, -5.12, 1.28, 0, -5.12, 2.56, 0, -5.44, 2.56, 0, -5.7599998, 1.28, 0, -5.44, 1.28, 0, -5.7599998, 2.56, 0, -5.44, 1.28, 0, -5.44, 2.56, 0, -5.7599998, 1.28, 1.92, -5.7599998, 0, 1.92, -6.08, 0, 1.92, -5.7599998, 1.28, 1.92, -6.08, 0, 1.92, -6.08, 1.28, 1.92, -5.7599998, 1.28, 0, -8, 0, 0, -7.68, 0, 0, -8, 1.28, 0, -7.68, 0, 0, -7.68, 1.28, 0, -8, 2.56, 1.92, -5.44, 1.28, 1.92, -5.7599998, 1.28, 1.92, -5.44, 2.56, 1.92, -5.7599998, 1.28, 1.92, -5.7599998, 2.56, 1.92, -5.44, -1.28, 1.92, -8, -1.28, 0, -7.68, -1.28, 1.92, -7.68, -1.28, 0, -8, -1.28, 0, -7.68, -1.28, 1.92, -8, -1.28, 1.92, -8.32, -1.28, 0, -8, -1.28, 1.92, -8, -1.28, 0, -8.32, -1.28, 0, -8, -1.28, 1.92, -8.32, -1.28, 1.92, -6.72, -1.28, 0, -6.3999996, -1.28, 1.92, -6.3999996, -1.28, 0, -6.72, -1.28, 0, -6.3999996, -1.28, 1.92, -6.72, 2.56, 1.92, -6.72, 1.28, 1.92, -7.04, 1.28, 1.92, -6.72, 2.56, 1.92, -7.04, 1.28, 1.92, -7.04, 2.56, 1.92, -6.72, -1.28, 1.92, -7.04, -1.28, 0, -6.72, -1.28, 1.92, -6.72, -1.28, 0, -7.04, -1.28, 0, -6.72, -1.28, 1.92, -7.04, -1.28, 1.92, -5.7599998, -1.28, 0, -5.44, -1.28, 1.92, -5.44, -1.28, 0, -5.7599998, -1.28, 0, -5.44, -1.28, 1.92, -5.7599998, 0.64, 1.92, -4.7999997, 0.96, 1.28, -4.7999997, 0.96, 1.92, -4.7999997, 0.64, 1.28, -4.7999997, 0.96, 1.28, -4.7999997, 0.64, 1.92, -4.7999997, 0.96, 1.92, -4.7999997, 1.28, 1.28, -4.7999997, 1.28, 1.92, -4.7999997, 0.96, 1.28, -4.7999997, 1.28, 1.28, -4.7999997, 0.96, 1.92, -4.7999997, 0, 1.92, -6.72, -1.28, 1.92, -7.04, -1.28, 1.92, -6.72, 0, 1.92, -7.04, -1.28, 1.92, -7.04, 0, 1.92, -6.72, 2.56, 1.92, -6.08, 1.28, 1.92, -6.3999996, 1.28, 1.92, -6.08, 2.56, 1.92, -6.3999996, 1.28, 1.92, -6.3999996, 2.56, 1.92, -6.08, 0, 1.92, -7.68, -1.28, 1.92, -8, -1.28, 1.92, -7.68, 0, 1.92, -8, -1.28, 1.92, -8, 0, 1.92, -7.68, -1.28, 1.92, -5.44, -1.28, 0, -5.12, -1.28, 1.92, -5.12, -1.28, 0, -5.44, -1.28, 0, -5.12, -1.28, 1.92, -5.44, 0, 1.92, -8, -1.28, 1.92, -8.32, -1.28, 1.92, -8, 0, 1.92, -8.32, -1.28, 1.92, -8.32, 0, 1.92, -8, 2.56, 1.92, -6.3999996, 2.56, 0, -6.72, 2.56, 1.92, -6.72, 2.56, 0, -6.3999996, 2.56, 0, -6.72, 2.56, 1.92, -6.3999996, 2.56, 1.92, -5.44, 2.56, 0, -5.7599998, 2.56, 1.92, -5.7599998, 2.56, 0, -5.44, 2.56, 0, -5.7599998, 2.56, 1.92, -5.44, 2.56, 1.92, -5.12, 2.56, 0, -5.44, 2.56, 1.92, -5.44, 2.56, 0, -5.12, 2.56, 0, -5.44, 2.56, 1.92, -5.12, 1.28, 1.92, -8.32, 0, 1.92, -8.639999, 0, 1.92, -8.32, 1.28, 1.92, -8.639999, 0, 1.92, -8.639999, 1.28, 1.92, -8.32, 2.56, 0, -6.08, 1.28, 0, -5.7599998, 1.28, 0, -6.08, 2.56, 0, -5.7599998, 1.28, 0, -5.7599998, 2.56, 0, -6.08, 0, 1.92, -8.32, -1.28, 1.92, -8.639999, -1.28, 1.92, -8.32, 0, 1.92, -8.639999, -1.28, 1.92, -8.639999, 0, 1.92, -8.32, 2.56, 1.92, -5.7599998, 2.56, 0, -6.08, 2.56, 1.92, -6.08, 2.56, 0, -5.7599998, 2.56, 0, -6.08, 2.56, 1.92, -5.7599998, 0, 1.92, -7.04, -1.28, 1.92, -7.3599997, -1.28, 1.92, -7.04, 0, 1.92, -7.3599997, -1.28, 1.92, -7.3599997, 0, 1.92, -7.04, 2.56, 0, -6.3999996, 1.28, 0, -6.08, 1.28, 0, -6.3999996, 2.56, 0, -6.08, 1.28, 0, -6.08, 2.56, 0, -6.3999996, 2.56, 0, -6.72, 1.28, 0, -6.3999996, 1.28, 0, -6.72, 2.56, 0, -6.3999996, 1.28, 0, -6.3999996, 2.56, 0, -6.72, 2.56, 0, -7.04, 1.28, 0, -6.72, 1.28, 0, -7.04, 2.56, 0, -6.72, 1.28, 0, -6.72, 2.56, 0, -7.04, 2.56, 0, -7.3599997, 1.28, 0, -7.04, 1.28, 0, -7.3599997, 2.56, 0, -7.04, 1.28, 0, -7.04, 2.56, 0, -7.3599997, -1.28, 1.92, -8.639999, -1.28, 0, -8.32, -1.28, 1.92, -8.32, -1.28, 0, -8.639999, -1.28, 0, -8.32, -1.28, 1.92, -8.639999, 1.28, 0, -8.639999, 0, 0, -8.32, 0, 0, -8.639999, 1.28, 0, -8.32, 0, 0, -8.32, 1.28, 0, -8.639999, 2.56, 1.92, -4.7999997, 1.28, 1.92, -5.12, 1.28, 1.92, -4.7999997, 2.56, 1.92, -5.12, 1.28, 1.92, -5.12, 2.56, 1.92, -4.7999997, 1.28, 1.92, -5.12, 0, 1.92, -5.44, 0, 1.92, -5.12, 1.28, 1.92, -5.44, 0, 1.92, -5.44, 1.28, 1.92, -5.12, 1.28, 1.92, -4.7999997, 0, 1.92, -5.12, 0, 1.92, -4.7999997, 1.28, 1.92, -5.12, 0, 1.92, -5.12, 1.28, 1.92, -4.7999997, 0, 1.92, -4.7999997, -1.28, 1.92, -5.12, -1.28, 1.92, -4.7999997, 0, 1.92, -5.12, -1.28, 1.92, -5.12, 0, 1.92, -4.7999997, 0, 1.92, -5.12, -1.28, 1.92, -5.44, -1.28, 1.92, -5.12, 0, 1.92, -5.44, -1.28, 1.92, -5.44, 0, 1.92, -5.12, 0, 1.92, -5.44, -1.28, 1.92, -5.7599998, -1.28, 1.92, -5.44, 0, 1.92, -5.7599998, -1.28, 1.92, -5.7599998, 0, 1.92, -5.44, 0, 1.92, -5.7599998, -1.28, 1.92, -6.08, -1.28, 1.92, -5.7599998, 0, 1.92, -6.08, -1.28, 1.92, -6.08, 0, 1.92, -5.7599998, 2.56, 1.92, -5.12, 1.28, 1.92, -5.44, 1.28, 1.92, -5.12, 2.56, 1.92, -5.44, 1.28, 1.92, -5.44, 2.56, 1.92, -5.12, 1.28, 0, -7.3599997, 0, 0, -7.04, 0, 0, -7.3599997, 1.28, 0, -7.04, 0, 0, -7.04, 1.28, 0, -7.3599997, -1.28, 1.92, -6.08, -1.28, 0, -5.7599998, -1.28, 1.92, -5.7599998, -1.28, 0, -6.08, -1.28, 0, -5.7599998, -1.28, 1.92, -6.08, -1.28, 1.92, -7.3599997, -1.28, 0, -7.04, -1.28, 1.92, -7.04, -1.28, 0, -7.3599997, -1.28, 0, -7.04, -1.28, 1.92, -7.3599997, 2.56, 1.92, -7.68, 2.56, 0, -8, 2.56, 1.92, -8, 2.56, 0, -7.68, 2.56, 0, -8, 2.56, 1.92, -7.68, 2.56, 1.92, -5.7599998, 1.28, 1.92, -6.08, 1.28, 1.92, -5.7599998, 2.56, 1.92, -6.08, 1.28, 1.92, -6.08, 2.56, 1.92, -5.7599998, 0, 1.92, -6.08, -1.28, 1.92, -6.3999996, -1.28, 1.92, -6.08, 0, 1.92, -6.3999996, -1.28, 1.92, -6.3999996, 0, 1.92, -6.08, 0, 1.92, -6.3999996, -1.28, 1.92, -6.72, -1.28, 1.92, -6.3999996, 0, 1.92, -6.72, -1.28, 1.92, -6.72, 0, 1.92, -6.3999996, 2.56, 1.92, -8, 1.28, 1.92, -8.32, 1.28, 1.92, -8, 2.56, 1.92, -8.32, 1.28, 1.92, -8.32, 2.56, 1.92, -8, -1.28, 1.92, -7.68, -1.28, 0, -7.3599997, -1.28, 1.92, -7.3599997, -1.28, 0, -7.68, -1.28, 0, -7.3599997, -1.28, 1.92, -7.68, -1.28, 1.92, -6.3999996, -1.28, 0, -6.08, -1.28, 1.92, -6.08, -1.28, 0, -6.3999996, -1.28, 0, -6.08, -1.28, 1.92, -6.3999996, -1.28, 1.92, -5.12, -1.28, 0, -4.7999997, -1.28, 1.92, -4.7999997, -1.28, 0, -5.12, -1.28, 0, -4.7999997, -1.28, 1.92, -5.12, 2.56, 1.92, -7.68, 1.28, 1.92, -8, 1.28, 1.92, -7.68, 2.56, 1.92, -8, 1.28, 1.92, -8, 2.56, 1.92, -7.68, 0, 1.92, -8.639999, 0, 0, -8.32, 0, 1.92, -8.32, 0, 0, -8.639999, 0, 0, -8.32, 0, 1.92, -8.639999, 1.92, 1.92, -8.639999, 2.5599, 0, -8.639999, 2.5599, 1.92, -8.639999, 1.92, 0, -8.639999, 2.5599, 0, -8.639999, 1.92, 1.92, -8.639999, 1.2799, 1.92, -8.639999, 1.92, 0, -8.639999, 1.92, 1.92, -8.639999, 1.2799, 0, -8.639999, 1.92, 0, -8.639999, 1.2799, 1.92, -8.639999, -0.64, 1.92, -8.639999, 0, 0, -8.639999, 0, 1.92, -8.639999, -0.64, 0, -8.639999, 0, 0, -8.639999, -0.64, 1.92, -8.639999, -1.28, 1.92, -8.639999, -0.64, 0, -8.639999, -0.64, 1.92, -8.639999, -1.28, 0, -8.639999, -0.64, 0, -8.639999, -1.28, 1.92, -8.639999, 1.2799, 1.92, -8.32, 1.2799, 0, -8.639999, 1.2799, 1.92, -8.639999, 1.2799, 0, -8.32, 1.2799, 0, -8.639999, 1.2799, 1.92, -8.32, -0.64, 1.92, -8.32, -1.28, 0, -8.32, -1.28, 1.92, -8.32, -0.64, 0, -8.32, -1.28, 0, -8.32, -0.64, 1.92, -8.32, 0, 1.92, -8.32, -0.64, 0, -8.32, -0.64, 1.92, -8.32, 0, 0, -8.32, -0.64, 0, -8.32, 0, 1.92, -8.32, 1.92, 1.92, -8.32, 1.2799, 0, -8.32, 1.2799, 1.92, -8.32, 1.92, 0, -8.32, 1.2799, 0, -8.32, 1.92, 1.92, -8.32, 2.5599, 1.92, -8.32, 1.92, 0, -8.32, 1.92, 1.92, -8.32, 2.5599, 0, -8.32, 1.92, 0, -8.32, 2.5599, 1.92, -8.32, -1.28, 1.92, -10.559999, -1.28, 0, -9.92, -1.28, 1.92, -9.92, -1.28, 0, -10.559999, -1.28, 0, -9.92, -1.28, 1.92, -10.559999, -1.28, 1.92, -9.92, -1.28, 0, -9.28, -1.28, 1.92, -9.28, -1.28, 0, -9.92, -1.28, 0, -9.28, -1.28, 1.92, -9.92, -0.11, 1.92, -11.2, -0.71, 0, -11.2, -0.71, 1.92, -11.2, -0.11, 0, -11.2, -0.71, 0, -11.2, -0.11, 1.92, -11.2, -0.71, 1.92, -11.2, -1.31, 0, -11.2, -1.31, 1.92, -11.2, -0.71, 0, -11.2, -1.31, 0, -11.2, -0.71, 1.92, -11.2, -1.28, 1.92, -9.28, -1.28, 0, -8.639999, -1.28, 1.92, -8.639999, -1.28, 0, -9.28, -1.28, 0, -8.639999, -1.28, 1.92, -9.28, 1.2799, 0, -9.92, 0, 0, -8.639999, 0, 0, -9.92, 1.2799, 0, -8.639999, 0, 0, -8.639999, 1.2799, 0, -9.92, 2.5599, 0, -11.2, 1.2799, 0, -8.639999, 1.2799, 0, -11.2, 2.5599, 0, -8.639999, 1.2799, 0, -8.639999, 2.5599, 0, -11.2, 0, 1.92, -8.639999, -1.28, 1.92, -9.92, -1.28, 1.92, -8.639999, 0, 1.92, -9.92, -1.28, 1.92, -9.92, 0, 1.92, -8.639999, 0, 1.92, -9.92, -1.28, 1.92, -11.2, -1.28, 1.92, -9.92, 0, 1.92, -11.2, -1.28, 1.92, -11.2, 0, 1.92, -9.92, 2.5599, 1.92, -8.639999, 1.2799, 1.92, -9.92, 1.2799, 1.92, -8.639999, 2.5599, 1.92, -9.92, 1.2799, 1.92, -9.92, 2.5599, 1.92, -8.639999, 2.5599, 1.92, -9.92, 1.2799, 1.92, -11.2, 1.2799, 1.92, -9.92, 2.5599, 1.92, -11.2, 1.2799, 1.92, -11.2, 2.5599, 1.92, -9.92, 1.2799, 1.92, -9.92, 0, 1.92, -11.2, 0, 1.92, -9.92, 1.2799, 1.92, -11.2, 0, 1.92, -11.2, 1.2799, 1.92, -9.92, 1.2799, 1.92, -8.639999, 0, 1.92, -9.92, 0, 1.92, -8.639999, 1.2799, 1.92, -9.92, 0, 1.92, -9.92, 1.2799, 1.92, -8.639999, 1.2799, 0, -11.2, 0, 0, -9.92, 0, 0, -11.2, 1.2799, 0, -9.92, 0, 0, -9.92, 1.2799, 0, -11.2, 0, 0, -9.92, -1.28, 0, -8.639999, -1.28, 0, -9.92, 0, 0, -8.639999, -1.28, 0, -8.639999, 0, 0, -9.92, 0, 0, -9.92, -1.28, 0, -9.92, 0, 0, -11.2, 0, 0, -11.2, -1.28, 0, -9.92, -1.28, 0, -11.2, -1.28, 1.92, -11.2, -1.28, 0, -10.559999, -1.28, 1.92, -10.559999, -1.28, 0, -11.2, -1.28, 0, -10.559999, -1.28, 1.92, -11.2, 2.5498998, 1.92, -9.92, 2.5498998, 0, -10.559999, 2.5498998, 1.92, -10.559999, 2.5498998, 0, -9.92, 2.5498998, 0, -10.559999, 2.5498998, 1.92, -9.92, 2.59, 1.92, -11.2, 2.2898998, 0, -11.2, 2.2898998, 1.92, -11.2, 2.59, 0, -11.2, 2.2898998, 0, -11.2, 2.59, 1.92, -11.2, 2.2898998, 1.92, -11.2, 1.6899999, 0, -11.2, 1.6899999, 1.92, -11.2, 2.2898998, 0, -11.2, 1.6899999, 0, -11.2, 2.2898998, 1.92, -11.2, 1.6899999, 1.92, -11.2, 1.0899999, 0, -11.2, 1.0899999, 1.92, -11.2, 1.6899999, 0, -11.2, 1.0899999, 0, -11.2, 1.6899999, 1.92, -11.2, 2.5498998, 1.92, -9.28, 2.5498998, 0, -9.92, 2.5498998, 1.92, -9.92, 2.5498998, 0, -9.28, 2.5498998, 0, -9.92, 2.5498998, 1.92, -9.28, 2.5498998, 1.92, -8.639999, 2.5498998, 0, -9.28, 2.5498998, 1.92, -9.28, 2.5498998, 0, -8.639999, 2.5498998, 0, -9.28, 2.5498998, 1.92, -8.639999, 1.0899999, 1.92, -11.2, 0.4899, 0, -11.2, 0.4899, 1.92, -11.2, 1.0899999, 0, -11.2, 0.4899, 0, -11.2, 1.0899999, 1.92, -11.2, 2.5498998, 1.92, -10.559999, 2.5498998, 0, -11.2, 2.5498998, 1.92, -11.2, 2.5498998, 0, -10.559999, 2.5498998, 0, -11.2, 2.5498998, 1.92, -10.559999, 0.4899, 1.92, -11.2, -0.11, 0, -11.2, -0.11, 1.92, -11.2, 0.4899, 0, -11.2, -0.11, 0, -11.2, 0.4899, 1.92, -11.2)
@@ -51,9 +58,12 @@ shader_parameter/color_bands = 10
 
 [sub_resource type="QuadMesh" id="QuadMesh_3ao0a"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lenif"]
-radius = 0.12
-height = 0.727539
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2pm6"]
+size = Vector3(7.3016357, 1, 1.0610352)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4es5h"]
+radius = 0.165
+height = 0.78
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujo66"]
 transparency = 2
@@ -76,9 +86,8 @@ heightmap_texture = ExtResource("21_tbdos")
 texture_filter = 2
 billboard_keep_scale = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxbqd"]
-radius = 0.12
-height = 0.727539
+[sub_resource type="SphereShape3D" id="SphereShape3D_ujo66"]
+radius = 1.5
 
 [node name="Treasury" type="Node3D"]
 script = ExtResource("1_3qpu1")
@@ -108,27 +117,9 @@ transform = Transform3D(1.28, 0, 0, 0, 1.28, 0, 0, 0, 1.28, 0.005680084, -0.8687
 transform = Transform3D(-3.4149522e-08, 0, 0.78125, 0, 0.78125, 0, -0.78125, 0, -3.4149522e-08, 1.2862166, 0.80367976, -0.7034805)
 skeleton = NodePath("../..")
 
-[node name="TreasuryDoors" type="Node3D" parent="Objects"]
-
-[node name="Doors" parent="Objects/TreasuryDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.5262399, 0.7194338, 0.010104828)
-dir = 1
-
-[node name="Doors2" parent="Objects/TreasuryDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, 0.010104828)
-
 [node name="ShortShelves" parent="Objects" instance=ExtResource("3_0dhip")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 3.889679, 1.09689, -1.7546461)
 skeleton = NodePath("../..")
-
-[node name="VaultDoors" type="Node3D" parent="Objects"]
-
-[node name="Doors3" parent="Objects/VaultDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 2.5262399, 0.7194338, -2.6877203)
-dir = 1
-
-[node name="Doors4" parent="Objects/VaultDoors" instance=ExtResource("27_afqqq")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, -2.680377)
 
 [node name="Candle" parent="Objects" instance=ExtResource("12_0dhip")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.4603766, 0.65114033, -2.494695)
@@ -167,9 +158,10 @@ transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.6490353, 
 disable_distance = false
 
 [node name="Yoroi" type="Node3D" parent="Objects" groups=["Bunraku"]]
-transform = Transform3D(-1.02, 0, 8.917122e-08, 0, 1.02, 0, -8.917122e-08, 0, -1.02, 2.518, 1.078, -0.183)
+transform = Transform3D(-1.02, 0, 8.917122e-08, 0, 1.02, 0, -8.917122e-08, 0, -1.02, 2.5180001, 1.0380311, -0.183)
 visible = false
 script = ExtResource("10_i6er2")
+dialogue_data = ExtResource("11_k2pm6")
 
 [node name="Body" type="Sprite3D" parent="Objects/Yoroi"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0.055687547)
@@ -225,7 +217,15 @@ collision_mask = 2147483648
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Yoroi/DoorOpenTrigger"]
 transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -0.1886859, 0, 1.998458)
 shape = SubResource("BoxShape3D_ap6cx")
-disabled = true
+
+[node name="VaultEnterTrigger" type="Area3D" parent="Objects/Yoroi"]
+transform = Transform3D(0.99999976, 0, -7.1054274e-15, 0, 0.99999976, 0, 7.1054274e-15, 0, 0.99999976, 2.3841858e-07, 0, 1.7956244)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Yoroi/VaultEnterTrigger"]
+transform = Transform3D(0.9999992, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, -0.1886859, 0, 1.998458)
+shape = SubResource("BoxShape3D_ap6cx")
 
 [node name="FireWall1" type="MeshInstance3D" parent="Objects/Yoroi"]
 transform = Transform3D(5.7647047, 1.5770388e-07, -8.570857e-08, 5.0396653e-07, -1.8039223, 0, -5.039665e-07, -2.380069e-14, -0.98039186, 0.29259086, 0.37586436, -0.09971301)
@@ -248,17 +248,31 @@ energy_median = 2.5
 energy_range = 0.5
 energy_delta_range = 0.05
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/Yoroi"]
+stream = ExtResource("60_lxe0f")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Objects/Yoroi"]
+transform = Transform3D(-0.76593137, 0, -6.695984e-08, 0, 0.76593137, 0, 6.695984e-08, 0, -0.76593137, 2.472978, -0.35230508, -0.2455147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Yoroi/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.150819, 0.8042212, -0.030517584)
+shape = SubResource("BoxShape3D_k2pm6")
+disabled = true
+
 [node name="Bunraku" type="Node3D" parent="Objects"]
 transform = Transform3D(-3.256496e-08, 0, 0.74500006, 0, 0.74500006, 0, -0.74500006, 0, -3.256496e-08, 2.491, 0.928, -2.448)
 
-[node name="Yono" type="AnimatableBody3D" parent="Objects/Bunraku"]
+[node name="Yono" type="AnimatableBody3D" parent="Objects/Bunraku" groups=["Interactable"]]
 transform = Transform3D(-4.3711385e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711385e-08, -0.7978337, 0, -0.7942307)
+collision_layer = 5
 sync_to_physics = false
+script = ExtResource("22_4es5h")
+dialogue_data = ExtResource("11_k2pm6")
+dialogue_id = "yono"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Bunraku/Yono"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
-shape = SubResource("CapsuleShape3D_lenif")
-disabled = true
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Objects/Bunraku/Yono"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040527314, 0)
+shape = SubResource("CapsuleShape3D_4es5h")
 
 [node name="Body" type="Sprite3D" parent="Objects/Bunraku/Yono"]
 material_override = SubResource("StandardMaterial3D_ujo66")
@@ -283,14 +297,17 @@ hframes = 4
 [node name="Lookat" type="Node" parent="Objects/Bunraku/Yono/Body"]
 script = ExtResource("13_2wrdd")
 
-[node name="Kouya" type="AnimatableBody3D" parent="Objects/Bunraku" groups=["Bunraku"]]
+[node name="Kouya" type="AnimatableBody3D" parent="Objects/Bunraku" groups=["Bunraku", "Interactable"]]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -0.7973585, 0, 0.7452836)
+collision_layer = 5
 sync_to_physics = false
+script = ExtResource("22_4es5h")
+dialogue_data = ExtResource("11_k2pm6")
+dialogue_id = "kouya"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Bunraku/Kouya"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
-shape = SubResource("CapsuleShape3D_xxbqd")
-disabled = true
+shape = SubResource("CapsuleShape3D_4es5h")
 
 [node name="Body" type="Sprite3D" parent="Objects/Bunraku/Kouya"]
 material_override = ExtResource("24_j6hdx")
@@ -315,6 +332,94 @@ hframes = 4
 [node name="Lookat" type="Node" parent="Objects/Bunraku/Kouya/Body"]
 script = ExtResource("13_2wrdd")
 
+[node name="PaperDoors" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.018, 0.66, -3.875)
+script = ExtResource("30_yprhc")
+song_sequence = Array[int]([1, 2, 1, 3])
+
+[node name="PaperDoor" parent="Objects/PaperDoors" instance=ExtResource("27_afqqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8015947, 0.0068359375, 3.92)
+locked = true
+
+[node name="PaperDoor2" parent="Objects/PaperDoors" instance=ExtResource("27_afqqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4960968, 0.0068359375, 3.92)
+dir = 1
+locked = true
+
+[node name="FreedomSymbol" type="Sprite3D" parent="Objects/PaperDoors"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.1263387, 0.7332022, 3.949955)
+texture_filter = 2
+texture = ExtResource("31_lenif")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objects/PaperDoors/FreedomSymbol"]
+light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+distance_fade_enabled = true
+distance_fade_begin = 2.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
+omni_range = 1.0
+
+[node name="FreedomSymbol" type="Sprite3D" parent="Objects/PaperDoors/FreedomSymbol"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2980009, 0, 0.016999926)
+texture_filter = 2
+texture = ExtResource("31_lenif")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objects/PaperDoors/FreedomSymbol/FreedomSymbol"]
+light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+distance_fade_enabled = true
+distance_fade_begin = 2.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
+omni_range = 1.0
+
+[node name="Area3D" type="Area3D" parent="Objects/PaperDoors"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5020177, 0.7213625, 4.1730733)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/PaperDoors/Area3D"]
+shape = SubResource("SphereShape3D_ujo66")
+
+[node name="FreedomDoors" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6549377, 0.6599999, -6.631279)
+visible = false
+script = ExtResource("30_yprhc")
+song_sequence = Array[int]([3, 2, 3, 1])
+
+[node name="PaperDoor" parent="Objects/FreedomDoors" instance=ExtResource("27_afqqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8015947, 0.0068359375, 3.92)
+locked = true
+
+[node name="PaperDoor" parent="Objects/FreedomDoors/PaperDoor" index="1"]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Objects/FreedomDoors/PaperDoor"]
+transform = Transform3D(0.585, 0, 0, 0, 0.6, 0, 0, 0, 0.61999995, 0.6126931, 0.7566063, 0)
+texture_filter = 2
+texture = ExtResource("32_ujo66")
+
+[node name="FreedomSymbol" type="Sprite3D" parent="Objects/FreedomDoors"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.1958365, 0.73320216, 3.9499547)
+texture_filter = 2
+texture = ExtResource("32_lenif")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objects/FreedomDoors/FreedomSymbol"]
+light_color = Color(0.6691916, 0.5637893, 0.91350025, 1)
+distance_fade_enabled = true
+distance_fade_begin = 2.0
+distance_fade_shadow = 0.0
+distance_fade_length = 5.0
+omni_range = 1.0
+
+[node name="Area3D" type="Area3D" parent="Objects/FreedomDoors"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5020177, 0.7213625, 4.1730733)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/FreedomDoors/Area3D"]
+shape = SubResource("SphereShape3D_ujo66")
+disabled = true
+
 [node name="PuppetPainting" parent="." instance=ExtResource("11_8hqjh")]
 transform = Transform3D(1, 0, 0, 0, 0.99999547, 0.0030019633, 0, -0.0030019633, 0.99999547, 3.283, 1.291, -3.505)
 
@@ -326,9 +431,18 @@ freeze_mode = 0
 [node name="KouyaPuppet" parent="." instance=ExtResource("13_iy5ts")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.047113, 0.998442, -1.8349557)
 
+[connection signal="unlock" from="Objects/PaperDoors" to="Objects/PaperDoors/PaperDoor" method="unlock"]
+[connection signal="unlock" from="Objects/PaperDoors" to="Objects/PaperDoors/PaperDoor2" method="unlock"]
+[connection signal="body_entered" from="Objects/PaperDoors/Area3D" to="Objects/PaperDoors" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Objects/PaperDoors/Area3D" to="Objects/PaperDoors" method="_on_area_3d_body_exited"]
+[connection signal="unlock" from="Objects/FreedomDoors" to="Objects/FreedomDoors/PaperDoor" method="unlock"]
+[connection signal="body_entered" from="Objects/FreedomDoors/Area3D" to="Objects/FreedomDoors" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Objects/FreedomDoors/Area3D" to="Objects/FreedomDoors" method="_on_area_3d_body_exited"]
+
 [editable path="Objects/Candle"]
 [editable path="Objects/Candle2"]
 [editable path="Objects/Candle3"]
 [editable path="Objects/Candle4"]
 [editable path="Objects/Candle5"]
 [editable path="Objects/Candle6"]
+[editable path="Objects/FreedomDoors/PaperDoor"]

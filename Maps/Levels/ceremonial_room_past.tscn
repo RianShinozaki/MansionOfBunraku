@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnnkggbkq1d8" path="res://Objects/Items/shrine_sake.tscn" id="8_yghvx"]
 [ext_resource type="PackedScene" uid="uid://b7sh0tn0htn6u" path="res://Objects/Items/lowTable3DnoFruit.tscn" id="10_bwqu8"]
 [ext_resource type="PackedScene" uid="uid://bqt8x2yw5hdxj" path="res://Objects/Items/shrine.tscn" id="12_pr7wi"]
+[ext_resource type="Texture2D" uid="uid://or26adls8bpc" path="res://Art Assets/Paintings/yoroi-shadow-painting.png" id="22_fxafp"]
 [ext_resource type="PackedScene" uid="uid://b8k3m4ln6x3q2" path="res://Objects/Entities/kitsuneSmall.tscn" id="22_sxes0"]
 [ext_resource type="Resource" uid="uid://bat7fmvfu8fmt" path="res://Dialogue/kitsune_hints.tres" id="23_kshki"]
 [ext_resource type="Texture2D" uid="uid://ftpoa3lean0y" path="res://Art Assets/Yono/Yono.png" id="24_bxfh6"]
@@ -23,9 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://ekfex3rpugck" path="res://Objects/Interactables/painting.tscn" id="28_5jbmd"]
 [ext_resource type="Texture2D" uid="uid://b5db5m6r4mmj7" path="res://Art Assets/Paintings/yono-painting.png" id="29_23oy3"]
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="30_7u3bv"]
-[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/yoroi-painting.png" id="31_d1fwf"]
+[ext_resource type="Texture2D" uid="uid://c60nrybvrlsvl" path="res://Art Assets/Paintings/yoroi-painting.png" id="31_d1fwf"]
 [ext_resource type="Texture2D" uid="uid://b8ei1uv5v1guf" path="res://Art Assets/Yono/Yono-h_n.png" id="31_ngbfk"]
-[ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/yoroi-shadow-painting-2.png" id="32_lfyx2"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="32_umbox"]
 [ext_resource type="Texture2D" uid="uid://c6sfedt5mjxku" path="res://Art Assets/Yono/Yono-r.png" id="35_ayjef"]
 [ext_resource type="PackedScene" uid="uid://b6cl4ho1idcov" path="res://Objects/Entities/yoroi_ceremony_past.tscn" id="38_2fioi"]
@@ -170,12 +170,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0533142, 1.4982564, -4.7766
 mass = 1.0
 
 [node name="KitsuneSmallLeft" parent="Objects" instance=ExtResource("22_sxes0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 1.2905266, -5.8941684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822378, 0.20770933, -5.8941684)
 default_dialogue_id = "kitsune_left"
 environmental_dialogues = ExtResource("23_kshki")
 
 [node name="KitsuneSmallRight" parent="Objects" instance=ExtResource("22_sxes0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.024764, 1.2905266, -5.8941684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.024764, 0.20770933, -5.8941684)
 facing_left = true
 default_dialogue_id = "kitsune_right"
 environmental_dialogues = ExtResource("23_kshki")
@@ -217,20 +217,20 @@ dir = 1
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 1.5106152, 0.7194338, 0.010104828)
 
 [node name="YonoPainting" parent="Objects" instance=ExtResource("28_5jbmd")]
-transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.54260266, 1.3975422, -5.9793105)
+transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 0.54260266, 1.3975422, -5.9640408)
 painting_frame_texture = null
 painting_frame_heightmap = null
 painting_artwork = ExtResource("29_23oy3")
 painting_artwork_alt = ExtResource("30_7u3bv")
-dialogue_id = "yono_painting_ceremony"
+dialogue_id = "yono_past"
 
 [node name="KouyaPainting" parent="Objects" instance=ExtResource("28_5jbmd")]
 transform = Transform3D(0.78125, 0, 0, 0, 0.78125, 0, 0, 0, 0.78125, 4.5123444, 1.376122, -5.971022)
 painting_frame_texture = null
 painting_frame_heightmap = null
-painting_artwork = ExtResource("31_d1fwf")
-painting_artwork_alt = ExtResource("32_lfyx2")
-dialogue_id = "kouya_painting_ceremony"
+painting_artwork = ExtResource("22_fxafp")
+painting_artwork_alt = ExtResource("31_d1fwf")
+dialogue_id = "yoroi_past"
 
 [node name="Candles" type="Node3D" parent="Objects"]
 
@@ -317,7 +317,10 @@ shape = SubResource("BoxShape3D_detector")
 
 [node name="YoroiManager" parent="Bunraku" node_paths=PackedStringArray("sake_games") instance=ExtResource("38_2fioi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1931777, 0.37297058, -4.5984097)
+looking_forward = false
 sake_games = [NodePath("../../Objects/SakeGames/lowTable3D/DrunkYoroiGame"), NodePath("../../Objects/SakeGames/lowTable3D2/DrunkYoroiGame"), NodePath("../../Objects/SakeGames/lowTable3D3/DrunkYoroiGame")]
+drunkness = 0.0
+can_jumpscare_command = false
 
 [node name="Yoroi" parent="Bunraku/YoroiManager" index="0"]
 too_close_distance = 8.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0c825m53d50m"]
+[gd_scene load_steps=8 format=3 uid="uid://c0c825m53d50m"]
 
 [ext_resource type="Script" uid="uid://crqcibrl3wm7" path="res://Scripts/Entities/time_statue.gd" id="1_time_statue_script"]
+[ext_resource type="Texture2D" uid="uid://dcnklnolnxer5" path="res://Art Assets/kitsune_small.png" id="3_lrups"]
 [ext_resource type="Texture2D" uid="uid://cosv7w75oid1v" path="res://Art Assets/TimeStatue/time_statue.png" id="3_statue_h"]
 [ext_resource type="Script" uid="uid://c0ihgp1b5qalr" path="res://Scripts/System/billboard_sim.gd" id="4_billboard"]
 [ext_resource type="Resource" uid="uid://dpyqy4eyq35n4" path="res://Dialogue/time_statue.tres" id="5_dialogue"]
@@ -14,7 +15,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_texture = ExtResource("3_statue_h")
+albedo_texture = ExtResource("3_lrups")
 rim = 0.43
 rim_tint = 0.3
 heightmap_enabled = true
@@ -35,13 +36,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405273, 0)
 shape = SubResource("CapsuleShape3D_statue")
 
 [node name="Body" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021573216, 0)
 material_override = SubResource("StandardMaterial3D_statue")
-pixel_size = 0.001
+pixel_size = 0.017
 shaded = true
 double_sided = false
 alpha_cut = 2
 texture_filter = 2
-texture = ExtResource("3_statue_h")
+texture = ExtResource("3_lrups")
 
 [node name="Lookat" type="Node" parent="Body"]
 script = ExtResource("4_billboard")

@@ -254,6 +254,10 @@ func _update_painting_texture():
 	if kouya_placed and yono_placed:
 		# Both puppets placed
 		target_texture = texture_both
+		remove_from_group("Interactable")
+		InspectionManager.exit_inspect()
+		clear_painting()
+		
 	elif kouya_placed:
 		# Only Kouya placed
 		target_texture = texture_kouya_only
@@ -300,3 +304,9 @@ func spawn_apple_for_player():
 	# Use the player's pick_up_object method to properly handle the pickup
 	# This ensures it's set up correctly like other items
 	player.pick_up_object(apple)
+
+func clear_painting():
+	await get_tree().create_timer(2).timeout
+	Player.instance.fade_from_white()
+	visible = false
+	global_position.y -= 100

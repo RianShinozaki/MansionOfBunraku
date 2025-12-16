@@ -17,10 +17,15 @@ func trigger_time_vortex():
 	
 	anim_lock = true
 	
-	# Mark that clock has been activated at least once
-	if not GameManager.instance.clock_activated_once:
-		GameManager.instance.clock_activated_once = true
-		print("Clock activated for the first time - fog barriers appearing")
+	# On web, store current mouse mode and switch to visible to prevent input freeze
+	var original_mouse_mode = Input.mouse_mode
+	if OS.has_feature("web"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		print("Clock: Mouse mode set to VISIBLE for web vortex")
+		await get_tree().process_frame
+	
+	# Store whether this is the first activation (delay setting the flag until after vortex)
+	var is_first_activation = not GameManager.instance.clock_activated_once
 	
 	# Toggle time state
 	GameManager.instance.is_past_time = !GameManager.instance.is_past_time
@@ -30,6 +35,12 @@ func trigger_time_vortex():
 	var ceremonial_zone = get_tree().root.get_node_or_null("Game/LoadingZones/CeremonialLoadZone")
 	if ceremonial_zone:
 		ceremonial_zone.reload_room()
+		# On web, give the room time to actually reload
+		if OS.has_feature("web"):
+			await get_tree().process_frame
+			await get_tree().process_frame
+			await get_tree().process_frame
+			print("Clock: Extra frames for room reload on web")
 	else:
 		push_warning("CeremonialLoadZone not found!")
 	
@@ -50,6 +61,29 @@ func trigger_time_vortex():
 		false  # reverse
 	)
 	
-	# Wait for effect to finish, then unlock
-	await vortex.tree_exited
+	# Wait for effect to complete using signal instead of tree_exited
+	await vortex.effect_completed
+	
+	# On web, add extra delay before activating fog barriers to prevent shader overlap
+	if OS.has_feature("web"):
+		await get_tree().process_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
+		print("Clock: Extra delay on web before fog barriers")
+	
+	# NOW mark that clock has been activated (after vortex completes)
+	# This prevents fog barrier shader from loading while vortex is still active
+	if is_first_activation:
+		GameManager.instance.clock_activated_once = true
+		print("Clock activated for the first time - fog barriers appearing NOW")
+	
+	# On web, restore mouse mode after everything completes
+	if OS.has_feature("web"):
+		await get_tree().process_frame
+		Input.mouse_mode = original_mouse_mode
+		print("Clock: Mouse mode restored to: ", original_mouse_mode)
+		await get_tree().process_frame
+	
 	anim_lock = false

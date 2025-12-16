@@ -54,8 +54,8 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(760.0001, 680.0001),
-"speaker": "Kitsune Left"
+"size": Vector2(760, 680.0001),
+"speaker": "Byakko"
 },
 &"1_10": {
 "audio_clip": null,
@@ -70,8 +70,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(540.00073, 520),
-"speaker": ""
+"size": Vector2(540.001, 520),
+"speaker": "Byakko"
 },
 &"1_2": {
 "audio_clip": null,
@@ -84,8 +84,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(759.9999, 720.00037),
-"speaker": "Kitsune Right"
+"size": Vector2(759.99976, 720.00073),
+"speaker": "Hakuko"
 },
 &"1_3": {
 "audio_clip": null,
@@ -98,8 +98,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(660.0001, 640.0001),
-"speaker": ""
+"size": Vector2(660.00024, 640.0001),
+"speaker": "Byakko"
 },
 &"1_4": {
 "audio_clip": null,
@@ -112,8 +112,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(620.00024, 640.0001),
-"speaker": ""
+"size": Vector2(620.0005, 640.0001),
+"speaker": "Byakko"
 },
 &"1_5": {
 "audio_clip": null,
@@ -126,8 +126,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(760.0001, 720.0006),
-"speaker": ""
+"size": Vector2(759.99976, 720.001),
+"speaker": "Hakuko"
 },
 &"1_6": {
 "audio_clip": null,
@@ -140,8 +140,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(639.9988, 700.00037),
-"speaker": ""
+"size": Vector2(639.99854, 700.00073),
+"speaker": "Hakuko"
 },
 &"1_7": {
 "audio_clip": null,
@@ -156,8 +156,8 @@ I shall bear witness to your sacred matrimony.",
 "text": ""
 }
 },
-"size": Vector2(560.00073, 520),
-"speaker": ""
+"size": Vector2(560.001, 520),
+"speaker": "Byakko"
 },
 &"1_8": {
 "audio_clip": null,
@@ -172,8 +172,8 @@ Perhaps you should come ask again another day...",
 "text": ""
 }
 },
-"size": Vector2(580.00073, 520.0001),
-"speaker": ""
+"size": Vector2(580.001, 520.00024),
+"speaker": "Hakuko"
 },
 &"1_9": {
 "audio_clip": null,
@@ -188,7 +188,7 @@ I shall bear witness to your sacred matrimony.",
 "text": ""
 }
 },
-"size": Vector2(580.00073, 520.0006),
-"speaker": ""
+"size": Vector2(580.0012, 520.00073),
+"speaker": "Hakuko"
 }
 }

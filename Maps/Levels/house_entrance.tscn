@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b6cm1rbfxxs01" path="res://Art Assets/Paintings/yono-shadow-painting.png" id="24_e18u1"]
 [ext_resource type="PackedScene" uid="uid://b510j3k1byatv" path="res://Objects/Items/inspection_letter.tscn" id="25_acepu"]
 [ext_resource type="Texture2D" uid="uid://cwpgtkcwofy83" path="res://Art Assets/Letters/kouya-letter-one.png" id="26_aj4cu"]
-[ext_resource type="Texture2D" uid="uid://dqmkxdhimiwjr" path="res://Art Assets/Paintings/kouya-painting.png" id="26_jlesl"]
+[ext_resource type="Texture2D" uid="uid://u0a687nr0bkh" path="res://Art Assets/Paintings/kouya-painting.png" id="27_aj4cu"]
 [ext_resource type="Texture2D" uid="uid://12m1o2wh5v1j" path="res://Art Assets/Paintings/kouya-shadow-painting-2.png" id="27_lar5f"]
 [ext_resource type="PackedScene" uid="uid://blbdccve37yma" path="res://Objects/Interactables/doors.tscn" id="28_secwt"]
 [ext_resource type="Texture2D" uid="uid://bh7cwgr2pim4w" path="res://Art Assets/Letters/yono-letter-one.png" id="29_dmi03"]
@@ -239,7 +239,7 @@ letter_image = ExtResource("26_aj4cu")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6843251, 0.6862979, 13.4131365)
 painting_frame_texture = null
 painting_frame_heightmap = null
-painting_artwork = ExtResource("26_jlesl")
+painting_artwork = ExtResource("27_aj4cu")
 painting_artwork_alt = ExtResource("27_lar5f")
 dialogue_id = "kouya_painting"
 
@@ -259,6 +259,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.47
 [node name="ShamisenDoors2" parent="HouseEntrance/Objects" instance=ExtResource("29_ym1qs")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4763021, -0.5314524, 1.6072634)
 
+[node name="PaperDoor" parent="HouseEntrance/Objects/ShamisenDoors2" index="2"]
+dir = 1
+
 [node name="ShamisenLocked" parent="HouseEntrance/Objects" instance=ExtResource("30_3dgct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 
@@ -266,3 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
 [connection signal="finished_reading" from="HouseEntrance/Objects/YonoPainting/InspectionLetter" to="HouseEntrance/Objects/YonoPainting" method="switch_to_alt_tex"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Kouya" method="activate_bunraku"]
 [connection signal="finished_reading" from="HouseEntrance/Objects/KouyaPainting/InspectionLetter" to="HouseEntrance/Objects/KouyaPainting" method="switch_to_alt_tex"]
+[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors" to="HouseEntrance/Objects/ShamisenDoors/PaperDoor" method="unlock"]
+[connection signal="unlock" from="HouseEntrance/Objects/ShamisenDoors2" to="HouseEntrance/Objects/ShamisenDoors2/PaperDoor" method="unlock"]
+
+[editable path="HouseEntrance/Objects/ShamisenDoors2"]

@@ -24,7 +24,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(759.99963, 680),
+"size": Vector2(759.99976, 680),
 "speaker": "Kitsune"
 },
 &"1_2": {
@@ -38,7 +38,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(659.99896, 640),
+"size": Vector2(659.999, 640),
 "speaker": "Kitsune"
 },
 &"1_3": {
@@ -52,12 +52,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(619.99963, 640),
+"size": Vector2(619.9995, 640),
 "speaker": "Kitsune"
 },
 &"1_4": {
 "audio_clip": null,
-"dialogue": "What all has been prepared, you may play the song of matrimony for them.",
+"dialogue": "We all has been prepared, you may play the song of matrimony for them.",
 "offset": Vector2(3010.9644, 304.21472),
 "options": {
 0: {
@@ -66,7 +66,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(820, 640),
+"size": Vector2(819.99976, 640),
 "speaker": "Kitsune"
 }
 }

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://c66e7caksj1ms"]
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://qg80rfsljcda"]
 
 [ext_resource type="Script" uid="uid://cucin8hmlc5ws" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_rp3kg"]
 
 [resource]
 script = ExtResource("1_rp3kg")
 starts = {
+"kouya": &"0_3",
+"yono": &"0_2",
 "yoroi": &"0_1"
 }
 nodes = {
@@ -13,6 +15,16 @@ nodes = {
 "offset": Vector2(-96, 197),
 "start_id": "yoroi"
 },
+&"0_2": {
+"link": &"1_8",
+"offset": Vector2(-120, 660),
+"start_id": "yono"
+},
+&"0_3": {
+"link": &"1_10",
+"offset": Vector2(-140, 1140),
+"start_id": "kouya"
+},
 &"1_1": {
 "audio_clip": null,
 "dialogue": "It was all supposed to be mine... ",
@@ -20,25 +32,67 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_2",
+"link": &"1_6",
 "text": ""
 }
 },
 "size": Vector2(359.99994, 340),
 "speaker": "???"
 },
-&"1_2": {
+&"1_10": {
 "audio_clip": null,
-"dialogue": "but it's all being taken from me...",
-"offset": Vector2(580, 160),
+"dialogue": "...please...",
+"offset": Vector2(200, 1120),
 "options": {
 0: {
 "condition": {},
-"link": &"1_6",
+"link": &"1_11",
 "text": ""
 }
 },
-"size": Vector2(340, 380),
+"size": Vector2(340.00006, 360),
+"speaker": "Kouya"
+},
+&"1_11": {
+"audio_clip": null,
+"dialogue": "...show us the way forward...",
+"offset": Vector2(660, 1140),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": Vector2(300, 300),
+"speaker": "Kouya"
+},
+&"1_12": {
+"audio_clip": null,
+"dialogue": "...show us freedom...",
+"offset": Vector2(1020, 1160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 268),
+"speaker": "Kouya"
+},
+&"1_2": {
+"audio_clip": null,
+"dialogue": "But it's all being taken from me...",
+"offset": Vector2(960, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(339.99976, 380),
 "speaker": "???"
 },
 &"1_3": {
@@ -52,7 +106,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(360, 360),
+"size": Vector2(360.00024, 359.99994),
 "speaker": "???"
 },
 &"1_4": {
@@ -66,7 +120,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(340.00012, 360),
+"size": Vector2(340.00006, 359.99994),
 "speaker": "???"
 },
 &"1_5": {
@@ -80,21 +134,21 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(340, 360),
+"size": Vector2(340.00012, 359.99994),
 "speaker": "Yoroi"
 },
 &"1_6": {
 "audio_clip": null,
 "dialogue": "My bride... my status... the power I'd gain...",
-"offset": Vector2(1000, 180),
+"offset": Vector2(560, 260),
 "options": {
 0: {
 "condition": {},
-"link": &"1_3",
+"link": &"1_2",
 "text": ""
 }
 },
-"size": Vector2(360, 340),
+"size": Vector2(359.99985, 339.99994),
 "speaker": "???"
 },
 &"1_7": {
@@ -109,6 +163,34 @@ nodes = {
 }
 },
 "size": Vector2(320, 380),
-"speaker": ""
+"speaker": "???"
+},
+&"1_8": {
+"audio_clip": null,
+"dialogue": "...escape.... to mountains....",
+"offset": Vector2(120, 660),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": Vector2(420.00012, 400),
+"speaker": "Yono"
+},
+&"1_9": {
+"audio_clip": null,
+"dialogue": "...dreamed.... but could never believe it....",
+"offset": Vector2(600, 680),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(339.99997, 360),
+"speaker": "Yono"
 }
 }

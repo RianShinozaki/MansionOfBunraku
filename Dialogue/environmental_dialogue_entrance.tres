@@ -8,7 +8,10 @@ starts = {
 "kouya_painting": &"0_2",
 "kouya_painting_ceremony": &"0_4",
 "yono_painting": &"0_1",
-"yono_painting_ceremony": &"0_3"
+"yono_painting_ceremony": &"0_3",
+"yono_past": &"0_5",
+"yoroi_maze": &"0_7",
+"yoroi_past": &"0_6"
 }
 nodes = {
 &"0_1": {
@@ -31,6 +34,21 @@ nodes = {
 "offset": Vector2(-180, 1820),
 "start_id": "kouya_painting_ceremony"
 },
+&"0_5": {
+"link": &"1_13",
+"offset": Vector2(-177.48615, 2413.6948),
+"start_id": "yono_past"
+},
+&"0_6": {
+"link": &"1_16",
+"offset": Vector2(-197.90271, 2946.479),
+"start_id": "yoroi_past"
+},
+&"0_7": {
+"link": &"1_19",
+"offset": Vector2(-36.947876, 3353.5552),
+"start_id": "yoroi_maze"
+},
 &"1_1": {
 "audio_clip": null,
 "dialogue": "The woman you see in front of you is familiar. 
@@ -43,7 +61,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(339.9997, 576),
+"size": Vector2(339.9995, 576),
 "speaker": ""
 },
 &"1_10": {
@@ -57,7 +75,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(340, 399.99988),
+"size": Vector2(340.00018, 399.9994),
 "speaker": ""
 },
 &"1_11": {
@@ -71,7 +89,7 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360.00012, 399.99988),
+"size": Vector2(359.99936, 399.9994),
 "speaker": ""
 },
 &"1_12": {
@@ -85,7 +103,105 @@ You realize you know her, though you don’t remember how. ",
 "text": ""
 }
 },
-"size": Vector2(360, 380),
+"size": Vector2(360.00003, 379.9994),
+"speaker": ""
+},
+&"1_13": {
+"audio_clip": null,
+"dialogue": "You look upon the familiar painting of Yono.",
+"offset": Vector2(160, 2380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": Vector2(360.00018, 439.99988),
+"speaker": ""
+},
+&"1_14": {
+"audio_clip": null,
+"dialogue": "She found herself promised to Yoroi, the son of a wealthy merchant family. She knew of the potential boons this joining would bring to her family, but in her heart was grappling with feelings for another...",
+"offset": Vector2(580, 2380),
+"options": {
+0: {
+"condition": {},
+"link": &"1_15",
+"text": ""
+}
+},
+"size": Vector2(339.99985, 459.99988),
+"speaker": ""
+},
+&"1_15": {
+"audio_clip": null,
+"dialogue": "Moreover, she found herself increasingly terrified of Yoroi's drunken, violent outbursts. This was her house -- she knew how to make herself scarce. [color=\"yellow\"] She would hide in waiting until Yoroi drank himself unconscious. [/color]",
+"offset": Vector2(1020, 2380),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(359.9998, 459.99988),
+"speaker": ""
+},
+&"1_16": {
+"audio_clip": null,
+"dialogue": "You look upon the snarling visage of the man you know as Yoroi.",
+"offset": Vector2(120, 2860),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(400.00006, 379.99982),
+"speaker": ""
+},
+&"1_17": {
+"audio_clip": null,
+"dialogue": "Simple things could trigger his red-hot anger... so his wrath at being denied a blessing for his marriage-to-be was unimaginable.",
+"offset": Vector2(580, 2860),
+"options": {
+0: {
+"condition": {},
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(319.99997, 379.99982),
+"speaker": ""
+},
+&"1_18": {
+"audio_clip": null,
+"dialogue": "In his rages, he [color=\"red\"]incurs his wrath upon any he lays eyes on[/color], all the while[color=\"yellow\"] fueling his fire with any alcohol within reach. [/color]",
+"offset": Vector2(980, 2860),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(419.99954, 399.99982),
+"speaker": ""
+},
+&"1_19": {
+"audio_clip": null,
+"dialogue": "The man you see in front of you is familiar. You don't recall why, but the sight of his face fills you with dread.",
+"offset": Vector2(200, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(459.99985, 460.00037),
 "speaker": ""
 },
 &"1_2": {
@@ -100,7 +216,49 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(300, 575.9999),
+"size": Vector2(300.00015, 575.99976),
+"speaker": ""
+},
+&"1_20": {
+"audio_clip": null,
+"dialogue": "[color=\"red\"]He's here, now, and he's looking for you. [/color]",
+"offset": Vector2(1000, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(360.00015, 440),
+"speaker": ""
+},
+&"1_21": {
+"audio_clip": null,
+"dialogue": "[color=\"red\"]You should run.[/color]",
+"offset": Vector2(1380, 3360),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 268),
+"speaker": ""
+},
+&"1_22": {
+"audio_clip": null,
+"dialogue": "His name is Yoroi. Son of a wealthy merchant family. Yono's promised husband.",
+"offset": Vector2(680, 3320),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300.00003, 460),
 "speaker": ""
 },
 &"1_3": {
@@ -114,12 +272,12 @@ It is well known that Yono is very modest, and is uncomfortable being looked at.
 "text": ""
 }
 },
-"size": Vector2(360.00037, 575.9999),
+"size": Vector2(360.0004, 575.99976),
 "speaker": ""
 },
 &"1_4": {
 "audio_clip": null,
-"dialogue": "The man you see in front of you is someone you know you’ve seen before and know, though you can’t recall how. 
+"dialogue": "The man you see in front of you is someone you’ve seen before and know, though you can’t recall how. 
 He is Kouya, a servant of Yono’s family.",
 "offset": Vector2(180, 660),
 "options": {
@@ -129,7 +287,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(380.00024, 576.0005),
+"size": Vector2(379.99954, 576.0005),
 "speaker": ""
 },
 &"1_5": {
@@ -143,7 +301,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(300, 576.0005),
+"size": Vector2(300.00015, 576.0005),
 "speaker": ""
 },
 &"1_6": {
@@ -158,7 +316,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340.00012, 576.0005),
+"size": Vector2(340.0004, 576.0005),
 "speaker": ""
 },
 &"1_7": {
@@ -172,12 +330,12 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340, 420.00037),
+"size": Vector2(340.00018, 420),
 "speaker": ""
 },
 &"1_8": {
 "audio_clip": null,
-"dialogue": "Notoriously shy, she would often find herself lost for words before others... her beloved, especially.",
+"dialogue": "Coming from a family out of fits prime but still desparate for status and wealth, she knew it was a matter of time before she was married off.",
 "offset": Vector2(560, 1360),
 "options": {
 0: {
@@ -186,12 +344,12 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(360.00037, 420.00037),
+"size": Vector2(359.9996, 420),
 "speaker": ""
 },
 &"1_9": {
 "audio_clip": null,
-"dialogue": "With an [color=yellow] inkwell in hand[/color], however, she privately renders her rich internal world onto pages upon pages of letters.",
+"dialogue": "So why, then, did she have to fall in love with the wrong person...?",
 "offset": Vector2(980, 1380),
 "options": {
 0: {
@@ -200,7 +358,7 @@ He is Kouya, a servant of Yono’s family.",
 "text": ""
 }
 },
-"size": Vector2(340, 420.00037),
+"size": Vector2(340.00027, 420),
 "speaker": ""
 }
 }
