@@ -1,20 +1,24 @@
 extends StaticBody3D
 
-# Hallway Fog Barrier - Blocks hallways after clock activation
+# Hallway Fog Barrier - Blocks hallways when time traveling to the past
+# Appears only in past timeline after clock activation
 
-@export var fade_in_duration: float = 1.5
+@export var fade_duration: float = 1.5
+@export var active_in_past: bool = true
+@export var active_in_present: bool = false
+@export var requires_clock_activation: bool = true
 
-var activated: bool = false
 var current_alpha: float = 0.0
+var target_alpha: float = 0.0
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 
 func _ready() -> void:
-	# Start invisible
+	# Start invisible and disabled
+	current_alpha = 0.0
 	if mesh_instance and mesh_instance.get_surface_override_material(0):
 		var mat = mesh_instance.get_surface_override_material(0)
 		if mat is ShaderMaterial:
 			mat.set_shader_parameter("fog_color", Color(0, 0, 0, 0))
-		current_alpha = 0.0
 	
 	# Disable collision until activated
 	set_collision_layer_value(1, false)
@@ -25,24 +29,46 @@ func _process(delta: float) -> void:
 	if not GameManager.instance:
 		return
 	
-	# Check if we should remove the barrier
-	if GameManager.instance.entered_ceremonial_past:
-		queue_free()
-		return
+	# Determine if barrier should be active based on time state
+	var should_be_active = calculate_should_be_active()
 	
-	# Check if clock has been activated
-	if GameManager.instance.clock_activated_once and not activated:
-		activated = true
-		# Enable collision when activating
+	# Set target alpha
+	target_alpha = 1.0 if should_be_active else 0.0
+	
+	# Smoothly interpolate to target alpha
+	if current_alpha != target_alpha:
+		var alpha_change = delta / fade_duration
+		if current_alpha < target_alpha:
+			current_alpha = min(target_alpha, current_alpha + alpha_change)
+		else:
+			current_alpha = max(target_alpha, current_alpha - alpha_change)
+		
+		apply_alpha(current_alpha)
+		
+		# Enable collision when mostly visible, disable when mostly invisible
+		set_collision_enabled(current_alpha > 0.5)
+
+func calculate_should_be_active() -> bool:
+	# Check if clock activation is required but hasn't happened yet
+	if requires_clock_activation and not GameManager.instance.clock_activated_once:
+		return false
+	
+	# Check time state
+	if GameManager.instance.is_past_time:
+		return active_in_past
+	else:
+		return active_in_present
+
+func apply_alpha(alpha: float) -> void:
+	if mesh_instance and mesh_instance.get_surface_override_material(0):
+		var mat = mesh_instance.get_surface_override_material(0)
+		if mat is ShaderMaterial:
+			mat.set_shader_parameter("fog_color", Color(0, 0, 0, alpha))
+
+func set_collision_enabled(enabled: bool) -> void:
+	if enabled:
 		set_collision_layer_value(1, true)
 		set_collision_mask_value(1, true)
-		print("Fog barrier activating at: ", global_position)
-	
-	# Fade in when activated
-	if activated and current_alpha < 1.0:
-		current_alpha = min(1.0, current_alpha + (delta / fade_in_duration))
-		
-		if mesh_instance and mesh_instance.get_surface_override_material(0):
-			var mat = mesh_instance.get_surface_override_material(0)
-			if mat is ShaderMaterial:
-				mat.set_shader_parameter("fog_color", Color(0, 0, 0, current_alpha))
+	else:
+		set_collision_layer_value(1, false)
+		set_collision_mask_value(1, false)

@@ -10,6 +10,7 @@ var trigger_area: Area3D
 
 var dialogue_triggered: bool = false
 var is_visible_now: bool = false
+var dialogue_completed: bool = false
 
 func _ready() -> void:
 	print("=== Lobby Kitsune _ready() START ===")
@@ -53,9 +54,23 @@ func _ready() -> void:
 	print("=== Lobby Kitsune _ready() END ===")
 
 func _process(_delta: float) -> void:
-	# Monitor for when clock gets activated
-	if not is_visible_now and GameManager.instance and GameManager.instance.clock_activated_once:
+	if not GameManager.instance:
+		return
+	
+	# Only show when clock is activated AND in past timeline AND not completed dialogue
+	var should_be_visible = (GameManager.instance.clock_activated_once and 
+	                          GameManager.instance.is_past_time and 
+	                          not dialogue_completed)
+	
+	# Show/hide based on timeline state
+	if should_be_visible and not is_visible_now:
 		_show_kitsune()
+	elif not should_be_visible and is_visible_now:
+		_hide_kitsune()
+	
+	# Reset dialogue trigger when switching back to past (allows repeated encounters)
+	if GameManager.instance.is_past_time and not dialogue_completed:
+		dialogue_triggered = false
 	
 	# Switch frames based on current inspection mode
 	if visible:
@@ -74,6 +89,12 @@ func _show_kitsune() -> void:
 		print("  - TriggerArea monitoring: ", trigger_area.monitoring)
 		print("  - TriggerArea collision_mask: ", trigger_area.collision_mask)
 		print("  - TriggerArea global position: ", trigger_area.global_position)
+
+func _hide_kitsune() -> void:
+	"""Hide the kitsune when switching to present timeline"""
+	visible = false
+	is_visible_now = false
+	print("Lobby Kitsune: Hidden (switched to present timeline)")
 
 func set_normal_mode() -> void:
 	"""Display normal appearance (frames 0 and 1)"""
@@ -130,6 +151,8 @@ func _trigger_warning_dialogue() -> void:
 		if Player.instance:
 			Player.instance.active = true
 		
-		print("Lobby Kitsune: Dialogue complete, disappearing")
+		print("Lobby Kitsune: Dialogue complete, marking as permanently completed")
+		# Mark dialogue as permanently completed
+		dialogue_completed = true
 		# Disappear after dialogue
 		queue_free()
