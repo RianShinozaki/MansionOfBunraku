@@ -15,27 +15,27 @@ func append_note(note):
 	if note_sequence.size() > 4:
 		note_sequence.pop_front()
 	print("Clock listener note sequence: ", note_sequence)
-	if locked and note_sequence == Player.SONG_OF_TIME_TRAVEL:
-		locked = false
-		emit_signal("unlock")
-		# Hide the symbol
-		$Symbol.visible = false
+	if note_sequence == Player.SONG_OF_TIME_TRAVEL:
+		# First-time setup: unlock and show song in Music Memory (only once)
+		if locked:
+			locked = false
+			emit_signal("unlock")
+			
+			# Mark song as acquired (persists across room reloads)
+			Player.song_of_time_travel_acquired = true
+			
+			# Update music memory UI: show Song of Time Travel
+			var player = Player.instance
+			if player:
+				var time_travel_ui = player.get_node_or_null("CanvasLayer/Music Memory/SongOfTimeTravel")
+				if time_travel_ui:
+					time_travel_ui.visible = true
+					time_travel_ui.modulate.a = 1.0
+					print("Clock: Showing SongOfTimeTravel UI")
+				else:
+					push_warning("Clock: SongOfTimeTravel UI node not found in Player scene!")
 		
-		# Mark song as acquired (persists across room reloads)
-		Player.song_of_time_travel_acquired = true
-		
-		# Update music memory UI: show Song of Time Travel
-		var player = Player.instance
-		if player:
-			var time_travel_ui = player.get_node_or_null("CanvasLayer/Music Memory/SongOfTimeTravel")
-			if time_travel_ui:
-				time_travel_ui.visible = true
-				time_travel_ui.modulate.a = 1.0
-				print("Clock: Showing SongOfTimeTravel UI")
-			else:
-				push_warning("Clock: SongOfTimeTravel UI node not found in Player scene!")
-		
-		# Trigger the clock's time vortex effect
+		# Always trigger the clock's time vortex effect (every time song is played)
 		var clock = get_parent()
 		if clock and clock.has_method("trigger_time_vortex"):
 			clock.trigger_time_vortex()

@@ -36,8 +36,8 @@ var push_direction: bool = false
 var push_cooldowns: Dictionary = {}  # Maps RigidBody3D to cooldown timer
 const PUSH_COOLDOWN_TIME: float = 0.3  # Increased from 0.2 - gives tables time to move away
 
-@export var holding_shamisen: bool = false
-var toggle_shamisen: bool = false
+@export var holding_shamisen: bool = true
+var toggle_shamisen: bool = true
 var shamisen_wait_time: float
 @export var shamisen_wait_memory_time: float # 3.0
 
